@@ -1,0 +1,187 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+
+\begin{document}
+\title{Discrete Math - Homework Set \#1}
+\author{Ben Haines}
+\problem{}
+Which of the following sets are equal? If they are equal prove it and if they are not equal give a counter example.
+\begin{enumerate}
+\item $A = \{0,1,2\}$
+\item $B = \{x \in \mathbb{R} | -1 \leq x < 3\}$
+\item $C = \{x \in \mathbb{R} | -1 < x < 3\}$
+\item $D = \{x \in \mathbb{Z} | -1 < x < 3\} = \{0, 1, 2\}$
+\end{enumerate}
+
+\solution
+\part
+$A \not= B$ because $-1 \in B$ but $-1 \not\in A$\\
+$A \not= C$ because $-0.5 \in C$ but $-1 \not\in A$\\
+$A = D$, the sets A and D have the same elements (as can be seen in their enumerations above) and are thus equal by definition. 
+\part
+$B \not= C$ because $-1 \in B$ but $-1 \not\in C$\\
+$B \not= D$ because $-0.5 \in B$ but $-0.5 \not\in D$
+\part
+$C \not= D$ because $-0.5 \in C$ but $-0.5 \not\in D$
+
+\problem{}
+Determine if the following are true or false. If false propose a change that would make the expression true.
+\begin{enumerate}
+\item $3 \in \{1, 2, 3\}$
+\item $1 \subseteq \{1, 2\}$
+\item $2 \in \{1, \{2\}, \{3\}\}$
+\end{enumerate}
+\solution
+\part
+True, 3 is an element of the set.
+\part
+False, 1 is not a subset of the set, it is an element. A correct expression might read $1 \in \{1, 2\}$
+\part
+False, 2 is not an element of the set. However, a set containing 2 is an element. A correct expression might read $\{2\} \in \{1, \{2\}, \{3\}\}$
+
+\problem{}
+Create 4 sets, $A_{1} - A_{4}$ , that are not mutually disjoint and yet have the property that $$\bigcap^{4}_{k = 1} A_k = \emptyset $$. They don't have to be complicated, as long as they meet the criteria.
+
+\solution
+$A_{1} = \{1\}$, $A_{2} = \{0\}$, $A_{3} = \{0\}$, $A_{4} = \{1\}$.
+The sets are not mutually disjoint because $A_{1} = A_{4}$ but $$\bigcap^{4}_{k = 1} A_k = \emptyset $$
+
+\problem{}
+Indicate which of the following relationships are true and which are false:\\
+(Note that $\mathbb{Z}^{^+}$ means all positive integers and $\mathbb{Z}^{^-}$ means all negative integers)
+\begin{enumerate}
+\item $\mathbb{Z}^{^+} \subseteq \mathbb{Q}$
+\item $\mathbb{R}^{^-} \subseteq \mathbb{Q}$
+\item $\mathbb{Z}^{^+} \cup \mathbb{Z}^{^-} = \mathbb{Z}$
+\item $\mathbb{Q} \cap \mathbb{R} = \mathbb{Q}$
+\end{enumerate}
+\solution
+\part
+True.
+$\mathbb{Q} = \{\frac{m}{n} | m,n \in \mathbb{Z} \text{ and } n \not= 0\}$.
+Every element  $z \in \mathbb{Z}^{^+}$ can be defined as $\frac{z}{1}$.
+$z$ and $1$ are both elements of $\mathbb{Z}$ and thus $z \in \mathbb{Q}$.
+\part
+False.
+$-\sqrt{2} \in \mathbb{R}^{^-}$ and $-\sqrt{2} \not\in \mathbb{Q}$
+\part
+False.
+$0 \in \mathbb{Z}$ and $0 \not\in (\mathbb{Z}^{^+} \cup \mathbb{Z}^{^-})$
+\part
+True.
+$\mathbb{Q} \subseteq \mathbb{R}$ by the definition of the rational numbers. Because every element $q \in \mathbb{Q}$ is also in $\mathbb{R}$, it must also be in the intersection of $\mathbb{Q}$ and $\mathbb{R}$.
+
+
+\problem{}
+Prove that $|A\cup B| = |A| + |B| - |A\cap B|$. (Hint write $A\cup B$ as the union of disjoint sets and note that $|C\cup D| = |C| + |D|$ if $C$ and $D$ are disjoint.)
+\solution
+$A$ can be written as $(A-B)\cup (A\cap B)$. These two sets are disjoint, the set $(A-B)$ contains only elements that are not in $B$ and the set $(A\cap B)$ contains only elements that are in $B$. Similarly we can write $B = (B-A)\cup (B\cap A)$. Using the hint given in the problem we can then write
+\begin{align}
+|A| &= |A-B| + |A\cap B|\\
+|B| &= |B-A| + |B\cap A|
+\end{align}
+and the union of the two sets can be written as
+\begin{align}
+\begin{split}
+A\cup B &= (A-B)\cup (A\cap B)\cup (B-A)\cup (B\cap A)\\
+&= (A-B)\cup (B-A)\cup (B\cap A)\cup (A\cap B)\\
+&= (A-B)\cup (B-A)\cup (B\cap A)\cup (B\cap A)\\
+&= (A-B)\cup (B-A)\cup (B\cap A)
+\end{split}
+\end{align}
+the three sets $(A-B), (B-A)$, and $(B\cap A)$ are all disjoint. $(B\cap A)$ was shown disjoint from the other two when $A$ and $B$ were written as the union of disjoint sets. $(A-B)$ and $(B-A)$ are also disjoint, elements of the first set must  be elements of $A$ and elements of the second set must not be elements of $A$.\\
+
+Using the hint again we know
+\begin{align}
+\begin{split}
+|A\cup B| &= |(A-B)\cup (B-A)\cup (B\cap A)|\\
+&= |A-B| + |B-A| + |B\cap A|
+\end{split}
+\end{align}
+and from (1) and (2)
+\begin{align}
+|A| + |B| &= |A-B| + |A\cap B| + |B-A| + |B\cap A|
+\end{align}
+Combining (4) and (5) we can conclude that
+\begin{align}
+\begin{split}
+|A\cup B| = |A| + |B| - |A\cap B|
+\end{split}
+\end{align}
+
+\problem{}
+For each of the following, place them in order of increasing size. Justify your answer. Assume that $\mathbb{U}$, the universal set, is finite.
+\begin{enumerate}
+\item $|A|, |A\cup B|, |A\cap B|, |\mathbb{U}|, |\emptyset|$
+\item $|A - B|, |A\otimes B|, |A| + |B|, |A\cup B|, |\emptyset|$
+\end{enumerate}
+
+\solution
+\part
+$|\emptyset|$, $|A\cap B|$, $|A|$, $|A\cup B|$, $|\mathbb{U}|$\\
+
+$A$ and $B$ are both subsets of the universal set. Their cardinalities and the cardinality of their intersection can at most be equal to the cardinality of the universal set. The cardinality of their union will always be $\ge$ the cardinality of either set individually which will both always be $\ge$ the cardinality of their intersection which is $\ge$ 0. The empty set has a cardinality of 0.
+
+\part
+$|\emptyset|, |A-B|, |A\otimes B|, |A\cup B|, |A|+|B|$\\
+
+As shown in problem 5, $|A\cup B|$ can be at most equal to $|A|+|B|$. Where $|A\cup B| = |A|+|B|-|A\cap B|$, $|A\otimes B| = |A|+|B|-2|A\cap B|$ and will always be at least as small. $|A-B|$ can be at most equal to $|A|$. It has the same minimum value as the union of $A$ and $B$ but a smaller maximum. The cardinality of the empty set is 0.
+
+\problem{}
+Let $A_{i} = \{i, i^2\}$ for all integers $i = 1, 2, 3, 4$.
+\begin{enumerate}
+\item $A_{1} \cup A_{2} \cup A_{3} \cup A_{4} = $?
+\item $A_{1} \cap A_{2} \cap A_{3} \cap A_{4} = $?
+\item Are $A_{1}, A_{2}, A_{3}, A_{4}$ mutually disjoint? Explain.
+\end{enumerate}
+\solution
+For $i = 1, A_{i} = \{1, 1\}$, $i = 2, A_{i} = \{2, 4\}$, $i = 3, A_{i} = \{3, 9\}$ and for $i = 4, A_{i} = \{4, 16\}$
+\part
+ $A_{1} \cup A_{2} \cup A_{3} \cup A_{4} = \{1, 2, 3, 4, 9, 16\}$
+\part
+$A_{1} \cap A_{2} \cap A_{3} \cap A_{4} = \emptyset$
+\part
+$4 \in A_{1}, A_{4}$ and therefore the sets are not mutually disjoint. As demonstrated in the solution to problem 3 in order for a number of sets to be mutually disjoint it is not sufficient that the intersection of all the sets $= \emptyset$.
+
+\problem{}
+Draw a Venn diagram for sets A, B and C that satisfy the given conditions. 
+\begin{enumerate}
+\item $A\subseteq B$; $C\subseteq B$; $A\cap C = \emptyset$
+\item $A\cap B = \emptyset$; $A\subseteq C$; $C\cap B \not= \emptyset$
+\end{enumerate}
+\solution
+\part
+\includegraphics[scale=0.5]{venn1}
+\part
+\includegraphics[scale=0.5]{venn2}
+
+\problem{}
+\begin{enumerate}
+\item Prove the following: $A\cap B\subseteq A$, for any sets $A$ and $B$. Draw a Venn diagram for when $A\cap B \subset A$ and $A\cap B = A$.
+\item Prove the following: $A\subseteq A \cup B$, for any sets $A$ and $B$. Draw a Venn diagram for when $A\subset A\cup B$ and $A = A\cup B$.
+\end{enumerate}
+\solution
+\part
+The intersection of two sets $A, B$ is by definition $= \{x|x\in A \land x\in B\}$. In order to satisfy the predicate and be an element of $A\cap B$, a given element must be in $A$. Therefore $A\cap B \subseteq A$\\
+$A\cap B \subset A$
+\includegraphics[scale=0.5]{ainterbpng}
+$A\cap B = A$
+\includegraphics[scale=0.5]{ainb}
+\part
+The union of two sets $A, B$ is by definition $= \{x|x\in A \lor x\in B\}$, every element in $A$ clearly satisfies the predicate and thus every element in $A$ is also contained in $A\cup B$ and $A$ is a subset of B.\\
+$A\subset A\cup B$
+\includegraphics[scale=0.5]{ainterbpng}
+$A = A\cup B$
+\includegraphics[scale=0.5]{bina}
+\problem{}
+Create a collection of sets that form a partition for the set of Real numbers. The collection must contain at least 4 sets. Try to be as creative as possible. 
+\begin{align}
+A_{1} &= \{x\in \mathbb{R}|x\not\in \mathbb{Q}\}\\
+A_{2} &= \{\frac{m}{n} | m,n,\frac{m}{2n} \in \mathbb{Z}\text{ and } n \not= 0\}\\
+A_{3} &= \{x\in \mathbb{Z} | \text{x is prime}\}\\
+A_{4} &= \mathbb{R} \cap (\mathbb{Q} - (A_{2}\cup A_{3}))
+\end{align}
+\end{document}
+		
