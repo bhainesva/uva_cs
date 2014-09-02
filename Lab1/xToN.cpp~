@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int recursiveExp(int base, int n) {
+    if (n == 0) {
+	return 1;
+    }
+    if (n == 1){
+	return base;
+    }
+
+   return base * recursiveExp(base, n-1);
+}
+
+int main( ) {
+    int x, y, z; 
+    cout << "This program computes x^n" << endl;
+    cout << "Enter x: ";
+    cin >> x;
+    cout << "Enter y: ";
+    cin >> y;
+    z = recursiveExp(x, y);
+    cout << x << " ^ " << y << " = " << z << endl;
+    return 0;
+}
