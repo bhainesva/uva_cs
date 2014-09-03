@@ -1,7 +1,9 @@
 //Name: Ben Haines
 //ID: bmh5wx
-//File Name: xToN.cpp
-//Date: 08/31/14include <iostream>
+//File Name: LifeCycle.h 
+//Date: 09/02/14
+
+#include <iostream>
 #ifndef LIFECYCLE_H
 #define LIFECYCLE_H
 using namespace std;

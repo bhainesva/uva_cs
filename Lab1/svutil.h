@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-using namespace std;
+//using namespace std;
 
 // prints the strings in the vector
 void svOutput ( const vector<string> &vect );
