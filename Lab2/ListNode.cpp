@@ -5,15 +5,13 @@
  * Date: 09/09/14
  * Description: ListNode implementation 
  */
-
 #include <iostream>
 #include "ListNode.h"
-#include "List.h"
-#include "ListItr.h"
 
-// next line needed because NULL is part of std namespace
-using namespace std;
+ListNode::ListNode(){
+    value = 0;
+    next = NULL;
+    previous = NULL;
+}
 
-// Constructor
-ListNode::ListNode(){};
 

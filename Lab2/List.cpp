@@ -5,21 +5,18 @@
  * Date: 09/09/14
  * Description: Implementation of List methods.
  */
-
 #include <iostream>
 #include "List.h"
-#include "ListNode.h"
-#include "ListItr.h"
-using namespace std;
-
-//Default Constructor
+//Constructor
 List::List() {
-    head=new ListNode;
-    tail=new ListNode;
+    head = new ListNode;
+    tail = new ListNode;
     head->next=tail;
+    head->previous=NULL;
     tail->previous=head;
+    tail->next=NULL;
     count=0;
-}
+}    
 
 //Copy Constructor
 List::List(const List& source) {
@@ -29,7 +26,7 @@ List::List(const List& source) {
     tail->previous=head;
     count=0;
     ListItr iter(source.head->next);
-    while (!iter.isPastEnd()) {       // deep copy of the list
+    while (!iter.isPastEnd()) {       
         insertAtTail(iter.retrieve());
         iter.moveForward();
     }
@@ -37,11 +34,13 @@ List::List(const List& source) {
 
 //Destructor
 List::~List(){
-    cout << "List Destructor: Please implement." << endl;
+    this->makeEmpty();
+    delete this->head;
+    delete this->tail;
 }
 
 //Equals Operator
-List& List::operator=(const List& source){
+List& List::operator=(const List& source) { 
     if (this == &source)
         return *this;
     else {
@@ -55,49 +54,107 @@ List& List::operator=(const List& source){
     return *this;
 }
 
-//True if empty, else false
-bool isEmpty(){
-    return false;
+//True if empty, else false.
+bool List::isEmpty() const {
+    return !this->size();
 }
 
-//Makes the list empty
-void makeEmpty(){
-    cout << "Make empty." << endl;
+//Removes all items except blank head and tail
+void List::makeEmpty(){
+    ListItr points = this->first(); 
+    while(!points.isPastEnd()){
+        points.moveForward();
+        delete points.current->previous;
+    }
+    this->head->next = this->tail;
+    this->tail->previous = this->head;
+    this->count = 0;
 }
 
-//Returns an iterator pointing to the first listNode.
-ListItr first(){
-    ListItr iterator;
-    return iterator;
+//Returns iterator pointing to first list node
+ListItr List::first(){
+    ListItr * firstNodeItr = new ListItr(this->head->next);
+    return *firstNodeItr;
 }
 
-//Returns an interator pointing to the last listNode
-ListItr last(){
-    ListItr iterator;
-    return iterator;
+//Returns iterator pointing to last list node
+ListItr List::last(){
+    ListItr * lastItr = new ListItr(this->tail->previous);
+    return *lastItr;
 }
 
-//Inserts x after current iterator position
-void insertAfter(int x, ListItr position){
-    cout << "Insert After" << endl;
+void List::insertAfter(int x, ListItr position){
+    this->count++;
+    ListNode * newNode = new ListNode();
+    newNode->value = x;
+    newNode->next = position.current->next;
+    newNode->previous = position.current;
+    position.current->next = newNode;
+    newNode->next->previous = newNode;
 }
 
-//Inserts x after current iterator position p
-void insertBefore(int x, ListItr position){
-    cout << "Insert Before" << endl;
-}
-//Insert x at tail of list
-void insertAtTail(int x){
-    cout << "Insert at Tail" << endl;
-}
-
-//Removes the first occurrence of x
-void remove(int x){
-    cout << "Remove" << endl;
+void List::insertBefore(int x, ListItr position){
+    this->count++;
+    ListNode * newNode = new ListNode();
+    newNode->value = x;
+    newNode->next = position.current;
+    newNode->previous = position.current->previous;
+    newNode->previous->next = newNode;
+    position.current->previous = newNode;
 }
 
-//Returns an iterator that points to the first occurrence of x, else return a blank iterator
-ListItr find(int x){
-    ListItr iterator;
-    return iterator;
+void List::insertAtTail(int x){
+    ListNode * newNode = new ListNode();
+    newNode->value = x;
+    newNode->next = this->tail;
+    newNode->previous = this->tail->previous;
+    newNode->previous->next = newNode;
+    tail->previous = newNode;
+    this->count++;
 }
+
+void List::remove(int x){
+    this->count--;
+    ListItr points = find(x);
+    if(points.current != NULL){
+        points.current->next->previous = points.current->previous;
+        points.current->previous->next = points.current->next;
+        delete points.current;
+    }
+}
+
+ListItr List::find(int x){
+    ListItr * search = new ListItr(this->first());
+    while(search->current->value != x){
+        search->moveForward();
+        if(search->isPastEnd()){
+            ListItr emptyItr;
+            emptyItr.current = this->tail;
+            return emptyItr;
+        }
+    }
+    return *search;
+}
+
+int List::size() const {
+    return this->count;
+}
+
+//Global printList function
+void printList(List& source, bool direction){
+    if(direction){
+        ListItr points = source.first(); 
+        while(!points.isPastEnd()){
+            cout << points.retrieve() << " ";
+            points.moveForward();
+        }
+    }
+    else {
+        ListItr points = source.last();
+        while(!points.isPastBeginning()){
+            cout << points.retrieve() << " ";
+            points.moveBackward();
+        }
+    }
+}
+

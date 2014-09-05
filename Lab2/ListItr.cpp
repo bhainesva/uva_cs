@@ -5,41 +5,37 @@
  * Date: 09/09/14
  * Description: ListItr implementations 
  */
-
-#include "ListNode.h"
-#include "List.h"
+#include <iostream>
 #include "ListItr.h"
 
-//Constructor
 ListItr::ListItr(){
-    current = new ListNode();
+    current = NULL;
 }
 
-
-// One parameter constructor
-ListItr::ListItr(ListNode* theNode){};
-
-//Returns true if past end position in list, else false
-bool ListItr::isPastEnd() const{
-    return false;
+ListItr::ListItr(ListNode* theNode){
+    current = theNode;
 }
 
-
-bool ListItr::isPastBeginning() const {//Returns true if past first position in list, else false
-    return false;
+bool ListItr::isPastEnd() const {
+    return (this->current->next == NULL); 
 }
 
-
-void ListItr::moveForward(){	//Advances current to next position in list (unless already past end of list)
-    cout << "Moving forward" << endl;
+bool ListItr::isPastBeginning() const {
+    return (this->current->previous == NULL);
 }
 
-//Moves current back to previous position in list (unless already past beginning of list)
+void ListItr::moveForward(){
+    if (!(this->isPastEnd())){
+        this->current = this->current->next;
+    } 
+}
+
 void ListItr::moveBackward(){
-    cout << "Moving backwards" << endl;
+    if (!this->isPastBeginning()){
+        current = current->previous;
+    }
 }
 
-//Returns item in current position
-int ListItr::retrieve() const{
-    return 1;
+int ListItr::retrieve() const {
+    return current->value;
 }
