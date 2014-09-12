@@ -1,0 +1,46 @@
+Templates:
+    template <typename Object>
+
+    Functions that take generic types.
+    Creates lots of errors if you do it wrong.
+
+    You can also have template classes.
+
+High level view of data structures lets us look at them in a language independent way.
+
+Abstract Data Type
+    Set of objects with a set of operations that can be performed.
+    A c++ class is a way to implement an ADT.
+
+    EX: List
+        A0,A1,A2...,An  <- object
+        Operations:
+            printList
+            makeEmpty
+            find
+            insert
+            .
+            .
+            .
+    ut
+    You should choose the data type based on what operations are important to you.
+     
+Stacks - List with restrictions:
+    Insert, delete, find only performed at one end.
+    Last in, First out.
+    Fundamental Operations:
+        Push: Insert at top
+        Pop: delete from the top
+            empty stack causes exception
+        Top: Examine top of stack
+            
+    Applications:
+        Undo operations
+        Operator precedence
+        Symbol balancing
+            Like ( [ { } ] ), etc.
+        Postfix calculators
+            Operator comes after the operands: not 1 + 2 -> 1 2 +
+        Activation records
+                
+
