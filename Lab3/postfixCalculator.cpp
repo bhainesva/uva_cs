@@ -33,7 +33,6 @@ void PostfixCalculator::subtract() {
     s.pop();
     int y = s.top();
     s.pop();
-    cout << x-y << endl;
     this->pushNum(x-y);
 }   
 
