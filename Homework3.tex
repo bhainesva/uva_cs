@@ -1,0 +1,160 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\DeclareMathOperator{\lcm}{lcm}
+
+\begin{document}
+\title{Discrete Math - Homework Set \#3}
+\author{Ben Haines (bmh5wx)}
+\problem{}
+Rewrite each statement without using quantifiers or variables. Indicate which are true and which are false, and justify your answer as best as you can.
+\begin{enumerate}
+\item $\exists x$ such that Prime($x$)$\land \neg$Odd($x$).
+\item $\forall x$, Prime($x$) $\implies \neg$Square($x$).
+\item $\exists x$ such that Odd$(x) \land$ Square$(x)$.
+\end{enumerate}
+
+\solution
+\part
+"There exists an integer that is both prime and not odd." This statement is true, 2 is an integer that is both prime and not odd.
+\part "For every integer, if that integer is a prime number, then it is not a perfect square." This statement is true. If a number is a perfect square then it has factors other than one and itself and is therefore not prime. 
+\part "There exists an integer that is both add and a perfect square." This statement is true. The number 9 is an odd integer and it is the square of 3.
+
+
+\problem{}
+Write a formal negation for each of the following statements.
+\begin{enumerate}
+\item $\forall$ fish $x$, $x$ has gills.
+\item $\forall$ computers $c$, $c$ has a CPU.
+\item $\exists$ a movie $m$ such that $m$ is over 6 hours long.
+\item $\exists$ a band $b$ such that $b$ has won at least 10 Grammy awards.
+\end{enumerate}
+
+\solution
+\part
+$\exists$ a fish $x$ such that $x$ does not have gills.
+\part
+$\exists$ a computer $c$ such that $c$ does not have a CPU.
+\part
+$\forall$ movies $m$, $m$ is less than 6 hours long.
+\part
+$\forall$ bands $b$, $b$ has won fewer than 10 Grammy awards.
+
+
+\problem{}
+Let $S$ be the set of students at UVA, let $M$ be the set of movies that have ever been released, and let $V(s,m)$ be "student $s$ has seen movie $m$." Rewrite each of the following statements without using the symbol $\forall$, and $\exists$, or variables.
+\begin{enumerate}
+\item $\exists s \in S$ such that $V(s, \text{Casablanca})$.
+\item $\forall s \in S$, $V(s, \text{Star Wars})$.
+\item $\forall s \in S$, $\exists m \in M$ such that $V(s, m)$.
+\item $\exists m \in M$ such that $\forall s \in S$, $V(s, m)$.
+\item $\exists s \in S, \exists t \in S$ and $\exists m \in M$ such that $s\not= t$ and $V(s, m)\land V(t, m)$.
+\item $\exists s \in S, \exists t \in S$ and $\forall m \in M$ such that $s\not= t$ and $V(s, m)\implies V(t, m)$.
+\end{enumerate}
+
+\solution
+\part
+There is at least one student at UVA that has seen Casablanca.
+\part
+Every student at UVA has seen Star Wars.
+\part
+Every student at UVA has seen at least one movie.
+\part
+There exists at least one movie that every student at UVA has seen.
+\part
+There exists at least one movie that at least two different students at UVA have seen.
+\part
+There exists two students at UVA such that every movie that has been seen by the first student has also been seen by the second.
+
+\problem{}
+Prove the following statement. $\exists x(A(x)\implies B(x)) \equiv \forall xA(x)\implies \exists xB(x)$.
+
+\solution
+\begin{align}
+\begin{split}
+Assume that the first statement is true. Thus for some $x$ in $X$ it is not the case that A(x) is true and B(x) is false. 
+\end{split}
+\end{align}
+
+
+\problem{}
+Prove that for any positive integers $a$ and $b$ that the following is true. $ab = \gcd{(a, b)}\cdot \lcm{(a, b})$. 
+\solution
+Let $a$ and $b$ be some positive integers with the unique prime factorizations $a=p_1^{a_1}p_2^{a_2}\cdots p_n^{a_n}$ and $b=p_1^{b_1}p_2^{b_2}\cdots p_n^{b_n}$.  
+
+Then
+\begin{align}
+a\cdot b = p_1^{a_1}p_2^{a_2}\cdots p_n^{a_n}p_1^{b_1}p_2^{b_2}\cdots p_n^{b_n} = p_1^{a_1+ b_1}p_2^{a_2+ b_2}\cdots p_n^{a_n+ b_n}
+\end{align}
+We know that 
+\begin{align}
+\gcd{(a, b)} = p_1^{\min{(a_1,b_1)}}p_2^{\min{(a_2, b_2)}}\cdots p_n^{\min{(a_n, b_n)}}
+\end{align}
+\centerline{and}
+\begin{align}
+\lcm{(a, b)} = p_1^{\max{(a_1,b_1)}}p_2^{\max{(a_2, b_2)}}\cdots p_n^{\max{(a_n, b_n)}}
+\end{align}
+because there are only two choices and we are multipliying the min and the max the product \begin{align}
+\lcm{(a, b)}\cdot \gcd{(a, b)} &= p_1^{a_1+ b_1}p_2^{a_2+ b_2}\cdots p_n^{a_n+ b_n}\\
+&= a\cdot b
+\end{align}
+
+
+
+\problem{}
+Suppose that the domain of the propositional function $P(x)$ consists of the integers -2, -1, 0, 1, and 2. Write out each of these propositions using disjunctions, conjunctions, and negations.
+\begin{enumerate}
+\item $\exists xP(X)$
+\item $\forall xP(X)$
+\item $\exists x\neg P(X)$
+\item $\forall x\neg P(X)$
+\item $\neg \exists xP(X)$
+\item $\neg \forall xP(X)$
+\end{enumerate}
+\solution
+\part $P(-2) \lor P(-1) \lor P(0) \lor P(1) \lor P(2)$
+\part $P(-2) \land P(-1) \land P(0) \land P(1) \land P(2)$
+\part $\neg P(-2) \lor \neg P(-1) \lor \neg P(0) \lor \neg P(1) \lor \neg P(2)$
+\part $\neg P(-2) \land \neg P(-1) \land \neg P(0) \land \neg P(1) \land \neg P(2)$
+\part $\neg P(-2) \land \neg P(-1) \land \neg P(0) \land \neg P(1) \land \neg P(2)$
+\part $\neg P(-2) \lor \neg P(-1) \lor \neg P(0) \lor \neg P(1) \lor \neg P(2)$
+
+\problem{}
+The computer scientists Richard Conway and David Gries once wrote: "The absence of error messages during translation of a computer program is only a necessary and not a sufficient condition for reasonable [program] correctness." Rewrite this statement without using the words necessary or sufficient.
+
+\solution
+Reasonable program correctness implies the absence of error messages during translation of a computer program but the absence of error messages during translation of a computer program does not imply reasonable program correctness.
+
+\problem{}
+Let $R(m,n)$ be the predicate "If $m$ is a factor of $n^2$ then $m$ is a factor of $n$," with domain for both $m$ and $n$ being the set of integers.
+\begin{enumerate}
+\item Explain why $R(m,n)$ is false if $m=25$ and $n=10$.
+\item Give values different from those in the previous part for which $R(m, n)$ is false.
+\item Explain why $R(m,n)$ is true if $m=5$ and $n=10$.
+\end{enumerate}
+\solution
+\part
+Substituting the values 25 and 10 into the predicate we obtain the proposition that "If $25$ is a factor of $100$ then $25$ is a factor of $10$." This is clearly false because 25 is a factor of 100 but it is not a factor of 10.
+\part
+The statement is also false when $m=100$ and $n=20$. $m$ is a factor of 400 but it is not a factor of 20.
+\part
+Substituting the values 5 and 10 into the predicate we obtain the proposition that "If $5$ is a factor of $100$ then $5$ is a factor of $10$." This is clearly true, 5 is a factor of 100 and it is also a factor of 10.
+
+\problem{}
+Let $P(x), Q(X),$ and $R(x)$ be the statements "x is a clear explanation," "x is satisfactory," and "x is an excuse," respectively. Suppose that the domain for x consists of all English text. Express each of the following statments using quantifiers, logical connectives, and $P(x), Q(x)$, and $R(x)$.
+\begin{enumerate}
+\item All clear explanation are satisfactory
+\item Some excuses are unsatisfactory
+\item Some excuses are not clear explanations
+\end{enumerate}
+\solution
+\part 
+$\forall x\in X s.t. (P(x)\implies Q(x))$
+\part 
+$\exists x\in X s.t. (R(x)\land \neg Q(x))$
+\part 
+$\exists x\in X s.t. (R(x)\land \neg P(x))$
+
+\end{document}
+		
