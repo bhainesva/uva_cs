@@ -73,7 +73,10 @@ Prove the following statement. $\exists x(A(x)\implies B(x)) \equiv \forall xA(x
 \solution
 \begin{align}
 \begin{split}
-Assume that the first statement is true. Thus for some $x$ in $X$ it is not the case that A(x) is true and B(x) is false. 
+\exists x(A(x)\implies B(x)) &\equiv \exists x (\neg A(x) \lor B(x))\\
+&\equiv \exists x \neg A(x) \lor \exists x B(x)\\
+&\equiv \neg \forall x A(x) \lor \exists x B(x)\\
+&\equiv \forall x A(x) \implies \exists x B(x)
 \end{split}
 \end{align}
 
