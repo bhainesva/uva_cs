@@ -33,7 +33,7 @@ void PostfixCalculator::subtract() {
     s.pop();
     int y = s.top();
     s.pop();
-    this->pushNum(x-y);
+    this->pushNum(y-x);
 }   
 
 void PostfixCalculator::multiply() {
