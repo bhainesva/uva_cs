@@ -1,3 +1,10 @@
+/*
+* Name: Ben Haines
+* ID: bmh5wx
+* Filename: postfixCalculator.h
+* Date: 09/16/14
+* Description: postfixCalculator class declaration
+*/
 #ifndef POSTFIX_CALC_H
 #define POSTFIX_CALC_H
 
