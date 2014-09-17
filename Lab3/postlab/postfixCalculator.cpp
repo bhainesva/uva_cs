@@ -1,3 +1,10 @@
+/*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Filename: postfixCalculator.cpp
+ * Date: 09/17/14
+ * Description: PostfixCalculator implementation 
+ */
 #include <iostream>
 #include "postfixCalculator.h"
 #include "Stack.h"

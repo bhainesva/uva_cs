@@ -1,3 +1,10 @@
+/*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Filename: testPostfixCalc.cpp
+ * Date: 09/17/14
+ * Description: PostfixCalculator testing 
+ */
 #include <cstdlib>
 #include <string>
 #include "postfixCalculator.h"

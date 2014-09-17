@@ -1,3 +1,10 @@
+/*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Filename: Stack.h
+ * Date: 09/17/14
+ * Description: Stack class definition
+ */
 #ifndef STACK
 #define STACK
 

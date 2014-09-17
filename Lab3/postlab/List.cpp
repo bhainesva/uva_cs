@@ -2,7 +2,7 @@
  * Name: Ben Haines
  * ID: bmh5wx
  * Filename: List.cpp
- * Date: 09/09/14
+ * Date: 09/17/14
  * Description: Implementation of List methods.
  */
 #include <iostream>

@@ -1,3 +1,10 @@
+/*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Filename: Stack.cpp
+ * Date: 09/17/14
+ * Description: Stack implementation 
+ */
 #include "Stack.h"
 #include <iostream>
 #include "postfixCalculator.h"
