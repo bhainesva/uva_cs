@@ -1,3 +1,9 @@
+/*
+* Name: Ben Haines
+* ID: bmh5wx
+* Filename: prelab4.cpp
+* Date: 09/19/14
+*/
 #include <iostream>
 #include <string>
 #include <climits>
