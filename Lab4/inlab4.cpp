@@ -1,19 +1,37 @@
+/*
+* Name: Ben Haines
+* ID: bmh5wx
+* File: inlab4.cpp
+* Date: 09/21/14
+*/
+
+#include <limits>
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    bool b = false;
-    char c = 'a';
+    bool b = true;
+    char c = '0';
     int i = 1;
-    double d = 2;
+    float f = std::numeric_limits<float>::max();
+    cout << "The maximum value for type float is:  "
+            << numeric_limits<float>::max( )
+            << endl;
+    double d = std::numeric_limits<double>::max();
+    cout << "The maximum value for type double is:  "
+            << numeric_limits<double>::max( )
+            << endl;
     int * ip = new int(2);
+    int * nip = NULL;
+    char * cip = NULL;
+    double * dip = NULL;
 
-    cout << i << endl;
-    cout << "start out" << endl;
-    cout << "bool: " << b << "char: " << c << "int: " << i << " double: " << d << "intpointer: " << ip << endl;
+    //cout << i << endl;
+    //cout << "start out" << endl;
+    //cout << "bool: " << b << "char: " << c << "int: " << i << " double: " << d << "intpointer: " << ip << endl;
+    cout << "Current value of Double d: " << d << endl;
     cout << "end" << endl;
-
     /*
     * ---------Primitive Arrays in C++ --------- 
     */

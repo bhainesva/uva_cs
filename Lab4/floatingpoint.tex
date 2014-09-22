@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+ 
+
+\begin{document}
+Name: Ben Haines\\
+ID: bmh5wx\\
+File: floatingpoint.pdf\\
+Date 09/21/14
+\section{Convert 0x00C01EC2 to decimal.}
+First convert to little endian to get 0xC21EC000. Then convert to binary.
+\begin{align}
+\text{0xC21EC000} &= 11000010000111101100000000000000
+\end{align}
+The first bit is 1 so the number is negative.\\
+The exponent is 10000100 which is equal to 132 in decimal. Then offsetting by 127 we get $132-127=5$.\\
+The mantissa is 
+\begin{align}
+\begin{split}
+00111101100000000000000&=1 + 2^{-3} + 2^{-4} + 2^{-5} + 2^{-6} + 2^{-8} + 2^{-9}\\
+&=1.240234375
+\end{split}
+\end{align}
+And \\
+$$-1 \cdot 1.24609375 \cdot 2^{5} = -39.6875$$
+\\
+\section{Convert 8.828125 to hex.}
+First convert it to binary. The number is positive so the first bit is 0.
+$$1< 8.828125/2^3 < 2$$
+so adding the offset of 127 the exponent is $127+3=130$. In binary this is 10000010.
+$8.828125/2^3 = 1.103515625$. Ignoring the implicit 1 the mantissa is .103515625.
+\begin{align}
+.103515625 = 2^{-4}+2^{-5}+2^{-7}+2^{-9}
+\end{align}
+Encoded as binary the mantissa is 0011010100000000000000.\\
+Putting the parts together gets 0100000100011010100000000000000 or in hex: 0x410D4000.\\
+This answer is still in big endian, therefore the final answer in little endian form is 0x00400D41 or 0x400D41.
+\end{document}
