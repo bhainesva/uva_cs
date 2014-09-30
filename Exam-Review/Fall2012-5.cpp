@@ -2,8 +2,11 @@
 using namespace std;
 
 int main() {
-    int x[3], y[3];
-    x = y;
+    int *p = new int();
+    cout << p << endl;
+    delete p;
+    *p = 4;
+    cout << p << endl;
 
     return 0;
 }
