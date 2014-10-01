@@ -1,0 +1,123 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\DeclareMathOperator{\lcm}{lcm}
+
+\begin{document}
+\title{Discrete Math - Homework Set \#5}
+\author{Ben Haines (bmh5wx)}
+\problem{}
+Show that these statements about the real number $x$ are equivalent: i) $x$ is rational, ii) $x/2$ is rational, iii)$3x-1$ is rational. The definition of a rational number is 
+$$\mathbb Q \Set{x \given \exists a, b\in \mathbb Z \text { with } b\not=0 \text{ where } x=\frac{a}{b}}$$
+
+\solution
+\part
+\begin{itemize}
+\item Assume that $x$ is rational.
+By the definition of a rational number $x = \frac{a}{b}$ for some $a,b \in \mathbb Z$. Then $\frac{x}{2} = \frac{a/b}{2} = \frac{a}{2b}$. $\mathbb Z$ is closed under multiplication so $2b$ is an integer and $\frac{x}{2}$ is rational by definition.
+\item Assume that $\frac{x}{2}$ is rational.
+By definition we know that $\frac{x}{2} = \frac{a}{b}$ for some integers $a$ and $b$. Then $x=\frac{2a}{b}$. $\mathbb Z$ is closed under multiplication so $2b$ is an integer and $x$ is rational by definition.
+\end{itemize}
+Therefore statements i) and ii) are equivalent.
+\part
+\begin{itemize}
+\item Assume $x$ is rational. 
+By definition $x = \frac{a}{b}$ for some $a, b$ in $\mathbb Z$. Then $3x-1$ = $\frac{3a}{b} - \frac{b}{b} = \frac{3a-b}{b}$. $\mathbb Z$ is closed under multiplication and subtraction so $3a-b$ is an integer and $x$ is rational by definition.
+\item Assume that $3x-1$ is rational.
+By definition we know that $3x-1 = \frac{a}{b}$ for some integers $a$ and $b$. Then
+\begin{align}
+\begin{split}
+3x-1 &= \frac{a}{b}\\
+3x &= \frac{a}{b} + \frac{b}{b}\\
+3x &= \frac{a+b}{b}\\
+x &= \frac{a+b}{3b}
+\end{split}
+\end{align}
+$\mathbb Z$ is closed under both addition and multiplication so we know that $a+b$ and $3b$ are both integers and thus $x$ is rational by definition.
+\end{itemize}
+Therefore statements i) and iii) are equivalent.
+\part
+By the transitive property of equivalence, all three statements are equivalent.
+
+\problem{}
+Prove that if $n$ is an integer and $3n+2$ is even then $n$ is even using
+\begin{enumerate}
+\item A proof by contraposition
+\item A proof by contradiction
+\end{enumerate}
+\solution
+\part
+We want to prove that if $n$ is not even then it is not the case that $n$ is an integer and that $3n+2$ is even. If $n$ is an integer and it is not even then it must be odd. The product of two odd numbers is always odd so $3n$ is odd. Adding an even number to an odd number produces an odd number so $3n + 2$ is odd. It is thus not the case that $3n +2$ is even and $n$ is an integer so the statement is proved.
+\part
+Assume that for some integer $n$, $3n + 2$ is odd. Subtracting an even number from an odd one always returns an odd number so therefore 3n is odd. However, an odd number times an even number is always even and an odd number times an odd number is always even. 3 is odd so therefore $n$ is an integer that is neither even nor odd. This is a contradiction. Therefore $3n+2$ must be even.
+
+\problem{}
+Prove that at least one of the real numbers $A_1, A_2, \ldots, A_n$ is greater than or equal to the average of these numbers. What kind of proof did you use?
+\solution
+Assume that none of the real numbers $A_1$ through $A_n$ are greater than or equal to the average of these numbers. Select $A_y$ such that $A_y$ is the largest number in the collection. Then we have
+\begin{align}
+(A_1 + A_2 + \cdots + A_n) / n > A_y\\
+(A_1 + A_2 + \cdots + A_n) > n\cdot A_y\\
+\sum\limits_{i=1}^n A_i > \sum\limits_{i=1}^{n} A_y
+\end{align}
+It is not possible that the above statement is correct. We know that for every $i$ it is the case that $A_y > A_i$ and therefore the sum on the right must be larger. Our assumption has led to a contradiction and therefore we can conclude that at least one of the number $A_1, A_2, \ldots, A_n$ is greater than or equal to the average of these numbers. This was done by proof by contradiction.
+
+\problem{}
+Prove the triangle inequality, which states that if $x$ and $y$ are real numbers, then $|x| + |y| \ge |x+y|$ (where |x| represents the absolute value of $x$)
+\solution
+In the case that $x$ and $y$ are positive. Then $|x| + |y| = |x+y|$ so the statement is true for this case. In the case that one of $x$ and $y$ is positive and the other is negative then $|x| + |y| > |x+y|$. When both $x$ and $y$ are negative then $|x| + |y| = |x+y|$. Then the statement is true for all cases.
+
+\problem{}
+Use proof by cases to show that $\min(a, \min(b, c)) = \min(\min(a, b), c)$ whenever $a, b$, and $c$ are real numbers.
+\solution
+\part
+Assume that $a$ is the smallest of the three numbers.
+\begin{align}
+\min(a, \min(b, c)) &= a\\
+&= \min(\min(a, b), c)
+\end{align}
+\part
+Assume that $b$ is the smallest of the three numbers.
+\begin{align}
+\min(a, \min(b, c)) &= b\\
+&= \min(\min(a, b), c)
+\end{align}
+\part
+Assume that $c$ is the smallest of the three numbers.
+\begin{align}
+\min(a, \min(b, c)) &= c\\
+&= \min(\min(a, b), c)
+\end{align}
+So in all cases the two expressions are equivalent.
+
+\problem{}
+Prove that $\forall x \in \mathbb Z$ we have that $x^2 \mod{3} \equiv 0$ or $x^2 \mod{3} \equiv 1$
+\solution
+There are at most two solutions modulo $p$ to $x^2 \mod{3} = b$. $x=2$ and $x=3$ verify that 1 and 0 are both solutions for some $x$. It is therefore impossible that 2, the only other option, is a solution.
+
+\problem{}
+How many zeros are at then end of $30^8 \cdot 168^5$? Explain how you can answer this question without actually computing the number. (Hint: think prime factors)
+\solution
+A number has a 0 at the end for every time that it can be divided by 10. $30^8 \cdot 168^5$ can be factored as $3^8 \cdot 10^8 \cdot 2^{15} \cdot 3^5 \cdot 7^5$. Therefore there are 8 zeros at the end.
+
+\problem{}
+If $n=4k + 3$, does 8 divide $n^2-1$?
+\solution
+\begin{align}
+\begin{split}
+n^2 - 1 &= (4k + 3)^2 - 1\\
+&= 16k^2 + 24k + 8\\
+&= 8(2k^2 + 3k + 1)
+\end{split}
+\end{align}
+$2k^2 + 3k + 1$ is an integer so therefore 8 divides $n^2-1$ when $n=4k+3$.
+
+\problem{}
+What is wrong with this argument? Given the premise $\exists x P(x) \land \exists x Q(x)$, use simplification to obtain $\exists x P(x)$; use existential instantiation to obtain $P(c)$ for some element $c$; use simplification again to obtain $\exists x Q(x)$; use existential instantiation to obtain $Q(c)$ for some element $c$; use conjunction to conclude that $P(c) \land Q(c)$; and finally, use existential generalization to conclude that $\exists x (P(x) \land Q(x))$. Point out the flaw(s) that you can find.
+\solution
+The unclear use of variables leads to an incorrect conclusion. While it is correct to obtain $P(c)$ for some element $c$ and $Q(c)$ for some element $c$, we must recognize that the ``$c$'' here is not necessarily the same element in each case. Using a different variable would make this more clear and prevent the confusion that leads to the incorrect step of saying that $P(c) \land Q(c)$.
+\end{document}
