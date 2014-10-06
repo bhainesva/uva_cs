@@ -20,10 +20,25 @@ TreeCalc::TreeCalc() {
 
 //Destructor- frees memory
 TreeCalc::~TreeCalc() {
+    while(!mystack.empty()) {
+        cleanTree(mystack.top());
+        mystack.pop();
+    }
 }
 
 //Deletes tree/frees memory
 void TreeCalc::cleanTree(TreeNode* ptr) {
+    if(ptr->left != NULL) {
+        cleanTree(ptr->left);
+        ptr->left = NULL;
+    }
+    if(ptr->right != NULL) {
+        cleanTree(ptr->right);
+        ptr->right = NULL;
+    }
+    if(ptr->left == NULL && ptr->right == NULL) {
+        delete ptr;
+    }
 }
 
 //Gets data from user
