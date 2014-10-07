@@ -82,12 +82,22 @@ double BinarySearchTree::exp_path_length( )
 */
 {
     // YOUR CODE HERE
-    return -99.0;  // stub, remove after writing your code
+    return int_path_length(root, 0)/((double)num_nodes);
 }
 
 int BinarySearchTree::int_path_length(BinaryNode *t, int depth) {
     // Your code here
-    return -99; // remove after writing your code
+    if (t == NULL) {
+        return 0;
+    }
+    int totalLength = depth;
+    if (t->left != NULL) {
+        totalLength += int_path_length(t->left, depth+1);
+    }
+    if (t->right != NULL) {
+        totalLength += int_path_length(t->right, depth+1);
+    }
+    return totalLength;
 }
 
 /**
@@ -240,8 +250,10 @@ BinaryNode * BinarySearchTree::find( const string & x, BinaryNode *t ) const {
     if ( t == NULL )
         return NULL;
     else if ( x < t->element ) {
+        LeftLinksFollowed++;
         return find( x, t->left );
     } else if ( t->element < x ) {
+        RightLinksFollowed++;
         return find( x, t->right );
     } else
         return t;    // Match

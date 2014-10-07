@@ -1,0 +1,92 @@
+\documentclass{article} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{caption}
+
+
+\begin{document}
+\section{Contents of testfile4.txt}
+\begin{quote}
+zzzzz zzzzy zzzzx zzzzw zzzzv zzzzu zzzzt zzzzs zzzzr zzzzq zzzzp zzzzo zzzzn zzzzm zzzzl zzzzk zzzzj zzzzi zzzzh zzzzg zzzzf zzzze zzzzd yyyyz yyyyy yyyyx yyyyw yyyyv yyyyu yyyyt yyyys yyyyr yyyyq yyyyp yyyyo yyyyn yyyym yyyyl yyyyk yyyyj yyyyi yyyyh yyyyg yyyyf yyyye yyyyd xxxxz xxxxy xxxxx xxxxw xxxxv xxxxu xxxxt xxxxs xxxxr xxxxq xxxxp xxxxo xxxxn xxxxm xxxxl xxxxk xxxxj xxxxi xxxxh xxxxg xxxxf xxxxe xxxxd wwwwz wwwwy wwwwx wwwww wwwwv wwwwu wwwwt wwwws wwwwr wwwwq wwwwp wwwwo wwwwn wwwwm wwwwl wwwwk wwwwj wwwwi wwwwh wwwwg wwwwf wwwwe wwwwd vvvvz vvvvy vvvvx vvvvw vvvvv vvvvu vvvvt vvvvs vvvvr vvvvq vvvvp vvvvo vvvvn vvvvm vvvvl vvvvk vvvvj vvvvi vvvvh vvvvg vvvvf vvvve vvvvd uuuuz uuuuy uuuux uuuuw uuuuv uuuuu uuuut uuuus uuuur uuuuq uuuup uuuuo uuuun uuuum uuuul uuuuk uuuuj uuuui uuuuh uuuug uuuuf uuuue uuuud ttttz tttty ttttx ttttw ttttv ttttu ttttt tttts ttttr ttttq ttttp tttto ttttn ttttm ttttl ttttk ttttj tttti tttth ttttg ttttf tttte ttttd ssssz ssssy ssssx ssssw ssssv ssssu sssst sssss ssssr ssssq ssssp sssso ssssn ssssm ssssl ssssk ssssj ssssi ssssh ssssg ssssf sssse ssssd rrrrz rrrry rrrrx rrrrw rrrrv rrrru rrrrt rrrrs rrrrr rrrrq rrrrp rrrro rrrrn rrrrm rrrrl rrrrk rrrrj rrrri rrrrh rrrrg rrrrf rrrre rrrrd qqqqz qqqqy qqqqx qqqqw qqqqv qqqqu qqqqt qqqqs qqqqr qqqqq qqqqp qqqqo qqqqn qqqqm qqqql qqqqk qqqqj qqqqi qqqqh qqqqg qqqqf qqqqe qqqqd ppppz ppppy ppppx ppppw ppppv ppppu ppppt pppps ppppr ppppq ppppp ppppo ppppn ppppm ppppl ppppk ppppj ppppi pppph ppppg ppppf ppppe ppppd ooooz ooooy oooox oooow oooov oooou oooot oooos oooor ooooq oooop ooooo oooon oooom ooool ooook ooooj ooooi ooooh oooog oooof ooooe ooood nnnnz nnnny nnnnx nnnnw nnnnv nnnnu nnnnt nnnns nnnnr nnnnq nnnnp nnnno nnnnn nnnnm nnnnl nnnnk nnnnj nnnni nnnnh nnnng nnnnf nnnne nnnnd mmmmz mmmmy mmmmx mmmmw mmmmv mmmmu mmmmt mmmms mmmmr mmmmq mmmmp mmmmo mmmmn mmmmm mmmml mmmmk mmmmj mmmmi mmmmh mmmmg mmmmf mmmme mmmmd llllz lllly llllx llllw llllv llllu llllt lllls llllr llllq llllp llllo lllln llllm lllll llllk llllj lllli llllh llllg llllf lllle lllld kkkkz kkkky kkkkx kkkkw kkkkv kkkku kkkkt kkkks kkkkr kkkkq kkkkp kkkko kkkkn kkkkm kkkkl kkkkk kkkkj kkkki kkkkh kkkkg kkkkf kkkke kkkkd jjjjz jjjjy jjjjx jjjjw jjjjv jjjju jjjjt jjjjs jjjjr jjjjq jjjjp jjjjo jjjjn jjjjm jjjjl jjjjk jjjjj jjjji jjjjh jjjjg jjjjf jjjje jjjjd iiiiz iiiiy iiiix iiiiw iiiiv iiiiu iiiit iiiis iiiir iiiiq iiiip iiiio iiiin iiiim iiiil iiiik iiiij iiiii iiiih iiiig iiiif iiiie iiiid hhhhz hhhhy hhhhx hhhhw hhhhv hhhhu hhhht hhhhs hhhhr hhhhq hhhhp hhhho hhhhn hhhhm hhhhl hhhhk hhhhj hhhhi hhhhh hhhhg hhhhf hhhhe hhhhd ggggz ggggy ggggx ggggw ggggv ggggu ggggt ggggs ggggr ggggq ggggp ggggo ggggn ggggm ggggl ggggk ggggj ggggi ggggh ggggg ggggf gggge ggggd ffffz ffffy ffffx ffffw ffffv ffffu fffft ffffs ffffr ffffq ffffp ffffo ffffn ffffm ffffl ffffk ffffj ffffi ffffh ffffg fffff ffffe ffffd eeeez eeeey eeeex eeeew eeeev eeeeu eeeet eeees eeeer eeeeq eeeep eeeeo eeeen eeeem eeeel eeeek eeeej eeeei eeeeh eeeeg eeeef eeeee eeeed ddddz ddddy ddddx ddddw ddddv ddddu ddddt dddds ddddr ddddq ddddp ddddo ddddn ddddm ddddl ddddk ddddj ddddi ddddh ddddg ddddf dddde ddddd ant
+\end{quote}
+
+\section{Why it works}
+This testfile works because its contents are in reverse alphabetic order. This means that the element being inserted into the search tree is always lexicographically prior to previous elements and is inserted to the left of all existing nodes. In the unbalanced BST this results in a tree that is essentially equivalent to a singly linked list. Searching for the word ``ant'' demonstrates the difference in efficiency for worst case scenarios for a BST compared to an AVL Tree.
+
+\section{Numerical Results}
+%testfile1
+\subsection*{testfile1.txt - general statistics}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Structure & Total Nodes & Average Node Depth & Single Rotations & Double Rotations \\ \hline
+AVL       & 19          & 2.26316            & 6                & 2                \\ \hline
+BST       & 19          & 3.15789            & n/a              & n/a              \\ \hline
+\end{tabular}
+\subsection*{testfile1.txt - search results}
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+                                & \multicolumn{3}{c|}{AVL}                                                                                                                                                                        & \multicolumn{3}{c|}{BST}                                                                                                                                                                        \\ \hline
+\multicolumn{1}{|c|}{Word}      & \begin{tabular}[c]{@{}c@{}}Left Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Right Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Total Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Left Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Right Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Total Links\\ Followed\end{tabular} \\ \hline
+\multicolumn{1}{|c|}{me}      & 3                   & 1                    & 4           & 4          & 2           & 6           \\
+\multicolumn{1}{|c|}{kind}    & 1                   & 0                    & 1           & 3          & 1           & 4           \\
+\multicolumn{1}{|c|}{problems}    & 1                   & 1                    & 2           & 2          & 1           & 3           \\
+\multicolumn{1}{|c|}{created} & 2                   & 1                    & 3           & 4          & 1           & 5           \\ \hline
+\end{tabular}
+%testfile2
+\subsection*{testfile2.txt - general statistics}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Structure & Total Nodes & Average Node Depth & Single Rotations & Double Rotations \\ \hline
+AVL       & 16          & 2.5                & 9                & 2                \\ \hline
+BST       & 16          & 6.0625             & n/a              & n/a              \\ \hline
+\end{tabular}
+\subsection*{testfile2.txt - search results}
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+                                & \multicolumn{3}{c|}{AVL}                                                                                                                                                                        & \multicolumn{3}{c|}{BST}                                                                                                                                                                        \\ \hline
+\multicolumn{1}{|c|}{Word}      & \begin{tabular}[c]{@{}c@{}}Left Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Right Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Total Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Left Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Right Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Total Links\\ Followed\end{tabular} \\ \hline
+\multicolumn{1}{|c|}{caught} & 2                   & 1                    & 3           & 0          & 2           & 2                                \\
+\multicolumn{1}{|c|}{flying} & 1                   & 1                    & 2           & 0          & 5           & 5                                \\
+\multicolumn{1}{|c|}{flown} & 2                   & 2                    & 4           & 1          & 5           & 6                                \\
+\multicolumn{1}{|c|}{mauve}  & 0                   & 1                    & 3           & 0          & 9           & 9                                \\ \hline
+\end{tabular}
+%testfile3
+\subsection*{testfile3.txt - general statistics}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Structure & Total Nodes & Average Node Depth & Single Rotations & Double Rotations \\ \hline
+AVL       & 13          & 2.23077            & 5                & 0                \\ \hline
+BST       & 13          & 3.23077            & n/a              & n/a              \\ \hline
+\end{tabular}
+\subsection*{testfile3.txt - search results}
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+                                & \multicolumn{3}{c|}{AVL}                                                                                                                                                                        & \multicolumn{3}{c|}{BST}                                                                                                                                                                        \\ \hline
+\multicolumn{1}{|c|}{Word}      & \begin{tabular}[c]{@{}c@{}}Left Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Right Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Total Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Left Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Right Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Total Links\\ Followed\end{tabular} \\ \hline
+\multicolumn{1}{|c|}{misty}     & 2                                                             & 1                                                              & 3                                                              & 3                                                             & 2                                                              & 5                                                              \\
+\multicolumn{1}{|c|}{cobwebs}   & 1                                                             & 0                                                              & 1                                                              & 1                                                             & 0                                                              & 0                                                              \\
+\multicolumn{1}{|c|}{clockwork} & 2                                                             & 0                                                              & 2                                                              & 2                                                             & 0                                                              & 2                                                              \\
+\multicolumn{1}{|c|}{landscape} & 1                                                             & 1                                                              & 2                                                              & 2                                                             & 1                                                              & 3                                                              \\ \hline
+\end{tabular}
+%testfile4
+\subsection*{testfile4.txt - general statistics}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Structure & Total Nodes & Average Node Depth & Single Rotations & Double Rotations \\ \hline
+AVL       & 530         & 7.08868            & 520              & 2                \\ \hline
+BST       & 530         & 264.5              & n/a              & n/a              \\ \hline
+\end{tabular}
+\subsection*{testfile4.txt - search results}
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+                            & \multicolumn{3}{c|}{AVL}                                                                                                                                                                        & \multicolumn{3}{c|}{BST}                                                                                                                                                                        \\ \hline
+\multicolumn{1}{|c|}{Word}  & \begin{tabular}[c]{@{}c@{}}Left Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Right Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Total Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Left Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Right Links\\ Followed\end{tabular} & \begin{tabular}[c]{@{}c@{}}Total Links\\ Followed\end{tabular} \\ \hline
+\multicolumn{1}{|c|}{ggggs} & 6                                                             & 2                                                              & 8                                                              & 444                                                           & 0                                                              & 444                                                            \\
+\multicolumn{1}{|c|}{nnnni} & 3                                                             & 4                                                              & 7                                                              & 293                                                           & 0                                                              & 293                                                            \\
+\multicolumn{1}{|c|}{uuuuo} & 6                                                             & 2                                                              & 8                                                              & 126                                                           & 0                                                              & 126                                                            \\
+\multicolumn{1}{|c|}{ant}   & 9                                                             & 0                                                              & 9                                                              & 529                                                           & 0                                                              & 3                                                              \\ \hline
+\end{tabular}
+\section{
+\end{document}

@@ -158,14 +158,18 @@ double AvlTree::exp_path_length( )
 */
 {
     // YOUR CODE HERE
-    return num_nodes/int_path_length(root, 0);  // stub, remove after writing your code
+    return int_path_length(root, 0)/((double)num_nodes);
 }
 
 int AvlTree::int_path_length(AvlNode *t, int depth) {
     int totalLength = depth;
     if ( t != NULL ) {
-        int_path_length( t->left, depth+1 );
-        int_path_length( t->right, depth+1);
+        if (t->left != NULL) {
+            totalLength += int_path_length( t->left, depth+1 );
+        }
+        if (t->right != NULL) {
+            totalLength += int_path_length( t->right, depth+1 );
+        }
     }
 
     return totalLength; // put your actual return value here when you write this function
