@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.19)  7 OCT 2014 18:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.19)  9 OCT 2014 19:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -157,21 +157,24 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 )
 \c@ContinuedFloat=\count103
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
 (./analysis.aux)
 \openout1 = `analysis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
@@ -268,71 +271,71 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+msa on input line 21.
+LaTeX Font Info:    Try loading font information for U+msa on input line 22.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 21.
+LaTeX Font Info:    Try loading font information for U+msb on input line 22.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (49.69518pt too wide) in paragraph at lines 21--27
+Overfull \hbox (49.69518pt too wide) in paragraph at lines 22--28
 [] 
  []
 
 
-Overfull \hbox (71.36182pt too wide) in paragraph at lines 28--38
+Overfull \hbox (71.36182pt too wide) in paragraph at lines 29--39
 [] 
  []
 
 
-Overfull \hbox (49.69518pt too wide) in paragraph at lines 39--45
+Overfull \hbox (49.69518pt too wide) in paragraph at lines 40--46
 [] 
  []
 
 
-Overfull \hbox (61.00069pt too wide) in paragraph at lines 46--56
+Overfull \hbox (61.00069pt too wide) in paragraph at lines 47--57
 [] 
  []
 
 [2]
-Overfull \hbox (49.69518pt too wide) in paragraph at lines 57--63
+Overfull \hbox (49.69518pt too wide) in paragraph at lines 58--64
 [] 
  []
 
 
-Overfull \hbox (74.91737pt too wide) in paragraph at lines 64--74
+Overfull \hbox (74.91737pt too wide) in paragraph at lines 65--75
 [] 
  []
 
 
-Overfull \hbox (49.69518pt too wide) in paragraph at lines 75--81
+Overfull \hbox (49.69518pt too wide) in paragraph at lines 76--82
 [] 
  []
 
 
-Overfull \hbox (59.05626pt too wide) in paragraph at lines 82--91
+Overfull \hbox (59.05626pt too wide) in paragraph at lines 83--92
 [] 
  []
 
-[3] (./analysis.aux) ) 
+[3] [4] [5] (./analysis.aux) ) 
 Here is how much of TeX's memory you used:
- 4014 strings out of 493108
- 60740 string characters out of 6134853
- 135874 words of memory out of 5000000
- 7437 multiletter control sequences out of 15000+600000
+ 4044 strings out of 493108
+ 61296 string characters out of 6134853
+ 136166 words of memory out of 5000000
+ 7463 multiletter control sequences out of 15000+600000
  6549 words of font info for 26 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 51i,12n,38p,3192b,176s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb>
-Output written on analysis.pdf (3 pages, 42101 bytes).
+ 51i,12n,38p,3192b,178s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb>
+Output written on analysis.pdf (5 pages, 45589 bytes).
 PDF statistics:
- 22 PDF objects out of 1000 (max. 8388607)
- 14 compressed objects within 1 object stream
+ 28 PDF objects out of 1000 (max. 8388607)
+ 18 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

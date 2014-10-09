@@ -1,9 +1,10 @@
 \documentclass{article} % A4 paper and 11pt font size
 \usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
-\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
 \usepackage{mathtools}
 \usepackage{multirow}
 \usepackage{caption}
+\usepackage{setspace}
 
 
 \begin{document}
@@ -15,7 +16,7 @@ zzzzz zzzzy zzzzx zzzzw zzzzv zzzzu zzzzt zzzzs zzzzr zzzzq zzzzp zzzzo zzzzn zz
 \section{Why it works}
 This testfile works because its contents are in reverse alphabetic order. This means that the element being inserted into the search tree is always lexicographically prior to previous elements and is inserted to the left of all existing nodes. In the unbalanced BST this results in a tree that is essentially equivalent to a singly linked list. Searching for the word ``ant'' demonstrates the difference in efficiency for worst case scenarios for a BST compared to an AVL Tree.
 
-\section{Numerical Results}
+\section{Numerical results}
 %testfile1
 \subsection*{testfile1.txt - general statistics}
 \begin{tabular}{|l|l|l|l|l|}
@@ -88,5 +89,12 @@ BST       & 530         & 264.5              & n/a              & n/a           
 \multicolumn{1}{|c|}{uuuuo} & 6                                                             & 2                                                              & 8                                                              & 126                                                           & 0                                                              & 126                                                            \\
 \multicolumn{1}{|c|}{ant}   & 9                                                             & 0                                                              & 9                                                              & 529                                                           & 0                                                              & 3                                                              \\ \hline
 \end{tabular}
-\section{
+\newpage
+\doublespacing
+\section{When are AVL trees preferable?}
+\indent AVL trees are the better option when operations need to be reliably fast. This is not to imply that AVL trees are always faster than BSTs, but that they perform better in the worst case. In fact, due to the overhead created by rebalancing rotations in AVL trees, a BST will often be faster for a particular operation. Thus they are ideal when it is not critical that an operation is as fast as possible, but it is very important that any given operation will never take significantly longer than average. An example of when these types of goals might exist is when creating a user interface for an application. A page load or button press that takes much longer than normal would have a severe negative impact on the user experience.
+
+Certain characteristics of the data being operated on and what is being used for can also influence the choice between BSTs and AVL trees. If the data is inserted into the tree in sorted order, a BST will simply mimic a linked list, provided none of the benefits of the tree data structure. If it is known that elements of the tree will be accessed with some uniformity then the reduced average path length of the AVL tree may be more important than if only a few key elements are being accessed repeatedly and can be stored near the root of the tree. Besides performance, the cost of implementation as discussed in the next section is also something to consider when deciding between the two tree types.
+\section{AVL implementation costs}
+Although they are generally faster, AVL trees are also much more difficult to implement. The addition of automatic balancing adds complexity to the code, including handling multiple different cases for inserting and removing nodes. Additionally, to allow balancing to be done with relative speed, nodes must store additional information about their height in the tree. This means that AVL trees consume more memory than BSTs, an amount that grows in direct correspondance to the size of the tree.
 \end{document}
