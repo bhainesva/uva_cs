@@ -78,26 +78,45 @@ Use proof by cases to show that $\min(a, \min(b, c)) = \min(\min(a, b), c)$ when
 Assume that $a$ is the smallest of the three numbers.
 \begin{align}
 \min(a, \min(b, c)) &= a\\
-&= \min(\min(a, b), c)
+\begin{split}
+\min(\min(a, b), c) &= \min(a, c)\\
+&= a
+\end{split}
 \end{align}
 \part
 Assume that $b$ is the smallest of the three numbers.
 \begin{align}
 \min(a, \min(b, c)) &= b\\
-&= \min(\min(a, b), c)
+\begin{split}
+\min(\min(a, b), c) &= \min(b, c)\\
+&= b
+\end{split}
 \end{align}
 \part
 Assume that $c$ is the smallest of the three numbers.
 \begin{align}
-\min(a, \min(b, c)) &= c\\
-&= \min(\min(a, b), c)
+\begin{split}
+\min(a, \min(b, c)) &= \min(a, c)\\
+&= c
+\end{split}
+\\\min(\min(a, b), c) &= c
 \end{align}
 So in all cases the two expressions are equivalent.
 
 \problem{}
 Prove that $\forall x \in \mathbb Z$ we have that $x^2 \mod{3} \equiv 0$ or $x^2 \mod{3} \equiv 1$
 \solution
-There are at most two solutions modulo $p$ to $x^2 \mod{3} = b$. $x=2$ and $x=3$ verify that 1 and 0 are both solutions for some $x$. It is therefore impossible that 2, the only other option, is a solution.
+Every integer $x$ is congruent either to 0, 1, or 2 mod 3. 
+\begin{itemize}
+\item Suppose $x\equiv 0 \mod 3$. Then $x^2 \equiv 0\cdot x \mod 3$ so $x^2 \equiv 0 \mod 3$.
+\item Suppose $x\equiv 1 \mod 3$. Then $x^2 \equiv x \mod 3$ so $x^2 \equiv 1 \mod 3$.
+\item Suppose $x\equiv 2 \mod 3$. Then $x^2 \equiv 2x \mod 3$ so $x^2 \equiv 4 \equiv 1 \mod 3$.
+\end{itemize}
+In all we have
+\begin{align}
+[0]^2 &= [0] &[1]^2&=[1] &[2]^2 &= [1]
+\end{align}
+Therefore for all integers $x$, $x^2$ is congruent to either 0 or 1.
 
 \problem{}
 How many zeros are at then end of $30^8 \cdot 168^5$? Explain how you can answer this question without actually computing the number. (Hint: think prime factors)

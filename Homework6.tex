@@ -2,43 +2,113 @@
 \usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
 \setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
 \usepackage{graphicx}
+\usepackage{enumitem}
 \DeclareMathOperator{\lcm}{lcm}
 
 \begin{document}
-\title{Discrete Math - Homework Set \#4}
+\title{Discrete Math - Homework Set \#6}
 \author{Ben Haines (bmh5wx)}
 \problem{}
 Prove that for all positive integers $a$ and $b$, $a\mid b$ if, and only if, gcd$(a, b) = a$.
 \solution
+\part
+Assume that $\mid b$. We know that $a\mid a$ and there can be no larger number than $a$ that divides $a$. So $a=\gcd{(a, b)}$. 
+\part
+Assume that $\gcd{(a, b)} = a$. By definition of the gcd, $a\mid b$.
 
 \problem{}
 Prove the following statement. For all integers $a, b$ and $c$, if $a\mid b$ and $a\mid c$ then $a\mid (b-c)$ and $a\mid(b+c)$.
 \solution
+There exist integers $n,m$ such that $b=na$ and $c=ma$. Then
+\begin{align}
+\begin{split}
+b-c &= na-ma\\
+&= a(n-m)
+\end{split}
+\end{align}
+So $a\mid(b-c)$. 
+\begin{align}
+\begin{split}
+b+c &= na+ma\\
+&= a(n+m)
+\end{split}
+\end{align}
+So $a\mid(b-c)$. 
+
 
 \problem{}
 Prove that for ANY 4 digit nonnegative integer $n$, if the sum of the digits of $n$ is divisble by 3, then $n$ is divisible by 3.
 \solution
+Let the digits of some 4 digit number $n$ be represented by $a,b,c,d$. Then
+\begin{align}
+\begin{split}
+n &= a(1000) + b(100) + c(10) + d\\
+&= a(999+1) + b(99+1) + c(9+1) + d\\
+&= a(999) + b(99) + c(9) + a + b + c + d\\
+&= (3(a(333) + b(33) + c(3)) + (a + b + c + d)
+\end{split}
+\end{align}
+The left component of the sum is divisible by three and thus for the entire sum to be divisible by 3 the right side, $a+b+c+d$ (the sum of the digits of $n$), must also be divisible by three.
 
 \problem{}
 When an integer $b$ is divided by 12, the remainder is 7. What is the remainder when $8b$ is divided by 12?
 \solution
+\begin{align}
+b/12 &= n(12) + 7\\
+\begin{split}\\
+8b/12 &= 8(n(12) + 7)\\
+&= 8n(12) + 56\\
+&= (8n + 4)(12) + 8
+\end{split}
+\end{align}
+So the remainder is 8.
 
 \problem{}
 Prove that 3, 5, and 7 are the only prime numbers of the form $p, p+2$ and $p+4$. 
 \solution
+Assume that there are 3 other primes of this form. Then $3\nmid p, 3\nmid p+2, 3\nmid p+4$. 
+If $3\nmid p$ then 3 must divide either $p+1$ or $p+2$. We know that it doesn't divide $p+2$ so therefore it must divide $p+1$. However, if $p$ divides $p+1$ then it also divides $p+4$. So the only way that these three numbers can be prime is if one of them is equal to 3. This is not the case when $p+2 = 3$ or when $p+4=3$ so the only situation that works is the one that was provided.
 
 \problem{}
-Prove that $\sqrt(5)$ is irrational.
+Prove that $\sqrt{5}$ is irrational.
 \solution
+\part
+Begin with the proposition that if $5\mid n^2$ then $5\mid n$. This can be seen from Euclid's Lemma. If $5\mid n\cdot n$ then $5\mid n$.
+\part
+Assume that $\sqrt{5}$ is rational. Then it can be written in the form $a/b$ for integers $a$ and $b$. We can state that $a$ and $b$ have no common factors without loss of generality. Then 
+\begin{align}
+5 &= (a/b)^2\\
+5 &= (a^2/b^2)\\
+5b^2 &= a^2
+\end{align}
+So 5 divides $a^2$ and from our earlier proposition we know 5 divides $a$. This mean that $a$ can be written as $5k$ for some integer $k$. Plugging ito the above equations we get
+\begin{align}
+5b^2 = a^2\\
+5b^2 = (5k)^2\\
+5b^2 = 25k^2\\
+b^2 = 5k^2
+\end{align}
+Thus 5 divides $b^2$ and again by our earlier proposition we can say that 5 divides $b$. However, this contradicts our assertion that $a$ and $b$ had no common factors. Thus $\sqrt{5}$ is irrational.
 
 \problem{}
 Suppose $((A\cap C) \subseteq (B\cap C))$ and $((A\cup C) \subseteq (B\cup C))$. Prove using a proof by cases that $A\subseteq B$. Be sure to state your assumptions and what you are proving, and to give a step-by-step proof with rules of inference, laws of equivalence, algebraic truths and/or and othher justifications required to make the logic of your proof perfectly clear.
+\solution
+We are attempting to prove that every element $a$ in $A$ is also an element of $B$. In order to prove this we will consider two cases, when $a$ is in $C$ and when $a$ is not in $C$. 
+\begin{enumerate}
+\item Case 1: Assume $a\in C$\\
+We know that $a$ is in $A$ and we have assumed that it is also in $C$. Then it is also in $(A\cap C)$. We are told $(A\cap C)$ is a subset of $(B\cap C)$ so every element of the former is an element of the latter. So $a$ is an element of $(B\cap C)$ and by the definition of set intersection it must be in $B$. 
+\item Case 2: Assume $a\not\in C$\\
+$a$ is an element of $A$ so it is an element of $(A\cup C)$. We are told this set is a subset of $(B\cup C)$. This means that $a$ is an element of $(B\cup C)$. By definition of set unions, every element of $(B\cup C)$ is either a member of $B$ or a member of $C$. We have assumed that $a\not\in C$ so therefore $a$ must be in $B$. 
+\end{enumerate}
+We have shown that in all cases, for any arbitrary element $a\in A$, $a\in B$. Therefore $A$ is a subset of $B$.
+
 
 \problem{}
 Prove by contradiction:
-$$\text{If } (A\cap C) \subseteq B \lannd a\in C \text{ then } a\not\in (A - B)$$
-Be sure you justify ever step of your proof with a rule of inference or law of equivalence or set definition. Rules of inference should be used when possible.
+$$\text{If } (A\cap C) \subseteq B \land a\in C \text{ then } a\not\in (A - B)$$
+Be sure you justify every step of your proof with a rule of inference or law of equivalence or set definition. Rules of inference should be used when possible.
 \solution
+Assume that $a\in (A-B)$. By the definition of set difference $a\in A$ and $a\not\in B$. We are told that $a\in C$. Therefore, because it is in both $A$ and $C$ we know that $a\in A\cap C$. We are told that $(A\cap C)\subseteq B$. This means that every element of $(A\cap C)$ is also an element of $B$. $a$ is one such an element so $a$ must be in $C$. This means that $a\in B$. This is a contradiction. Therefore $a\not\in (A-B)$ and the statement is proved.
 
 \problem{}
 What conclusion(s) can you draw from the following set of premises? Explain the rules of inference you apply in obtaining the conclusion(s).
@@ -50,17 +120,72 @@ What conclusion(s) can you draw from the following set of premises? Explain the 
 	\item $u \lor w$
 \end{enumerate}
 \solution
+List of conclusions:
+\begin{enumerate}[label=\arabic*)]
+\item $u$ \hfill from d) and e) using conjunctive syllogism
+\item $\neg p$ \hfill from 1) and c) using modus ponens
+\item $r\land \neg s$ \hfill from 2) and a) using modus ponens
+\item $\neg s$ \hfill from 3) using simplification
+\item $r$ \hfill from 3) using simplification
+\item $\neg t$ \hfill from 4) and b) using modus tollens
+\end{enumerate}
 
 
 
 \problem{}
-Use truth tables to determine which one of the following is a tautolog and which one is a contradiction. 
+Use truth tables to determine which one of the following is a tautology and which one is a contradiction. 
+\begin{enumerate}
+\item $(p\land q) \lor (\neg p \lor (p \land \neg q))$
+\item $(p\land \neg q) \land (\neg p \lor q)$
+\end{enumerate}
 \solution
+\part
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c|c}
+   p
+ & q
+ & \lnot{}q
+ & \lnot{}p
+ & p\land{}q
+ & p\land{}\lnot{}q
+ & \lnot{}p\lor{}(p\land{}\lnot{}q)
+ & (p\land{}q)\lor{}(\lnot{}p\lor{}(p\land{}\lnot{}q)) \\
+\hline
+F & F & T & T & F & F & T & T \\
+F & T & F & T & F & F & T & T \\
+T & F & T & F & F & T & T & T \\
+T & T & F & F & T & F & F & T \\
+\hline
+\end{array}
+\end{displaymath}
+
+Regardless of the values of $p$ and $q$, $(p\land{}q)\lor{}(\lnot{}p\lor{}(p\land{}\lnot{}q))$ is always true so it is a tautology.
+\part
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c}
+   p
+ & q
+ & \lnot{}p
+ & \lnot{}q
+ & p\land{}\lnot{}q
+ & \lnot{}p\lor{}q
+ & (p\land{}\lnot{}q)\land{}(\lnot{}p\lor{}q) \\
+\hline
+F & F & T & T & F & T & F \\
+F & T & T & F & F & T & F \\
+T & F & F & T & T & F & F \\
+T & T & F & F & F & T & F \\
+\hline
+\end{array}
+\end{displaymath}
+Regardless of the values of $p$ and $q$, $(p\land{}\lnot{}q)\land{}(\lnot{}p\lor{}q)$ is always false so it is a contradiction.
+
 
 \problem{}
 Using existential instantiation, universal instantiation and existential generalization (and any other inference rules necessary), prove
 $$\forall x P(x) \land \exists x Q(x) \implies \exists x (P(x) \land Q(x))$$
 \solution
+By existential instantiation we can say that $\forall x P(x)$ there is a $c$ such that $Q(c)$. By universal instantiation we can say that for any arbitrary $y \in U$ $P(y)$. $c$ is a possible value of $y$ and so we can say that $P(c) \land Q(c)$. By existential generalization we can conclude that $\exists x (P(x)\land Q(x))$.
 
 \problem{}
 \begin{quote}
@@ -71,7 +196,15 @@ $$\forall x P(x) \land \exists x Q(x) \implies \exists x (P(x) \land Q(x))$$
 	"Not the same thing a bit!" said the Hatter. "Why you might just as well say that 'I see what I eat' is the same thing as 'I eat what I see'!"
 \end{quote}
 \centerline{-from "A Mad Tea-Party" in \textit{Alice in Wonderland}, by Lewis Carroll}
-The Hatter is correct. "I say what I mean" is not the same thing as "I mean what I say." Rewrite each of these two sentences in if-tehn form and explain the logical relation between them. Also, write the negation of each if-then statement.
+
+The Hatter is correct. "I say what I mean" is not the same thing as "I mean what I say." Rewrite each of these two sentences in if-then form and explain the logical relation between them. Also, write the negation of each if-then statement.
 \solution
+\begin{enumerate}
+\item ``I say what I mean.'' = If I mean something then I say it.''
+\item ``I mean what I say.'' = If I say something then I mean it.''
+\end{enumerate}
+They are converses of each other. 
+The inverse of a) is ``If I don't mean something then I don't say it.''
+The inverse of b) is ``If I don't say something then I don't mean it.''
 \end{document}
 
