@@ -1,10 +1,3 @@
-/*
- * Name: Ben Haines
- * ID: bmh5wx
- * Filename: hashFunctions.cpp
- * Date: 10/12/14
- * Description: Functions for use in the solver 
- */
 #include <iostream>
 #include <stdlib.h>
 #include "hashFunctions.h"
@@ -41,7 +34,7 @@ int hash(string key) {
 }
 
 HashTable* readInDict (string filename) {
-    int count = 0;
+    int count;
     // a C++ string to hold the line of data that is read in
     string line;
     // set up the file stream to read in the file (takes in a C-style

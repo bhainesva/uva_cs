@@ -1,7 +1,4 @@
 /*
- * Name: Ben Haines
- * ID: bmh5wx
- * Date: 10/12/14
  * Filename: ListNode.h
  * Description: ListNode class definition
  */

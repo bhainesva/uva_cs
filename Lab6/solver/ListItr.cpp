@@ -2,7 +2,7 @@
  * Name: Ben Haines
  * ID: bmh5wx
  * Filename: ListItr.cpp 
- * Date: 10/12/14
+ * Date: 09/09/14
  * Description: ListItr implementations 
  */
 #include <iostream>

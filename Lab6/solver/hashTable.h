@@ -1,10 +1,3 @@
-/*
- * Name: Ben Haines
- * ID: bmh5wx
- * Date: 10/12/14
- * Filename: hashTable.h
- * Description: hashTable class definition 
- */
 #ifndef HASH_TABLE
 #define HASH_TABLE
 #include <vector>

@@ -1,10 +1,3 @@
-/*
- * Name: Ben Haines
- * ID: bmh5wx
- * Filename: test.cpp
- * Date: 10/12/14
- * Description: Used for testing hashtables
- */
 #include <iostream>
 #include "hashFunctions.h"
 #include <stdlib.h>

@@ -1,10 +1,3 @@
-/*
- * Name: Ben Haines
- * ID: bmh5wx
- * Filename: hashTable.cpp
- * Date: 10/12/14
- * Description: HashTable class implementation
- */
 #include <string>
 #include "hashTable.h"
 #include "List.h"
