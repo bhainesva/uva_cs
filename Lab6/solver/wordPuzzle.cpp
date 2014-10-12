@@ -10,9 +10,6 @@
 
 using namespace std;
 
-// We create a 2-D array of some big size, and assume that the table
-// read in will be less than this size (a valid assumption for lab 6)
-
 // Forward declarations
 bool readInTable (string filename, int &rows, int &cols);
 char* getWordInTable (int startRow, int startCol, int dir, int len,
@@ -42,12 +39,11 @@ int main(int argc, char *argv[]) {
                     string word = getWordInTable(r, c, dir, len, rows, cols);
                     if (word.length() > 2) {
                         if (wordTable->get(word)) {
-                            wordCount++;
-                            if(std::find(foundWords.begin(), foundWords.end(), word) != foundWords.end()) {
-                                /* v contains x */
+                            if(std::find(foundWords.begin(), foundWords.end(), word + (char)(((int)'0')+dir) + (char)(((int)'0')+r) + (char)(((int)'0')+c)) != foundWords.end()) {
                             } else {
                                 cout << dir << "(" << r << ", " << c << "): " << word << endl;
-                                /* v does not contain x */
+                                foundWords.push_back(word + (char)(((int)'0')+dir) + (char)(((int)'0')+r) + (char)(((int)'0')+c));
+                                wordCount++;
                             }        
                         }
                     }
