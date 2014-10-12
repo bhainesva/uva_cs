@@ -16,6 +16,7 @@ bool HashTable::get(string keyVal) {
     if (map[index] == NULL) {
         return false;
     }
+
     return map[index]->find(keyVal);
 }
 

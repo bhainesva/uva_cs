@@ -4,14 +4,14 @@
 #include <stdlib.h>
 #include <iostream>
 #include "hashTable.h"
+#include <algorithm>
 #include "hashFunctions.h"
+#include "timer.h"
 
 using namespace std;
 
 // We create a 2-D array of some big size, and assume that the table
 // read in will be less than this size (a valid assumption for lab 6)
-#define MAXROWS 500
-#define MAXCOLS 500
 
 // Forward declarations
 bool readInTable (string filename, int &rows, int &cols);
@@ -30,10 +30,130 @@ int main(int argc, char *argv[]) {
     }
 
     HashTable *wordTable = readInDict(argv[1]);
+    int wordCount = 0;
+    vector<string> foundWords;
 
-    for (int x=0; x < 3; x++) {
-        for (int y = 0; y < 3; y++) {
-            
+    timer t;
+    t.start();
+    for (int r=0; r<rows;r++) {
+        for (int c=0; c<cols; c++) {
+            for (int dir=0;dir<8;dir++) {
+                for (int len=3;len<22 && (len <= cols || len<= rows);len++) {
+                    string word = getWordInTable(r, c, dir, len, rows, cols);
+                    if (word.length() > 2) {
+                        if (wordTable->get(word)) {
+                            wordCount++;
+                            if(std::find(foundWords.begin(), foundWords.end(), word) != foundWords.end()) {
+                                /* v contains x */
+                            } else {
+                                cout << dir << "(" << r << ", " << c << "): " << word << endl;
+                                /* v does not contain x */
+                            }        
+                        }
+                    }
+                }
+            }
+        }
+    }
+    t.stop();
+    cout << wordCount << " words found." << endl;
+    cout << "Found all words in " << t << " seconds." << endl;
+    //for (int x=0; x < side; x++) {
+        //for (int y = 0; y < side; y++) {
+           //string word = string(1, table[x][y]);
+           //int tmpx = x;
+           //int tmpy = y;
+           ////North Case
+           //while (tmpx>0) {
+           //     tmpx--;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////East Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpy<side) {
+           //     tmpy++;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////South Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpx<side) {
+           //     tmpx++;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //     }
+           // }
+           ////West Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpy>0) {
+           //     tmpy--;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////NorthEast Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpx>0 && tmpy<side) {
+           //     tmpx--;
+           //     tmpy++;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////SouthEast Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpx<side && tmpy<side) {
+           //     tmpx++;
+           //     tmpy++;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////SouthWest Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpx<side && tmpy>0) {
+           //     tmpx++;
+           //     tmpy--;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////NorthWest Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpy>0 && tmpx > 0) {
+           //     tmpy--;
+           //     tmpx--;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           // }
+          //} 
+
 }
 
 
