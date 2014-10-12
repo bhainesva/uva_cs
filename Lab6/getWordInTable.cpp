@@ -1,71 +1,56 @@
-/*
- * Name: Ben Haines
- * ID: bmh5wx
- * Filename: hashFunctions.cpp
- * Date: 10/12/14
- * Description: Functions for use in the solver 
+/** This file defines and demonstrates two necessary components for
+ * the hash table lab for CS 2150.  The first is the use of the
+ * getWordInTable() function, which is used for retrieving a word in a
+ * grid of letters in one of the cardinal 8 directions (north,
+ * south-east, etc).  The second is the use of file streams to read in
+ * input from a file, specifically one formatted as per the lab 6
+ * guidelines.
+ *
+ * Written by Aaron Bloomfield, 2009
  */
-#include <iostream>
-#include <stdlib.h>
-#include "hashFunctions.h"
-#include <fstream>
-#include "hashTable.h"
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <stdlib.h>
 using namespace std;
 
-//#define MAXROWS 500
-//#define MAXCOLS 500
+// We create a 2-D array of some big size, and assume that the table
+// read in will be less than this size (a valid assumption for lab 6)
+#define MAXROWS 500
+#define MAXCOLS 500
 char table[MAXROWS][MAXCOLS];
 
+// Forward declarations
+bool readInTable (string filename, int &rows, int &cols);
+char* getWordInTable (int startRow, int startCol, int dir, int len,
+                      int numRows, int numCols);
 
-bool checkprime(unsigned int p) {
-    if ( p <= 1 ) // 0 and 1 are not primes; the are both special cases
-        return false;
-    if ( p == 2 ) // 2 is prime
-        return true;
-    if ( p % 2 == 0 ) // even numbers other than 2 are not prime
-        return false;
-    for ( int i = 3; i*i <= p; i += 2 ) // only go up to the sqrt of p
-        if ( p % i == 0 )
-            return false;
-    return true;
-}
 
-int getNextPrime (unsigned int n) {
-    while ( !checkprime(++n) );
-    return n; 
-}
 
-int hash(string key) {
-   return 7;
-}
-
-HashTable* readInDict (string filename) {
-    int count = 0;
-    // a C++ string to hold the line of data that is read in
-    string line;
-    // set up the file stream to read in the file (takes in a C-style
-    // char* string, not a C++ string object)
-    ifstream file(filename.c_str());
-
-    while(getline(file, line)) {
-       count++; 
+/** The main() function shows how to call both the readInTable()
+ * function as well as the getWordInTable() function.
+ */
+int main() {
+    // to hold the number of rows and cols in the input file
+    int rows, cols;
+    // attempt to read in the file
+    bool result = readInTable ("5x8.grid.txt", rows, cols);
+    // if there is an error, report it
+    if ( !result ) {
+        cout << "Error reading in file!" << endl;
+        exit(1); // requires the <stdlib.h> #include header!
     }
-    file.close();
-
-    HashTable *myTable = new HashTable(getNextPrime(count));
-
-    ifstream file2(filename.c_str());
-
-    while(getline(file2, line)) {
-        myTable->insert(line);
-    }
-
-    file2.close();
-
-    // return success!
-    return myTable;
+    // Get a word (of length 10), starting at position (2,2) in the
+    // array, in each of the 8 directions
+    cout << endl;
+    for ( int i = 0; i < 8; i++ )
+        cout << i << ": " << getWordInTable(2,2,i,10,rows,cols) << endl;
+    // All done!
+    return 0;
 }
+
+
 
 /** This function will read in a grid file, as per the format in the
  * CS 2150 lab 6 document, into a global table[][] array.  It uses C++
@@ -115,6 +100,8 @@ bool readInTable (string filename, int &rows, int &cols) {
     // return success!
     return true;
 }
+
+
 
 /** This function will retrieve a word in a grid of letters in a given
  * direction.  If the end of the grid is encountered before the length

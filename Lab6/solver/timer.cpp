@@ -1,3 +1,10 @@
+/*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Filename: timer.cpp
+ * Date: 10/12/14
+ * Description: For timing code.
+ */
 // NOTE: in order to compile this system on Linux (and most Unix
 // systems) you will have to include the -lrt flag to your compiler.
 

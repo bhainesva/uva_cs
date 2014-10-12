@@ -1,3 +1,10 @@
+/*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Date: 10/12/14
+ * Filename: hashFunctions.h
+ * Description: hash functions declarations
+ */
 #ifndef HASH_FUNCTIONS
 #define HASH_FUNCTIONS
 

@@ -1,4 +1,7 @@
 /*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Date: 10/12/14
  * Filename: ListItr.h
  * Description: ListItr class definition
  */
