@@ -54,10 +54,102 @@ int main(int argc, char *argv[]) {
     t.stop();
     cout << wordCount << " words found." << endl;
     cout << "Found all words in " << t << " seconds." << endl;
-    cout << (int)(t.getTime() * 1000) << endl;
-    delete wordTable;
+    //for (int x=0; x < side; x++) {
+        //for (int y = 0; y < side; y++) {
+           //string word = string(1, table[x][y]);
+           //int tmpx = x;
+           //int tmpy = y;
+           ////North Case
+           //while (tmpx>0) {
+           //     tmpx--;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////East Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpy<side) {
+           //     tmpy++;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////South Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpx<side) {
+           //     tmpx++;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //     }
+           // }
+           ////West Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpy>0) {
+           //     tmpy--;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////NorthEast Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpx>0 && tmpy<side) {
+           //     tmpx--;
+           //     tmpy++;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////SouthEast Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpx<side && tmpy<side) {
+           //     tmpx++;
+           //     tmpy++;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////SouthWest Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpx<side && tmpy>0) {
+           //     tmpx++;
+           //     tmpy--;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           ////NorthWest Case
+           //word = string(1, table[x][y]);
+           //tmpx = x;
+           //tmpy = y;
+           //while (tmpy>0 && tmpx > 0) {
+           //     tmpy--;
+           //     tmpx--;
+           //     word += table[tmpx][tmpy];
+           //     if (wordTable->get(word)) {
+           //         cout << word << endl;
+           //     }
+           // }
+           // }
+          //} 
 
-    return 0;
 }
 
 

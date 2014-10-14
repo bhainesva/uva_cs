@@ -10,13 +10,11 @@ using namespace std;
 
 class HashTable {
 private:
-    int size;
     List** map;
 public:
     HashTable(int size); //constructor
     //~HashTable(); //deconstructor
     bool get(string keyVal); //retrive value by key
     void insert(string value); //inserts new node into the table
-    int getSize();
 };
 #endif
