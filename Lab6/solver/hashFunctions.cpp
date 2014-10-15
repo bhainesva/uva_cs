@@ -30,11 +30,11 @@ int getNextPrime (unsigned int n) {
 }
 
 int hash(string key) {
-   return 7;
+    return key.length();
 }
 
 HashTable* readInDict (string filename) {
-    int count;
+    int count=0;
     // a C++ string to hold the line of data that is read in
     string line;
     // set up the file stream to read in the file (takes in a C-style
@@ -84,11 +84,11 @@ bool readInTable (string filename, int &rows, int &cols) {
         return false;
     // the first line is the number of rows: read it in
     file >> rows;
-    cout << "There are " << rows << " rows." << endl;
+    //cout << "There are " << rows << " rows." << endl;
     getline (file,line); // eats up the return at the end of the line
     // the second line is the number of cols: read it in and parse it
     file >> cols;
-    cout << "There are " << cols << " cols." << endl;
+    //cout << "There are " << cols << " cols." << endl;
     getline (file,line); // eats up the return at the end of the line
     // the third and last line is the data: read it in
     getline (file,line);
@@ -101,9 +101,9 @@ bool readInTable (string filename, int &rows, int &cols) {
     for ( int r = 0; r < rows; r++ ) {
         for ( int c = 0; c < cols; c++ ) {
             table[r][c] = line[pos++];
-            cout << table[r][c];
+            //cout << table[r][c];
         }
-        cout << endl;
+        //cout << endl;
     }
     // return success!
     return true;
