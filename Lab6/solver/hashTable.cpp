@@ -8,7 +8,22 @@
 using namespace std;
 
 HashTable::HashTable(int size) {
+    size = getNextPrime(size);
     map = new List*[getNextPrime(size)];
+}
+
+//HashTable::~HashTable() {
+//    cout << "THis is being called" << endl;
+//    for (int i=0; i<getSize(); i++) {
+//        if (map[i] != NULL) {
+//            delete map[i];
+//        }
+//    }
+//    delete map;
+//}
+
+int HashTable::getSize() {
+    return size;
 }
 
 bool HashTable::get(string keyVal) {

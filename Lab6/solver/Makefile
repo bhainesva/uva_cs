@@ -12,7 +12,7 @@ CXXFLAGS=-Wall
 CXX=clang++ $(CXXFLAGS)
 
 # Compile with debug information
-DEBUG=-Wall -g
+DEBUG= -g
 
 # List all .o files to avoid redundant typing
 OFILES = List.o ListItr.o ListNode.o hashTable.o timer.o hashFunctions.o wordPuzzle.o
@@ -20,7 +20,7 @@ OFILES = List.o ListItr.o ListNode.o hashTable.o timer.o hashFunctions.o wordPuz
 # Suffix rule for how to treat .cpp files
 .SUFFIXES: .o .cpp
 
-pizza:  $(OFILES)
+solver:  $(OFILES)
 	$(CXX) $(OFILES)
 	@echo "Compiling Finished!"
 	
@@ -28,6 +28,7 @@ clean:
 	-rm -f *.o *~ a.out
 
 debug: $(OFILES)
+	$(CXX) $(DEBUG) $(OFILES)
 
 hashFunctions.o: hashFunctions.cpp hashFunctions.h hashTable.h List.h \
   ListNode.h ListItr.h

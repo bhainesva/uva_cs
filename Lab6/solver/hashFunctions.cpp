@@ -34,7 +34,7 @@ int hash(string key) {
 }
 
 HashTable* readInDict (string filename) {
-    int count;
+    int count=0;
     // a C++ string to hold the line of data that is read in
     string line;
     // set up the file stream to read in the file (takes in a C-style
