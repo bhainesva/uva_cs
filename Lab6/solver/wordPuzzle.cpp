@@ -16,6 +16,7 @@ char* getWordInTable (int startRow, int startCol, int dir, int len,
                       int numRows, int numCols);
 
 int main(int argc, char *argv[]) {
+    string directions[] = {"N", "NE", "E", "SE", "S", "SW", "W", "NW"};
     // to hold the number of rows and cols in the input file
     int rows, cols;
     // attempt to read in the file
@@ -41,7 +42,7 @@ int main(int argc, char *argv[]) {
                         if (wordTable->get(word)) {
                             if(std::find(foundWords.begin(), foundWords.end(), word + (char)(((int)'0')+dir) + (char)(((int)'0')+r) + (char)(((int)'0')+c)) != foundWords.end()) {
                             } else {
-                                cout << dir << "(" << r << ", " << c << "): " << word << endl;
+                                cout << directions[dir] << "(" << r << ", " << c << "): " << word << endl;
                                 foundWords.push_back(word + (char)(((int)'0')+dir) + (char)(((int)'0')+r) + (char)(((int)'0')+c));
                                 wordCount++;
                             }        
@@ -53,8 +54,7 @@ int main(int argc, char *argv[]) {
     }
     t.stop();
     cout << wordCount << " words found." << endl;
-    cout << "Found all words in " << t << " seconds." << endl;
-    cout << (int)(1000 * t.getTime()) << endl;
+    cout << "Found all words in " << t << " seconds" << endl;
 
     return 0;
 }
