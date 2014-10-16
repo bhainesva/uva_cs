@@ -1,3 +1,10 @@
+/*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Filename: wordPuzzle.cpp
+ * Date: 10/17/14
+ * Description: Word search puzzle solver
+ */
 #include <fstream>
 #include <string>
 #include <vector>

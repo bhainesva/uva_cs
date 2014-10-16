@@ -1,5 +1,8 @@
 /*
+ * Name: Ben Haines
+ * ID: bmh5wx
  * Filename: List.h
+ * Date: 09/09/14
  * Description: List class definition
  * 	also includes the prototype for non-member function print()
  */

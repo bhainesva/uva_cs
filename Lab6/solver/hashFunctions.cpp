@@ -1,3 +1,10 @@
+/*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Filename: hashFunctions.cpp
+ * Date: 10/17/14
+ * Description: Miscellaneous functions related to the solver
+ */
 #include <iostream>
 #include <stdlib.h>
 #include "hashFunctions.h"
