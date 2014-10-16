@@ -1,0 +1,409 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Survey of Algebra - Assignment \#2}
+\author{Ben Haines}
+
+%SECTION 2.2
+\section*{Section 2.2}
+Prove that the statements are true for every positive integer $n$.
+\problem{\# 6}
+For every positive integer $n$, let $P_n$ be the statement
+\begin{align}
+1^3 + 2^3 + 3^3 + \cdots + n^3 = \frac{n^2\left(n+1\right)^2}{4}
+\end{align}
+\solution
+\soln{Part 1}
+For $n=1$
+\begin{align}
+\begin{split}
+1^3 &= \frac{1^2\left(1+1\right)^2}{4}\\
+1 &= \frac{4}{4}\\
+1 &= 1
+\end{split}
+\end{align}
+Thus $P_1$ is true.
+\soln{Part 2}
+Assume that $P_k$ is true.
+\soln{Part 3}
+For $n=k+1$
+\begin{align}
+\begin{split}
+1^3  +2^3 + 3^3 + \cdots + k^3 + \left(k+1\right)^3 &= \frac{k^2\left(k+1\right)^2}{4} + \left(k+1\right)^3\\
+&=\frac{k^4 + 2k^3 + k^3}{4} + k^3 + 3k^2 + 3k +1\\
+&=\frac{k^4 + 2k^3 + k^2}{4} + \frac{4k^3 + 12k^3 + 12k + 4}{4}\\
+&=\frac{k^4 + 6k^3 + 13k^2 + 12k + 4}{4}\\
+&=\left(k+1\right)^2\left(\frac{k^2 + 4k + 4}{4}\right)\\
+&=\left(k+1\right)^2\left(\frac{\left(k+2\right)^2}{2^2}\right)\\
+&=\left(\frac{\left(k+1\right)^2\left(k+2\right)}{2}\right)^2
+\end{split}
+\end{align}
+This fraction matches exactly the fraction $$\frac{n^2\left(n+1\right)^2}{4}$$ when $n$ is replaced by $k+1$. Thus $P_{k+1}$ is true whenever $P_k$ is true. It follows from the induction postulate that $P_n$ is true for all positive integers $n$.
+
+\problem{\# 7}
+For every positive integer $n$, let $P_n$ be the statement
+\begin{align}
+4 + 4^2 + 4^3 + \cdots + 4^n = \frac{4\left(4^n - 1\right)}{3}
+\end{align}
+\solution
+\soln{Part 1}
+For $n=1$
+\begin{align}
+\begin{split}
+4^1 &= \frac{4\left(4^1 - 1\right)}{3}\\
+4 &=\frac{12}{3}\\
+&=4
+\end{split}
+\end{align}
+Thus $P_1$ is true.
+\soln{Part 2}
+Assume that $P_k$ is true.
+\soln{Part 3}
+For $n=k+1$
+\begin{align}
+\begin{split}
+4 + 4^2 + 4^3 + \cdots + 4^k + 4^{k+1} &= \frac{4\left(4^n-1\right)}{3} + 4^{k+1}\\
+&=\left(\frac{4}{3}\right)\left(4^n-1 + 3\left(4^n\right)\right)\\
+&=\left(\frac{4}{3}\right)\left(4\left(4^n\right)-1\right)\\
+&=\left(\frac{4}{3}\right)\left(4^{n+1} - 1\right)
+\end{split}
+\end{align}
+This fraction matches exactly the fraction 
+\begin{align}
+\frac{4\left(4^n-1\right)}{4}
+\end{align}
+when $n$ is replaced by $k+1$. Thus $P_{k+1}$ is true whenever $P_k$ is true. It follows from the induction postulate that $P_n$ is true for all positive integers $n$.
+
+\problem{\# 8}
+For every positive integer $n$, let $P_n$ be the statement
+\begin{align}
+1^3 + 3^3 + 5^3 + \cdots + \left(2n-1\right)^3 = n^2\left(2n^2-1\right)
+\end{align}
+\solution
+\soln{Part 1}
+For $n=1$
+\begin{align}
+\begin{split}
+1^3 &= 1^2\left(2\left(1^2\right)-1\right)\\
+1 &= 1\left(2-1\right)\\
+&= 1
+\end{split}
+\end{align}
+Thus $P_1$ is true.
+\soln{Part 2}
+Assume that $P_k$ is true.
+\soln{Part 3}
+For $n=k+1$
+\begin{align}
+\begin{split}
+1^3 + 3^3 + 5^3 + \cdots + \left(2k-1\right)^3 + \left(2\left(k+1\right)-1\right)^3 &= n^2\left(2n^2-1\right) + \left(2\left(k+1\right)-1\right)^3\\
+&=n^2\left(2n^2-1\right) + \left(2n+1\right)^3\\
+&=\left(2n^4 - n^2\right) + \left(2n+1\right)^3\\
+&=\left(2n^4 - n^2\right) + \left(8n^3 + 10n^2 + 6n + 1\right)\\
+&=2n^4 + 4n^3 - n^2 + 4n^3 + 8n^2 - 2n + 3n^2 + 4n + 1\\
+&=\left(n^2 + 2n + 1\right)\left(2n^2 + 4n-1\right)\\
+&=\left(n^2 + 2n + 1\right)\left(2\left(n+1\right)^2 - 1\right)\\
+&=\left(n+1\right)^2\left(2\left(n+1\right)^2-1\right)
+\end{split}
+\end{align}
+This expression matches exactly the expression 
+\begin{align}
+n^2\left(2n^2-1\right)
+\end{align}
+when $n$ is replaced by $k+1$. Thus $P_{k+1}$ is true whenever $P_k$ is true. It follows from the induction postulate that $P_n$ is true for all positive integers $n$.
+
+%SECTION 2.3
+\newpage
+\section*{Section 2.3}
+\problem{\# 2b}
+List all common divisors of 42 and 45.
+\solution
+1, 3\\
+
+With $a$ and $b$ as given in problems 4 and 6, find the $q$ and $r$ that satisfy the conditions in the Division Algorithm.
+\problem{\# 6}
+$a=1205, b=37$
+\solution
+$q=32, r=21$
+
+\problem{\# 12}
+$a=15, b=512$
+\solution
+$q=-1, r=507$
+
+\problem{\# 19}
+Let $a,b,c,m$, and $n$ be integers such that $a\mid b$ and $a\mid c$. Prove that $a\mid \left(mb+nc\right)$.
+\solution
+Because $a$ divides $b$ and $a$ divides $c$ there must exist $x,y\in \mathbb Z$ such that $ax=b$ and $ay=c$. Then
+\begin{align}
+\begin{split}
+\left(mb+nc\right) &= \left(max + nay\right)\\
+&=a\left(mx + ny\right)
+\end{split}
+\end{align}
+The properties of addition and multiplication of integers means that $\left(mx + ny\right)$ is an integer. Therefore $a$ divides $\left(mb+nc\right)$.
+
+\problem{\# 20}
+Let $a,b,c$, and $n$ be integers such that $a\mid b$ and $a\mid c$. Prove that $ac\mid bd$.
+\solution
+Because $a$ divides $b$ and $a$ divides $c$, there must exist $x,y\in \mathbb Z$ such that $ax=b$ and $cy=d$. So
+\begin{align}
+\begin{split}
+bd &= \left(ax\right)\left(cy\right)\\
+&=\left(ac\right)\left(xy\right)
+\end{split}
+\end{align}
+The product $xy$ is an integer. Thus $ac$ divides $bd$.
+
+\problem{\# 21}
+Prove that if $a$ and $b$ are integers such that $a\mid b$ and $b\mid a$, then either $a=b$ or $a=-b$.
+\solution
+$a\mid b$ and $b\mid a$ so we know that there exist $x,y \in \mathbb Z$ such that $ax=b$ and $by=a$. Then
+\begin{align}
+\begin{split}
+b&=\frac{a}{y}\\
+ax&=\frac{a}{y}\\
+x&=\frac{a}{ay}\\
+x&=\frac{1}{y}\\
+xy&=1
+\end{split}
+\end{align}
+
+$x$ and $y$ are either both 1 or both -1. Therefore for $ax=b$ either
+\begin{align}
+x=1, a\left(1\right) = &b \implies a=b
+\end{align}
+\centerline{or}
+\begin{align}
+x=-1, a\left(-1\right)=&b \implies a=-b
+\end{align}
+
+\problem{\# 23}
+Let $a$ and $b$ be integers such that $a\mid b$ and $\lvert b \rvert < \lvert a \rvert$. Prove that $b=0$.
+\solution
+It is clear that if $a\mid b$, then $\lvert a \rvert \mid \lvert b \rvert$. Changing the sign of the two divisors will only change the sign of the quotient. This means that there exists a $z \in \mathbb Z$ such that $z\lvert a \rvert = \lvert b \rvert$. Both $\lvert a \rvert$ and $\lvert b \rvert$ are positive and thus $z$ must also be positive or zero. 
+
+As demonstrated by problem 18 from section 2.1, for integers $a > b$ and $z > 0$ then $za > zb$. So, in the case that $z$ is positive
+\begin{align}
+z\lvert a \rvert > z\lvert b \rvert > \lvert b \rvert
+\end{align}
+this contradicts the fact that we know $z\lvert a \rvert = \lvert b \rvert$. Thus $z$ must equal 0 and $z\lvert a \rvert = \lvert b \rvert = 0$ so $b=0$.
+
+\problem{\# 25}
+Let $a,b$, and $c$ be integers. Prove or disprove that $a\mid bc$ implies $a\mid b$ or $a\mid c$.
+\solution
+Let $a=100,b=10$ and $c=30$. Then $a\mid bc = 100\mid 300$ is true but it is not true that $100\mid 10$ or that $100\mid 30$. The statement is thus disproved.
+
+\problem{\# 28}
+Let $a$ be an odd integer. Prove that $8\mid \left(a^2-1\right)$.
+\solution
+\begin{align}
+n^2-1 = \left(n-1\right)\left(n+1\right)
+\end{align}
+$n$ is odd so both $n-1$ and $n+1$ are even and thus divisible by 2. Given that $n+1 = \left(n-1\right)+2$ then either $\left(n-1\right)$ or $\left(n+1\right)$ must be divisible by 4. Assuming that $\left(n-1\right)\mid 4$ then there exists  $x,y \in \mathbb Z$ such that $n-1=4x$ and $n+1=2y$. Therefore the product 
+\begin{align}
+\begin{split}
+\left(n-1\right)\left(n+1\right) &= \left(4x\right)\left(2y\right)\\
+&=8\left(xy\right)
+\end{split}
+\end{align}
+and is divisible by 8. It can be seen that due to the commutative property of multiplication that it is irrelevant which of $n-1$ and $n+1$ is divisible by 4 and which by 2.
+
+
+\problem{\# 29}
+Let $m$ be an arbitrary integer. Prove that there is no integer $n$ such that $m<n<m+1$.
+\solution
+Assume there is some number $n$ such that $m<n<m+1$. By substracting $m$ from this relation we find $0<n-m<1$. There are no integers between 0 and 1 so $(n-m) \not\in \mathbb Z$. We are told that $m\in \mathbb Z$ and therefore $n\not\in \mathbb Z$.
+
+\problem{\# 47}
+For all $a$ and $b$ in $\mathbb{Z}$, $a-b$ is a factor of $a^n-b^n$.
+\solution
+\soln{Part 1}
+For $n=1$
+\begin{align}
+\left(a^1-b^1\right) = \left(a-b\right)\left(1\right)
+\end{align}
+so the statement is true for $n=1$.
+\soln{Part 2}
+Assume the statement is true for $n=k$. This means that there exists a $z\in \mathbb Z$ such that $z\left(a-b\right) = a^k-a^b$.
+\soln{Part 3}
+Part 2 indicated that we can write $a^{k+1}=a[\left(a+b\right)z + b^k]$ and $-b^{k+1} = b[\left(a+b\right)z-a^k]$, thus
+\begin{align}
+\begin{split}
+a^{k+1} - b^{k+1} &= a[\left(a+b\right)z + b^k] + b[\left(a+b\right)z-a^k]\\
+&=\left(a+b\right)[\left(a+b\right)z + b^k + \left(a+b\right)z - a^k]
+\end{split}
+\end{align}
+The result of $[\left(a+b\right)z + b^k + \left(a+b\right)z - a^k]$ must be an integer which means that $\left(a+b\right)$ divides $^{k+1} - b^{k+1}$. It follows from the induction postulate that the same is true for all integers.
+
+\problem{\# 48}
+For all $a$ and $b$ in $\mathbb Z$, $a+b$ is a factor of $a^{2n}-b^{2n}$.
+\solution
+\soln{Part1}
+For $n=1$
+\begin{align}
+a^{2n} + b^{2n} &= a^2 + b^2\\
+&=\left(a+b\right)\left(a-b\right)
+\end{align}
+so $\left(a+b\right)$ divides $a^{2n}+b^{2n}$ for $n=1$.
+\soln{Part 2}
+Assume the statement is true for $n=k$ so $\left(a+b\right)$ divides $a^{2k} + b^{2k}$.
+\soln{Part 3}
+For $n=k+1$
+\begin{align}
+\begin{split}
+a^{2n} + b^{2n} &= a^{2\left(k+1\right)} + b^{2\left(k+1\right)}\\
+&=a^{2k+2} + b^{2k+2}\\
+&=a^{2k}a^2 + b^{2k}b^2\\
+&=\left(a^2 + b^2\right)\left(a^{2k} + b^{2k}\right)\\
+&=\left(a+b\right)\left(a-b\right)\left(a^{2k}+b^{2k}\right)
+\end{split}
+\end{align}
+Thus $\left(a+b\right)$ divides $a^{2\left(k+1\right)} + b^{2\left(k+1\right)}$. It follows from the induction hypothesis that $a+b$ is a factor of $a^{2n} + b^{2n}$ for all $a,b\in \mathbb Z$.
+
+\problem{\# 49}
+\begin{enumerate}
+\item The binomial coefficients ${n\choose r}$ are defined in Exercise 25 of Section 2.2. Use induction on $r$ to prove that if $p$ is a prime integer, then $p$ is a factor of ${p\choose r}$ for $r=1,2,\ldots , p-1$. (From Exercise 26 of Section 2.2, it is known that ${p\choose r}$ is an integer).
+\item Use induction on $n$ to prove that if $p$ is a prime integer, then $p$ is a factor of $n^p - n$.
+\end{enumerate}
+\solution
+\part
+1. For $r=1, {p \choose r}= \frac{p!}{\left(p-1\right)!\left(1\right)!} = p$. $p$ divides $p$.\\
+2. Assume that the statement is true for $n=k$. Therefore $p\mid {p \choose k}$.\\
+3. 
+\begin{align}
+\begin{split}
+{p\choose k+1} &= \frac{p!}{\left(p-k-1\right)!\left(k+1\right)!}\\
+&= \frac{p!}{\left(p-k-1\right)!\left(k+1\right)\left(k\right)!}\\
+&=\frac{\left(p!\right)\left(p-k\right)}{\left(p-k\right)!\left(k+1\right)\left(k\right)!}\\
+&=\left(\frac{p!}{\left(p-k\right)!}\right)\left(\frac{\left(p-k\right)}{\left(k+1\right)}\right)\\
+&=\frac{p-k}{k+1}{p\choose k}
+\end{split}
+\end{align}
+
+So $\left(p-k\right){p\choose k} = \left(k+1\right){p\choose k+1}$. The left side of the equation is divisible by $p$ because $p\mid {p \choose k}$ so there exists some $z\in \mathbb Z$ such that $zp = {p\choose k}$. Then
+\begin{align}
+\begin{split}
+\left(p-k\right){p \choose k} &= \left(p-k\right)\left(pz\right)\\
+&=pzp-pzk\\
+&=p\left(zp-zk\right)
+\end{split}
+\end{align}
+We know that either $p\mid {p\choose k+1}$ or $p\mid \left(k+1\right)$ by Euclid's Lemma. $p$ cannot divide $\left(k+1\right)$ because it is given that $\left(k+1\right)<p$. Therefore $p\mid {p\choose k+1}$. It follows from the induction postulate that  $p\mid {p\choose r}$ for $r=1,2,\ldots,p-1$.
+
+\part
+1. For $n=1, 1^p-1=0$. $p$ is a factor of 0 because $0=\left(0\right)p$.\\
+2. Assume p is a factor of $k^p-k$ for some number $k$.\\
+3. $n=k+1$\\
+By the binomial theorem
+\begin{align}
+\left(k+1\right)^p = k^p + {p\choose 1}k^{p-1} + {p\choose 2}a^{p-2} + \cdots + {p \choose p-1}a + 1
+\end{align}
+From part a we know that all binomials of the form ${p\choose r}$ for $r<p$ are divisible by p. Each of the middle terms are then divisible by $p$. Therefore
+\begin{align}
+\begin{split}
+\left(k+1\right)^p - \left(k+1\right) &={p\choose 1}k^{p-1} + {p\choose 2}a^{p-2} + \cdots + {p \choose p-1}a + k^p  + 1 - \left(k+1\right)\\
+&={p\choose 1}k^{p-1} + {p\choose 2}a^{p-2} + \cdots + {p \choose p-1}a + \left(k^p-k\right)
+\end{split}
+\end{align}
+it is known that each of the terms of the addition on the right side of the equation is divisible by $p$, therefore the left side of the equation is also divisible by $p$. It follows from the induction postulate that $p$ is a factor of $n^p-n$ for any prime integer $p$.
+%SECTION 2.4
+\newpage
+\section*{Section 2.4}
+\problem{\# 6}
+Show that $n^2 - n + 5$ is a prime integer when $n=1, 2, 3, 4$ but that it is not true that $n^2-n + 5$ is always a prime integer. Write out a similar set of statements for the polynomial $n^2-n +11$.
+\solution
+For $n^2-n+5$\\
+$n=1$
+\begin{align}
+1^2 - 1 +5 = 5&\text{ is prime}
+\end{align}
+$n=2$
+\begin{align}
+2^2 - 2 +5=7&\text{ is prime}
+\end{align}
+$n=3$
+\begin{align}
+3^2 - 3 +5=11&\text{ is prime}
+\end{align}
+$n=4$
+\begin{align}
+4^2 - 4 +5=17&\text{ is prime}
+\end{align}
+But $n=5$
+\begin{align}
+5^2 - 5 +5=25&\text{ is not prime}
+\end{align}
+
+A similar result can be shown for $n^2-n + 11$\\
+$n=1$
+\begin{align}
+1^2 - 1 +11 = 11&\text{ is prime}
+\end{align}
+$n=2$
+\begin{align}
+2^2 - 2 +11=13&\text{ is prime}
+\end{align}
+$n=3$
+\begin{align}
+3^2 - 3 +11=17&\text{ is prime}
+\end{align}
+$n=4$
+\begin{align}
+4^2 - 4 +11=23&\text{ is prime}
+\end{align}
+But $n=11$
+\begin{align}
+11^2 - 11 +11=121&\text{ is not prime}
+\end{align}
+
+
+\problem{\# 20}
+Prove that $\left(ab, c\right) = 1$ if and only if $\left(a, c\right) = 1$ and $\left(b, c\right)=1$.
+\solution
+Let $d = \left(ab,c\right)=1$ and $x = \left(b, c\right)$. Assume that $x\not= 1$. From the definition of the gcd we know that $x$ must then be some positive integer larger than 1.
+
+If $x\mid b$ then there exists $z\in \mathbb Z$ such that $xz=b$. Multiplying each side by $a$ gives $x\left(za\right) = \left(ab\right)$. Therefore $x$ divides $ab$. By its definition $x\mid c$. Because $d$ is the gcd of $ab$ and $c$ then $x$ must also divide $d$. However, $d=1$ and we have already shown that $x>1$. It is impossible for $x$ to divide $d$. We have reached a contradiction and $x$ must equal 1. The same argument can be used to show that $y+\left(a, c\right)$ must also equal 1.\\
+
+The above shows that
+\begin{align}
+\left(ab, c\right) \implies \left(a, c\right) = 1\text{ and }\left(b, c\right) = 1
+\end{align}
+
+Assume that $(a, c)=1$ and Each of $a, b$, and $c$ has a unique prime factorization. So let $a=p_1^{e_1} p_2^{e_2}\cdots p_k^{e_k}$, $b=q_1^{f_1} q_2^{f_2} \cdots q_\ell^{f_\ell}$. The greatest common divisor between each of these numbers and $c$ is 1. The product $ab$ can then be written as $p_1^{e_1} p_2^{e_2}\cdots p_k^{e_k} q_1^{f_1} q_2^{f_2} \cdots q_\ell^{f_\ell}$. Assume that this product has a common divisor $x$ with $c$ that is greater than 1. Then each of the prime factors of $x$ is either a factor of $a$ or a factor of $b$ and must be contained somewhere in one of their prime factorizations. Because $x$ is a divisor of $c$ it must also be a product of some of the prime factors of $c$ . Therefore there are factors of $x>1$ that are also factors of $c$ and either $a$ or $b$. This contradicts the fact that $c$ is relatively prime in regards to both $a$ and $b$.\\
+
+The above shows that 
+\begin{align}
+\left(a, c\right) = 1\text{ and }\left(b, c\right) = 1 \implies \left(ab, c\right)
+\end{align}
+
+By combining the two relations established above we conclude that 
+\begin{align}
+\left(ab, c\right) \iff \left(a, c\right) = 1\text{ and }\left(b, c\right) = 1
+\end{align}
+
+\problem{\# 21}
+Let $\left(a, b\right) = 1$ and $\left(a, c\right) = 1$. Prove or disprove that $\left(ac, b\right) = 1$.
+\solution
+Let $a=1$, $b=3$, and $c=3$. Then $(a, b) = (1, 3) = 1$, $(a, c) = (1, 3) = 1$, but $(ac, b) = (3, 3) = 3$. So $(ac, b)\not= 1$.
+
+
+\problem{\# 25}
+Prove that if $m > 0$ and $\left(a, b\right)$ exists, then $\left(ma, mb\right) = m \cdot \left(a, b\right)$.
+\solution
+Let $d=\left(a, b\right)$ and $x=\left(ma,mb\right)$. Then 
+\begin{align}
+\begin{split}
+x = i_1\left(ma\right) + j_1\left(mb\right)\\
+d = i_2\left(a\right) + j_2\left(b\right)
+\end{split}
+\end{align}
+We want to show that $m\left(i_1a + j_1b\right) = m\left(i_2a + j_2b\right)$. Dividing by $m$ this is equivalent to saying that $\left(i_1a+j_1b\right) = \left(i_2a + j_2b\right)$. The right side of the equation can't be larger because it is equal to $d$ which is the least possible integer of that form. The left side can't be larger because that would imply that $x = m\left(i_1a+j_1b\right) > m\left(i_2a + j_2b\right)$. We know this is not the case because $x$ is the smallest integer that can be written in that form. Therefore the two sides are equal and $\left(ma, mb\right) = m\cdot \left(a, b\right)$.
+\end{document}
