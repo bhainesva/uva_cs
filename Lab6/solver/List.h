@@ -28,9 +28,9 @@ public:
     List& operator=(const List& source);	//Equals Operator
     bool isEmpty() const;		//Returns true if empty; else false
     void makeEmpty();	//Removes all items except blank head and tail
-    ListItr first(); 		//Returns an iterator that points to
+    ListItr *first(); 		//Returns an iterator that points to
     //the ListNode in the first position
-    ListItr last();			//Returns an iterator that points to
+    ListItr *last();			//Returns an iterator that points to
     //the ListNode in the last position
     void insertAfter(string x, ListItr position);
     //Inserts x after current iterator position p

@@ -7,8 +7,14 @@
 
 using namespace std;
 
-HashTable::HashTable(int size) {
+HashTable::HashTable(unsigned int size) {
+    space = size;
     map = new List*[getNextPrime(size)];
+}
+
+HashTable::~HashTable() {
+    makeEmpty();
+    delete map;
 }
 
 bool HashTable::get(string keyVal) {
@@ -32,3 +38,10 @@ void HashTable::insert(string value) {
     }
 }
 
+void HashTable::makeEmpty() {
+   for (int i=0;i<this->space;i++) {
+       if (map[i] != NULL) {
+            delete map[i];
+        }
+    }
+}

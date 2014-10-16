@@ -11,9 +11,11 @@ using namespace std;
 class HashTable {
 private:
     List** map;
+    unsigned int space;
 public:
-    HashTable(int size); //constructor
-    //~HashTable(); //deconstructor
+    HashTable(unsigned int size); //constructor
+    ~HashTable(); //deconstructor
+    void makeEmpty(); // Remove all elements of map
     bool get(string keyVal); //retrive value by key
     void insert(string value); //inserts new node into the table
 };

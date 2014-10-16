@@ -56,6 +56,8 @@ int main(int argc, char *argv[]) {
     cout << wordCount << " words found." << endl;
     cout << "Found all words in " << t << " seconds" << endl;
 
+    delete wordTable;
+
     return 0;
 }
 

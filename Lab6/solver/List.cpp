@@ -61,26 +61,27 @@ bool List::isEmpty() const {
 
 //Removes all items except blank head and tail
 void List::makeEmpty(){
-    ListItr points = this->first(); 
-    while(!points.isPastEnd()){
-        points.moveForward();
-        delete points.current->previous;
+    ListItr *points = this->first(); 
+    while(!points->isPastEnd()){
+        points->moveForward();
+        delete points->current->previous;
     }
     this->head->next = this->tail;
     this->tail->previous = this->head;
     this->count = 0;
+    delete points;
 }
 
 //Returns iterator pointing to first list node
-ListItr List::first(){
+ListItr* List::first(){
     ListItr * firstNodeItr = new ListItr(this->head->next);
-    return *firstNodeItr;
+    return firstNodeItr;
 }
 
 //Returns iterator pointing to last list node
-ListItr List::last(){
+ListItr* List::last(){
     ListItr * lastItr = new ListItr(this->tail->previous);
-    return *lastItr;
+    return lastItr;
 }
 
 void List::insertAfter(string x, ListItr position){
@@ -114,13 +115,15 @@ void List::insertAtTail(string x){
 }
 
 bool List::find(string x){
-    ListItr * search = new ListItr(this->first());
+    ListItr * search = this->first();
     while(search->current->value != x){
         search->moveForward();
         if(search->isPastEnd()){
+            delete search;
             return false;
         }
     }
+    delete search;
     return true;
 }
 
@@ -131,18 +134,20 @@ int List::size() const {
 //Global printList function
 void printList(List& source, bool direction){
     if(direction){
-        ListItr points = source.first(); 
-        while(!points.isPastEnd()){
-            cout << points.retrieve() << " ";
-            points.moveForward();
+        ListItr *points = source.first(); 
+        while(!points->isPastEnd()){
+            cout << points->retrieve() << " ";
+            points->moveForward();
         }
+        delete points;
     }
     else {
-        ListItr points = source.last();
-        while(!points.isPastBeginning()){
-            cout << points.retrieve() << " ";
-            points.moveBackward();
+        ListItr *points = source.last();
+        while(!points->isPastBeginning()){
+            cout << points->retrieve() << " ";
+            points->moveBackward();
         }
+        delete points;
     }
 }
 
