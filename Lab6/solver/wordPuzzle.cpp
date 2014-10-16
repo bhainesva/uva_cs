@@ -5,6 +5,8 @@
  * Date: 10/17/14
  * Description: Word search puzzle solver
  */
+// Running Time Example: Using words.txt and 250x250.grid.txt, running time was 367.404595 seconds
+// The program has a big theta running time of n^4.
 #include <fstream>
 #include <string>
 #include <vector>
