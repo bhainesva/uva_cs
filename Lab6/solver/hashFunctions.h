@@ -10,7 +10,6 @@ using namespace std;
 
 bool checkprime(unsigned int p);
 int getNextPrime(unsigned int n);
-int hash(string key);
 HashTable* readInDict(string filename);
 bool readInTable (string filename, int &rows, int &cols);
 char* getWordInTable (int startRow, int startCol, int dir, int len,

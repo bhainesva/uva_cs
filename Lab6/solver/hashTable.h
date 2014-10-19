@@ -22,6 +22,7 @@ private:
 public:
     HashTable(unsigned int size); //constructor
     ~HashTable(); //deconstructor
+    int hash(string key);
     void makeEmpty(); // Remove all elements of map
     bool get(string keyVal); //retrive value by key
     void insert(string value); //inserts new node into the table

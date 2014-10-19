@@ -24,6 +24,10 @@ HashTable::~HashTable() {
     delete map;
 }
 
+int HashTable::hash(string key) {
+    return key.length() % space;
+}
+
 bool HashTable::get(string keyVal) {
     int index = hash(keyVal);
     if (map[index] == NULL) {
