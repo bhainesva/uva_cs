@@ -1,0 +1,8 @@
+1c1
+< 26013 words found
+---
+> 26013 words found.
+3241c3241
+< Found all words in 12.1144 seconds
+---
+> Found all words in 367.404595 seconds
