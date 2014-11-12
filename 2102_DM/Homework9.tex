@@ -1,0 +1,98 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usepackage{amsmath, amssymb}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\usepackage{listings}
+\usepackage{color}
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
+\DeclareMathSymbol{\vardiamond}{\mathalpha}{extraup}{87}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+\title{Discrete Math - Homework Set \#9}
+\author{Ben Haines (bmh5wx)}
+\problem{\#1}
+Give an example of a function from $\mathbb Z$ to $\mathbb Z$ with each of the following characteristics.
+\begin{enumerate}
+    \item onto but not one-to-one
+    \item one-to-one but not onto
+    \item both onto and one-to-one (don't use the identity functioni as your example)
+    \item neither one-to-one nor onto
+\end{enumerate}
+\solution
+
+\problem{\#2}
+Determine which of the following properties are true and which are false. If the propert is true give a proof and if it is false give a counter example. Let $f: X\to Y$ and $A, B\subseteq X$. 
+\begin{enumerate}
+    \item If $A\subseteq B$, then $f(A)\subseteq f(B)$.
+    \item For all subsets $A$ and $B$ of $X$, $f(A\cup B) = f(A)\cup f(B)$.
+    \item For all subsets $A$ and $B$ of $X$, $f(A\cap B) = f(A)\cap f(B)$.
+    \item For a subset $C$ of $Y$, $f^{-1}(C) = \overline{f^{-1}(C)$.
+    \end{enumerate}
+\solution
+
+\problem{\#3}
+Prove or disprove the following statements.
+\begin{enumerate}
+    \item If $f:\mathbb R\to \mathbb R$ and $g:\mathbb R\to \mathbb R$ are both 1-1 then $f+g$ is also 1-1.
+    \item If $f:\mathbb R\to \mathbb R$ and $g:\mathbb R\to \mathbb R$ are both onto then $f+g$ is also onto.
+    \item Let $f:\mathbb R\to \mathbb R$ and $c$ is any nonzero real number. If $f$ is 1-1, then $c\cdot f$ is also 1-1.
+    \item Let $f:\mathbb R\to \mathbb R$ and $c$ is any nonzero real number. If $f$ is onto, then $c\cdot f$ is also onto.
+\solution
+
+\problem{\#4}
+Prove the following. Given any set $X$ and given any functions $f:X\to X$, $g:X\to X$, and $h:X\to X$, if $h$ is 1-1 and $h\circ f = h\circ g$, then $f=g$.
+\solution
+
+\problem{\#5}
+Let $f:X\to Y$ and $g:Y\to Z$ must be functions.
+\begin{enumerate}
+    \item If $g\circ f$ is 1-1, must $f$ and $g$ be1 1-1 as well? Prove or give a counter example.
+    \item If $g\circ f$ is onto, must $f$ and $g$ be onto as well? Prove or give a counter example.
+\end{enumerate}
+\solution
+
+\problem{\#6}
+Suppose that $f$ is a function from $A$ to $B$, where $A$ and $B$ are finite sets with $\mid A\mid = \mid B\mid$. Show that $f$ is one-to-one if and only if it is onto.
+\solution
+
+\problem{\#7}
+Show that a set $S$ is infinite if and only if there is a proper subset $A$ of $S$ such that there is a one-to-one correspondence between $A$ and $S$.
+\solution
+
+\problem{\#8}
+Let $S$ be a subset of a universal set $U$. The \textbf{characteristic function} $f_s$ of $S$ is the function from $U$ to the set $\Set{0, 1}$ such that $f_s(x) = 1$ if $x$ belongs to $S$ and $f_s(x) = 0$ if $x$ does not belong to $S$. Let $A$ and $B$ be sets. Show that for all $x\in U$:
+\begin{enumerate}
+    \item $f_{A\cap B}(x) = f_A(x) \cdot f_B(x)$
+    \item $f_{A\cup B}(x) = f_A(x) + f_B(x) - f_A(x) \cdot f_B(x)$
+    \item $f_A(x) = 1 - f_A(x)$
+    \item $f_{A\oplus B}(x) = f_A(x) + f_B(x) - 2f_A(x) \cdot f_B(x)$
+\solution
+
+\problem{\#1}
+\solution
+
+
+\end{document}
