@@ -1,0 +1,6 @@
+Name: Ben Haines
+ID: bmh5wx
+Filename: unix.questions.txt
+Date: 09/16/14
+Description: Questions about Unix for prelab 3
+The tutorial mentioned that everything in Unix is either a file or a process. How does this apply to hardware components like microphones or the screen? For example, what would happen if I tried to write text output to my speakers?

@@ -1,0 +1,291 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\DeclareMathOperator{\lcm}{lcm}
+
+\begin{document}
+\title{Survey of Algebra - Assignment \#9}
+\author{Ben Haines (bmh5wx)}
+%SECTION 4.5
+\section*{Section 4.5}
+\problem{\# 28}
+For an arbitrary subgroup $H$ of the group $G$, the \textbf{normalizer} of $H$ in $G$ is the set $\mathcal{N}(H) = \Set{x\in G\given xHx^{-1} = H}$.
+\begin{itemize}
+    \item Prove that $\mathcal{N}(H)$ is a subgroup of $G.$
+    \item Prove that $H$ is a normal subgroup of $\mathcal{N}(H)$.
+    \item Prove that if $K$ is a subgroup of $G$ that contains $H$ as a normal subgroup, then $K\subseteq \mathcal{N}(H)$.
+\end{itemize}
+\solution
+\part
+\begin{enumerate}
+    \item $\mathcal{N}(H)$ contains the identity element\\
+        $e\in G$ and $eHe^{-1} = H$ so $e\in \mathcal{N}(H)$
+    \item $\mathcal{N}(H)$ contains inverses\\
+        For any $a\in \mathcal{N}(H)$, $aHa^{-1}=H$. This implies that $a^{-1}Ha=a^{-1}H(a^{-1})^{-1}=H$ and thus $a^{-1} \in \mathcal{N}(H)$.
+    \item $\mathcal{N}(H)$ is closed\\
+        For any $a,b\in \mathcal{N}(H)$
+        \begin{align}
+            \begin{split}
+                abH(ab)^{-1} &= abHb^{-1}a^{-1}\\
+                             &= aHa^{-1}\\
+                             &= H
+            \end{split}
+        \end{align}
+        So $ab\in \mathcal{N}(H)$.
+\end{enumerate}
+\part
+$H$ is a subset of $\mathcal{N}(H)$ because for all $h\in H$ $hHh^{-1} = H$ so $h\in \mathcal{N}(H)$.
+
+We are told that $H$ is a group.
+
+By the definition of $\mathcal{N}(H)$, for all $x\in \mathcal{N}(H), xHx^{-1}$. $H$ is a subgroup of $\mathcal{N}(H)$ so $H$ is normal. 
+\part
+$H$ is a normal subgroup of $K$. This means that $\forall k\in K, kHk^{-1} = H$. $K$ is a subgroup of $G$ so each $k$ is also a member of $G$. The group $\mathcal{N}(H)$ is the set of all elements $x$ in $G$ that have the property that $xHx^{-1} = H$. Therefore $K\subseteq\mathcal{N}(H)$.
+
+\problem{\# 29}
+Find the normalizer of the subgroup $\Set{(1), (1, 3)(2, 4)}$ of the octic group $D_4$.
+\solution
+$$\Set{(1), (1, 3)(2, 4)}$$
+
+\problem{\# 40}
+Find the commutator subgroup of each of the following groups.
+\begin{enumerate}
+    \item The quaternion group $\Set{\pm 1, \pm i, \pm j, \pm k}$.
+    \item The symmetric group $S_3$.
+\end{enumerate}
+\solution
+\part
+$$\Set{1, -1}$$
+\part
+$$\Set{(1), (1, 2, 3), (1, 3, 2)}$$
+
+%SECTION 4.6
+\section*{Section 4.6}
+\problem{\# 28}
+Assume that $\phi$ is an epimorphism from the group $G$ to the group $G'$.
+\begin{enumerate}
+    \item Prove that the mapping $H\to \phi(H)$ is a bijection from the set of all subgroups of $G$ that contain $\ker \phi$ to the set of all subgroups of $G'$.
+    \item Prove that if $K$ is a normal subgroup of $G'$, then $\phi^{-1}(K)$ is a normal subgroup of $G$.
+\end{enumerate}
+\solution
+\part
+Let us label the mapping $H\to \phi(H)$ as $f$. In order to show that $f$ is bijective we will show that the mapping $g: H'\to \phi^{-1}(H')$ is the inverse of $f$.
+
+It is obvious that $\phi(\phi^{-1}(H')) = H'$. Now we need to show that $\phi^{-1}(\phi(H)) = H$. In order to do this we show that for every $g$ in $G$, $\phi(g)\in \phi(H)$ implies that $g\in H$. If $\phi(g)\in \phi(H)$ then for some $h\in H$: 
+\begin{align}
+    \begin{split}
+        \phi(g) &= \phi(h)\\
+                &\implies \phi(g)\phi(h)^{-1} = e\\
+                &\implies \phi(g)\phi(h^{-1}) = e\\
+                &\implies \phi(gh^{-1}) = e\\
+                      &\implies gh^{-1}\in \ker\phi \subseteq H\\
+                      &\implies gh^{-1}\in H\\
+                      &\implies g\in H
+    \end{split}
+\end{align}
+Thus $g$ is the inverse of $f$ and $f$ is a bijection.
+\part
+Group homomorphisms preserve subgroups so we know that $K$ is a subgroup of $G'$. For all $k\in \phi^{-1}(K)$ and all $g\in G$, $gkg^{-1}\in \phi^{-1}(K)$. This is equivalent to saying that $\phi(gkg^{-1})\in K$ or $\phi(g)\phi(k)\phi(g)^{-1}\in K$. We know that $\phi(g)$ and $\phi(g^{-1})$ are both elements of $G'$ and $\phi(k)$ is an element of $K$. We also know that $K$ is normal in G'. Thus $\phi^{-1}(K)$ is a normal subgroup of $G$.
+
+
+\problem{\# 29}
+Suppose $\phi$ is an epimorphism from the group $G$ to the group $G'$. Let $H$ be a normal subgroup of $G$ containing $\ker \phi$, and let $H' = \phi(H)$.
+\begin{enumerate}
+    \item Prove that $H'$ is a normal subgroup of $G'$.
+    \item Prove that $G/H$ is isomorphic to $G'/H'$.
+\end{enumerate}
+\solution
+\begin{enumerate}
+    \item
+        We first prove that $H'$ is a subgroup of $G'$. It is clear that $H'$ is a subset of $G'$.
+        \begin{enumerate}
+            \item Identity\\
+                $H$ contains $\ker\phi$ so it must contain $e$.
+            \item Closed\\
+                $\phi$ is onto so for any $a', b'\in H'$ there exist $a, b\in H$ such that $a' = \phi(a)$ and $b'= \phi(b)$. Then:
+                \begin{align}
+                    \begin{split}
+                        a'b' &= \phi(a)\phi(b)\\
+                             &= \phi(ab)
+                    \end{split}
+                \end{align}
+                $H$ is closed so $ab\in H$ and $\phi(ab)\in H'$ so $H'$ is closed.
+            \item Inverses\\
+                $\phi$ is onto so for any $a'\in H'$, there exists an $a\in H$ such that $a' = \phi(a)$. Then:
+                \begin{align}
+                    \begin{split}
+                        a'^{-1} &= \phi(a)^{-1}\\
+                                &= \phi(a^{-1})
+                    \end{split}
+                \end{align}
+                $H$ is a group so $a^{-1}\in H$ and thus $a'^{-1}\in H'$
+        \end{enumerate}
+        Thus $H'$ is a subgroup of $G'$.
+
+
+        We now prove that $H'$ is normal in $G'$.
+        Let $g'\in G'$ and $h'\in \phi(H)$. So there exists an $h\in H$ such that $\phi(h) = h'$ and because $\phi$ is an epimorphism there exists $g\in G$ such that $\phi(g) = g'$. Then:
+        \begin{align}
+            \begin{split}
+                g'h'g'^{-1} &= \phi(g)\phi(h)\phi(g)^{-1}\\
+                            &= \phi(ghg^{-1}).
+            \end{split}
+        \end{align}
+        $H$ is normal in $G$ so $ghg^{-1}\in H$ and thus $\phi(ghg^{-1}\in H'$. So $H'$ is normal in $G'$.
+    \item
+        Define the mapping $\sigma: G/H\to G'/H'$ by $\sigma(gH) = \phi(g)H'$. First we show that $\sigma$ is well defined. Assume that for $g_1, g_2\in G$, $g_1H = g_2H$. Then $g_1^{-1}g_2 = h$ for some $h\in H$. Then:
+        \begin{align}
+            \begin{split}
+                \phi(g_2)^{-1}\phi(g_1) &= \phi(g_2^{-1}g_1)\\
+                                        &= \phi(h)
+            \end{split}
+        \end{align}
+        $\phi(h)\in \phi(H) = H'$ so $\phi(g_1)H' = \phi(g_2)H'$. Thus:
+        $$\sigma(g_1H) = \phi(g_1)H' = \phi(g_2)H' = \sigma(g_2H)$$
+        so $\sigma$ is well defined. Now we show $\sigma$ is a homomorphism.
+        \begin{align}
+            \begin{split}
+                \sigma(g_1H)\sigma(g_2H) &= \phi(g_1)H'\phi(g_2)H'\\
+                                         &= \phi(g_1)\phi(g_2)H'\\
+                                         &= \phi(g_1g_2)H'\\
+                                         &= \sigma(g_1g_2H)\\
+                                         &= \sigma(g_1Hg_2H)
+            \end{split}
+        \end{align}
+
+        In order to show that $\sigma$ is one-to-one, assume that for some $g_1, g_2\in G$, $\sigma(g_1H) = \sigma(g_2H)$. Then $\phi(g_1)H' = \phi(g_2)H'$ which implies that $\phi(g_1)^{-1}\phi(g_2) \in H'$ and $\phi(g_1)^{-1}\phi(g_2) = h'$ for some $h'\in H'$. $H' = \phi(H)$ so there exists an $h\in H$ such that $h' = \sigma(h)$. Thus:
+        \begin{align}
+            \phi(g_1)\phi(g_2) &= \phi(h)\\
+            \phi(g_1)\phi(g_2)\phi(h)^{-1} &= e'\\
+            \phi(g_1g_2h^{-1}) &= e'
+        \end{align}
+        Therefore, $g_1g_2h^{-1}\in \ker\phi\subseteq H$. Multiplying by $h$ we get $g_1g_2\in H$ and thus $g_1H = g_2H$ and $\sigma$ is one-to-one.
+        
+        Let $g'h'$ be an arbitrary element in $G'/H'$. $\sigma$ is onto so there exists an element $g\in G$ such that $\phi(g) = g'$. Then $\sigma(gH) = \phi(g)H' = g'H'$ and $\sigma$ is onto.
+
+        Being a bijective homomorphism, $\sigma$ is an isomorphism and $G/H$ is isomorphic to $G'/H'$.
+
+
+
+\end{enumerate}
+
+
+\problem{\# 30}
+Let $G$ be a group with center $Z(G) = C$. Prove that if $G/C$ is cyclic, then $G$ is abelian.
+\solution
+$G/C = \Set{gC\given g\in G}$. $G/C$ is cyclic so there is some element $gC$ that generates $G/C$. For $a, b\in G$, $a\in (gC)^{i} = g^iC$, and $b\in (gC)^j = g^jC$. Then for some $c_1, c_2 \in C$, $a=g^ic_1$ and $b=g^jc_2$. Then
+\begin{align}
+    \begin{split}
+        ab &= g^ic_1g^jc_2\\
+           &= g^ig^jc_1c_2\\
+           &= g^{i+j}c_1c_2\\
+           &= g^{j+1}c_1c_2\\
+           &= g^jg^ic_1c_2\\
+           &= g^jc_1g^ic_2\\
+           &= ba
+    \end{split}
+\end{align}
+Therefore $G$ is abelian.
+
+\problem{\# 32}
+Let $a$ be a fixed element of the group $G$. According to Exercise 20 of Section 3.5, the mapping $t_a:G\to G$ defined by $t_a(x) = axa^{-1}$ is an automorphism of $G$. Each of these automorphisms $t_a$ is called an \textbf{inner automorphism} of $G$. Prove that the set Inn($G) = \Set{t_a\given a\in G}$ forms a normal subgroup of the group of all automorphisms of $G$.
+\solution
+\part
+It is clear that Inn$(G)$ is a subset of the group containing all automorphisms of $G$. First we show that it is a subgroup.
+\begin{itemize}
+    \item Identity\\
+        $t_e \in Inn(G)$
+    \item Closed\\
+        For $t_{a_1}, t_{a_2}\in$ Inn$(G)$:
+        \begin{align}
+            \begin{split}
+                t_{a_1} \circ t_{a_2}(g) &= t_{a_1}(t_{a_2}(g))\\
+                                         &= t_{a_1}(a_2ga_{2}^{-1})\\
+                                         &= (a_1a_2ga_{2}^{-1}a_{1}^{-1})\\
+                                         &= (a_1a_2)g(a_1a_2)^{-1}\\
+                                         &= t_{a_1a_2}(g)
+            \end{split}
+        \end{align}
+        $G$ is closed so $a_1a_2\in G$ and $t_{a_1a_2}$ is another inner automorphism.
+    \item Inverses\\
+        For $a\in G$, $t_a(G) = aga^{-1}$. Then:
+        \begin{align}
+            \begin{split}
+                t_{a^{-1}}\circ t_{a}(g) &= t_{a^{-1}}(t_{a}(g))\\
+                                         &= t_{a^{-1}a}(g)\\
+                                         &= t_{e}(g)
+            \end{split}
+        \end{align}
+        and
+        \begin{align}
+            \begin{split}
+                t_{a}\circ t_{a^{-1}}(g) &= t_{a}(t_{a^{-1}}(g))\\
+                                         &= t_{aa^{-1}}(g)\\
+                                         &= t_{e}(g)
+            \end{split}
+        \end{align}
+        So Inn$(G)$ contains inverses.
+\end{itemize}
+Therefore Inn$(G)$ is a subgroup of the group of all automorphisms of $G$.
+\part
+Now we show that Inn$(G)$ is normal by demonstrating that for any automorphism $\phi: G\to G$ and any $t_a \in$ Inn$(G)$, $\phi t_a \phi^{-1} \in $ Inn$(G)$.
+\begin{align}
+    \begin{split}
+        \phi \circ t_a \circ \phi^{-1}(g) &= \phi(t_a(\phi^{-1}(g)))\\
+                                          &= \phi(a\phi^{-1}(g)a^{-1})\\
+                                          &= \phi(a)\phi(\phi^{-1}(g))\phi(a^{-1})\\
+                                          &= \phi(a)h\phi(a^{-1})\\
+                                          &= \phi(a)h[\phi(a)]^{-1}\\
+                                          &= t_{\phi(a)}
+    \end{split}
+\end{align}
+$\phi$ is an automorphism so $\phi(a)\in G$ and therefore $\phi t_a\phi^{-1} = t_{\phi(a)} \in $ Inn$(G)$. 
+
+
+\problem{\# 34}
+If $H$ and $K$ are normal subgroups of the group $G$ such that $G = HK$ and $H\cap K = \Set{e}$, then $G$ is said to be the \textbf{internal direct product} of $H$ and $K$, and we write $G = H\times K$ to denote this. If $G = H\times K$, prove that $\phi: H\to G/K$ defined by $\phi(h) = hK$ is an ismorphism from $H$ to $G/K$.
+\solution
+First we show that $\phi$ is a homomorphism. For $h_1, h_2\in H$:
+\begin{align}
+    \begin{split}
+        \phi(h_1h_2) &= h_1h_2K\\
+                     &= h_1Kh_2K\\
+                     &= \phi(h_1)\phi(h_2)
+    \end{split}
+\end{align}
+Now we show that $\phi$ is one-to-one. For $h_1, h_2\in H$ assume that $\phi(h_1) = \phi(h_2$. Then $h_1K = h_2K$ and $h_2^{-1}h_1 = K$. This implies that $h_2^{-1}h_2\in K$ and because $H$ is closed it is clear that $h_2^{-1}h_1\in H$. Therefore $h_2^{-1}h_1 = e$. This implies that $h_1 = h_2$ and thus $\phi$ is one-to-one.
+
+Now we show that $\phi$ is onto. For any $g\in G$, $g = hk$ for some $h\in H, k\in K$. Thus $gK = hkK = hK = \phi(h)$ and $\phi$ is onto.\\
+
+Being a homomorphism that is both one-to-one and onto, $\phi$ is an isomorphism.
+
+%SECTION 4.7
+\section*{Section 4.7}
+\problem{\# 18}
+\begin{enumerate}
+    \item Find all subgroups of $\mathbb{Z}_2 \oplus \mathbb{Z}_4$.
+    \item Find all subgroups of $\mathbb{Z}_2 \oplus \mathbb{Z}_6$.
+\end{enumerate}
+\solution
+\part
+\begin{align*}
+    \begin{split}
+        \Set{(0, 0)}, \Set{(0, 2), (0, 0)}, \Set{(1, 0), (0, 0)}, &\Set{(1, 2), (0, 0)}, \Set{(0, 2), (1, 0), (1, 2), (0, 0)},\\
+        \Set{(0, 1), (0, 2), (0, 3), (0, 0)}, &\Set{(1, 1), (0, 2), (1, 3), (0,0)}, \mathbb Z_2 \oplus \mathbb Z_4
+    \end{split}
+\end{align*}
+
+\part
+\begin{align*}
+    \begin{split}
+        &\Set{(0, 0)}, \Set{(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5)}, \Set{(0, 0), (0, 3)}, \Set{(0, 0), (1, 0)}, \Set{(0, 0), (1, 3)}\\
+                      &\Set{(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5)}, \Set{(0, 0), (0, 3), (1, 0), (1, 4)}\\
+                      &\Set{(0, 0), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5)}
+    \end{split}
+\end{align*}
+
+\end{document}

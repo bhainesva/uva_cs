@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+ 
+
+\begin{document}
+Name: Ben Haines\\
+ID: bmh5wx\\
+File: radixWorksheet.pdf\\
+Date: 09/21/14S\\
+Convert:
+\begin{enumerate}
+\item0x4F45		into octal
+\begin{align}
+\begin{split}
+0x4F45 &= 4(16^3) + F(16^2) + 4(16) + 5\\
+&= 4(4096) + 15(256) + 4(16) + 5\\
+&= 16384 + 3840 + 64 + 5\\
+&= 20293_{10}
+\end{split}
+\end{align}
+\begin{align}
+\begin{split}
+20293_{10} &= 4(8^4) +7(8^3) + 5(8^2) + 5\\
+&= 47505_8
+\end{split}
+\end{align}
+
+\item$269_{10}$			into radix 7
+\begin{align}
+\begin{split}
+269_{10} &= 5(7^2) + 3(7) + 3\\
+&= 533_7
+\end{split}
+\end{align}
+
+\item$110011011110_2$ 	into decimal
+\begin{align}
+\begin{split}
+110011011110_2 &= 1(2^{11}) + 1(2^{10}) +0(2^{9}) +0(2^{8}) +1(2^{7}) +1(2^{6}) +0(2^{5}) +1(2^{4}) +1(2^{3}) +1(2^{2}) +1(2^{1}) +0(2^{0})\\
+&= 2048 + 1024 +128 +64 +16 +8 +4 +2\\
+&= 3292
+\end{split}
+\end{align}
+
+\item2BD$_{19}$			into decimal
+\begin{align}
+\begin{split}
+2BD_19 &= 2(19^{2}) + B(19^{1}) + D(19^{0})\\
+&= 2(361) + 11(19) + 13\\
+&= 944
+\end{split}
+\end{align}
+
+\item Given the following positive binary integer in two’s complement: 0101001101011101
+\subitem a. Convert the number to hexadecimal. 
+\begin{align}
+0101 &= 5_{10} = 5_{16}\\
+0011 &= 3_{10} = 3_{16}\\
+0101 &= 5_{10} = 5_{16}\\
+1101 &= 13_{10} = \text{D}_{16}\\
+0101001101011101_{2} &= 0\text{x}535\text{D}
+\end{align}
+\subitem b. Negate the number.
+\begin{align}
+1101001101011101
+\end{align}
+\end{enumerate}
+\end{document}

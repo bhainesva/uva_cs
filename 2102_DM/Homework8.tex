@@ -1,0 +1,180 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usepackage{amsmath, amssymb}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\usepackage{listings}
+\usepackage{color}
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
+\DeclareMathSymbol{\vardiamond}{\mathalpha}{extraup}{87}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+\title{Discrete Math - Homework Set \#8}
+\author{Ben Haines (bmh5wx)}
+\problem{\#1}
+Use the Euclidean algorithm to calculate the greatest commmon divisor for 24,024 and 7,524. Then use your work to write the gcd as a linear combination of 24,024 and 7,524.
+\solution
+\begin{align*}
+    24024 &= (3)7524 + 1542\\
+    7524 &= (5)1452 + 264\\
+    1452 &= (5)264 + 132\\
+    132 &= (2)132
+\end{align*}
+So the GCD of 24,024 and 7524 is 132. To write the GCD as a linear combination of the two numbers we first solve for the remainders.
+\begin{align*}
+    1452 &= 24042(1) + 7524(-3)\\
+    264 &= 7524(1) + 1452(-5)\\
+    132 &= 1452(1) + 264(-5)
+\end{align*}
+And then we plug in these values to the equations from the first step.
+\begin{align}
+    \begin{split}
+        132 &= 1452(1) + 264(-5)\\
+            &= 1452(1) + (7524 + 1452(-5))(-5)\\
+            &= 1452(1) + 7524(-5) + 1452(25)\\
+            &= 1452(26) + 7524(-5)\\
+            &= (24024 + 7524(-3))(26) + 7524(-5)\\
+            &= 24024(26) + 7524(-78) + 7524(-5)\\
+            &= 24024(26) + 7524(-83)
+    \end{split}
+\end{align}
+
+\problem{\#2}
+Suppose $R$ is an equivalence relation on $A$, $S$ is an equivalence relation on $B$, and $A$ and $B$ are disjoint. Prove that $R\cup S$ is an equivalence relation on $A\cup B$.
+\solution
+\begin{itemize}
+    \item Reflexive\\
+        For any $x\in A\cup B$, either
+        \begin{itemize}
+            \item Case 1: $x\in A$\\
+                $(x, x)\in R\implies (x, x)\in R\cup S$
+            \item Case 2: $x\in B$\\
+                $(x, x)\in S\implies (x, x)\in R\cup S$
+        \end{itemize}
+    \item Symmetric\\
+        For any $(x, y)\in R\cup S$, either
+        \begin{itemize}
+            \item Case 1: $(x, y)\in R$\\
+                $\implies (y, x)\in R\implies (y, x)\in R\cup S$
+            \item Case 2: $(y, x)\in S$\\
+                $\implies (y, x)\in S\implies (y, x)\in R\cup S$
+        \end{itemize}
+    \item Transitive\\
+        Take arbitrary $(x, y), (y, z)\in R\cup S$. $y$ cannot be an element of both $A$ and $B$ because they are disjoint so either
+        \begin{itemize}
+            \item Case 1: $(x, y), (y, z)\in R$\\
+                $\implies (x, z)\in R\implies (x, z)\in R\cup S$
+            \item Case 2: $(x, y), (y, z)\in S$\\
+                $\implies (x, z)\in S\implies (x, z)\in R\cup S$
+        \end{itemize}
+\end{itemize}
+$R\cup S$ is reflexive, symmetric, and transitive, so $R\cup S$ is an equivalence relation.
+
+\problem{\#3}
+Suppose that $R$ is a partial order relation on a set $A$ and that $B$ is a subset of $A$. The restriction of $R$ to $B$ is defined as follows:
+$$\Set{(x, y)\given x\in B, y\in B,\text{ and } (x, y)\in R}$$
+In other words, two elements of $B$ are related by the restriction of $R$ to $B$ if, and only if, they are related by $R$. Prove that the restriction of $R$ to $B$ is a partial order relation on $B$. (In less formal language, this says that a subset of a partially ordered set is partially ordered.)
+\solution
+Let $S =$ the restriction of $R$ to $B$.
+\begin{itemize}
+    \item Reflexive\\
+        For any $b\in B$, $(b, b)\in R\implies (b, b)\in S$.
+    \item Antisymmetric\\
+        For any $(x, y)\in S$ such that $x\not=y$:
+        \begin{align*}
+            \begin{split}
+                (x, y)\in S &\implies (x, y)\in R\\
+                            &\implies (y, x)\not\in R\\
+                            &\implies (y, x)\not\in S
+            \end{split}
+        \end{align*}
+    \item Transitive\\
+        For any $(x, y), (y, z)\in S$ it must be the case that $x, y, z\in B$ and:
+        \begin{align*}
+            \begin{split}
+                (x, y), (y, z)\in S  &\implies (x, y), (y, z)\in R\\
+                                     &\implies (x, z)\in R\\
+                                     &\implies (x, z)\in S
+            \end{split}
+        \end{align*}
+        So $S$ is transitive.
+\end{itemize}
+So the restriction of $R$ to $B$ is a partial order relation.
+
+\problem{\#4}
+Suppose $R$ is a partial order on $A$. Prove that $R^{-1}$ is also a partial order on $A$.
+\solution
+\begin{itemize}
+    \item Reflexive\\
+        For all $x\in A$, $(x, x)\in R\implies (x, x)\in R^{-1}$
+    \item Antisymmetric\\
+        For any $x, y\in A$ such that $x\not=y$
+            $$(x, y)\in R \implies (y, x)\in R^{-1}$$
+        and
+        \begin{align*}
+            (x, y)\in R &\implies (y, x)\not\in R\\
+                        &\implies (x, y)\not\in R^{-1}
+        \end{align*}
+    \item Transitive\\
+        For all $x, y, z\in A$ such that $(x, y), (y, z)\in R^{-1}$.
+        \begin{align*}
+            (x, y), (y, z)\in R^{-1} &\implies (y, x), (z, y)\in R\\
+                                     &\implies (z, x)\in R\\
+                                     &\implies (x, z)\in R^{-1}
+        \end{align*}
+\end{itemize}
+So $R^{-1}$ is a partial order on $A$.
+
+\problem{\#5}
+In each case, say whether or not $R$ is a partial order on $A$. If it is explain why and if not explain why not.
+\begin{enumerate}
+    \item $A = $ the set of all words in English,
+        $$R = \Set{(x, y)\in A \times A\given \text{ the word $y$ occurs at least as late in alphabetical order as the word $x$.}}$$
+    \item $A$ is the same as above and\\
+        $R = \{(x, y)\in A\times A\mid$ The first letter of the word $y$ occurs at least as late in the alphabet as the first letter of the word $x\}$
+\end{enumerate}
+\solution
+\part
+The relation is a partial order on $A$. It is reflexive, antisymmetric, and transitive.
+\part
+The relation is not a partial order on $A$. It is reflexive and transitive but not antisymmetric. For example, ("cat", "crab")$\in R$ and ("crab", "cat)$\in R$ and "cat"$\not=$"crab".
+
+\problem{\#6}
+For any sets $A, B, C,$ and $D$, if $A\times B\subseteq C\times D$ then $A\subseteq C$ and $B\subseteq D$. Is the following proof correct? If so, what proof strategies does it use? If not, can it be fixed? Is the theorem correct?\\
+
+\textbf{Proof.} Suppose $A\times B\subseteq C\times D$. Let $a$ be an arbitrary element of $A$ and let $b$ be an arbitrary element of $B$. Then $(a, b)\in A\times B$. Since $A\times B\subseteq C\times D$, $(a, b)\in C\times D$. Therefore $a\in C$ and $b\in D$. Since $a$ and $b$ were arbitrary elements of $A$ and $B$ respectively, this shows that $A\subseteq C$ and $B\subseteq D$.
+\solution
+The proof is not correct. If $B$ and $C$ are empty then $A\times B\subseteq C\times D$ and it is not necessarily the case that $A\subseteq C$. The proof can be made correct by adding the qualification that the sets $A, B, C,$ and $D$ are not empty.
+
+\problem{\#7}
+Let $p=7$ and $q=13$ and $e=5$, using RSA Encryption, encrypt the following message and decrypt it to prove you get the same message back. The message is "I$\varheart$MATH", use the Caesar cipher for the letters (A=1, B=2,\ldots, Z=26) and let $\varheart=$27. You can use a calculator but you must show where the numbers come from.
+\solution
+The multiplicative inverse of 5 mod (6)(13) is 29. Then with I=9, $\varheart$=27, M=13, A=1, T=20, and H=8 and using the encryption function encrypt(T) = $(T^e) \mod pq$ we have:\\
+encrypt(I) = 81, encrypt($\varheart$) = 27, encrypt(M) = 13, encrypt(A) = 1, encrypt(T)=76, and encrypt(H)=8.
+
+Then using the decrpytion function decrypt(C) = $C^D \mod PQ$ we have:\\
+decrypt(81) = I, encrypt(27) = $\varheart$, encrypt(13) = M, encrypt(1) = A, encrypt(76)=T, and encrypt(8)=H, the original message.
+
+\end{document}

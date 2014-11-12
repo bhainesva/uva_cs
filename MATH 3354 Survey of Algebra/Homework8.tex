@@ -1,0 +1,281 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\DeclareMathOperator{\lcm}{lcm}
+\usepackage{enumitem,multicol,setspace}% http://ctan.org/pkg/{enumitem,multicol,setspace}
+\newcounter{subenum}[enumi]
+\renewcommand{\thesubenum}{\alph{subenum}}
+
+\begin{document}
+\title{Survey of Algebra - Assignment \#8}
+\author{Ben Haines (bmh5wx)}
+%SECTION 4.4
+\section*{Section 4.4}
+In Exercises 7 and 8, let $G$ be the multiplicative group of permutation matrices $\Set{I_3, P_3, P^{2}_3, P_1, P_4, P_2}$ in Example 6 of Section 3.5.
+\problem{\#7}
+Let $H$ be the subgroup of $G$ given by 
+$$ H = \Set{I_3, P_4} = \left\{
+\left( \begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \end{array} \right),
+\left( \begin{array}{ccc}
+0 & 0 & 1 \\
+0 & 1 & 0 \\
+1 & 0 & 0 \end{array} \right)\right\}
+$$
+\begin{enumerate}
+    \item Find the distinct left cosets of $H$ in $G$, write out the elements, partition $G$ into left cosets of $G$, and give $[G:H]$.
+    \item Find the distinct right cosets of $G$ in $G$, write out their elements, and partition $G$ into right cosets of $H$.
+\end{enumerate}
+\solution
+\part
+The distinct left cosets of $H$ in $G$ are 
+\begin{align}
+    &I_3H = H && P_1H = \Set{P_1, P_{3}^{2}} && P_2H = \Set{P_2, P_3}
+\end{align}
+So $G = H\cup P_1H\cup P_2H$ and $[G:H] = 3$.
+\part
+The distinct right cosets of $H$ in $G$ are 
+\begin{align}
+    &HI_3 = H && HP_1 = \Set{P_1, P_{3}} && HP_2 = \Set{P_2, P_3^{2}}
+\end{align}
+So $G = H\cup HP_1\cup HP_2$.
+
+
+\problem{\#8}
+Let $H$ be the subgroup of $G$ given by
+$$
+H = \Set{I_3, P_3, P_{3}^{2}} = \left\{
+\left( \begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \end{array} \right),
+\left( \begin{array}{ccc}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+1 & 0 & 0 \end{array} \right),
+\left( \begin{array}{ccc}
+0 & 0 & 1 \\
+1 & 0 & 0 \\
+0 & 1 & 0 \end{array} \right)\right\}
+$$
+\begin{enumerate}
+    \item Find the distinct left cosets of $H$ in $G$, write out their elements, partition $G$ into left cosets of $H$, and give $[G:H]$.
+    \item Find the distinct right cosets of $H$ in $G$, write out their elements, and partition $G$ into right cosets of $H$.
+\end{enumerate}
+\solution
+\part
+The distinct left cosets of $H$ in $G$ are 
+\begin{align}
+    &I_3H = H && P_1H = \Set{P_1, P_2, P_4}
+\end{align}
+So $G = H\cup HP_1$ and $[G:H] = 2$.
+\part
+The distinct right cosets of $H$ in $G$ are 
+\begin{align}
+    &HI_3 = H && HP_1 = \Set{P_1, P_2, P_4}
+\end{align}
+So $G = H\cup HP_1$.
+
+
+\problem{\#9}
+Let $H$ be a subgroup of a group $G$ with $a, b\in G$. Prove that $aH = bH$ if and only if $a\in bH$.
+\solution
+\part
+Let $aH = bH$ and let $x$ be some element in $aH$. $x$ is also in $bH$. $x = ah_1$ and $x = bh_2$.
+\begin{align}
+    \begin{split}
+        xh_{1}^{-1} &= ah_1h_{1}^{-1}\\
+                    &= a
+    \end{split}
+    \begin{split}
+        a &= (bh_2)h_{1}^{-1}\\
+          &= b(h_2h_{1}^{-1})
+    \end{split}
+\end{align}
+The product $h_2h_{1}^{-1}$ is in $H$ because $H$ is closed and therefore $a\in bH$ because it can be written in the form $a = bh$ for some $h\in H$.
+\part
+Now let $a\in bH$. Then for some $h_1\in H$:
+\begin{align}
+    a &= bh_1\\
+    b &= ah_{1}^{-1}
+\end{align}
+Now select some arbitrary $y$ in $bH$. Then for some arbitrary $h_2$ in $H$:
+\begin{align}
+    y &= bh_2\\
+      &= (ah_{1}^{-1})h_2
+\end{align}
+The product $h_{1}^{-1}h_2$ is in $H$ because $H$ is closed. Thus $bH\subseteq aH$
+
+Take an arbitrary $z\in aH$. Then for some $h_3$ in $H$:
+\begin{align}
+    \begin{split}
+        z &= ah_3\\
+          &= (bh_1)h_3
+    \end{split}
+\end{align}
+The product $h_1h_3$ is in $H$ because $H$ is closed and so $aH \subseteq bH$. Thus $aH = bH$.
+
+\problem{\#10}
+Let $H$ be a subgroup of a group $G$ with $a, b \in G$. Prove that $aH = bH$ if and only if $a^{-1}b\in H$
+\solution
+\part
+Let $aH = bH$. By the result of Problem \#9 $b\in aH$. So $b$ can be written as $ah_1$ for some $h_1$ in $H$.
+\begin{align}
+    \begin{split}
+        a^{-1}b &= a^{-1}(ah_1)\\
+                &= eh_1\\
+                &= h_1
+    \end{split}
+\end{align}
+So $a^{-1}b \in H$.
+\part
+Let $a^{-1}b$ be an element of $H$. Then $a^{-1}b = h$ for some $h\in H$. Then $aa^{-1}b = ah$ so $b=ah$ and $b \in aH$. Then by the result of Problem \#9 $aH = bH$.
+
+\problem{\#18}
+Let $G$ be a group of finite order $n$. Prove that $a^n = e$ for all $a$ in $G$.
+\solution
+It is known from previous chapters that for finite groups every element of the group generates a subgroup and that for an element $a$ of the group, the order of the subgroup generated by $a$ is $k$ where $k$ is the smallest positive integer such that $a^k = e$. By Lagrange's Theorem we also know that the order of the subgroup, $k$, divides the order of the group, $n$. $k$ cannot be larger than $n$ because that would imply that the subgroup has more elements than the group of which it is a subgroup. If $k=n$ then the statement is trivially true. If $k<n$ then by Lagranges theorem $n = qk$ for some integer $q$. Then:
+\begin{align}
+    a^n &= a^{qk}\\
+        &= (a^{k})^{q}\\
+        &= e^{q}\\
+        &= e
+\end{align}
+So in all cases $a^n = e$.
+
+\problem{\#19}
+Find the order of each of the following elements in the multiplicative group of units $U_p$.
+\begin{multicols}{2}
+    \begin{enumerate}[itemsep=1cm]
+        \item $[2]$ for $p = 13$
+        \item $[5]$ for $p = 13$
+        \item $[3]$ for $p = 17$
+        \item $[8]$ for $p = 17$
+    \end{enumerate}
+\end{multicols}
+\solution
+\part
+The order of $[2]$ in $U_{13}$ is 12
+\part
+The order of $[5]$ in $U_{13}$ is 4
+\part
+The order of $[3]$ in $U_{17}$ is 16
+\part
+The order of $[8]$ in $U_{17}$ is 8
+
+\problem{\#20}
+Find all subgroups of the octic group $D_4$.
+\solution
+The subgroups of $D_4$ are as follows:
+\begin{align*}
+    &\Set{e} && \Set{e, \beta} && \Set{e, \gamma}, &&\Set{e, \delta}\\
+    &\Set{e, \theta}, &&\Set{e, \alpha^2}, &&\Set{e, \alpha, \alpha^2, \alpha^3}, &&\Set{e,\alpha^2, \beta, \delta}\\
+    &\Set{e, \alpha^2, \gamma, \theta}, &&D_4
+\end{align*}
+
+
+\problem{\#21}
+Find all subgroups of the alternating group $A_4$.
+\solution
+The subgroups of $A_4$ are as follows:
+\begin{align*}
+    &\Set{e}, && \Set{e, (1 2)(3 4)}, && \Set{e, (1 3)(2 4)}\\
+    &\Set{e, (1 4)(2 3)}, &&\Set{e, (1 2)(3 4), (1 3)(2 4), (1 4)(2 3)} &&\Set{e, (2 3 4), (2 4 3)}\\
+    &\Set{e, (1 3 4), (1 4 3)}, &&\Set{e, (1 2 4), (1 4 2)} && \Set{e, (1 2 3), (1 3 2)}\\
+    &A_4
+\end{align*}
+
+\problem{\#31}
+A subgroup $H$ of the group $S_n$ is called transitive on $B = \Set{1, 2,\ldots, n}$ if for each pair $i, j$ of elements of $B$ there exists an element $h\in H$ such that $h(i) = j$. Suppose $G$ is a group that is transitive on $\Set{1, 2,\ldots, n}$, and let $H_i$ be the subgroup of $G$ that leaves $i$ fixed:
+$$H_i = \Set{g\in G\given g(i) = i}$$
+for $i=1, 2\ldots, n$. Prove that $\mid G\mid = n \cdot \mid H_i\mid$.
+\solution
+For $H_1$ consider two permutations, $\sigma, \tau \in G$, that map 1 to i. Then the composition $\tau^{-1}\sigma$ maps 1 to 1 and is an element of $G$ ($G$ is closed) and is thus an element of $H_1$. By the result of problem \# 10, $\sigma H_1 = \tau H_1$. There are $n$ possible locations for a permutation in $G$ to map $1$ to and we know, because $G$ is transitive on $B$, that there is at least one element of $G$ that maps 1 to that location. Therefore because each of these locations clearly creates a different coset and permutations that map 1 to the same element create the same coset, there are $n$ distinct cosets. By the same arguments the above statements hold for any $H_j$ for $j$ in the range 1 to $n$. Thus $[G:H_j] = n$ for all $j$ in that range. By Lagrange's theorem $\mid G\mid = n \cdot \mid H_i \mid$.
+
+%SECTION 4.5
+\newpage
+\section*{Section 4.5}
+
+\problem{\#14}
+Find groups $H$ and $G$ such that $H\subseteq G\subseteq A_4$ and the following conditions are satisfied:
+\begin{enumerate}
+    \item $H$ is a normal subgroup of $G$.
+    \item $G$ is a normal subgroup of $A_4$.
+    \item $H$ is not a normal subgroup of $A_4$.
+\end{enumerate}
+(Thus the statement "A normal subgroup of a normal subgroup is a normal subgroup" is false.)
+\solution
+\begin{align}
+    G &= \Set{e, (1 2)(3 4), (1 3)(2 4), (1 4)(2 3)} &&H=\Set{e, (1 2)(3 4)}
+\end{align}
+
+\problem{\#15}
+Find groups $H$ and $K$ such that the following conditions are satisfied:
+\begin{enumerate}
+    \item $H$ is a normal subgroup of $K$.
+    \item $K$ is a normal subgroup of the octic group.
+    \item $H$ is a not a normal subgroup of the octic group
+\end{enumerate}
+\solution
+\begin{align}
+    &K = \Set{e, \gamma, \alpha^2, \theta} &&H = \Set{e, \gamma}
+\end{align}
+
+\problem{\#25}
+Find the center of the octic group $D_4$.
+\solution
+$$Z(D_4) = \Set{e, \alpha^2}$$
+
+\problem{\#26}
+Find the center of $A_4$.
+\solution
+$$Z(A_4) = \Set{e}$$
+
+\problem{\#27}
+Suppose $H$ is a normal subgroup of order 2 of a group $G$. Prove that $H$ is contained in $Z(G)$, the center of $G$.
+\solution
+We can write $H = \Set{e, a}$ for $a\not= e\in G$. We know that $H$ is normal so therefore $gHg^{-1} = H$ for all $g\in G$. For any $g\in G$, $geg^{-1} = e$ and so for $H$ to be normal $gag^{-1}$ must equal $a$. Then for all $g$ in $G$:
+\begin{align}
+    gag^{-1} &= a\\
+    gag^{-1}g &= ag\\
+    ga &= ag
+\end{align}
+$a$ commutes with every element of $G$ and $a$ is an element of $G$ so $a\in Z(G)$.
+
+
+%SECTION 4.6
+\newpage
+\section*{Section 4.6}
+
+\problem{\#18}
+If $H$ is a subgroup of the group $G$ such that $(aH)(bH) = abH$ for all left cosets $aH$ and $bH$ of $H$ in $G$, prove that $H$ is normal in $G$.
+\solution
+For any $x\in G$:
+\begin{align}
+    \begin{split}
+        H &= (xx^{-1})H\\
+          &= (xH)(x^{-1}H)
+    \end{split}
+\end{align}
+This means that for any $h_1, h_2\in H$. There exists some $h\in H$ such that $h = xh_1x^{-1}h_2$. Namely, this is true for $h_2 = e$. This means that $xh_1x^{-1} \in H$ for all $h_1$. This is equivalent to saying that $H$ is normal in $G$.
+
+\problem{\#27}
+\begin{enumerate}
+    \item Show that a cyclic group of order 8 has a cyclic group of order 4 as a homomorphic image.
+    \item Show that cyclic group of order 6 has a cyclic group of order 2 as a homomorphic image.
+\end{enumerate}
+\solution
+\part
+Let $G$ be a cyclic group of order 8. $G = \langle a \rangle = \Set{e, a, a^2, a^3, a^4, a^5, a^6, a^7}$ for some element $a\in G$. Let $H$ be the normal subgroup generated by $a^4 = \Set{e, a^4}$ of order two. Then by Lagrange's Theorem $\mid G/H\mid = 8/2 = 4$. By Theorem 4.25 the mapping $\phi: G\to G/H$ defined by $\phi(a) = aH$ is an epimorphism from $G$ to $G/H$. Now it only remains to show that $G/H$ is cyclic. 
+
+Any element $x \in G/H$ can be written as $gH$ for some $g\in G$. $G$ is the cyclic group generated by $a$ so $g=a^i$ for some integer $i$. Then $x=a^iH = (aH)^i$. So any element of $G/H$ can be written as $(aH)^i$ for some integer $i$ and $G/H$ is cyclic by definition. So a cyclic group of order 8 has a cyclic group of order 4 as a homomorphic image.
+
+\part
+Let $G$ be a cyclic group of order 6. $G = \langle a \rangle = \Set{e, a, a^2, a^3, a^4, a^5}$ for some element $a\in G$. Let $H$ be the normal subgroup generated by $a^2 = \Set{e, a^2, a^4}$ of order 3. Then by Lagrange's Theorem $\mid G/H\mid = 6/3 = 2$. By theorem 4.25 the mapping $\phi: G\to G/H$ defined by $\phi(a) = aH$ is an epimorphism from $G$ to $G/H$. It has already been shown that $G/H$ is cyclic when $G$ is cyclic. So a cyclic group of order 6 has a cyclic group of order 2 as a homomorphic image.
+\end{document}

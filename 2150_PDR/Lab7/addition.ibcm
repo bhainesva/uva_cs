@@ -1,0 +1,23 @@
+B000   000 a    dw 0            int a;
+B000   001 b    dw 0            int b;
+B000   002 c    dw 0            int c;
+B000   003 stt  nop
+1000   004      readH           read input into acc
+4000   005      store     a     store acc in a
+1000   006      readH           read input into acc
+4001   007      store     b     store acc in b
+1000   008      readH           read input into acc
+4002   009      store     c     store acc into c
+3000   00A      load      a     load a into acc
+5001   00B      add       b     acc += b
+5002   00C      add       c     acc += c
+1800   00D      printH          output acc (a+b+c)
+D010   00E      jmpe      fin   if acc == 0 jump to fin
+C003   00F      jmp       stt   else jump to stt
+3000   010 fin  load      a     load a
+1800   011      printH          print a
+3001   012      load      b     load b
+1800   013      printH          print b
+3002   014      load      c     load c
+1800   015      printH          print c
+0000   016      halt   

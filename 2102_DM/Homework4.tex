@@ -1,0 +1,109 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\DeclareMathOperator{\lcm}{lcm}
+
+\begin{document}
+\title{Discrete Math - Homework Set \#4}
+\author{Ben Haines (bmh5wx)}
+\problem{}
+Identify the error or errors in this argument that supposedly show that if $\forall x(P(x)\lor Q(x))$ is true then $\forall xP(x)\lor \forall Q(x)$.
+\begin{enumerate}
+\item $\forall x(P(x)\lor Q(x))$
+\item $P(c)\lor Q(c)$
+\item $P(c)$
+\item $\forall xP(x)$
+\item $Q(c)$
+\item $\forall xQ(x)$
+\item $\forall xP(x) \lor \forall xQ(x)$
+\end{enumerate}
+
+\solution
+
+
+\problem{}
+Use the following two assumptions:
+\begin{enumerate}
+\item ``Logic is difficult or not many students like logic.''
+\item ``If mathematics is easy, then logic is not difficult.''
+\end{enumerate}
+By translating these assumptions into statements involving propositional variables and logical connectives, determine whether each of the following are valid conclusions of these assumptions:
+\begin{enumerate}
+\item If many students like logic, then mathematics is not easy.
+\item That not many students like logic, if mathematics is not easy.
+\item That mathematics is not easy or logic is difficult.
+\item That logic is not difficult or mathematics is not easy.
+\item That if not many students like logic, then either mathematics is not easy or logic is not difficult.
+\end{enumerate}
+
+\solution
+
+
+
+\problem{}
+Prove the following statement. $p\implies q \equiv (P\land \neg q) \implies F$.
+\solution
+
+
+\problem{}
+Given the following:
+\begin{enumerate}
+\item $\neg t$
+\item $s \implies t$
+\item $(\neg r \lor \neg f) \implies (s \land l)$
+\end{enumerate}
+Can we conclude $r$? (Hint you will need to use De Morgan's Law)
+\solution
+
+
+\problem{}
+Prove or disprove the following:
+\begin{enumerate}
+\item There exists an integer $n$ such that $2n^2 -5n +2$ is a prime number.
+\item If $m$ and $n$ are positive integers and $mn$ is a perfect square then $m$ and $n$ are perfect squares.
+\item The difference of the sqaures of any two consecutive integers is odd.
+\end{enumerate}
+\solution
+
+
+\problem{}
+Prove that there are infinitely many solutions in positive integers $x, y$, and $z$ to the equation $x^2 + y^2 = z^2$, ie there are infinitely many Pythagorean triples! [Hint let $x=m^2-n^2$ and $y=2mn$ for all integers $m$ and $n$. You will need to figure out what $z$ is in terms of $m$ and $n$.]
+\solution
+
+
+\problem{}
+Prove or disprove the following:
+\begin{enumerate}
+\item If $m$ and $n$ are perfect squares, then $m+n+2\sqrt{mn}$ is also a perfect square.
+\item If $p$ is a prime number, then $2^p - 1$ is also a prime number.
+\end{enumerate}
+
+\solution
+
+
+\problem{}
+Find a counterexample to the statement that every positive integer can be written as the sum of the square of three integers.
+\solution
+
+
+\problem{}
+For each of these sets of premises, what relevant conclusion or conclusions can be drawn? Explain the rules of inference used to obtain each conclusion from the premises.
+\begin{enumerate}
+\item “If I play hockey, then I am sore the next day.” “I use the whirlpool if I am sore.” “I did not use the whirlpool.”
+\item “If I work, it is either sunny or partly sunny.” “I worked last Monday or I worked last Friday.” “It was not sunny on Tuesday.” “It was not partly sunny on Friday.”  
+\item “All insects have six legs.” “Dragonflies are insects.” “Spiders do not have six legs.”  “Spiders eat dragonflies.”
+\item “Every student has an Internet account.” “Homer does not have an Internet account.” “Maggie has an Internet account.”
+\item “All foods that are healthy to eat do not taste good.” “Tofu is healthy to eat.” “You only eat what tastes good.” “You do not eat tofu.” “Cheeseburgers are not healthy to eat.”
+\item “I am either dreaming or hallucinating.” “I am not dreaming.” “If I am hallucinating, I see elephants running down the road.” 
+\end{enumerate} 
+\solution
+\part 
+$\forall x\in X s.t. (P(x)\implies Q(x))$
+\part 
+$\exists x\in X s.t. (R(x)\land \neg Q(x))$
+\part 
+$\exists x\in X s.t. (R(x)\land \neg P(x))$
+
+\end{document}
+		

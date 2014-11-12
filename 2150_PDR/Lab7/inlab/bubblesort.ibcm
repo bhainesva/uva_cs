@@ -1,0 +1,66 @@
+C00B  0x000            jmp     outloop  Skip over variables
+0005  0x001  len       dw 5             Array length
+003D  0x002  a         dw 3D            Array start address
+0004  0x003  pos       dw 4             Position in array
+0001  0x004  done      dw 1             Done variable
+0001  0x005  1         dw 1             One constant
+0000  0x006  0         dw 0             Zero constant
+0000  0x007  tmp       dw 0             tmp
+0000  0x008  Otmp      dw 0             Otmp
+4000  0x009  storit    dw 4000          storit
+3000  0x00a  loadit    dw 3000          loadit
+B000  0x00b  outloop   nop              outer loop, while( not done ) {
+3004  0x00c            load    done     check done
+D03C  0x00d            jmpe    end      jump to end if done
+3006  0x00e            load    one      done = true
+4004  0x00f            store   done
+3001  0x010            load    len      pos = length - 1
+6005  0x011            sub     one
+4003  0x012            store   pos
+B000  0x013  inloop    nop              for i in range(length-1, 1, -1) {
+3003  0x014            load    pos      check if we've reached the beginning
+B000  0x015            nop              
+D00B  0x016            jmpe    outloop  jump to outer loop if so
+5002  0x017            add     a        Else check if we need to swap
+500A  0x018            add     loadit   
+6005  0x019            sub     one
+401B  0x01a            store
+0000  0x01b                             loadit
+4007  0x01c            store   tmp      tmp = a[pos-1]
+3003  0x01d            load    pos      
+5002  0x01e            add     a        
+500A  0x01f            add     loadit   
+4021  0x020            store   
+0000  0x021                             loadit
+4008  0x022            store   Otmp     Otmp = a[pos]
+3008  0x023            load    Otmp     redundant
+6007  0x024            sub     tmp      a[pos] - a[pos-1]
+E027  0x025            jmpl    swap     jump to swap if we have to swap (a[pos] < a[pos-1])
+C037  0x026            jmp     postswap jump to postswap if we don't
+B000  0x027  swap      nop              a[pos], a[pos-1] = a[pos-1], a[pos]
+3009  0x028            load    storit   
+5002  0x029            add     a        
+5003  0x02a            add     pos      
+402D  0x02b            store            
+3007  0x02c            load    tmp      
+0000  0x02d                             storit
+3009  0x02e            load    storit   
+5002  0x02f            add     a        
+5003  0x030            add     pos      
+6005  0x031            sub     one      
+4034  0x032            store            
+3008  0x033            load    Otmp    
+0000  0x034                             storit
+3005  0x035            load    one      done = false
+4004  0x036            store   down     
+B000  0x037  postswap  nop              
+3003  0x038            load    pos      pos -= 1
+6005  0x039            sub     one      
+4003  0x03a            store   pos      
+C013  0x03b            jmp     inloop   back to top of for loop
+0000  0x03c  end       halt             end
+0005  0x03d  array start
+0004  0x03e  .
+0003  0x03f  .
+0002  0x040  .
+0001  0x041  array end

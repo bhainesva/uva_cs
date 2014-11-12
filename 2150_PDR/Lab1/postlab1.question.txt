@@ -1,0 +1,9 @@
+What is the difference between the '->' notation and using a '.' to access an object's methods?
+
+What does the 'new' keyword do?
+
+What happens if you try to deference a null pointer?
+
+What happens if you try to access a null reference?
+
+It's not related to the content of this program specifically but what is the difference between doing '<< endl' and '<< "\n"'?

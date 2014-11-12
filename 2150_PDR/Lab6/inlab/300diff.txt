@@ -1,0 +1,8 @@
+1c1
+< 2855 words found
+---
+> 2855 words found.
+539c539
+< Found all words in 4.59611 seconds
+---
+> Found all words in 29.431320 seconds

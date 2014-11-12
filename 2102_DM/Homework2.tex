@@ -1,0 +1,282 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+
+\begin{document}
+\title{Discrete Math - Homework Set \#2}
+\author{Ben Haines (bmh5wx)}
+\problem{}
+Prove or disprove that the logical operators exclusive or, NAND and NOR are associative.
+\solution
+\part
+To determine if XOR is associative we need to see if $(A\otimes B)\otimes C = A\otimes(B\otimes C)$. 
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c}
+   A
+ & B
+ & C
+ & A\otimes B
+ & B\otimes C
+ & (A\otimes B)\otimes C
+ & A\otimes(B\otimes C) \\
+\hline
+F & F & F & F & F & F & F \\
+F & F & T & F & T & T & T \\
+F & T & F & T & T & T & T \\
+F & T & T & T & F & F & F \\
+\hline
+T & F & F & T & F & T & T \\
+T & F & T & T & T & F & F \\
+T & T & F & F & T & F & F \\
+T & T & T & F & F & T & T \\
+\hline
+\end{array}
+\end{displaymath}
+
+
+They are equivalent for all values of $A,B,$ and $C$ so XOR is associative.
+\part
+To determine if NAND is associative we need to see if $(A\uparrow B)\uparrow C = A\uparrow(B\uparrow C)$. 
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c}
+   A
+ & B
+ & C
+ & A\uparrow B
+ & B\uparrow C
+ & (A\uparrow B)\uparrow C
+ & A\uparrow (B\uparrow C) \\
+\hline
+F & F & F & T & T & T & T \\
+F & F & T & T & T & F & T \\
+F & T & F & T & T & T & T \\
+F & T & T & T & F & F & T \\
+\hline
+T & F & F & T & T & T & F \\
+T & F & T & T & T & F & F \\
+T & T & F & F & T & T & F \\
+T & T & T & F & F & T & T \\
+\hline
+\end{array}
+\end{displaymath}
+They are not equivalent for all values of $A,B,$ and $C$ so NAND is not associative.
+
+\part
+To determine if NOR is associative we need to see if $(A\downarrow B)\downarrow C = A\downarrow(B\downarrow C)$. 
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c}
+   A
+ & B
+ & C
+ & A\downarrow  B
+ & B\downarrow  C
+ & (A\downarrow  B)\downarrow  C
+ & A\downarrow  (B\downarrow  C) \\
+\hline
+F & F & F & T & T & F & F \\
+F & F & T & T & F & F & T \\
+F & T & F & F & F & T & T \\
+F & T & T & F & F & F & T \\
+\hline
+T & F & F & F & T & T & F \\
+T & F & T & F & F & F & F \\
+T & T & F & F & F & T & F \\
+T & T & T & F & F & F & F \\
+\hline
+\end{array}
+\end{displaymath}
+They are not equivalent for all values of $A,B,$ and $C$ so NOR is not associative.
+
+
+\problem{}
+Let
+\[
+S_i = \biggl\{\, x \in R \mathrel{\Big|} 1<x<1+\frac{1}{i}\, \text{ for all positive integers }\,i \,\biggr\}
+\]
+\begin{enumerate}
+\item Are the sets $S_1,S_2,S_3,\ldots$ mutually disjoint? Explain.
+\item $\bigcup^{\infty}_{i = 1} S_i = ? $
+\item $\bigcap^{\infty}_{i = 1} S_i = ? $
+\end{enumerate}
+\solution
+\part
+The sets are not mutually disjoint. For example $1.5\in S_1$ and $1.5\in S_2$.
+\part
+For every set $S_i$, $S_i\subseteq S_1$. Therefore their union is equal to $S_1$.
+\part
+The intersection of the sets is $=\emptyset$. As $i$ approaches infinity, in order for a number $x$ to be a member of $S_i$ it would have to satisfy the condition $1<x<1+\frac{1}{\infty}$. This is equivalent to saying that $1<x<1$ which is clearly not possible to satisfy.
+\problem{}
+Let $A$ and $B$ be two finite sets. Let $\mathcal P(X)$ denote the power set of the set $X$. Prove or disprove the following:
+\begin{enumerate}
+\item If $A \subseteq B$, then $\mathcal P(A) \subseteq \mathcal P(B)$
+\item If $\mathcal P(A) \subseteq \mathcal P(B)$, then $A \subseteq B$
+\end{enumerate}
+
+\solution
+\part
+$A\subseteq B$ so any subset of $A$ is also a subset of $B$. So for any $S\in \mathcal P(A)$, $S\in \mathcal P(B)$ and by definition of a subset $\mathcal P(A) \subseteq \mathcal P(B)$.
+\part
+$A\subseteq A$ so we know that $A\in \mathcal P(A)$. $\mathcal P(A)\subseteq \mathcal P(B)$ so therefore $A\in \mathcal P(B)$. Thus by the definition of the power set $A\subseteq B$.
+
+
+\problem{}
+For any sets $A,B,C,$ and $D$, prove that if $A\subseteq B$ and $C\subseteq D$, then $A\times C\subseteq B\times D$, where $X\times Y$ denotes the Cartesian product of the sets $X$ and $Y$.
+
+\solution
+Let $(a,c)$ represent any given element in $A\times C$ where $a\in A$ and $c\in C$. For every element $a\in A\,\Rightarrow a\in B$ by the definition of a subset. Similarly for every element $c\in C\,\Rightarrow c\in D$. Therefore for any $(a, c)\in A\times C$ there exists an element $(b, d)\in B\times D$ such that $a=b$ and $c=d$. Thus $A\times C\subseteq B\times D$.
+
+\problem{}
+Represent the common form of the following argument using letters to stand for a component sentence, and fill in the blanks so that the argument in part (b) has the same logical form as the argument in part (a).
+\begin{enumerate}
+\item If all computer programs contain errors, then this program contains an error.\\
+This program does not contain an error.\\
+Therefore, it is not the case that all computer programs contain errors.
+\item If $\ldots$, then $\ldots$\\
+2 is not odd.\\
+Therefore, it is not the case that all prime numbers are odd.
+\end{enumerate}
+\solution
+(b) should be written as
+\begin{itemize}
+\item If all prime numbers are odd, then 2 is odd\\
+2 is not odd.\\
+Therefore, it is not the case that all prime numbers are odd.
+\end{itemize}
+
+
+\problem{}
+Write the following statements in symbolic form using the symbols $\neg, \land, \lor$ and the indicated letters to represent component statements.
+\begin{enumerate}
+\item Juan is a math major but not a computer science major. ($m=$"Juan is a math major", $c=$"Juan is a computer science major")
+\item Let $h=$"John is healthy," $w=$"John is wealthy," and $s=$"John is wise."\\
+John is not wealthy but he is healthy and wise.
+\item John is wealthy, but he is not both healthy and wise.
+\item Either Olga will go out for tennis or she will go out for track but not both. ($n=$"Olga will go out for tennis," $k=$"Olga will go out for track")
+\end{enumerate}
+
+\solution
+\part
+$$(m\land \neg c)$$
+\part
+$$\neg w \land (h\land s)$$
+\part
+$$w\land \neg(h\land s)$$
+\part
+$$(n\lor k)\land \neg(n\land k)$$
+
+
+\problem{}
+Are the following two statements logically equivalent? Justify your answers using truth tables and include a few words of explanation:
+\begin{enumerate}
+\item $\neg(p\land q)$ and $\neg p\land \neg q$
+\item $(p\lor q)\lor(p\land r)$ and $(p\lor q)\land r$
+\item $\neg(p\lor q)$ and $\neg p\land \neg q)$
+\end{enumerate}
+\solution
+\part
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c}
+   p
+ & q
+ & \lnot{}p
+ & \lnot{}q
+ & p\land{}q
+ & \lnot{}(p\land{}q)
+ & \lnot{}p\land{}\lnot{}q \\
+\hline
+F & F & T & T & F & T & T \\
+F & T & T & F & F & T & F \\
+T & F & F & T & F & T & F \\
+T & T & F & F & T & F & F \\
+\hline
+\end{array}
+\end{displaymath}\\
+From the table we can see that $\neg(p\land q)$ does not have the same truth value as $\neg p \land \neg q$ for all truth values of $p$ and $q$. Therefore the two statements are not logically equivalent.
+\part
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c}
+   p
+ & q
+ & r
+ & p\lor{}q
+ & p\lor{}r
+ & (p\lor{}q)\lor{}(p\lor{}r)
+ & ((p\lor{}q)\lor{}r) \\
+\hline
+F & F & F & F & F & F & F \\
+F & F & T & F & T & T & T \\
+F & T & F & T & F & T & T \\
+F & T & T & T & T & T & T \\
+\hline
+T & F & F & T & T & T & T \\
+T & F & T & T & T & T & T \\
+T & T & F & T & T & T & T \\
+T & T & T & T & T & T & T \\
+\hline
+\end{array}
+\end{displaymath}\\
+For all possible combinations of truth values for $p,q$, and $r$ the expressions $(p\lor q)\lor(p\land r)$ and $(p\lor q)\land r$ have the same overall truth value. Thus they are logically equivalent.
+\part
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c}
+   p
+ & q
+ & \lnot{}p
+ & \lnot{}q
+ & p\lor{}q
+ & \lnot{}(p\lor{}q)
+ & \lnot{}p\land{}\lnot{}q \\
+\hline
+F & F & T & T & F & T & T \\
+F & T & T & F & T & F & F \\
+T & F & F & T & T & F & F \\
+T & T & F & F & T & F & F \\
+\hline
+\end{array}
+\end{displaymath}\\
+For all possible combinations of truth values for $p$ and $q$, the expressions $\neg(p\lor q)$ and $\neg p\land \neg q)$ have the same resulting overall truth value. Thus they are logically equivalent.
+
+\problem{}
+Use De Morgan's laws to write negations for the following statements:
+\begin{enumerate}
+\item Sam is an orange belt and Dave is a red belt.
+\item The train is late or my watch is fast.
+\end{enumerate}
+\solution
+\part
+Let $p=$"Sam is and orange belt" and $q=$"Dave is a red belt." Then the sentence can be written in the form $p\land q$. De Morgan's laws tell us that $\neg(p\land q)$ is equivalent to $\neg p\lor \neg q$, or in english: "Sam is not an orange belt or Dave is not a red belt."
+
+\part
+Let $p=$"The train is late" and $q=$"My watch is fast." Then the sentence can be written in the form $p\lor q$. De Morgan's laws tell us that $\neg(p\lor q)$ is equivalent to $\neg p\land \neg q$, or in english: "The train is not late and my watch is not fast."
+
+\problem{}
+Determine if the following statement forms are logically equivalent: (Use any method that you would like)
+$$p\implies (q\implies r)\text{ and } (p\implies q)\implies r$$
+\solution
+\begin{displaymath}
+\begin{array}{|c|c|c|c|c|c|c}
+   p
+ & q
+ & r
+ & p\Rightarrow{}q
+ & q\Rightarrow{}r
+ & p\Rightarrow{}(q\Rightarrow{}r)
+ & (p\Rightarrow{}q)\Rightarrow{}r \\
+\hline
+F & F & F & T & T & T & F \\
+F & F & T & T & T & T & T \\
+F & T & F & T & F & T & F \\
+F & T & T & T & T & T & T \\
+\hline
+T & F & F & F & T & T & T \\
+T & F & T & F & T & T & T \\
+T & T & F & T & F & F & F \\
+T & T & T & T & T & T & T \\
+\hline
+\end{array}
+\end{displaymath}\\
+From the above table we can see that the overall truth values of the expressions $p\implies (q\implies r)\text{ and } (p\implies q)\implies r$ are not the same for all possible combinations of truth values for $p,q$, and $r$. In particular they differe for the cases when $p,q,$ and $r$ are all false and when $p$ and $r$ are false and $q$ is true. Thus the two expressions are not logically equivalent.
+
+\end{document}
+		

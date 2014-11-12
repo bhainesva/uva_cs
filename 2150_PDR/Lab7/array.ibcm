@@ -1,0 +1,55 @@
+C00A 000    start 	jmp             skip around the variables
+0000 001	i       dw 	0           int i
+0000 002	max     dw 	0           int s
+0032 003	a       dw 	0           int a[]
+0005 004	n       dw 	0           int n
+0000 005	zero    dw 	0           constant 0
+0001 006	one     dw 	1           constant 1
+6000 007	sbit    dw 	6000        declare subtracting tool
+5000 008    adit    dw  5000        declare adding tool
+0000 009
+B000 00A    start   nop             
+B000 00B            nop
+B000 00C            nop             read array size
+B000 00D            nop
+3005 00E            load 	zero 	i = 0; s = 0;
+4001 00F            store 	i
+3008 010            load    adit
+5003 0x011          add     a 
+4014 0x012          store   doit0
+3005 0x013          load    zero
+0000 0x014   doit0  doit0
+4002 015            store 	max
+3004 0x016    loop 	load 	n       if (i >= N) goto xit
+6001 0x017            sub 	i
+E026 0x018            jmpl 	xit
+D026 0x019            jmpe 	xit
+3007 0x01a            load 	sbit 	form the instruction to subtract a[i]
+5003 0x01b            add 	
+5001 0x01c            add 	i
+401F 0x01d            store 	doit 	plant the instruction into the program
+3002 0x01e            load 	max 	max -= a[i]
+0000 0x01F    doit    doit    
+E029 0x020            jmpl            if a[i] > max, max = a[i]
+B000 0x021    nmax    nop 	
+3001 0x022            load 	i       i += 1
+5006 0x023            add 	one
+4001 0x024            store 	i
+C016 0x025            jmp 	loop 	goto loop
+3002 0x026    xit 	load 	max 	print max
+1800 0x027            printH
+0000 0x028            halt
+3008 0x029            load    adit
+5003 0x02a            add     a
+5001 0x02b            add     i
+402E 0x02c            store   dit2
+3005 0x02d            load    0
+0000 0x02e    dit2    dit2
+4002 0x02F            store   max     max = a[i]
+C021 0x030            jmp     nmax    Finished storing new max, go back to loop
+0000 0x031            n/a             This line should never be executed
+0001 0x032    array begin
+0002 0x033    .
+0005 0x034    .
+0004 0x035    .
+0003 0x036    array end

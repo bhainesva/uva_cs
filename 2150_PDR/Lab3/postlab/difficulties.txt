@@ -1,0 +1,7 @@
+Name: Ben Haines
+ID: bmh5wx
+Filename: difficulties.txt
+Date: 09/17/14
+Description: Describes problems encountered in Lab 3.
+
+The first problem I had while doing this lab was simply misunderstanding the way that a stack functions. I didn't fully grasp the concept of LIFO and as a result I was performing operations in the wrong order. This resulted in the wrong answer for any calculation that involved subtraction or division. The major compiler error that gave me difficulties in this lab was one that involved const tagged functions. I solved this problem by adding a const tag to the 'Last' function in List.cpp but at the time I didn't understand why this was a solution. I had been working under the assumption that my linked list code wouldn't need to be changed. After doing research I realized that I had been calling a method that wasn't marked as const from within another method that was. It now makes sense to me that this would be a problem, but at the time I wrote the code it didn't occur to me. Apart from these issues, the postlab was mostly straightforward as it just required the merging of a few already written components.
