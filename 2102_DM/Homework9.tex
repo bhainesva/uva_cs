@@ -42,16 +42,42 @@ Give an example of a function from $\mathbb Z$ to $\mathbb Z$ with each of the f
     \item neither one-to-one nor onto
 \end{enumerate}
 \solution
+\part
+\begin{displaymath}
+   f(x) = \left\{
+     \begin{array}{lr}
+         \frac{x-2}{2} & \text{if $x$ is even}\\
+         \frac{x-3}{2} & \text{if $x$ is odd}
+     \end{array}
+   \right.
+\end{displaymath}
+\part
+Let $f$ be the function defined by $f = \Set{(a, 2a+3) \given a\in \mathbb Z}$.
+\part
+Let $f$ be the function defined by $f = \Set{(a, 2-a) \given a\in \mathbb Z}$.
+\part
+Let $f$ be the function defined by $f(x) = 1$.
 
 \problem{\#2}
-Determine which of the following properties are true and which are false. If the propert is true give a proof and if it is false give a counter example. Let $f: X\to Y$ and $A, B\subseteq X$. 
+Determine which of the following properties are true and which are false. If the property is true give a proof and if it is false give a counter example. Let $f: X\to Y$ and $A, B\subseteq X$. 
 \begin{enumerate}
     \item If $A\subseteq B$, then $f(A)\subseteq f(B)$.
     \item For all subsets $A$ and $B$ of $X$, $f(A\cup B) = f(A)\cup f(B)$.
     \item For all subsets $A$ and $B$ of $X$, $f(A\cap B) = f(A)\cap f(B)$.
-    \item For a subset $C$ of $Y$, $f^{-1}(C) = \overline{f^{-1}(C)$.
+    \item For a subset $C$ of $Y$, $f^{-1}(C) = \overline{f^{-1}(C)}$.
     \end{enumerate}
 \solution
+\part
+        Select an arbitrary element $a'\in f(A)$. Then there exists some element $a\in A$ such that $f(a) = a'$. We know $A\subseteq B$ so $a\in B$. Then $a'\in f(B)$ which implies that $f(A)\subseteq f(B)$.
+\part
+        Select an arbitrary element $x' \in f(A\cup B)$. Then there exists an element $x\in A\cup B$ such that $f(x) = x'$. It is either the case that $x\in A$ or $x\in B$ which implies that $f(x)\in f(A)$ or $f(x)\in f(B)$. Thus, in either case, $f(x)\in f(A)\cup f(B)$ and $f(A\cup B) \subseteq f(A)\cup f(B)$.\\
+
+        Now select an arbitrary element $x\in f(A)\cup f(B)$. Then either $x\in f(A)$ or $x\in f(B)$. In the first case there exists an $a\in A$ such that $f(a) = x$ and $a\in A\cup B$ implies that $f(A)\cup f(B)\subseteq f(A\cup B)$. In the second case there exists a $b\in B$ such that $f(b) = x$ and $b\in A\cup B$ implies that $f(A)\cup f(B)\subseteq f(A\cup B)$. Thus $f(A\cup B) = f(A)\cup f(B)$.
+\part
+Counterexample: Let $A = \Set{0, 1}, B=\Set{1, 2}$ and the function $f$ be defined by
+$$f(0) = 0, f(1) = 1, f(2) = 0$$
+\part
+Counterexample: Let $C = \Set{0}$ be a subset of $Y=\mathbb Z$. Let $f$ be the function defined by $f(x) = 1$. 
 
 \problem{\#3}
 Prove or disprove the following statements.
@@ -60,11 +86,38 @@ Prove or disprove the following statements.
     \item If $f:\mathbb R\to \mathbb R$ and $g:\mathbb R\to \mathbb R$ are both onto then $f+g$ is also onto.
     \item Let $f:\mathbb R\to \mathbb R$ and $c$ is any nonzero real number. If $f$ is 1-1, then $c\cdot f$ is also 1-1.
     \item Let $f:\mathbb R\to \mathbb R$ and $c$ is any nonzero real number. If $f$ is onto, then $c\cdot f$ is also onto.
+\end{enumerate}
 \solution
+\part
+Let $f$ be a function that maps every element in $R$ to itself. Let $g$ be the function that maps every element to itself except that $g(0) = 2$ and $g(2) = 0$. Both of these functions are clearly 1-1. However, $(f+g)(0) = 2 = (f+g)(2)$. So $(f+g)$ is not 1-1.
+\part
+Let $f$ be the function defined by $f(x) = x$ and let $g$ be the function defined by $g(x) = -x$. These functions are both clearly onto. However, for any $x\in \mathbb  R$, $(f+g)(x) = f(x) + g(x) = x + (-x) = 0$. Thus $(f+g)$ is not onto.
+\part
+Let $x, y$ be two elements of $\mathbb R$ such that $(c\cdot f)(x) = (c\cdot f)(y)$. This means that
+\begin{align*}
+    &c\cdot f(x) = c\cdot f(y)\\
+    &\implies f(x) = f(y)\\
+    &\implies x = y
+\end{align*}
+Thus $(c\cdot f)$ is 1-1.
+\part
+Let $y$ be an arbitrary element of $\mathbb R$ such that $(c\cdot f)(x) \not= y$ for any $x\in \mathbb R$. Then
+\begin{align*}
+    &(c\cdot f)(x) \not= y\\
+    &\implies c\cdot f(x) \not= y\\
+    &\implies f(x) \not= y/x
+\end{align*}
+However, $y/x$ is an element of $\mathbb R$ and $f$ is onto. Then this is a contradiction and $(c\cdot f)$ must be onto.
 
 \problem{\#4}
 Prove the following. Given any set $X$ and given any functions $f:X\to X$, $g:X\to X$, and $h:X\to X$, if $h$ is 1-1 and $h\circ f = h\circ g$, then $f=g$.
 \solution
+Select an arbitrary element $x$ of $h\circ f$. $h$ is 1-1 so by Lemma 1.24 from \textit{Elements of Modern Algebra}, $h$ has a left inverse $h^{-1}$ such that $h^{-1}\circ h$ is the function that maps every element to itself. Then 
+\begin{align*}
+    h\circ f &= h\circ g\\
+    h^{-1}\circ h \circ f &= h^{-1} \circ h \circ g\\
+    f &= g
+\end{align*}
 
 \problem{\#5}
 Let $f:X\to Y$ and $g:Y\to Z$ must be functions.
@@ -73,26 +126,83 @@ Let $f:X\to Y$ and $g:Y\to Z$ must be functions.
     \item If $g\circ f$ is onto, must $f$ and $g$ be onto as well? Prove or give a counter example.
 \end{enumerate}
 \solution
+\part
+Assume that $f$ is not one-to-one. This implies that there exist elements $a_1, a_2 \in A$ such that $a_1 \not= a_2$ and $f(a_1) = f(a_2)$. If this is the case then $g(f(a_1)) = g(f(a_2))\text{ and } (g\circ f)(a_1) = (g\circ f)(a_2)$. This contradicts the given that $(g\circ f)$ is one-to-one and thus $f$ must also be one-to-one.
+
+It is not necessary that $g$ be one-to-one. For example consider the case when $X = \Set{0, 1}$ and $Y = Z = \Set{0}$. Then defining $f(x) = 0$ and $g(x) = 0$ means that $g\circ f$ is one-to-one but $g$ is not one-to-one.
+\part
+By definition $(g\circ f)$ being onto means that $\forall c \in C$ there exists an element $a\in A$ such that
+\begin{align}
+\begin{split}
+c &= (g\circ f)(a)\\
+&= g(f(a))
+\end{split}
+\end{align}
+Let $b$ be the result of $f(a)$. It is given that $b\in B$.\\
+Therefore for any element $c\in C$ there exists an element $b\in B$ such that $g(b) = c$ and $g$ is onto by definition.
+
+It is not necessary that $f$ be onto. Suppose that $X$ is a proper subset of $Y$ and that $X = Z$. Then letting both $f$ and $g$ be the identity mapping means that $g\circ f$ is onto but $f$ is not onto.
 
 \problem{\#6}
 Suppose that $f$ is a function from $A$ to $B$, where $A$ and $B$ are finite sets with $\mid A\mid = \mid B\mid$. Show that $f$ is one-to-one if and only if it is onto.
 \solution
+From the problem statement we know that $f(A)\subseteq B$.
+
+First assume that $f$ is one-to-one. This means that for any $x$ and $y$ in $A$ it is not the case that $f(x) = f(y)$. Then $\mid f(A)\mid = \mid A\mid = \mid B\mid$ which implies that $f(A) = B$ and thus $f$ is onto.
+
+Now assume that $f$ is onto. Then $f(A) = B$. Assume that there exist two elements $x, y\in A$ such that $f(x) = f(y)$ and $x\not=y$. Then $\mid f(A)\mid < \mid A\mid$. However, this is impossible because $\mid A\mid  = \mid B\mid$. Thus $f$ is one-to-one.
 
 \problem{\#7}
 Show that a set $S$ is infinite if and only if there is a proper subset $A$ of $S$ such that there is a one-to-one correspondence between $A$ and $S$.
 \solution
+Assume that $S$ is an infinite set containing the elements $s_1, s_2, \ldots$. Then let $A$ be the subset $S\\\Set{s_1}$. $A$ is a proper subset of $S$. Define a function $f: S\to A$ by $f(s_x) = s_{x+1}$. It is clear from inspection that this mapping is both 1-1 and onto. Thus it is a one-to-one correspondence.
+
+Now assume that there is a one-to-one correspondence between $A$ and $S$. If $A$ is a finite set then its cardinallity must be less than the cardinality of $S$. By the pigeonhole principle there can be no one to one correspondence between the two. Thus $A$ must be infinite. It's impossible for a finite set to contain an infinite subset so $S$ must also be infinite.
 
 \problem{\#8}
 Let $S$ be a subset of a universal set $U$. The \textbf{characteristic function} $f_s$ of $S$ is the function from $U$ to the set $\Set{0, 1}$ such that $f_s(x) = 1$ if $x$ belongs to $S$ and $f_s(x) = 0$ if $x$ does not belong to $S$. Let $A$ and $B$ be sets. Show that for all $x\in U$:
 \begin{enumerate}
     \item $f_{A\cap B}(x) = f_A(x) \cdot f_B(x)$
     \item $f_{A\cup B}(x) = f_A(x) + f_B(x) - f_A(x) \cdot f_B(x)$
-    \item $f_A(x) = 1 - f_A(x)$
+    \item $f_{\overline{A}}(x) = 1 - f_A(x)$
     \item $f_{A\oplus B}(x) = f_A(x) + f_B(x) - 2f_A(x) \cdot f_B(x)$
+\end{enumerate}
 \solution
-
-\problem{\#1}
-\solution
-
-
+\part
+There are three cases:
+\begin{enumerate}
+    \item $x$ is in $A$ and $B$\\
+        $1 = 1\cdot 1$
+    \item $x$ is in one of the two (assume $A$ wlog)\\
+        $0 = 1\cdot 0$
+    \item $x$ is in neither\\
+        $0 = 0\cdot 0$
+\end{enumerate}
+\part
+There are three cases:
+\begin{enumerate}
+    \item $x$ is in $A$ and $B$\\
+        $1 = 1 + 1 - 1\cdot 1$
+    \item $x$ is in one of the two (assume $A$ wlog)\\
+        $1 = 1 + 0 - 1\cdot 0$
+    \item $x$ is in neither $A$ nor $B$\\
+        $0 = 0 + 0 - 0\cdot 0$
+\end{enumerate}
+There are two cases:
+\begin{enumerate}
+    \item $x$ is in $A$\\
+        $0 = 1 - 1$
+    \item $x$ is not in $A$\\
+        $1 = 1 - 0$
+\end{enumerate}
+\part
+There are three cases:
+\begin{enumerate}
+    \item $x$ is in $A$ and $B$\\
+        $0 = 1 + 1 - 2\cdot 1$ 
+    \item $x$ is in one of the two (assume $A$ wlog)\\
+        $1 = 1 + 0 - 2\cdot 0$
+    \item $x$ is in neither $A$ nor $B$\\
+        $0 = 0 + 0 - 0\cdot 0$
+\end{enumerate}
 \end{document}
