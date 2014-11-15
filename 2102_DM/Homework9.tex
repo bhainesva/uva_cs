@@ -112,7 +112,12 @@ However, $y/x$ is an element of $\mathbb R$ and $f$ is onto. Then this is a cont
 \problem{\#4}
 Prove the following. Given any set $X$ and given any functions $f:X\to X$, $g:X\to X$, and $h:X\to X$, if $h$ is 1-1 and $h\circ f = h\circ g$, then $f=g$.
 \solution
-Select an arbitrary element $x$ of $h\circ f$. $h$ is 1-1 so by Lemma 1.24 from \textit{Elements of Modern Algebra}, $h$ has a left inverse $h^{-1}$ such that $h^{-1}\circ h$ is the function that maps every element to itself. Then 
+$h$ is 1-1 so it is simple to define a left inverse $h^{-1}$ such that $h^{-1}\circ h$ is the function that maps every element to itself. Define $h^{-1}$ as follows. Let $a_0$ be an arbitrary fixed element in $X$. For each $x$ in $X$, $h^{-1}$ is defined by:
+\begin{enumerate}
+    \item If there is an element $y$ in $X$ such that $h(y) = x$, then $h^{-1}(x) = y$.
+    \item If no such element $y$ exists in $X$, then $h^{-1}(x) = a_0$.
+\end{enumerate}
+Then 
 \begin{align*}
     h\circ f &= h\circ g\\
     h^{-1}\circ h \circ f &= h^{-1} \circ h \circ g\\
@@ -155,9 +160,9 @@ Now assume that $f$ is onto. Then $f(A) = B$. Assume that there exist two elemen
 \problem{\#7}
 Show that a set $S$ is infinite if and only if there is a proper subset $A$ of $S$ such that there is a one-to-one correspondence between $A$ and $S$.
 \solution
-Assume that $S$ is an infinite set containing the elements $s_1, s_2, \ldots$. Then let $A$ be the subset $S\\\Set{s_1}$. $A$ is a proper subset of $S$. Define a function $f: S\to A$ by $f(s_x) = s_{x+1}$. It is clear from inspection that this mapping is both 1-1 and onto. Thus it is a one-to-one correspondence.
+Assume that $S$ is an infinite set containing the elements $s_1, s_2, \ldots$. Then let $A$ be the subset $S\setminus\Set{s_1}$. $A$ is a proper subset of $S$. Define a function $f: S\to A$ by $f(s_x) = s_{x+1}$. It is clear from inspection that this mapping is both 1-1 and onto. Thus it is a one-to-one correspondence.
 
-Now assume that there is a one-to-one correspondence between $A$ and $S$. If $A$ is a finite set then its cardinallity must be less than the cardinality of $S$. By the pigeonhole principle there can be no one to one correspondence between the two. Thus $A$ must be infinite. It's impossible for a finite set to contain an infinite subset so $S$ must also be infinite.
+Now assume that there is a one-to-one correspondence between $A$ and $S$. If $A$ is a finite set then its cardinality must be less than the cardinality of $S$. By the pigeonhole principle there can be no one to one correspondence between the two. Thus $A$ must be infinite. It's impossible for a finite set to contain an infinite subset so $S$ must also be infinite.
 
 \problem{\#8}
 Let $S$ be a subset of a universal set $U$. The \textbf{characteristic function} $f_s$ of $S$ is the function from $U$ to the set $\Set{0, 1}$ such that $f_s(x) = 1$ if $x$ belongs to $S$ and $f_s(x) = 0$ if $x$ does not belong to $S$. Let $A$ and $B$ be sets. Show that for all $x\in U$:

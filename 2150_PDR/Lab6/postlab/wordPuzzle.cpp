@@ -14,7 +14,6 @@
 #include <iostream>
 #include "hashTable.h"
 #include <algorithm>
-#include "hashFunctions.h"
 #include "timer.h"
 
 using namespace std;
