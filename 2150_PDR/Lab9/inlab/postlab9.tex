@@ -1,0 +1,373 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{listings}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  numbers=left,
+  tabsize=3
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{inlab9.pdf}
+\lhead{Ben Haines, bmh5wx}
+\rhead{11/4/14}
+\begin{document}
+\section{Inheritance}
+Consider the following example of simple inheritance in c++. It includes a derived class "Child" that inherits from the base class "Parent." It inherits Parent's x and y members and also has a public member of its own, "luckyFin."
+\begin{lstlisting}
+class Parent 
+{
+   public:
+      void setX(int w)
+      {
+         x = w;
+      }
+      void setY(int h)
+      {
+         y = h;
+      }
+   protected:
+      int x;
+      int y;
+};
+
+class Child: public Parent
+{
+   public:
+      int xPlusY()
+      { 
+         return (x + y); 
+      }
+
+      int luckyFin;
+};
+
+int main(void)
+{
+   Child * nemo = new Child();
+ 
+   nemo->setX(2);
+   nemo->setY(3);
+
+   int add = nemo->xPlusY();
+
+   return 0;
+}
+\end{lstlisting}
+\lstset{language={[x86masm]Assembler}}
+The resulting assembly code is too long to list in full but snippets will be shown as the topics they are relevant to are discussed.
+\subsection{Initialization}
+The following x86 snippet shows the initializtion of the nemo object.
+\begin{lstlisting}
+	call	_Znwj
+	add	esp, 16
+	mov	DWORD PTR [eax], 0
+	mov	DWORD PTR [eax+4], 0
+	mov	DWORD PTR [eax+8], 0
+	mov	DWORD PTR [ebp-12], eax
+	mov	eax, DWORD PTR [ebp-12]
+\end{lstlisting}
+The call to \_Znwj returns a pointer to the location of the newly created nemo object in memory. Then the data members of nemo are moved into memory at that location. 
+
+\subsection{Data Layout}
+From the code above it is not immediately clear which element is stored at which location. This information can be deduced by considering a call to setX inherited from the Parent class. The assembly for such a call is as follows.
+\begin{lstlisting}
+	push	2
+	push	eax
+	call	_ZN6Parent4setXEi
+\end{lstlisting}
+with the function itself being
+\begin{lstlisting}
+_ZN6Parent4setXEi:
+	push	ebp
+	mov	ebp, esp
+	mov	eax, DWORD PTR [ebp+8]
+	mov	edx, DWORD PTR [ebp+12]
+	mov	DWORD PTR [eax], edx
+	pop	ebp
+	ret
+\end{lstlisting}
+Before the call is made, eax holds the address of the nemo object in memory. The setX method then moves the argument '2' located at [ebp+12] into [eax], the lowest memory location in nemo. Similar analysis of the setY function shows us that $y$ is located at [eax+4]. From this we can assume that 'luckyFin' is stored at [eax+8]. 
+
+The general rule that we can conclude from this examination is that within an object that inherits from a parent class the object's own member variables are stored first (at higher memory addresses) and then the inherited members are stored in reverse order with the first member of the parent class being stored at the lowest address.
+
+\subsection{Destruction}
+The first example will demonstrate what happens when a user created object goes out of scope. In order to more easily demonstrate this the c++ code has been modified in the following ways:
+
+\lstset{language={C++}}
+\begin{lstlisting}
+void scope() {
+    Child * nemo = new Child();
+    nemo->setX(2);
+    nemo->setY(3);
+    int add = nemo->xPlusY();
+}
+
+int main(void) {
+    scope();
+    return 0;
+}
+\end{lstlisting}
+\lstset{language={[x86masm]Assembler}}
+The last lines of assembly within the 'scope' function call look like this:
+\begin{lstlisting}
+	call	_ZN5Child6xPlusYEv
+	add	esp, 16
+	mov	DWORD PTR [ebp-16], eax
+	leave
+	ret
+\end{lstlisting} 
+As can be seen, the deallocation of the nemo object is very simple and operates just like deallocation of any other variables on the stack by adding to esp.
+
+The second example will show what happens when something is 'destroyed' by the destructor.
+\lstset{language={C++}}
+\begin{lstlisting}
+class Planet {
+   public:
+      void setX(int w) {
+         x = w;
+      }
+      void setY(int h) {
+         y = h;
+      }
+   protected:
+      int x;
+      int y;
+};
+
+class DevourerOfWorlds {
+   public:
+      int luckyFin;
+      DevourerOfWorlds();
+      ~DevourerOfWorlds();
+
+    private:
+      Planet * earth;
+};
+
+DevourerOfWorlds::DevourerOfWorlds() {
+    earth = new Planet();
+}
+
+DevourerOfWorlds::~DevourerOfWorlds() {
+    delete earth;
+}
+
+void scope() {
+    DevourerOfWorlds galactus = DevourerOfWorlds();
+}
+
+int main(void) {
+    scope();
+    return 0;
+}
+
+\end{lstlisting}
+Here the constructors and destructors have been explicitly defined. The destructor is automatically called when the program exits the scope of scope(). They compile to
+\lstset{language={[x86masm]Assembler}}
+\begin{lstlisting}
+_ZN16DevourerOfWorldsC2Ev:
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	sub	esp, 12
+	push	8
+	call	_Znwj
+	add	esp, 16
+	mov	DWORD PTR [eax], 0
+	mov	DWORD PTR [eax+4], 0
+	mov	edx, DWORD PTR [ebp+8]
+	mov	DWORD PTR [edx+4], eax
+	leave
+	ret
+_ZN16DevourerOfWorldsD2Ev:
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	mov	eax, DWORD PTR [ebp+8]
+	mov	eax, DWORD PTR [eax+4]
+	sub	esp, 12
+	push	eax
+	call	_ZdlPv
+	add	esp, 16
+	leave
+	ret
+\end{lstlisting}
+The constructor initializes galactus as we expect and also calls \_Znwj to create the Planet earth object. 
+
+In the destructor, the address of earth is moved into eax which is then passed as an argument to \_ZdlPv which deallocates the memory allocated to it. From there things proceed as normal with memory being deallocated by adding to esp and then leave and ret making up the standard epilogue.
+
+\section{Optimization}
+The following c++ code will be used to demonstrate a number of examples of different types of optimizations that might be done by a compiler. All optimizations are done using the -O2 flag.
+\lstset{language={C++}}
+\begin{lstlisting}
+int constantArithmetic() {
+    int x = 0;
+    for (int i = 0; i < 100; i++) {
+        x += i;
+    }
+    return x;
+}
+
+int redundancy(int x) {
+    int y = 2 * x;
+    int z = 2 * x;
+    return y + z;
+}
+
+int simplification(int x) {
+    int y = x + x;
+    int z = 2 * x;
+    int ret = y - z;
+    return ret;
+}
+
+int inlining(int x) {
+    return x + 1;
+}
+
+int main(void) {
+    int arg;
+    cin >> arg;
+    int x = constantArithmetic();
+    int y = redundancy(arg);
+    int z = simplification(arg);
+    int a = inlining(arg);
+    cout << a;
+    return 0;
+}
+\end{lstlisting}
+
+\subsection{Constant Arithmetic}
+\lstset{language={[x86masm]Assembler}}
+Compare the unoptimized version of the function
+\begin{lstlisting}
+_Z18constantArithmeticv:
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 16
+	mov	DWORD PTR [ebp-4], 0
+	mov	DWORD PTR [ebp-8], 0
+	mov	eax, DWORD PTR [ebp-8]
+	add	DWORD PTR [ebp-4], eax
+	add	DWORD PTR [ebp-8], 1
+	cmp	DWORD PTR [ebp-8], 99
+	mov	eax, DWORD PTR [ebp-4]
+	leave
+	ret
+\end{lstlisting}
+to the optimized version.
+\begin{lstlisting}
+_Z18constantArithmeticv:
+	mov	eax, 4950
+	ret
+\end{lstlisting}
+In the unoptimized version the code loops naively as we expect. The optimized version demonstrates the compiler's ability to do constant arithmetic at compile time. This function does not depend on any user input or variable quanitities and will always return the same value. The compiler recognizes this and is able to compute the value, even though the calculation is done within a loop and isn't entirely trivial, and insert the value directly into the code.
+
+\subsection{Redundancy}
+Compare the unoptimized version of the function
+\begin{lstlisting}
+_Z10redundancyi:
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 24
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, eax
+	mov	DWORD PTR [ebp-12], eax
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, eax
+	mov	DWORD PTR [ebp-16], eax
+	sub	esp, 8
+	push	DWORD PTR [ebp-12]
+	push	OFFSET FLAT:_ZSt4cout
+	call	_ZNSolsEi
+	add	esp, 16
+	sub	esp, 8
+	push	DWORD PTR [ebp-16]
+	push	OFFSET FLAT:_ZSt4cout
+	call	_ZNSolsEi
+	add	esp, 16
+	leave
+	ret
+\end{lstlisting}
+to the optimized version.
+\begin{lstlisting}
+_Z10redundancyi:
+	push	ebx
+	sub	esp, 16
+	mov	eax, DWORD PTR [esp+24]
+	lea	ebx, [eax+eax]
+	push	ebx
+	push	OFFSET FLAT:_ZSt4cout
+	call	_ZNSolsEi
+	pop	eax
+	pop	edx
+	push	ebx
+	push	OFFSET FLAT:_ZSt4cout
+	call	_ZNSolsEi
+	add	esp, 24
+	pop	ebx
+	ret
+\end{lstlisting}
+The code in both cases is fairly long and involves strange function calls in order to print things to stdout. The optimization can be seen in lines 6-9 of the unoptimized code. It computes the values of z and z seperately and then loads and prints each one individually. In the optimized version the compiler recognizes that y and z will have the same value. Thus is calculates the value once and then prints it twice, avoiding a redundant computation. 
+\subsection{Simplification}
+Compare the unoptimized version of the function
+\begin{lstlisting}
+_Z14simplificationi:
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 16
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, eax
+	mov	DWORD PTR [ebp-4], eax
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, eax
+	mov	DWORD PTR [ebp-8], eax
+	mov	eax, DWORD PTR [ebp-4]
+	sub	eax, DWORD PTR [ebp-8]
+	mov	DWORD PTR [ebp-12], eax
+	mov	eax, DWORD PTR [ebp-12]
+	leave
+	ret
+\end{lstlisting}
+to the optimized version.
+\begin{lstlisting}
+_Z14simplificationi:
+	xor	eax, eax
+	ret
+\end{lstlisting}
+The optimized version of the code recognizes that x-x must equal - and simply places that value in eax. This is different from constant arithmetic because the value of x could be anything at runtime. The compiler is demonstrating awareness of basic mathematical axioms in order to simplify the result even when it knows nothing about the input.
+\subsection{Inlining}
+The difference here takes place not in the functions implementation but in its calling. In the unoptimized version of the code it is called as
+\begin{lstlisting}
+	push	eax
+	call	_Z8inliningi
+\end{lstlisting}
+In the optimized version no call is ever made to the function. The result of the function is displayed to the user so the compiler can't choose to just ignore it. Instead, recognizing that the function is trivially simple, it decided to inline the code into main. It looks like this.
+\begin{lstlisting}
+	add	eax, 1
+\end{lstlisting}
+
+In addition to the differences mentioned above there were some optimizations that took place in every function. First, the standard prologue and epilogue are ignored in the optimized version. Second, because the results of the simplification and constant arithmetic functions calls go unused neither of them were ever actually called in the optimized code. 
+\end{document}

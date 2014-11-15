@@ -1,0 +1,563 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\DeclareMathOperator{\lcm}{lcm}
+
+\begin{document}
+\title{Survey of Algebra - Assignment \#11}
+\author{Ben Haines (bmh5wx)}
+%SECTION 4.5
+\section*{Section 5.1}
+\problem{\# 38}
+An element $x$ in a ring is called \textbf{idempotent} if $x^2 = x$. Find two different idempotent elements in $M_2(\mathbb Z)$.
+\solution
+$$
+\left[ \begin{array}{cc}
+1 & 1 \\
+0 & 0 \end{array} \right], 
+\left[ \begin{array}{cc}
+1 & 0 \\
+0 & 1 \end{array} \right]
+$$
+\problem{\# 39}
+Show that the set of all idempotent elements of a commutative ring is closed under multiplication.
+\solution
+Let $S$ be the set of all idempotent elements of a commutative ring. Select arbitrary $x, y$ from $S$. Then 
+$$(xy)(xy) = x(yx)y = x(xy)y = x^2y^2 = xy$$
+Therefore $xy$ is idempotent and thus an element of $S$.
+
+\problem{\# 40}
+Let $a$ be idempotent in a ring with unity. Prove $e - a$ is also idempotent.
+\solution
+\begin{align}
+    \begin{split}
+        (e-a)(e-a) &= e(e-a) - a(e-a)\\
+                   &= ee - ea - ae - a(-a)\\
+                   &= e - a - a + a\\
+                   &= e - a
+    \end{split}
+\end{align}
+
+\problem{\# 42}
+Let
+$$ S = \left\{
+\left[ \begin{array}{cc}
+a & -b \\
+b & a \end{array} \right],
+        \given a, b\in \mathbb R
+\right\}
+$$
+\begin{enumerate}
+    \item Show that $S$ is a commutative subring of $M_2(\mathbb R)$.
+    \item Find the unity, if one exists.
+    \item Describe the units in $S$, if any.
+\end{enumerate}
+\solution
+\part
+It is clear that $S$ is a nonempty subset of $M_2(\mathbb R)$.
+\begin{align}
+\left[ \begin{array}{cc}
+a & -b \\
+b & a \end{array} \right] + 
+\left[ \begin{array}{cc}
+c & -d \\
+d & c \end{array} \right] = 
+\left[ \begin{array}{cc}
+a+c & -(b+d) \\
+b+d & a+c \end{array} \right]
+\end{align}
+So $S$ is closed under addition.
+$$
+\left[ \begin{array}{cc}
+c & -d \\
+d & c \end{array} \right] + 
+\left[ \begin{array}{cc}
+a & -b \\
+b & a \end{array} \right] = 
+\left[ \begin{array}{cc}
+a+c & -(b+d) \\
+b+d & a+c \end{array} \right]
+$$
+So $S$ is commutative with respect to multiplication.
+$$
+\left[ \begin{array}{cc}
+a & -b \\
+b & a \end{array} \right] + 
+\left[ \begin{array}{cc}
+c & -d \\
+d & c \end{array} \right] = 
+\left[ \begin{array}{cc}
+a+c & -(b+d) \\
+b+d & a+c \end{array} \right]
+$$
+$$
+\left[ \begin{array}{cc}
+a & -b \\
+b & a \end{array} \right]
+\left[ \begin{array}{cc}
+c & -d \\
+d & c \end{array} \right] = 
+\left[ \begin{array}{cc}
+ca-bd & -(cb+da) \\
+cb+da & ca-bd \end{array} \right]
+$$
+So $S$ is closed under multiplication.
+$$
+-\left(\left[ \begin{array}{cc}
+a & -b \\
+b & a \end{array} \right]\right) = 
+\left[ \begin{array}{cc}
+-a & b \\
+-b & -a \end{array} \right] 
+$$ 
+Which is another member of $S$. Thus $S$ contains additive inverses and is a subring of $M_2(\mathbb R)$.
+
+\part
+The unity is 
+$$
+\left[ \begin{array}{cc}
+1 & 0 \\
+0 & 1 \end{array} \right]
+$$
+
+\part
+The units of $S$ are all elements 
+$
+\left[ \begin{array}{cc}
+a & -b \\
+b & a \end{array} \right]
+$
+where $a^2 + b^2 \not= 0$.
+
+\problem{\# 44}
+Consider the set $T$ of all $2\times 2$ matrices of the form 
+$
+\left[\begin{array}{cc}
+a & a \\
+b & b \end{array} \right]
+$
+, where $a$ and $b$ are real numbers, with the same rules for addition and multiplication as in $M_2(\mathbb R)$.
+\begin{enumerate}
+    \item Show that $T$ is a ring that does not have a unity.
+    \item Show that $T$ is not a commutative ring.
+\end{enumerate}
+\solution
+\part
+$$
+\left[ \begin{array}{cc}
+a & a \\
+b & b \end{array} \right] + 
+\left[ \begin{array}{cc}
+c & c \\
+d & d \end{array} \right] = 
+\left[ \begin{array}{cc}
+a+c & a+c \\
+b+d & b+d \end{array} \right]
+$$
+$\mathbb R$ is closed under addition so $T$ is closed under addition. Further, we know that matrix multiplication is both associative and commutative. Every element
+$
+\left[ \begin{array}{cc}
+a & a \\
+b & b \end{array} \right]
+$
+has an additive inverse
+$
+\left[ \begin{array}{cc}
+-a & -a \\
+-b & -b \end{array} \right]
+$
+and $T$ contains the additive identity
+$
+\left[ \begin{array}{cc}
+0 & 0 \\
+0 & 0 \end{array} \right]
+$
+. We know that matrix multiplication is associative.
+$$
+\left[ \begin{array}{cc}
+a & a \\
+b & b \end{array} \right]
+\left[ \begin{array}{cc}
+c & c \\
+d & d \end{array} \right] = 
+\left[ \begin{array}{cc}
+ca+da & ca+da \\
+cb+db & cb+db \end{array} \right]
+$$
+The above demonstrates that $T$ is closed with respect to multiplication. Finally we show that the two distributive laws hold.
+
+First law:
+\begin{align*}
+\left[ \begin{array}{cc}
+a & a \\
+b & b \end{array} \right]\left(
+\left[ \begin{array}{cc}
+c & c \\
+d & d \end{array} \right] +
+\left[ \begin{array}{cc}
+f & f \\
+g & g \end{array} \right]\right) &=
+\left[ \begin{array}{cc}
+a(c+d+f+g) & a(c+d+f+g)  \\
+b(c+d+f+g)  & b(c+d+f+g)  \end{array} \right] \\
+            &=
+\left[ \begin{array}{cc}
+a & a \\
+b & b \end{array} \right]
+\left[ \begin{array}{cc}
+c & c \\
+d & d \end{array} \right] +
+\left[ \begin{array}{cc}
+a & a \\
+b & b \end{array} \right]
+\left[ \begin{array}{cc}
+f & f \\
+g & g \end{array} \right]
+\end{align*}
+
+Second Law:
+\begin{align}
+\left(
+\left[ \begin{array}{cc}
+c & c \\
+d & d \end{array} \right] +
+\left[ \begin{array}{cc}
+f & f \\
+g & g \end{array} \right]\right)
+\left[ \begin{array}{cc}
+a & a \\
+b & b \end{array} \right] &= 
+\left[ \begin{array}{cc}
+(a+b)(c+f) & (a+b)(c+f) \\
+(a+b)(d+g) & (a+b)(d+g) \end{array} \right] \\
+           &=
+\left[ \begin{array}{cc}
+c & c \\
+d & d \end{array} \right]
+\left[ \begin{array}{cc}
+f & f \\
+g & g \end{array} \right] + 
+\left[ \begin{array}{cc}
+a & a \\
+b & b \end{array} \right] 
+\left[ \begin{array}{cc}
+f & f \\
+g & g \end{array} \right]
+\end{align}
+Thus $T$ is a ring. The unity with respect to multiplication of 2x2 matrices is 
+$
+\left[ \begin{array}{cc}
+1 & 0 \\
+0 & 1 \end{array} \right]
+$
+ which is not a member of $T$. Thus $T$ has no unity.
+
+ \part
+ The following example demonstrates that $T$ is not commutative.
+$$
+\left[ \begin{array}{cc}
+2 & 2 \\
+1 & 1 \end{array} \right]
+\left[ \begin{array}{cc}
+0 & 0 \\
+1 & 1 \end{array} \right] = 
+\left[ \begin{array}{cc}
+2 & 2 \\
+1 & 1 \end{array} \right]
+$$
+but
+$$ 
+\left[ \begin{array}{cc}
+0 & 0 \\
+1 & 1 \end{array} \right]
+\left[ \begin{array}{cc}
+2 & 2 \\
+1 & 1 \end{array} \right] =
+\left[ \begin{array}{cc}
+0 & 0 \\
+3 & 3 \end{array} \right]
+$$
+
+\problem{\# 45}
+Prove the following equalities in an arbitrary ring $R$.
+\begin{enumerate}
+    \item $(x + y)(z + w) = (xz + xw) + (yz + yw)$
+    \item $(x + y)(z - w) = (xz + yz) - (xw + yw)$
+    \item $(x - y)(z - w) = (xz + yw) - (xw + yz)$
+    \item $(x + y)(x - y) = (x^2 - y^2) + (yx - xy)$
+\end{enumerate}
+\solution
+\part
+\begin{align}
+    \begin{split}
+        (x+y)(z+w) &= (x+y)z + (x+y)w\\
+                   &= xz + yz + xw + yw\\
+                   &= xz + xw + yz + yw
+    \end{split}
+\end{align}
+
+\part
+\begin{align}
+    \begin{split}
+        (x+y)(z-w) &= (x+y)z + (x+y)(-w)\\
+                   &= xz + yz + x(-w) + y(-w)\\
+                   &= xz + yz - xw -yw\\
+                   &= xz + yz - (xw + yw)
+    \end{split}
+\end{align}
+
+\part
+\begin{align}
+    \begin{split}
+        (x-y)(z-w) &= (x-y)(z + (-w))\\
+                   &= (x-y)z + (x-y)(-w)\\
+                   &= (x + (-y))z + (x + (-y))(-w)\\
+                   &= xz + (-y)z + x(-w) + (-y)(-w)\\
+                   &= xz - yz -xw + yw\\
+                   &= xz + yw - xw - yz\\
+                   &= (xz + yw) - (xw + yz)
+    \end{split}
+\end{align}
+
+\part
+\begin{align}
+    \begin{split}
+        (x+y)(x-y) &= (x+y)(x + (-y))\\
+                   &= (x+y)x + (x+y)(-y)\\
+                   &= x^2 + yx - ((x+y)y)\\
+                   &= x^2 + yx - (xy + y^2)\\
+                   &= x^2 - y^2  + (yx - xy)
+    \end{split}
+\end{align}
+
+\problem{\# 49}
+An element $a$ of a ring $R$ is called \textbf{nilpotent} if $a^n = 0$ for some positive integer $n$. Prove that the set of all nilpotent elements in a commutative ring $R$ forms a subring of $R$.
+\solution
+Let $S$ be the set of nilpotent elements in $R$. It is clear that $S$ is nonempty because $a = 0$ is an element of $S$. For arbitrary elements $a, b\in S$ there exist positive integers $n, m$ such that $a^n = 0$ and $b^m = 0$. Then
+THIS IS VERY WRONG - BINOMIAL STUFF PLEASE
+\begin{align}
+    \begin{split}
+        (a+b)^{nm} &= a^{nm} + b^{nm}\\
+                   &= (a^n)^m + (b^m)^n\\
+                   &= 0^m + 0^n\\
+                   &= 0
+    \end{split}
+\end{align}
+and 
+\begin{align}
+    \begin{split}
+        (ab)^{nm} &= a^{nm}b^{nm}\\
+                   &= (a^n)^m(b^m)^n\\
+                   &= (0^m)(0^n)\\
+                   &= 0
+    \end{split}
+\end{align}
+For any $x\in S$ there exists a positive integer $n$ such that $x^n = 0$. Then $(-x)^n = 0$ and $-x$ is an element of $S$. 
+
+Therefore $S$ is a subring of $R$.
+
+\problem{\# 50}
+Let $x$ and $y$ be nilpotent elements that satisfy the following conditions in a commutative ring $R$: Prove that $x + y$ is nilpotent.
+\begin{enumerate}
+    \item $x^2 = 0, y^3 = 0$
+    \item $x^n = 0, y^m = 0$ for some $n, m\in \mathbb Z^+$
+\end{enumerate}
+\part
+BINOMIAL STUFF
+\begin{align}
+    \begin{split}
+        (x+y)^6 &= 
+    \end{split}
+\end{align}
+
+\part
+\begin{align}
+    \begin{split}
+        \text{INSERT BINOMIALS HERE}
+    \end{split}
+\end{align}
+\solution
+
+\problem{\# 51}
+Let $R$ and $S$ be arbitrary rings. In the Cartesian product $R\times S$ of $R$ and $S$, define
+\begin{align*}
+    &(r, s) = (r', s') &\text{ if and only if } r = r' \text{ and } s = s',\\
+    &(r_1, s_1) + (r_2, s_2) &= (r_1 + r_2, s_1 + s_2),\\
+    &(r_1, s_1)\cdot (r_2, s_2) &= (r_1r_2, s_1s_2)
+\end{align*}
+\begin{enumerate}
+    \item Prove that the Cartesian product is a ring with respect to these operation. Is is called the \textbf{direct sum} of $R$ and $S$ and is denoted by $R\oplus S$.
+    \item Prove that $R\oplus S$ is commutative if both $R$ and $S$ are commutative.
+    \item Prove that $R\oplus S$ has a unity element if both $R$ and $S$ have unity elements.
+    \item Give an example of rings $R$ and $S$ such that $R\oplus S$ does not have a unity element.
+\end{enumerate}
+\solution
+\part
+$R\times S$ is closed under addition and multiplication as a direct result of $R$ and $S$ being closed. Addition and multiplication are both associative and addition is commutative as a result of the corresponding operations in $R$ and $S$ having these properties. It contains the additive identity $(0, 0)$ and every element $(r, s)$ has an additive inverse $(-r, -s)$ that is guaranteed to exist because $R$ and $S$ contain inverses. We now show that the distributive laws hold. For arbitrary elements $(r_1, s_1), (r_2, s_2), (r_3, s_3)$:
+\begin{align}
+    \begin{split}
+        (r_1, s_1)((r_2, s_2) + (r_3, s_3)) &= (r_1, s_1)(r_2 + r_3, s_2 + s_3)\\
+                                            &= (r_1(r_2 + r_3), s_1(s_2 + s_3)\\
+                                            &= (r_1r_2 + r_1r_3, s_1s_2 + s_1s_3)\\
+                                            &= (r_1r_2, s_1s_2) + (r_1r_3, s_1s_3)\\
+                                            &= (r_1, s_1)(r_2, s_2) + (r_1, s_1)(r_3, s_3)
+    \end{split}
+\end{align}
+and
+\begin{align}
+    \begin{split}
+        ((r_2, s_2) + (r_3, s_3))(r_1, s_1) &= (r_2 + r_3, s_2 + s_3)(r_1, s_1)\\
+                                            &= ((r_2 + r_3)r_1, (s_2 + s_3)s_1\\
+                                            &= (r_2r_1 + r_3r_1, s_2s_1 + s_3s_1)\\
+                                            &= (r_2r_1, s_2s_1) + (r_3r_1, s_3s_1)\\
+                                            &= (r_2, s_2)(r_1, s_1) + (r_3, s_3)(r_1, s_1)
+    \end{split}
+\end{align}
+Thus $R\times S$ is a ring.
+
+\part
+If $R$ and $S$ are commutative then for arbitrary elemtents $(r_1, s_1), (r_2, s_2)\in R\times S$:
+\begin{align}
+    \begin{split}
+        (r_1, s_1)(r_2, s_2) &= (r_1r_2, s_1s_2)\\
+                             &= (r_2r_1, s_2s_1)\\
+                             &= (r_2, s_2)(r_1, s_2)
+    \end{split}
+\end{align}
+Thus $R\times S$ is commutative when $R$ and $S$ are.
+
+\part
+Let $e_r, e_s$ be the unities of $R$ and $S$ respectively. Then the element $(e_r, e_s)$ is the unity in  $R\times S$. For an arbitrary element $(r, s)$
+\begin{align}
+    \begin{split}
+        (e_r, e_s)(r, s) &= (e_rr, e_ss)\\
+                         &= (r, s)\\
+                         &= (re_r, se_s)\\
+                         &= (r, s)(e_r, e_s)
+    \end{split}
+\end{align}
+
+\part
+Let $R = \mathbb Z$ and $S=\mathbb E$. Both $R$ and $S$ are rings but $R\times S$ has no unity.
+
+\problem{\# 56}
+Suppose $R$ is a ring in which all elements $x$ are idempotent - that is, all $x$ satisfy $x^2 = x$. (Such a ring is called a \textbf{Boolean Ring}).
+\begin{enumerate}
+    \item Prove that $x = -x$ for each $x\in R$. (\textit{Hint:} Consider $(x+x)^2$.)
+    \item Prove that $R$ is commutative. (\textit{Hint:} Consider $(x+y)^2$.)
+\end{enumerate}
+\solution
+\part
+\begin{align}
+    \begin{split}
+        x &= (-x)(-x)\\
+          &= (-x)^2\\
+          &= -x
+    \end{split}
+\end{align}
+
+\part
+\begin{align}
+    \begin{split}
+        (x+y)^2 &= x^2 + y^2 + xy + yx\\
+        x + y &= x^2 + y^2 + xy + yx\\
+        x + y &= x + y + xy + yx\\
+        0 &= xy + yx\\
+        -(yx) &= (xy)
+    \end{split}
+\end{align}
+and by the result of part one, $-(yx) = yx$ and thus $R$ is commutative.
+
+%SECTION 4.6
+\newpage
+\section*{Section 5.2}
+In Exercises 4 and 5, let $U = \Set{a, b}$.
+\problem{\# 4}
+Is $\mathcal P(U)$ an integral domain? If not, find all zero divisors in $\mathcal P(U)$.
+\solution
+$\mathcal P(U)$ is not an integral domain. The elements $\Set{a}$ and $\Set{b}$ are zero divisors.
+
+\problem{\# 5}
+Is $\mathcal P(U)$ an field? If not, find all nonzero elements that do not have multiplicative inverses.
+\solution
+$\mathcal P(U)$ is not a field beause every field is an integral domain and we have already shown that this is not the case. The elements $\Set{a}$ and $\Set{b}$ do not have multiplicative inverses.
+
+\problem{\# 11}
+Let $R$ be the set of all matrices of the form 
+$
+\left[\begin{array}{cc}
+a & -b \\
+b & a \end{array} \right]
+$
+, where $a$ and $b$ are real numbers.
+
+Assume that $R$ is a commutative ring with unity with respect to matrix addition and multiplication. Answer the following questions and give a reason for any negative answers.
+\begin{enumerate}
+    \item Is $R$ an integral domain?
+    \item Is $R$ a field?
+\end{enumerate}
+\solution
+\part
+There are no zero divisors in $R$ so $R$ is an integral domain.
+
+\part
+Any nonzero element of $R$ 
+$
+\left[\begin{array}{cc}
+a & -b \\
+b & a \end{array} \right]
+$
+has an inverse 
+$
+(a^2 + b^2)
+\left[\begin{array}{cc}
+a & b \\
+-b & a \end{array} \right]
+$
+This matrix is always defined for nonzero elements of $R$ because the only case when $a^2 + b^2$ is zero is when both $a$ and $b$ are zero. Thus $R$ is an integral domain.
+
+\problem{\# 12}
+Conside the Gaussian integers modulo 3, that is, the set $S = \Set{a + bi\given a, b\in \mathbb Z_3} = \Set{0, 1, 2, i, 1+i, 2+i, 2i, 1+2i, 2+2i}$, where we write $0$ for $[0]$, $1$ for $[1]$, and $2$ for $[2]$ in $\mathbb Z_3$. Addition and multiplication are as in the complex numbers except that the coefficients are added and multiplied as in $\mathbb Z_3$. Thus $i^2 = -1$ as in the complex numbers and $-1 = 2$ in $\mathbb Z_3$.
+\begin{enumerate}
+    \item Is $S$ a commutative ring?
+    \item Does $S$ have a unity?
+    \item Is $S$ an integral domain?
+    \item Is $S$ a field?
+\end{enumerate}
+\solution
+\part
+Using our knowledge of addition in the complex numbers and in $\mathbb Z_3$ it is clear that $S$ forms an abelian group under addition with the identity element $0$.
+
+Similarly, it is clear that $S$ is closed under multiplication and that multiplication is commutative.
+
+The distributive laws hold for multiplication and addition defined in the complex numbers and in $\mathbb Z_3$.
+
+$R$ is a commutative ring.
+
+\part
+$S$ has the unity 1.
+
+\part
+$S$ is an integral domain, it is a commutative ring with unity and it also has no zero divisor.
+
+\part
+$S$ is a field, every element has a multiplicative inverse.
+\begin{align*}
+    &1^{-1} = 1, &2^{-1} = 2, &i^{-1} = 2i, &(1+1)^{-1} = (2+i), &(1+2i)^{-1} = (2+2i)
+\end{align*}
+
+\problem{\# 13}
+Work Exercuse 12 using $S = \Set{a + bi\given a, b\in \mathbb Z_5}$, the Gaussian integers modulo 5.
+\solution
+All answers are the same. 
+
+\problem{\# 15}
+Give an example of an infinite commutative ring with no zero divisors that is not an integral domain.
+\solution
+$$\mathbb E$$
+
+\end{document}
