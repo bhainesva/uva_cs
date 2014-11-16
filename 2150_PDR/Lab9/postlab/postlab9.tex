@@ -370,4 +370,14 @@ In the optimized version no call is ever made to the function. The result of the
 \end{lstlisting}
 
 In addition to the differences mentioned above there were some optimizations that took place in every function. First, the standard prologue and epilogue are ignored in the optimized version. Second, because the results of the simplification and constant arithmetic functions calls go unused neither of them were ever actually called in the optimized code. 
+
+\section*{References}
+I found the following links useful in trying to understand my assembly code.
+\begin{enumerate}
+    \item http://en.wikipedia.org/wiki/Loop\_unrolling
+    \item http://en.wikipedia.org/wiki/Redundant\_Code
+    \item http://en.wikipedia.org/wiki/Category:Compiler\_optimizations
+    \item http://stackoverflow.com/questions/5474355/about-leave-in-x86-assembly
+    \item http://www.compileroptimizations.com/category/expression\_simplification.htm
+\end{enumerate}
 \end{document}

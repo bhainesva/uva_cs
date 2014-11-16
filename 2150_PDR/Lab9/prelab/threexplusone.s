@@ -20,7 +20,7 @@
 ;   Uses bitshifts for multiplication/division when possible
 ;   Uses test to determine if a number is even efficiently
 ;   Uses lea to combine multiplication and addition into one step
-;   Attempts to minimize jumps by ordering code in thoughtful way and by repeating code
+;   Attempts to minimize jumps by ordering code in a thoughtful way and by repeating code
 ;   There is no dead code
 ;   Accesses memory only when it has to, i.e. reading and pushing arguments
 
