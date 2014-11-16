@@ -64,7 +64,7 @@ Determine which of the following properties are true and which are false. If the
     \item If $A\subseteq B$, then $f(A)\subseteq f(B)$.
     \item For all subsets $A$ and $B$ of $X$, $f(A\cup B) = f(A)\cup f(B)$.
     \item For all subsets $A$ and $B$ of $X$, $f(A\cap B) = f(A)\cap f(B)$.
-    \item For a subset $C$ of $Y$, $f^{-1}(C) = \overline{f^{-1}(C)}$.
+    \item For a subset $C$ of $Y$, $f^{-1}(\overline{C}) = \overline{f^{-1}(C)}$.
     \end{enumerate}
 \solution
 \part
@@ -77,7 +77,11 @@ Determine which of the following properties are true and which are false. If the
 Counterexample: Let $A = \Set{0, 1}, B=\Set{1, 2}$ and the function $f$ be defined by
 $$f(0) = 0, f(1) = 1, f(2) = 0$$
 \part
-Counterexample: Let $C = \Set{0}$ be a subset of $Y=\mathbb Z$. Let $f$ be the function defined by $f(x) = 1$. 
+Select an arbitrary element $c'\in f^{-1}(\overline{C})$. Then $c'$ is an element of $x$ such that $f(x)$ is not in $C$. Then $c'$ is an element of $\overline{f^{-1}(C)}$ which is the set of all elements that map to elements of $Y$ that aren't in $C$. Thus $f^{-1}(\overline{C}) \subseteq \overline{f^{-1}(C)}$.
+
+Now select an arbitrary element $c$ of $\overline{f^{-1}(C)}$. Then $c$ is an element of $X$ such that that $f(c)$ is not an element of $C$. So $\overline{f^{-1}(C)} \subseteq f^{-1}(\overline{C})$.
+
+Combining the two parts, $\overline{f^{-1}(C)} = f^{-1}(\overline{C})$.
 
 \problem{\#3}
 Prove or disprove the following statements.
@@ -125,9 +129,9 @@ Then
 \end{align*}
 
 \problem{\#5}
-Let $f:X\to Y$ and $g:Y\to Z$ must be functions.
+Let $f:X\to Y$ and $g:Y\to Z$ be functions.
 \begin{enumerate}
-    \item If $g\circ f$ is 1-1, must $f$ and $g$ be1 1-1 as well? Prove or give a counter example.
+    \item If $g\circ f$ is 1-1, must $f$ and $g$ be 1-1 as well? Prove or give a counter example.
     \item If $g\circ f$ is onto, must $f$ and $g$ be onto as well? Prove or give a counter example.
 \end{enumerate}
 \solution
