@@ -70,30 +70,7 @@ d & c \end{array} \right] =
 a+c & -(b+d) \\
 b+d & a+c \end{array} \right]
 \end{align}
-So $S$ is closed under addition.
-$$
-\left[ \begin{array}{cc}
-c & -d \\
-d & c \end{array} \right] + 
-\left[ \begin{array}{cc}
-a & -b \\
-b & a \end{array} \right] = 
-\left[ \begin{array}{cc}
-a+c & -(b+d) \\
-b+d & a+c \end{array} \right]
-$$
-So $S$ is commutative with respect to multiplication.
-$$
-\left[ \begin{array}{cc}
-a & -b \\
-b & a \end{array} \right] + 
-\left[ \begin{array}{cc}
-c & -d \\
-d & c \end{array} \right] = 
-\left[ \begin{array}{cc}
-a+c & -(b+d) \\
-b+d & a+c \end{array} \right]
-$$
+$\mathbb R$ is closed under addition so $S$ is closed under addition.
 $$
 \left[ \begin{array}{cc}
 a & -b \\
@@ -105,7 +82,7 @@ d & c \end{array} \right] =
 ca-bd & -(cb+da) \\
 cb+da & ca-bd \end{array} \right]
 $$
-So $S$ is closed under multiplication.
+$\mathbb R$ is closed under multiplication so $S$ is closed under multiplication.
 $$
 -\left(\left[ \begin{array}{cc}
 a & -b \\
@@ -115,6 +92,18 @@ b & a \end{array} \right]\right) =
 -b & -a \end{array} \right] 
 $$ 
 Which is another member of $S$. Thus $S$ contains additive inverses and is a subring of $M_2(\mathbb R)$.
+$$
+\left[ \begin{array}{cc}
+c & -b \\
+d & c \end{array} \right]
+\left[ \begin{array}{cc}
+a & -b \\
+b & a \end{array} \right] = 
+\left[ \begin{array}{cc}
+ca-bd & -(cb+da) \\
+cb+da & ca-bd \end{array} \right]
+$$
+The above combined with the example demonstrating closure under multiplication shows that $S$ is commutative with respect to multiplication and is thus a commutative subring.
 
 \part
 The unity is 
@@ -158,7 +147,7 @@ d & d \end{array} \right] =
 a+c & a+c \\
 b+d & b+d \end{array} \right]
 $$
-$\mathbb R$ is closed under addition so $T$ is closed under addition. Further, we know that matrix multiplication is both associative and commutative. Every element
+$\mathbb R$ is closed under addition so $T$ is closed under addition. Further, we know that matrix addition is both associative and commutative. Every element
 $
 \left[ \begin{array}{cc}
 a & a \\
@@ -188,7 +177,7 @@ d & d \end{array} \right] =
 ca+da & ca+da \\
 cb+db & cb+db \end{array} \right]
 $$
-The above demonstrates that $T$ is closed with respect to multiplication. Finally we show that the two distributive laws hold.
+The above demonstrates that $T$ is closed with respect to multiplication because $\mathbb R$ is closed with respect to multiplication and addition. Finally we show that the two distributive laws hold.
 
 First law:
 \begin{align*}
@@ -239,14 +228,14 @@ b & b \end{array} \right] &=
 c & c \\
 d & d \end{array} \right]
 \left[ \begin{array}{cc}
+a & a \\
+b & b \end{array} \right] + 
+\left[ \begin{array}{cc}
 f & f \\
-g & g \end{array} \right] + 
+g & g \end{array} \right] 
 \left[ \begin{array}{cc}
 a & a \\
-b & b \end{array} \right] 
-\left[ \begin{array}{cc}
-f & f \\
-g & g \end{array} \right]
+b & b \end{array} \right]
 \end{align}
 Thus $T$ is a ring. The unity with respect to multiplication of 2x2 matrices is 
 $
@@ -337,17 +326,7 @@ Prove the following equalities in an arbitrary ring $R$.
 \problem{\# 49}
 An element $a$ of a ring $R$ is called \textbf{nilpotent} if $a^n = 0$ for some positive integer $n$. Prove that the set of all nilpotent elements in a commutative ring $R$ forms a subring of $R$.
 \solution
-Let $S$ be the set of nilpotent elements in $R$. It is clear that $S$ is nonempty because $a = 0$ is an element of $S$. For arbitrary elements $a, b\in S$ there exist positive integers $n, m$ such that $a^n = 0$ and $b^m = 0$. Then
-THIS IS VERY WRONG - BINOMIAL STUFF PLEASE
-\begin{align}
-    \begin{split}
-        (a+b)^{nm} &= a^{nm} + b^{nm}\\
-                   &= (a^n)^m + (b^m)^n\\
-                   &= 0^m + 0^n\\
-                   &= 0
-    \end{split}
-\end{align}
-and 
+Let $S$ be the set of nilpotent elements in $R$. It is clear that $S$ is nonempty because $a = 0$ is an element of $S$. For arbitrary elements $a, b\in S$ there exist positive integers $n, m$ such that $a^n = 0$ and $b^m = 0$. Then 
 \begin{align}
     \begin{split}
         (ab)^{nm} &= a^{nm}b^{nm}\\
@@ -356,6 +335,7 @@ and
                    &= 0
     \end{split}
 \end{align}
+so $S$ is closed under multiplication. Consider $(x+y)^q$ where $q$ is some integer larger than $n+m$. Then using the binomial theorem it can be expanded to the sum of terms of the form $ax^iy^j$ where $i+j=q$. Then either $i>n, j>m, $or both. Thus every term of the sum is 0 and $(x+y)^q=0$ where $q$ is some integer and thus $S$ is closed under addition.
 For any $x\in S$ there exists a positive integer $n$ such that $x^n = 0$. Then $(-x)^n = 0$ and $-x$ is an element of $S$. 
 
 Therefore $S$ is a subring of $R$.
@@ -366,21 +346,12 @@ Let $x$ and $y$ be nilpotent elements that satisfy the following conditions in a
     \item $x^2 = 0, y^3 = 0$
     \item $x^n = 0, y^m = 0$ for some $n, m\in \mathbb Z^+$
 \end{enumerate}
+\solution
 \part
-BINOMIAL STUFF
-\begin{align}
-    \begin{split}
-        (x+y)^6 &= 
-    \end{split}
-\end{align}
+This follows from the answer to problem 49.
 
 \part
-\begin{align}
-    \begin{split}
-        \text{INSERT BINOMIALS HERE}
-    \end{split}
-\end{align}
-\solution
+This follows from the answer to problem 49.
 
 \problem{\# 51}
 Let $R$ and $S$ be arbitrary rings. In the Cartesian product $R\times S$ of $R$ and $S$, define
@@ -442,7 +413,7 @@ Let $e_r, e_s$ be the unities of $R$ and $S$ respectively. Then the element $(e_
 \end{align}
 
 \part
-Let $R = \mathbb Z$ and $S=\mathbb E$. Both $R$ and $S$ are rings but $R\times S$ has no unity.
+Let $R = \mathbb Z$ and $S=\mathbb E$, $\mathbb E$ is the set of even integers. Both $R$ and $S$ are rings but $R\times S$ has no unity.
 
 \problem{\# 56}
 Suppose $R$ is a ring in which all elements $x$ are idempotent - that is, all $x$ satisfy $x^2 = x$. (Such a ring is called a \textbf{Boolean Ring}).
@@ -502,7 +473,7 @@ Assume that $R$ is a commutative ring with unity with respect to matrix addition
 \end{enumerate}
 \solution
 \part
-There are no zero divisors in $R$ so $R$ is an integral domain.
+From part b) we know $R$ is a field. Every field is an integral domain so $R$ is an integral domain.
 
 \part
 Any nonzero element of $R$ 
@@ -518,10 +489,10 @@ $
 a & b \\
 -b & a \end{array} \right]
 $
-This matrix is always defined for nonzero elements of $R$ because the only case when $a^2 + b^2$ is zero is when both $a$ and $b$ are zero. Thus $R$ is an integral domain.
+This matrix is always defined for nonzero elements of $R$ because the only case when $a^2 + b^2$ is zero is when both $a$ and $b$ are zero. Thus $R$ is a field.
 
 \problem{\# 12}
-Conside the Gaussian integers modulo 3, that is, the set $S = \Set{a + bi\given a, b\in \mathbb Z_3} = \Set{0, 1, 2, i, 1+i, 2+i, 2i, 1+2i, 2+2i}$, where we write $0$ for $[0]$, $1$ for $[1]$, and $2$ for $[2]$ in $\mathbb Z_3$. Addition and multiplication are as in the complex numbers except that the coefficients are added and multiplied as in $\mathbb Z_3$. Thus $i^2 = -1$ as in the complex numbers and $-1 = 2$ in $\mathbb Z_3$.
+Consider the Gaussian integers modulo 3, that is, the set $S = \Set{a + bi\given a, b\in \mathbb Z_3} = \Set{0, 1, 2, i, 1+i, 2+i, 2i, 1+2i, 2+2i}$, where we write $0$ for $[0]$, $1$ for $[1]$, and $2$ for $[2]$ in $\mathbb Z_3$. Addition and multiplication are as in the complex numbers except that the coefficients are added and multiplied as in $\mathbb Z_3$. Thus $i^2 = -1$ as in the complex numbers and $-1 = 2$ in $\mathbb Z_3$.
 \begin{enumerate}
     \item Is $S$ a commutative ring?
     \item Does $S$ have a unity?
@@ -542,22 +513,31 @@ $R$ is a commutative ring.
 $S$ has the unity 1.
 
 \part
-$S$ is an integral domain, it is a commutative ring with unity and it also has no zero divisor.
+$S$ is an integral domain, it is a commutative ring with unity and it also has no zero divisors. We show in part d) that it's a field and every field is an integral domain.
 
 \part
 $S$ is a field, every element has a multiplicative inverse.
 \begin{align*}
-    &1^{-1} = 1, &2^{-1} = 2, &i^{-1} = 2i, &(1+1)^{-1} = (2+i), &(1+2i)^{-1} = (2+2i)
+    &1^{-1} = 1, &&2^{-1} = 2, &&i^{-1} = 2i, &&(1+1)^{-1} = (2+i), &&(1+2i)^{-1} = (2+2i)
 \end{align*}
 
 \problem{\# 13}
 Work Exercuse 12 using $S = \Set{a + bi\given a, b\in \mathbb Z_5}$, the Gaussian integers modulo 5.
 \solution
-All answers are the same. 
+\part
+See the answer to part a of the previous question with $\mathbb Z_5$ instead of $\mathbb Z_3$.
+
+\part
+$S$ is not an integral domain because it has zero divisors.
+$$(2 + i)(2 - i) = 0$$
+
+\part
+Every field is an integral domain. It has already been shown that $S$ is not an integral domain. Thus $S$ is not a field.
 
 \problem{\# 15}
 Give an example of an infinite commutative ring with no zero divisors that is not an integral domain.
 \solution
+The set of even integers.
 $$\mathbb E$$
 
 \end{document}
