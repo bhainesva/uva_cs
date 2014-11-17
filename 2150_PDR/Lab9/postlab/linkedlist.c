@@ -1,3 +1,10 @@
+/*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Date: 11/17/14
+ * Filename: linkedlist.c
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
