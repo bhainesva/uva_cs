@@ -22,6 +22,10 @@ int main() {
     printf("How long is the list?");
     scanf("%d", &n);
 
+    if (n == 0) {
+        return 0;
+    }
+
     int i;
     int num;
 
