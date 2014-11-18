@@ -1,8 +1,8 @@
 ;
 ; Name: Ben Haines
 ; ID: bmh5wx
-; Date: 10/31/14
-; Filename: mathlib.s
+; Date: 11/17/14
+; Filename: threexplus.s
 ;
 	
 	global collatz
