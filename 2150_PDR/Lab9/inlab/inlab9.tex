@@ -31,7 +31,7 @@
 \fancyhf{}
 \chead{inlab9.pdf}
 \lhead{Ben Haines, bmh5wx}
-\rhead{11/4/14}
+\rhead{11/18/14}
 \begin{document}
 \section{Inheritance}
 Consider the following example of simple inheritance in c++. It includes a derived class "Child" that inherits from the base class "Parent." It inherits Parent's x and y members and also has a public member of its own, "luckyFin."
@@ -52,7 +52,6 @@ class Parent
       int y;
 };
 
-// Derived class
 class Child: public Parent
 {
    public:
@@ -79,7 +78,7 @@ int main(void)
 \lstset{language={[x86masm]Assembler}}
 The resulting assembly code is too long to list in full but snippets will be shown as the topics they are relevant to are discussed.
 \subsection{Initialization}
-The following x86 snippet shows the initializtion of the nemo object.
+The following x86 snippet shows the initialization of the nemo object.
 \begin{lstlisting}
 	call	_Znwj
 	add	esp, 16
@@ -89,7 +88,7 @@ The following x86 snippet shows the initializtion of the nemo object.
 	mov	DWORD PTR [ebp-12], eax
 	mov	eax, DWORD PTR [ebp-12]
 \end{lstlisting}
-The call to _Znwj returns a pointer to the location of the newly created nemo object in memory. Then the data members of nemo are moved into memory at that location. 
+The call to \_Znwj returns a pointer to the location of the newly created nemo object in memory. Then the data members of nemo are moved into memory at that location. 
 
 \subsection{Data Layout}
 From the code above it is not immediately clear which element is stored at which location. This information can be deduced by considering a call to setX inherited from the Parent class. The assembly for such a call is as follows.
@@ -116,6 +115,7 @@ The general rule that we can conclude from this examination is that within an ob
 \subsection{Destruction}
 The first example will demonstrate what happens when a user created object goes out of scope. In order to more easily demonstrate this the c++ code has been modified in the following ways:
 
+\lstset{language={C++}}
 \begin{lstlisting}
 void scope() {
     Child * nemo = new Child();
@@ -129,6 +129,7 @@ int main(void) {
     return 0;
 }
 \end{lstlisting}
+\lstset{language={[x86masm]Assembler}}
 The last lines of assembly within the 'scope' function call look like this:
 \begin{lstlisting}
 	call	_ZN5Child6xPlusYEv
@@ -140,6 +141,7 @@ The last lines of assembly within the 'scope' function call look like this:
 As can be seen, the deallocation of the nemo object is very simple and operates just like deallocation of any other variables on the stack by adding to esp.
 
 The second example will show what happens when something is 'destroyed' by the destructor.
+\lstset{language={C++}}
 \begin{lstlisting}
 class Planet {
    public:
@@ -154,7 +156,6 @@ class Planet {
       int y;
 };
 
-// Derived class
 class DevourerOfWorlds {
    public:
       int luckyFin;
@@ -184,6 +185,7 @@ int main(void) {
 
 \end{lstlisting}
 Here the constructors and destructors have been explicitly defined. The destructor is automatically called when the program exits the scope of scope(). They compile to
+\lstset{language={[x86masm]Assembler}}
 \begin{lstlisting}
 _ZN16DevourerOfWorldsC2Ev:
 	push	ebp
@@ -212,7 +214,8 @@ _ZN16DevourerOfWorldsD2Ev:
 	leave
 	ret
 \end{lstlisting}
-The constructor initializes galactus as we expect and also calls _Znwj to create the Planet earth object. 
+The constructor initializes galactus as we expect and also calls \_Znwj to create the Planet earth object. 
 
-In the destructor, the address of earth is moved into eax which is then passed as an argument to _ZdlPv which deallocates the memory allocated to it. From there things proceed as normal with memory being deallocated by adding to esp and then leave and ret making up the standard epilogue.
+In the destructor, the address of earth is moved into eax which is then passed as an argument to \_ZdlPv which deallocates the memory allocated to it. From there things proceed as normal with memory being deallocated by adding to esp and then leave and ret making up the standard epilogue.
+
 \end{document}
