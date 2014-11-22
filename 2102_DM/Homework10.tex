@@ -1,0 +1,167 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath, amssymb}
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Discrete Math - Homework Set \#10}
+\author{Ben Haines (bmh5wx)}
+\problem{\#1}
+\solution
+If the power sets of natural numbers is countable then all of its elements can be written down as $A_1, A_2, A_3, \ldots$. Now construct a set $S = \Set{i\in \mathbb N \given i\not\in A_i}$. It is clear that $S$ must be different from every $A_i$ listed. Thus the power set of natural numbers is not countable because there is no one-to-one mapping to it from the natural numbers.
+
+\problem{\#2}
+\solution
+\part
+$$a_n = \frac{1}{n} - \frac{1}{n+1}$$
+\part
+$$a_n = (-1)^{n+1}\left(\frac{n-1}{n}\right)$$
+\part
+$$a_n = 3\cdot 2^{n-1}$$
+
+\problem{\#3}
+\solution
+\part
+Let $P(n)$ be the statement that
+$$\sum\limits_{i=1}^n i^3 = \left(\frac{n(n+1)}{2}\right)^{2} $$
+First we show that it is true for $n=1$.
+\begin{align}
+    \begin{split}
+        1 &= 1^3\\
+          &= (1(1+1)/2)^2\\
+          &= 1
+    \end{split}
+\end{align}
+Assume that $P(k)$ is true for some arbitrarily chosen but fixed integer $k\ge 1$.
+Now we show that $P(k)\implies P(k+1)$
+\begin{align}
+    \begin{split}
+        P(k+1) &= 1^3 + 2^3 + \ldots + k^3 + (k+1)^3\\
+               &= \left(\frac{k(k+1)}{2}\right)^2 + (k+1)^3\\
+               &= \frac{k^4 + 2k^3 + k^2}{4} + \frac{4(k^3+3k^2 + 3k + 1)}{4}\\
+               &= \left(\frac{(k+1)((k+1)+1)}{2}\right)^2
+    \end{split}
+\end{align}
+Thus $P(n)$ is true for all integers $n\ge 1$.
+
+\part
+Let $P(n)$ be the statement that
+$$\sum\limits_{i=1}^{n+1} i\cdot 2^i = n\cdot 2^{n+2} + 2$$
+First we show that it is true for $n=0$.
+\begin{align}
+    \begin{split}
+        2 &= 1\cdot 2^1\\
+          &= 1\cdot 0 + 2\\
+          &= 2
+    \end{split}
+\end{align}
+Assume that $P(k)$ is true for some arbitrarily chosen but fixed integer $k\ge 1$.
+Now we show that $P(k)\implies P(k+1)$
+\begin{align}
+    \begin{split}
+        P(k+1) &= 2^1 + 2\cdot 2^2 + \ldots + k\cdot 2^k + (k+2)(2^{k+2})\\
+               &= k\cdot 2^{k+2} + 2 + (k+2)2^{k+2}\\
+               &= k\cdot 2^{k+2} + 2 + k\cdot2^{k+2} + 2\cdot2^{k+2}\\
+               &= 2k\cdot 2^{k+2} + 2 + 2^{k+3}\\ 
+               &= k\cdot 2^{k+3} + 2^{k+3} + 2\\ 
+               &= (k+1)(2^{(k+1)+2}) + 2
+    \end{split}
+\end{align}
+Thus $P(n)$ is true for all integers $n\ge 1$.
+
+\part
+Let $P(n)$ be the statement that
+$$n! < n^n$$
+First we show that it is true for $n=2$.
+\begin{align}
+    \begin{split}
+        2 &= 2!
+           < 4 
+          = 2^2
+    \end{split}
+\end{align}
+Assume that $P(k)$ is true for some arbitrarily chosen but fixed integer $k > 2$.
+Now we show that $P(k)\implies P(k+1)$. To do this we need to show that $(k+1)! < (k+1)^{k+1}.$
+\begin{align}
+    \begin{split}
+        (k+1)! &< (k+1)^{k+1}\\
+        \implies k!(k+1) &< (k+1)(k+1)^k\\
+        \implies k! &< (k+1)^k
+    \end{split}
+\end{align}
+By induction we know that $k! < k^k$ so clearly $k! < (k+1)^k$. 
+Thus $P(n)$ is true for all integers $n\ge 1$.
+
+\part
+Let $P(n)$ be the statement that
+$$\overline{\bigcup _{k=1}^nA_k} = \bigcap_{k=1}^n\overline{A_k}$$
+We know by De Morgan's law that this is true for $n=2$.
+Assume that it is true for all $n<k$ for some arbitrary integer $k\ge 2$ and consider the case when $n=k$.
+\begin{align}
+    \begin{split}
+        \overline{\bigcup_{k=1}^nA_k} &= \overline{A_1\cup A_2\cup \ldots A_k \cup A_{k+1}}\\
+                                      &= \overline{(A_1\cup A_2\cup \ldots A_k)\cup A_{k+1}}\\
+                                                           &= \overline{(A_1\cup A_2\cup \ldots \cup A_{k})} \cap \overline{A_{k+1}}\\
+                                                           &= \overline{A_1}\cap\overline{A_2}\cap\ldots\cap \overline{A_k} \cap \overline{A_{k+1}}\\
+                                                           &= \bigcap_{k=1}^n\overline{A_k}
+    \end{split}
+\end{align}
+
+Thus we have shown by induction that $\overline{\bigcup _{k=1}^nA_k} = \bigcap_{k=1}^n\overline{A_k}$ for all integers $n$ greater than 2.
+
+\problem{\#4}
+\solution
+I claim that in order to obtain $n$ seperate square requires $n-1$ breaks. The case when $n=1$ is clearly true, no breaks are required. Now assume that the statement is true for all $2\le n < k$ for some arbitrarily chosen integer $k>2$. Now consider the case when the chocolate bar is made of $k$ squares. First break it into two pieces, one with $a$ pieces and the other with $k-a$ pieces. Then by the inductive hypothesis the first piece requires $a-1$ breaks to obtain $a$ pieces and the second piece requires $k-a-1$ breaks to obtain $k-a$ pieces. Then the total number of breaks is $1 + (a-1) + (k-a-1) = k-1$. So the claim is true for all positive integers greather than or equal to 1.  
+
+\problem{\#5}
+\solution
+The flaw occurs when considering the case that $j=0$. Then the reference to the term $a^{j-1}$ is invalid because the inductive hypothesis only tells us that $a^k=1$ for nonnegative integers $k$. 
+
+\problem{\#6}
+\solution
+There are 72 different types of this shirt.
+
+\problem{\#7}
+\solution
+\begin{enumerate}
+    \item 
+        Numbers divisible by seven. $\left \lfloor{999/7}\right \rfloor = 142$
+    \item 
+        Numbers divisible by both 7 and 11 are divisible by 77. $142 - \left \lfloor{999/77}\right \rfloor = 130$
+    \item 
+        This is from the part above. $\left \lfloor{999/77}\right \rfloor = 12$
+    \item 
+        There are $\left \lfloor{999/11}\right \rfloor = 90$ multiples of 11 less than 1000. Then the number of numbers divisible by 7 or 11 but not both is $142 + 90 - 12 = 220$
+    \item 
+        We know there are 130 things divisible by 7 and not by 11 and $90-12=78$ things divisible by 11 but not 7. Then $130+78=208$.
+    \item There are $9\cdot (9\cdot9) \cdot (9\cdot 9\cdot 8) = 738$ such numbers.
+    \item There are $4 + (4\cdot 4 + 5\cdot 5) + (4\cdot 4 \cdot 8 + 5\cdot 5\cdot 8) = 373$.
+\end{enumerate}
+
+\problem{\#8}
+\solution
+\begin{enumerate}
+    \item $2^8=256$
+    \item $8!/(3!5!) = 56$
+    \item $256 - 8!/(0!8!) - 8!/(1!7!) - 8!/(2!6!) = 219$
+    \item $8!/(4!4!) = 80$
+\end{enumerate}
+\problem{\#9}
+\solution
+There are $45!/(3!42!)$ ways to select the three countries from the block of 45. There are $57!/(4!53!)$ ways to select the four countris from the block of 57. There are $69!/(5!64!)$ ways to select the five countries from the block of 69. So in total there are $6.29940220356447 \times 10^{16}$ different ways to select the countries.
+
+\problem{\#10}
+\solution
+The first possibility is that there is one man and five women. The number of ways to do this is $10!/(9!1!) \cdot 15!/(10!5!) = 30030$. 
+
+The second possibility is that there are two men and four women. The number of ways to do this $10!/(8!2!) \cdot 15!/(11!4!) = 61425$. 
+
+So in total there are $30030 + 61425 = 91455$ different ways to form such a committee.
+
+\problem{\#11}
+\solution
+There are $25!/22! = 13,800$ ways to distribute the awards.
+
+\end{document}
