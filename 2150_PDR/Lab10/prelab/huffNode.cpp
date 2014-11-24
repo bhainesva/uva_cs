@@ -1,9 +1,9 @@
 /*
  * Name: Ben Haines
  * ID: bmh5wx
- * Filename: ListNode.cpp
- * Date: 09/09/14
- * Description: ListNode implementation 
+ * Filename: HuffNode.cpp
+ * Date: 11/24/14
+ * Description: HuffNode implementation 
  */
 #include <iostream>
 #include "huffNode.h"

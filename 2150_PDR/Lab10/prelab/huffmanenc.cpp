@@ -1,3 +1,10 @@
+/*
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Filename: huffmanenc.cpp
+ * Date: 11/24/14
+ * Description: Main method
+ */
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,3 +1,11 @@
+##
+## Name: Ben Haines
+## ID: bmh5wx
+## Filename: Makefile
+## Date: 11/24/14
+## Description: Makefile
+##
+
 # Makefile for CS 2150 in-lab 5
 
 # Defines the C++ compiler we'll be using

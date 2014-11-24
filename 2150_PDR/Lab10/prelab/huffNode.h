@@ -1,6 +1,9 @@
 /*
- * Filename: ListNode.h
- * Description: ListNode class definition
+ * Name: Ben Haines
+ * ID: bmh5wx
+ * Filename: HuffNode.h
+ * Date: 11/24/14
+ * Description: HuffNode class definition
  */
 
 #ifndef HUFFNODE_H
