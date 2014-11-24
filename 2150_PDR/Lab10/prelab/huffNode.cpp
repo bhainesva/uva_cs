@@ -16,6 +16,15 @@ HuffNode::HuffNode(){
     right = NULL;
 }
 
+HuffNode::~HuffNode(){
+    if (this->left != NULL) {
+        delete this->left;
+    }
+    if (this->right != NULL) {
+        delete this->right;
+    }
+}
+
 HuffNode::HuffNode(char chr, int frq){
     freq = frq;
     letter = chr;

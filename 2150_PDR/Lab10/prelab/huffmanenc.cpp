@@ -81,7 +81,7 @@ int main (int argc, char **argv) {
 
     int distinctChars = 0;
     for (int i =32; i< 256; i++) {
-        if (prefixArr[i] != "" && (char)i != '}') {
+        if (prefixArr[i] != "") {
             distinctChars += 1;
             cout << (char)i << " " << prefixArr[i] << endl;
         }

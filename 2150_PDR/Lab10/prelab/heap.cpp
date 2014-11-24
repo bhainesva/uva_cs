@@ -13,6 +13,9 @@ heap::heap() : heap_size(0) {
 
 // the destructor doesn't need to do much
 heap::~heap() {
+    while(this->size() > 0) {
+        delete this->deleteMin();
+    }
 }
 
 void heap::insert(HuffNode * x) {

@@ -14,6 +14,7 @@ using namespace std;
 class HuffNode {
 public:
     HuffNode();                 // Constructor
+    ~HuffNode();
     HuffNode(char chr, int frq);                 // Constructor
     void print();
     int freq;
