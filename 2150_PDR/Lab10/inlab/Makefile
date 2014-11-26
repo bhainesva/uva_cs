@@ -1,3 +1,10 @@
+#
+# Name: Ben Haines
+# ID: bmh5wx
+# Date: 11/26/14
+# Filename: Makefile
+#
+
 # Makefile for CS 2150 in-lab 5
 
 # Defines the C++ compiler we'll be using
@@ -7,7 +14,7 @@ CXX	= clang++
 CXXFLAGS	= -Wall -g
 
 # All of the .o files for our program
-OFILES	= heap.o huffmanenc.o huffNode.o
+OFILES	= heap.o huffNode.o huffmandec.cpp
 
 # This tells make to create a .o file from a .cpp file, using the
 # defaults above (i.e. the CXX and CXXFLAGS macros)
@@ -31,7 +38,7 @@ clean:
 # avltree.o and tree_test.o (and the final executable).  These lines
 # are generated through the command 'clang++ -MM *.cpp', and that output
 # is pasted below.
-fileio.o: fileio.cpp
 heap.o: heap.cpp heap.h huffNode.h
-huffmanenc.o: huffmanenc.cpp heap.h huffNode.h
 huffNode.o: huffNode.cpp huffNode.h
+huffmandec.o: huffmandec.cpp huffNode.h
+
