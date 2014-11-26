@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{listings}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  numbers=left,
+  tabsize=3
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{postlab8.pdf}
+\lhead{Ben Haines, bmh5wx}
+\rhead{11/26/14}
+\begin{document}
+\section{Encoding}
+\subsection{Implementation Description}
+The first choice of data structure I made about data structures in the implementation of the encoding part of the Huffman lab was how to implement what would become the elements of the Huffman tree. To do this I created a simple HuffNode class that contains four ata member. One char to store what character the node represents, an integer to represent the frequency of the character, and two HuffNode pointers to the children of the node in the tree. This seemed like the simplest way to create the tree that I would eventually need to generate in order to determine prefix codes. 
+
+The second choice I made  was how to store frequencies of letters. I chose to use an array of integers with size 256. I made this decision because it was mentioned in lecture that a simple way to count frequencies was to use the characters as indexes for an array. This structure allows us to check and update the frequency of any given letter in constant time and more complicated functions are not necessary.
+
+The third choice was in regard to the heap that was used to construct the Huffman Tree. I chose to use a heap of HuffNode pointers. This decision was made partly because code for a heap was provided to us in the slides. Further, it was advised that we store pointers to objects rather than object themselves inside of the heap.
+
+Next I needed a way to store the prefixes that were generated for each character. I chose an array of strings to do this because it's a very simple structure and by using the characters as indexes we can gte constant time lookup when converting characters to prefix codes. 
+
+Finally, I used an array of integers to calculate the total length of the encoded text. At the time this seemed like the simplest way to do it, but I realize now that using an array was not necessary here. The calculation could have been done without it and simply stored in an integer.
+
+\subsection{Efficiency}
+\begin{itemize}
+    \item Calulating Frequencies\\
+        My implementation requires one pass through the input file to determine the frequency of each character. For each character it increments a value in the frequency array, an operation that takes constant time. Therefore it has a running time of $\Theta(n)$ where $n$ is the number of characters in the message to be encoded.
+
+        I chose to use an array of 256 integers to store frequencies. In all cases my implementation takes 1024 bytes of space to store frequencies. This could have been improved by decreasing the size of the array. I only needed to consider the 95 printable ascii characters so the array could have been much smaller.
+
+    \item Storing Characters in a Heap\\
+        To store the character in the heap my implementation loops through the frequency array, creates a pointer to a node for each character, and inserts it into the heap. Constructing a node and inserting it into the heap both take constant time. Further, because the frequency array has constant time, a maximum of 95 nodes are created regardless of input. Thus, this step taken as a whole has a running time of $\Theta(1)$. It's constant with respect to the number of characters in the message to be encoded.
+
+Although each spot in the frequency array needs to be checked, if the frequency of a given character is 0 then a node doesn't need to be created for it. Each node takes $1 + 4 + 8 + 8 = 21$ bytes. Thus the amount of space required is $21 * u$ bytes where $u$ is the number of unique characters in the message to be encoded. In the worst case 95 nodes are created and 1995 bytes of space are required.
+
+    \item Building the Tree\\
+        Starting with the full heap, the two minimum nodes are deleted, a new node is created with the two deleted nodes as children, and the new node is inserted back into the heap. Every time this sequence of steps is executed the number of nodes in the heap decreses by one. It must be repeated until there is only one node left in the heap. In the worst case there are 95 nodes in the heap to begin with and the loop must be executed 95 times. Each of the individual steps in the loop can be done in constant time so the overall worst case running time is $\Theta(1)$. 
+
+        In the worst case there are 95 nodes in the heap to begin with. In this case the resulting tree will have 95 nodes for characters and 94 internal nodes. In addition, two temporary nodes are used when building the tree. The total space used in the worst case is then $(94 + 95 + 2)*21 = 4011$ bytes.
+        
+    \item Determining and Storing Prefix Codes\\
+        After the tree is built I store the prefix codes of each character in an array using a recursive function. Within the function each node is considered once and there are at most 189 nodes in the tree. The running time of this step is thus $\Theta(1)$ in the worst case.
+
+        In the worst case, when 95 characters are encoded, this step requires $256*8 = 2048$ bytes for the array itself and an additional 145 bytes for the strings that are being stored.
+
+    \item Writing Output\\
+        In order to write the encoded output to stdout the input file is looped through again, for each character the prefix code for that character is looked up and then printed out. Both of these operations take constant time so the worst case running time is $\Theta(n)$ where $n$ is the number of characters in the message to be encoded.
+
+        Printing the output requires no additional space beyond what is already being used to store prefix codes and a single byte to hold the character being considered at any given time.
+\end{itemize}
+
+\section{Decoding}
+\subsection{Implementation Description}
+I only use two data structures for the decoding section of the lab. The first is a tree of HuffNodes. The HuffNode is described in the implementation section of the encoding part of the report. The second structure I use is an stl::Map that maps prefix strings to the characters that they represent. I chose a map because it allows me to use strings as keys and has fast lookup times. In retrospect a hash\_map might have been a better choice because it's based on a hash table instead of a red black tree. 
+
+\subsection{Efficiency}
+\begin{itemize}
+    \item Reading In Prefix Structure\\
+        Reading the prefix structure in the worst case involves reading 95 lines of input and inserting each character/prefix pair into the map. The worst case is limited to 95 inserts so this step is $\Theta(1)$ with respect to the number of characters in the message to be decoded. 
+
+        The map has to store 95 character prefix string pairs. It is known from the encoding section of the lab that the strings take up 145 bytes and each character takes up a single byte. In the worst case roughly 240 bytes of space should be used.
+
+    \item Recreate Huffman Tree\\
+        The maximum length of a prefix code when 95 characters are being encoded is 7 bits. The Huffman Tree is built by checking if every possible code with length less than 8 bits is mapped to a character. This involves $2^7 = 128$ lookups. If the lookup is successful the resulting letter is assigned to the corresponding node in the tree. Thus the running time is constant with respect to the length of the input. 
+
+        As in the encoding section of the lab, the tree will take up at most $4011$ bytes.
+
+    \item Read in Character, Traverse Tree\\
+        The encoded characters are read in one bit at a time and the tree is traversed simultaneously. In the worst case the average prefix length for characters in the encoded text will approach 7. Then the total time spent traversing the tree will be $7 * $number of characters. The worst case running time is thus $\Theta(n)$ where $n$ is the number of encoded characters in the input file.
+
+        This step uses a single 8 byte pointer to iterate over the tree.
+
+    \item Output Character
+        Once the node in the tree has been reached, acessing and printing the decoded character takes constant time.
+
+        This operation takes no addional space.
+\end{itemize}
+
+\end{document}
