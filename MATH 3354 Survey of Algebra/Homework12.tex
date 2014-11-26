@@ -1,0 +1,416 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\DeclareMathOperator{\lcm}{lcm}
+
+\begin{document}
+\title{Survey of Algebra - Assignment \#12}
+\author{Ben Haines (bmh5wx)}
+%SECTION 5.3
+\section*{Section 5.3}
+\problem{\# 14}
+Let $D$ be the set of all real numbers of the form $m+n\sqrt{2}$, where $m, n\in \mathbb Z$. Carry out the construction of the quotient field $Q$ for this integral domain, and show that this quotient field is isomorphic to the set of real numbers of the form $a + b\sqrt{2}$ where $a$ and $b$ are rational numbers.
+\solution
+$Q$ is the set of all equivalence classes $[m + n\sqrt{2}, r + s\sqrt{2}]$ where $m + n\sqrt{2}, r + s\sqrt{2}\in D$ and $r, s$ are not both equal to 0. Let $T$ be the set of real numbers of the form $a + b\sqrt{2}$ where $a$ and $b$ are rational numbers. Consider the mapping $\phi:Q\to T$ defined by:
+$$\phi([m + n\sqrt{2}, r + s\sqrt{2}]) = \frac{m + n\sqrt{2}}{r + s\sqrt{2}}$$
+First we show that $\phi$ preserves addition.
+\begin{align}
+    \begin{split}
+        \phi([m + n\sqrt{2}, r + s\sqrt{2}] + [a + b\sqrt{2}, c + d\sqrt{2}]) &= \phi([(r + s\sqrt{2})(a + b\sqrt{2}) + \\
+                                                                              &(m+n\sqrt{2})(c + d\sqrt{2}), (r + s\sqrt{2})(c + d\sqrt{2})])\\
+                                                                              &= \frac{(r + s\sqrt{2})(a + b\sqrt{2}) + (m + n\sqrt{2})(c + d\sqrt{2})}{(r + s\sqrt{2})(c + d\sqrt{2})}\\
+                                                                              &= \frac{m + n\sqrt{2}}{r + s\sqrt{2}} + \frac{a + b\sqrt{2}}{c + d\sqrt{2}}\\
+                                                                              &= \phi([m + n\sqrt{2}, r + s\sqrt{2}]) + \phi([a + b\sqrt{2}, c + d\sqrt{2}])
+    \end{split}
+\end{align}
+Now we show that $\phi$ preserves multiplication.
+\begin{align}
+    \begin{split}
+        \phi([m + n\sqrt{2}, r + s\sqrt{2}][a + b\sqrt{2}, c + d\sqrt{2}]) &= \phi([(m + n\sqrt{2})(a + b\sqrt{2}), (r + s\sqrt{2})(c + d\sqrt{2})])\\
+                                                                           &= \frac{(m + n\sqrt{2})(a + b\sqrt{2})}{(r + s\sqrt{2})(c + d\sqrt{2})}\\
+                                                                           &= \frac{m + n\sqrt{2}}{r + s\sqrt{2}}\cdot \frac{a + b\sqrt{2}}{c + d\sqrt{2}}\\
+                                                                           &= \phi([m + n\sqrt{2}, r + s\sqrt{2}])\phi([a + b\sqrt{2}, c + d\sqrt{2}])
+    \end{split}
+\end{align}
+Thus $\phi$ is a homomorphism. It is also onto, any element $\frac{a}{b} + \frac{c}{d}\sqrt{2}$ in $T$ can is equal to $\frac{ad + bc\sqrt{2}}{bd} = \phi([ad + bc\sqrt{2}, cd + 0\sqrt{2}])$.
+
+To show that $\phi$ is one to one suppose that $\phi([a + b\sqrt{2}, c + d\sqrt{2}]) = \phi([m + n\sqrt{2}, r + s\sqrt{2}]$. Then 
+\begin{align}
+    \begin{split}
+        \frac{a + b\sqrt{2}}{c + d\sqrt{2}} &= \frac{m + n\sqrt{2}}{r + s\sqrt{2}}\\
+        \implies (r + s\sqrt{2})(a + b\sqrt{2}) &= (c + d\sqrt{2})(m + n\sqrt{2})
+    \end{split}
+\end{align}
+so by the definition of equality in $Q, [a+b\sqrt{2}, c + d\sqrt{2}]$ and $[m + n\sqrt{2}, r + s\sqrt{2}]$ are equivalent and $\phi$ is an isomorphism. 
+
+\problem{\# 15}
+Let $D$ be the Gaussian integers, the set of all complex numbers of the form $m + ni$, where $m\in \mathbb Z$ and $n\in \mathbb Z$. Carry out the construction of the quotient field $Q$ for this integral domain and show that this quotient field is isomorphic to the set of all complex numbers of the form $a + bi$, where $a$ and $b$ are rational numbers.
+\solution
+$Q$ is the set of all equivalence classes $[m + ni, r + si]$ where $m + ni, r + si\in D$ and $r, s$ are not both equal to 0. Let $T$ be the set of real numbers of the form $a + bi$ where $a$ and $b$ are rational numbers. Consider the mapping $\phi:Q\to T$ defined by:
+$$\phi([m + ni, r + si]) = \frac{m + ni}{r + si}$$
+First we show that $\phi$ preserves addition.
+\begin{align}
+    \begin{split}
+        \phi([m + ni, r + si] + [a + bi, c + di]) &= \phi([(r + si)(a + bi) + (m+ni)(c + di), (r + si)(c + di)])\\
+                                                                              &= \frac{(r + si)(a + bi) + (m + ni)(c + di)}{(r + si)(c + di)}\\
+                                                                              &= \frac{m + ni}{r + si} + \frac{a + bi}{c + di}\\
+                                                                              &= \phi([m + ni, r + si]) + \phi([a + bi, c + di])
+    \end{split}
+\end{align}
+Now we show that $\phi$ preserves multiplication.
+\begin{align}
+    \begin{split}
+        \phi([m + ni, r + si][a + bi, c + di]) &= \phi([(m + ni)(a + bi), (r + si)(c + di)])\\
+                                                                           &= \frac{(m + ni)(a + bi)}{(r + si)(c + di)}\\
+                                                                           &= \frac{m + ni}{r + si}\cdot \frac{a + bi}{c + di}\\
+                                                                           &= \phi([m + ni, r + si])\phi([a + bi, c + di])
+    \end{split}
+\end{align}
+Thus $\phi$ is a homomorphism. It is also onto, any element $\frac{a}{b} + \frac{c}{d}i$ in $T$ can is equal to $\frac{ad + bci}{bd} = \phi([ad + bc\sqrt{i}, cd + 0i])$.
+
+To show that $\phi$ is one to one suppose that $\phi([a + bi, c + di]) = \phi([m + ni, r + si])$. Then 
+\begin{align}
+    \begin{split}
+        \frac{a + bi}{c + di} &= \frac{m + ni}{r + si}\\
+        \implies (r + si)(a + bi) &= (c + di)(m + ni)
+    \end{split}
+\end{align}
+so by the definition of equality in $Q, [a+bi, c + di]$ and $[m + ni, r + si]$ are equivalent and $\phi$ is an isomorphism. 
+
+
+\problem{\# 17}
+Assume $R$ is a ring, and let $S$ be the set of all ordered pairs $(m, x)$ where $m\in \mathbb Z$ and $x\in R$. Equality in $S$ is defined by
+$$(m, x) = (n, y)\text{ if and only if } m = n \text{ and } x=y$$
+Addition and multiplication in $S$ are defined by
+$$(m, x) + (n, y) = (m+n, x+y)$$
+and
+$$(m, x)\cdot (n, y) = (mn, my + nx + xy),$$
+where $my$ and $nx$ are \textit{multiples} of $y$ and $x$ in the ring $R$.
+\begin{enumerate}
+    \item Prove that $S$ is a ring with unity
+    \item Prove that $\phi: R\to S$ defined by $\phi(x) = (0, x)$ is an isomorphism from $R$ to a subring $R'$ of $S$. This result shows that any ring can be embedded in a ring that has a unity.
+\end{enumerate}
+\solution
+\part
+In order to show $S$ is a ring we first show that it is an abelian group under addition.
+\begin{enumerate}
+    \item Identity\\
+        The element $(0, 0_R)$ where $0_R$ is the additive identity in $R$ is the identity element in $(S, +)$. $(m, x) + (0, 0_R) = (m, x) = (0, 0_R) + (m, x)$. 
+    \item Closed\\
+        $(m, x) + (n, y) = (m+n, x + y)$. $R$ and $\mathbb Z$ are both closed under addition so the result is an element of $S$ and $S$ is closed under addition.
+    \item Inverses\\
+        We know that both $R$ and $\mathbb Z$ contain inverses so $-(m, x) = (-m, -x)$. $(m, x) + (-m, -x) = (0, 0_R) = (-m, -x) + (m, x)$.
+    \item Commutative\\
+        We know $R$ and $\mathbb Z$ are commutative with respect to addition so $(m, x) + (n, y) = (m + n, x + y) = (n + m, y + x) = (n, y) + (m, x)$.
+\end{enumerate}
+Now we show that the distributive laws hold in $S$.
+\begin{align}
+    \begin{split}
+        (m, x)[(n, y) + (s, z)] &= (m, x)(n + s, y + z)\\
+                                &= (m(n + s), m(y + z) + (n + s)x + x(y + z))\\
+                                &= (mn + ms, my + mz + nx + sx + xy + xz)\\
+                                &= (mn, my + nx + xy) + (ms, mz + sx + xz)\\
+                                &= (m, x)(n, y) + (m, x)(s, z)
+    \end{split}
+\end{align}
+\begin{align}
+    \begin{split}
+        [(n, y) + (s, z)](m, x) &= (n + s, y + z)(m, x)\\
+                                &= ((n + s)m, (y + z)m + x(n + s) + (y + z))x\\
+                                &= (nm + sm, ym + zm + xn + xs + yx + zx)\\
+                                &= (nm, ym + xn + yx) + (sm, zm + xs + zx)\\
+                                &= (n, y)(m, x) + (s, z)(m, x)
+    \end{split}
+\end{align}
+Finally we show that $S$ is closed under an associative multiplication. 
+$$(m, x) \cdot (n, y) = (mn, my + nx + ny)$$
+The integers are closed under multiplication so $mn\in \mathbb Z$ and $R$ is closed under repeated addition so $my + nx + ny\in R$ and $(mn, my + nx + ny)\in S$. 
+\begin{align}
+    \begin{split}
+        [(m, x)(n, y)](s, z) &= (mn, my + nx + xy)\\
+                             &= (mns, mnz + s(my + nx + xy) + (my + nx + xy)z)\\
+                             &= (mns, mnz + smy + snx + sxy + myz + nxz + xyz)\\
+                             &= (mns, mnz + msy + myz + nsx + xnz + xsy + xyz)
+    \end{split}
+\end{align}
+Thus $S$ is a ring under addition and multiplication defined as given.
+$S$ has the unity $(1, 0)$. $(m, x)(1, 0) = (m, x) = (1, 0)(m, x)$.
+\part
+$R'$ is clearly nonempty. For two elements $(0, x), (0, y)\in R'$, $(0, x) + (0, y) = (0, x+y)\in R'$ and $(0, x)(0, y) = (0, 0)\in R'$. To show that the mapping is one to one consider elements $x, y\in R$ such that $\phi(x) = \phi(y)$. Then $(0, x) = (0, y)$ and $x=y$ by the definition of equality in $R'$. It is clear that the mapping is onto. For any $(0, x)\in R'$, $\phi(x) = (0, x)$ where $x$ is an element in $R$.
+
+Thus the two rings are isomorphic.
+
+\newpage
+\section*{Section 6.1}
+\problem{\# 17}
+In the ring $\mathbb Z$ of integers, prove that every subring is an ideal.
+\solution
+For a subring $I$ of $\mathbb Z$, in order to show that $I$ is an ideal, we need to show that for any $x\in I$ and$r\in R$, $xr$ and $rx$ are in $I$.
+
+If $r=0$, $rx = xr = 0 \in I$. If $r>0$ then, beacuse multiplication is simply repeated addition $rx = xr = x + x + \cdots + x$ for $r$ terms. $I$ is closed under addition so the result is in $I$. If $r<0$ then $rx = xr = (-x) + (-x) + \cdots + (-x)$ for $r$ terms. $I$ is closed under addition and $-x\in I$ so the result is in $I$. Thus $I$ is an ideal in $\mathbb Z$.
+
+\problem{\# 18}
+Let $a\not= 0$ in the ring of integers $\mathbb Z$. Find $b\in \mathbb Z$ such that $a\not=b$ but $(a) = (b)$. 
+\solution
+$$b = -a$$
+
+\problem{\# 19}
+Let $m$ and $n$ be nonzero integers. Prove that $(m)\subseteq (n)$ if and only if $n$ divides $m$.
+\solution
+First assume that $(m)\subseteq (n)$. Then every multiple of $m$ is also a multiple of $n$. In particular, $1\cdot m = nq$ for some integer $q$. Thus $n$ divides $m$.
+
+Now assume that $n$ divides $m$. Then $m$ can be written as $nq$ for some integer $q$ and every multiple $km$ of $m$ can be written as $knq$. Thus every multiple of $m$ is also a multiple of $n$ and $(m)\subseteq (n)$.
+
+\problem{\# 20}
+If $a$ and $b$ are nonzero integers and $m$ is the least common multiple of $a$ and $b$, prove that $(a)\cap (b) = (m)$. 
+\solution
+$m$ is a multiple of both $a$ and $b$ so it can be written as $as$ or $bt$ for some integers $s, t$. Then any multiple $km$ of $m$ for some integer $k$ can be written as $ask$ or $tbk$. Thus $(m)\subseteq (a)\cap (b)$. 
+
+By definition every number that is a multiple of both $a$ and $b$ must be a multiple of the least common multiple of $a$ and $b$ so $(a)\cap(b) \subseteq (m)$. So $(a)\cap (b) = (m)$. 
+
+\newpage
+\section*{Section 6.2}
+\problem{\# 18}
+Let $\theta: M_2(\mathbb Z)\to \mathbb Z$ where $M_2(\mathbb Z)$ is the ring of $2\times 2$ matrices over the integers $\mathbb Z$. Prove or disprove that each of the following mappings is a homomorphism.
+\begin{enumerate}
+    \item 
+        $$ \phi\left(
+        \left[ \begin{array}{cc}
+        a & b \\
+    c & d \end{array} \right]\right) = ad-bc
+        $$
+    \item 
+        $$
+        \theta\left(
+        \left[ \begin{array}{cc}
+        a & b \\
+    c & d \end{array} \right]
+    \right) = a + d$$ (This mapping is the \textbf{trace} of the matrix.)
+\end{enumerate}
+\solution
+\part
+$$ 
+    \phi\left(
+    \left[ \begin{array}{cc}
+    a & b \\
+    c & d \end{array} \right] +
+    \left[ \begin{array}{cc}
+    e & f \\
+    g & h \end{array} \right]\right) = 
+    \phi\left(
+    \left[ \begin{array}{cc}
+    a+e & b+f \\
+    c+g & d+h \end{array} \right]\right) = (a+e)(d+h) - (b+f)(c+g)
+$$
+this is not equal to 
+$$ 
+    \phi\left(
+    \left[ \begin{array}{cc}
+    a & b \\
+c & d \end{array} \right]\right) + 
+            \phi\left(\left[ \begin{array}{cc}
+    e & f \\
+    g & h \end{array} \right]\right) = 
+                        ad - bc + eh - fg
+$$
+So it is not a homomorphism.
+\part
+$$ 
+    \theta\left(
+    \left[ \begin{array}{cc}
+    a & b \\
+    c & d \end{array} \right]
+    \left[ \begin{array}{cc}
+    e & f \\
+    g & h \end{array} \right]\right) = 
+    \theta\left(
+    \left[ \begin{array}{cc}
+    ae+bg & fa+bh \\
+    ec+gd & gc+dh \end{array} \right]\right) = ae + bg + fc + dh
+$$
+this is not equal to 
+$$ 
+    \theta\left(
+    \left[ \begin{array}{cc}
+    a & b \\
+    c & d \end{array} \right]\right)
+            \theta\left(\left[ \begin{array}{cc}
+    e & f \\
+    g & h \end{array} \right]\right) = 
+                        (a + d)(e + h)
+$$
+So it is not a homomorphism.
+
+\problem{\# 19}
+Assume that
+$$
+R = \Set{
+\left[ \begin{array}{cc}
+m & 2n \\
+n & m \end{array} \right]
+\given m, n\in \mathbb Z}
+$$
+and
+$$
+R' = \Set{m + n\sqrt{2}\given m,n \in \mathbb Z}
+$$
+are rings with respect to their usual operations, and prove that $R$ and $R'$ are isomorphic rings.
+\solution
+Consider the mapping $\phi: R\to R'$ defined by $\phi\left(
+    \left[ \begin{array}{cc}
+    a & 2b \\
+    b & a \end{array} \right]\right)
+     = a + b\sqrt{2}$. 
+This mapping is clearly onto. Consider 
+$
+    \left[ \begin{array}{cc}
+    a & 2b \\
+    b & a \end{array} \right]
+$
+and 
+$
+    \left[ \begin{array}{cc}
+    c & 2d \\
+    d & c \end{array} \right]
+$
+such that 
+$
+\phi\left(\left[ \begin{array}{cc}
+    a & 2b \\
+b & a \end{array} \right]\right)
+            =
+\phi\left(\left[ \begin{array}{cc}
+    c & 2d \\
+d & c \end{array} \right]\right)
+            $. This means that $a + b\sqrt{2} = c + d\sqrt{2}$ and $a = c + (d-b)\sqrt{2}$. $a$ must be an integer and a nonzero rational number times an irrational number is irrational. Thus $d-b = 0$ and $d = b$. This implies that $a = c$ and so the two matrices are equal and $\phi$ is one to one.
+
+$$ 
+    \theta\left(
+    \left[ \begin{array}{cc}
+    a & 2b \\
+    b & a \end{array} \right] +
+    \left[ \begin{array}{cc}
+    c & 2d \\
+    d & c \end{array} \right]\right) = 
+    \theta\left(
+    \left[ \begin{array}{cc}
+    a+c & 2(b+d) \\
+    b+d & a+c \end{array} \right]\right) = (a+c) + (b + d)\sqrt{2}
+$$
+this is equal to 
+$$ 
+    \theta\left(
+    \left[ \begin{array}{cc}
+    a & 2b \\
+    b & a \end{array} \right]\right) + 
+            \theta\left(\left[ \begin{array}{cc}
+    c & 2d \\
+    d & c \end{array} \right]\right) = 
+                        (a + b\sqrt{2}) + (c + d\sqrt{2})
+$$
+So the mapping preserves the addition operation.
+$$ 
+    \theta\left(
+    \left[ \begin{array}{cc}
+    a & 2b \\
+    b & a \end{array} \right]
+    \left[ \begin{array}{cc}
+    c & 2d \\
+    d & c \end{array} \right]\right) = 
+    \theta\left(
+    \left[ \begin{array}{cc}
+    ca+2bd & 2(da+bc) \\
+    da+bc & ca+2bd \end{array} \right]\right) = (ca + 2bd) + (da + bc)\sqrt{2}
+$$
+this is equal to 
+$$ 
+    \theta\left(
+    \left[ \begin{array}{cc}
+    a & 2b \\
+    b & a \end{array} \right]\right)
+            \theta\left(\left[ \begin{array}{cc}
+    c & 2d \\
+    d & c \end{array} \right]\right) = 
+                        (a + b\sqrt{2})(c + d\sqrt{2}) = (ca + 2bd) + (da + bc)\sqrt{2}
+$$
+So the mapping also preserves multiplication. Thus $\theta$ is a ring isomorphism and $R$ and $R'$ are isomorphic.
+
+
+\newpage
+\section*{Section 8.1}
+\problem{\# 12}
+\begin{enumerate}
+    \item Find a nonconstant polynomial in $\mathbb Z_4[x]$, if one exists, that is a unit.
+    \item Find a nonconstant polynomial in $\mathbb Z_3[x]$, if one exists, that is a unit.
+    \item Prove or disprove that there exist nonconstant polynomials in $\mathbb Z_p[x]$ that are units if $p$ is prime.
+\end{enumerate}
+\solution
+\part
+$$2x + 1$$
+\part
+No such element exists.
+\part
+When $p$ is prime $\mathbb Z_p$ is an integral domain. In an integral domain for two polynimials $f(x)$ and $g(x)$, $\deg f(x)g(x) = \deg f(x) + \deg g(x)$. Then in order for their product to be the unity, both $f(x)$ and $g(x)$ must be constant polynomials.
+
+\problem{\# 20}
+Consider the mapping $\phi: \mathbb Z[x] \to \mathbb Z_k[x]$ defined by 
+$$\phi(a_0 + a_1x + \cdots + a_nx^n) = [a_0] + [a_1]x + \cdots + [a_n]x^n,$$
+where $[a_i]$ denotes the congruence class of $\mathbb Z_k$ that contains $a_i$. Prove that $\phi$ is an epimorphism from $\mathbb Z[x]$ to $\mathbb Z_k[x]$.
+\solution
+It is clear that the mapping is onto. We must show that it's a homomorphism. We can assume without loss of generality that $n$ is at least as large as $k$ in the following example.
+\begin{align}
+    \begin{split}
+        \phi(a_0 + a_1x + \ldots + a_nx^n + b_0 + b_1 + \ldots + b_k) &= \phi((a_0+b_0) + (a_1+b_1)x + \ldots (a_n + b_n)x^n)\\
+        &= [a_0 + b_0] + [a_1 + b_1]x + \ldots + [a_n + b_n]x^n\\
+        &= [a_0] + [b_0] + ([a_1] + [b_1])x + \ldots + ([a_n] + [b_n])x^n\\
+        &= [a_0] + [a_1]x + \ldots + [a_n]x^n + [b_0] + [b_1]x + \ldots + [b_k]^k\\
+        &= \phi(a_0 + a_1 + \ldots + a_n) + \phi(b_0 + b_1 + \ldots + b_n)
+    \end{split}
+\end{align}
+Thus $\phi$ preserves addition. 
+\begin{align}
+    \begin{split}
+        \phi((\sum\limits_{i=1}a_ix_i )(\sum\limits_{j=1}b_jx_j)) &= \phi(\sum\limits_{i,j=1}a_ib_jx^{i+j})\\
+                                                                  &= \sum\limits_{i,j=1}\phi(a_i)\phi(b_j)x^{i+j}
+    \end{split}
+\end{align}
+So $\phi$ preserves multiplication and $\phi$ is an epimorphism. 
+
+\newpage
+\section*{Section 8.2}
+\problem{\# 26}
+Prove that if $d_1(x)$ and $d_2(x)$ are monic polynomials over the field $F$ such that $d_1(x)\mid d_2(x)$ and $d_2(x)\mid d_1(x)$, then $d_1(x) = d_2(x)$.  
+\solution
+If $d_1(x)\mid d_2(x)$ then $d_2(x)$ can be written as $q_1(x)d_1(x)$ for some polynomial $q_1(x)$. Similarly, because $d_2(x)\mid d_1(x), d_1(x)$ can be written as $q_2(x)d_2(x)$ for some polynomial $q_2(x)$. Then $d_1(x) = q_1(x)q_2(x)d_1(x)$. $F$ is an integral domain so 
+
+\problem{\# 29}
+Let $f(x), g(x), h(x)\in F[x]$. Prove that if $f(x)\mid g(x)$ and $g(x)\mid h(x)$ then $f(x)\mid h(x)$.
+\solution
+If $f(x)\mid g(x)$ and $g(x)\mid h(x)$ then $g(x) = f(x)q_1(x)$ for some polynomial $q_1(x)\in F[x]$ and $h(x) = q_2(x)g(x)$ for some polynomial $q_2(x)\in F[x]$. Then $h(x) = q_2(x)q_1(x)f(x)$ and $f(x)\mid h(x)$. 
+
+\newpage
+\section*{Section 8.3}
+\problem{\# 12}
+Find all the zeros of each of the following polynomials over the indicated fields.
+\begin{enumerate}
+    \item $x^5 - x$ over $\mathbb Z_5$
+    \item $x^{11} - x$ over $\mathbb Z_{11}$
+\end{enumerate}
+\solution
+\part
+The zeros of the polynomial over $\mathbb Z_5$ are:
+$$[0], [1], [2], [3], [4]$$
+\part
+The zeros of the polynomial over $\mathbb Z_{11}$ are:
+$$[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10]$$
+
+\problem{\# 13}
+Give an example of a polynomial ofdegree 4 over the field $\mathbb R$ of real numbers that is reducible over $\mathbb R$ and yet has no zeros in the real numbers.
+\solution
+$$x^4 + 1$$
+
+\end{document}
