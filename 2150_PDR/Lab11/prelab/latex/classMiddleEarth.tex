@@ -1,0 +1,176 @@
+\hypertarget{classMiddleEarth}{\section{Middle\+Earth Class Reference}
+\label{classMiddleEarth}\index{Middle\+Earth@{Middle\+Earth}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMiddleEarth_ab7f5e0c9a33827812f435042e41e7800}{Middle\+Earth} (int xsize, int ysize, int numcities, int seed)
+\begin{DoxyCompactList}\small\item\em Iluvatar, the creator of Middle-\/\+Earth. \end{DoxyCompactList}\item 
+\hyperlink{classMiddleEarth_a617999df0571c3d96b204feb224731eb}{$\sim$\+Middle\+Earth} ()
+\begin{DoxyCompactList}\small\item\em Sauron, the destructor of Middle-\/\+Earth. \end{DoxyCompactList}\item 
+void \hyperlink{classMiddleEarth_a5cb0956acbe5e39525e5061c9f3cc79b}{print} ()
+\begin{DoxyCompactList}\small\item\em The Mouth of Sauroun! \end{DoxyCompactList}\item 
+void \hyperlink{classMiddleEarth_ae724794944d0ade7854047e779eb7054}{print\+Table} ()
+\begin{DoxyCompactList}\small\item\em Prints table of distances. \end{DoxyCompactList}\item 
+float \hyperlink{classMiddleEarth_af558c23fd240638847105737faf755a3}{get\+Distance} (string city1, string city2)
+\begin{DoxyCompactList}\small\item\em Calculates distance between two cities. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \hyperlink{classMiddleEarth_ad730d037c3946ec1129657fc5e0cb353}{get\+Itinerary} (unsigned int length)
+\begin{DoxyCompactList}\small\item\em Returns the list of cities to travel to. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMiddleEarth_af27c43c2a5806a57c994d4c0dc243e9f}{int {\bfseries num\+\_\+city\+\_\+names}}\label{classMiddleEarth_af27c43c2a5806a57c994d4c0dc243e9f}
+
+\item 
+\hypertarget{classMiddleEarth_af70836223dd31b8a9f43e90ce46a4f38}{int {\bfseries xsize}}\label{classMiddleEarth_af70836223dd31b8a9f43e90ce46a4f38}
+
+\item 
+\hypertarget{classMiddleEarth_a71f6357ada3ed2dfc1f9b34dab675b18}{int {\bfseries ysize}}\label{classMiddleEarth_a71f6357ada3ed2dfc1f9b34dab675b18}
+
+\item 
+\hypertarget{classMiddleEarth_a2626c3396b8bdbbe3f31e453650802bc}{vector$<$ float $>$ {\bfseries xpos}}\label{classMiddleEarth_a2626c3396b8bdbbe3f31e453650802bc}
+
+\item 
+\hypertarget{classMiddleEarth_a096c13fa59ebbb5787cbe273c7ea9aab}{vector$<$ float $>$ {\bfseries ypos}}\label{classMiddleEarth_a096c13fa59ebbb5787cbe273c7ea9aab}
+
+\item 
+\hypertarget{classMiddleEarth_af660668f597d9a174249ff1acfa360f4}{vector$<$ string $>$ {\bfseries cities}}\label{classMiddleEarth_af660668f597d9a174249ff1acfa360f4}
+
+\item 
+\hypertarget{classMiddleEarth_a5566a65a6d62de8f51b35e975c332270}{float $\ast$ {\bfseries distances}}\label{classMiddleEarth_a5566a65a6d62de8f51b35e975c332270}
+
+\item 
+\hypertarget{classMiddleEarth_a968f150748c23ac7de4bf524c79f690d}{map$<$ string, int $>$ {\bfseries indices}}\label{classMiddleEarth_a968f150748c23ac7de4bf524c79f690d}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMiddleEarth_ab7f5e0c9a33827812f435042e41e7800}{\index{Middle\+Earth@{Middle\+Earth}!Middle\+Earth@{Middle\+Earth}}
+\index{Middle\+Earth@{Middle\+Earth}!Middle\+Earth@{Middle\+Earth}}
+\subsubsection[{Middle\+Earth}]{\setlength{\rightskip}{0pt plus 5cm}Middle\+Earth\+::\+Middle\+Earth (
+\begin{DoxyParamCaption}
+\item[{int}]{xsize, }
+\item[{int}]{ysize, }
+\item[{int}]{num\+\_\+cities, }
+\item[{int}]{seed}
+\end{DoxyParamCaption}
+)}}\label{classMiddleEarth_ab7f5e0c9a33827812f435042e41e7800}
+
+
+Iluvatar, the creator of Middle-\/\+Earth. 
+
+This is a constructor for the middle earth class that takes 4 arguments. 
+\begin{DoxyParams}{Parameters}
+{\em xsize} & Size of middle earth in x direction. \\
+\hline
+{\em ysize} & Size of middle earth in y direction. \\
+\hline
+{\em num\+\_\+cities} & The number of cities that are desired. \\
+\hline
+{\em seed} & The value used to seed the random number generator. Uses the time if -\/1 is given. \\
+\hline
+\end{DoxyParams}
+set up the random number seed
+
+count the number of cities in the array
+
+select the num\+\_\+cities names of the cities that we'll be using
+
+compute random city positions
+
+compute the 2-\/d distance array
+
+we assume that num\+\_\+cities $<$ xsize$\ast$ysize
+
+row-\/major order
+
+create hash of indices so we don't have to do a linear search each time we want to find a city name to index mapping \hypertarget{classMiddleEarth_a617999df0571c3d96b204feb224731eb}{\index{Middle\+Earth@{Middle\+Earth}!````~Middle\+Earth@{$\sim$\+Middle\+Earth}}
+\index{````~Middle\+Earth@{$\sim$\+Middle\+Earth}!Middle\+Earth@{Middle\+Earth}}
+\subsubsection[{$\sim$\+Middle\+Earth}]{\setlength{\rightskip}{0pt plus 5cm}Middle\+Earth\+::$\sim$\+Middle\+Earth (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMiddleEarth_a617999df0571c3d96b204feb224731eb}
+
+
+Sauron, the destructor of Middle-\/\+Earth. 
+
+This is the deconstructor for the middle earth class. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classMiddleEarth_af558c23fd240638847105737faf755a3}{\index{Middle\+Earth@{Middle\+Earth}!get\+Distance@{get\+Distance}}
+\index{get\+Distance@{get\+Distance}!Middle\+Earth@{Middle\+Earth}}
+\subsubsection[{get\+Distance}]{\setlength{\rightskip}{0pt plus 5cm}float Middle\+Earth\+::get\+Distance (
+\begin{DoxyParamCaption}
+\item[{string}]{city1, }
+\item[{string}]{city2}
+\end{DoxyParamCaption}
+)}}\label{classMiddleEarth_af558c23fd240638847105737faf755a3}
+
+
+Calculates distance between two cities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city1} & The name of the first city. \\
+\hline
+{\em city2} & The name of the second city. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between the two cities. 
+\end{DoxyReturn}
+\hypertarget{classMiddleEarth_ad730d037c3946ec1129657fc5e0cb353}{\index{Middle\+Earth@{Middle\+Earth}!get\+Itinerary@{get\+Itinerary}}
+\index{get\+Itinerary@{get\+Itinerary}!Middle\+Earth@{Middle\+Earth}}
+\subsubsection[{get\+Itinerary}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ Middle\+Earth\+::get\+Itinerary (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{length}
+\end{DoxyParamCaption}
+)}}\label{classMiddleEarth_ad730d037c3946ec1129657fc5e0cb353}
+
+
+Returns the list of cities to travel to. 
+
+The first city is the original start point as well as the end point. The number of cities passed in does not include this start/end point (so there will be length+1 entries in the returned vector. 
+\begin{DoxyParams}{Parameters}
+{\em length} & The number of cities we wish to visit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing the names of cities to be visited. 
+\end{DoxyReturn}
+to account for the start point
+
+check parameter
+
+we need to make a deep copy of the cities vector. itinerary is a pointer so that it doesn't get deleted when it goes out of scope.
+
+shuffle, erase unneeded ones, and return the itinerary \hypertarget{classMiddleEarth_a5cb0956acbe5e39525e5061c9f3cc79b}{\index{Middle\+Earth@{Middle\+Earth}!print@{print}}
+\index{print@{print}!Middle\+Earth@{Middle\+Earth}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Middle\+Earth\+::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMiddleEarth_a5cb0956acbe5e39525e5061c9f3cc79b}
+
+
+The Mouth of Sauroun! 
+
+Prints out information on the created world. Displays the number of cities and the names of the available cities and their locations. \hypertarget{classMiddleEarth_ae724794944d0ade7854047e779eb7054}{\index{Middle\+Earth@{Middle\+Earth}!print\+Table@{print\+Table}}
+\index{print\+Table@{print\+Table}!Middle\+Earth@{Middle\+Earth}}
+\subsubsection[{print\+Table}]{\setlength{\rightskip}{0pt plus 5cm}void Middle\+Earth\+::print\+Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMiddleEarth_ae724794944d0ade7854047e779eb7054}
+
+
+Prints table of distances. 
+
+Prints out a tab-\/separated table of the distances that can be loaded in Excel or similar. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+middleearth.\+h\item 
+middleearth.\+cpp\end{DoxyCompactItemize}

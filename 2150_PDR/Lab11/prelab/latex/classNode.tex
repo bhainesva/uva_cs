@@ -1,0 +1,146 @@
+\hypertarget{classNode}{\section{Node Class Reference}
+\label{classNode}\index{Node@{Node}}
+}
+
+
+\hyperlink{classNode}{Node} class that makes up the graph.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNode_ad7a34779cad45d997bfd6d3d8043c75f}{Node} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classNode_a8b835b946598512ea4351b0d2c93e71f}{Node} (string val)
+\begin{DoxyCompactList}\small\item\em Single argument constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classNode_ade4027e428b4eb714f34eeb5386392eb}{add\+Edge} (\hyperlink{classNode}{Node} $\ast$w)
+\begin{DoxyCompactList}\small\item\em Adds an edge to the node. \end{DoxyCompactList}\item 
+void \hyperlink{classNode_a7788705f2c2aa0e0f15ba3be981a811b}{set\+Mark} ()
+\begin{DoxyCompactList}\small\item\em Marks node as visited. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classNode_af25b1633e05f4d855b79539d1582f86a}{vector$<$ \hyperlink{classNode}{Node} $\ast$ $>$ {\bfseries adj}}\label{classNode_af25b1633e05f4d855b79539d1582f86a}
+
+\item 
+\hypertarget{classNode_afbfe6bbcc5e6d53bb23ff4c29c178596}{string {\bfseries value}}\label{classNode_afbfe6bbcc5e6d53bb23ff4c29c178596}
+
+\item 
+\hypertarget{classNode_a74306065122add3f9acebc439d5a28f6}{bool {\bfseries mark}}\label{classNode_a74306065122add3f9acebc439d5a28f6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classNode}{Node} class that makes up the graph. 
+
+Nodes make up the graph. They each contain a string value, a vector that contains pointers to adjacent nodes, and a boolean value representing whether the node has been visited. \begin{DoxyAuthor}{Author}
+Ben Haines 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12/02/14 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classNode_ad7a34779cad45d997bfd6d3d8043c75f}{\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection[{Node}]{\setlength{\rightskip}{0pt plus 5cm}Node\+::\+Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNode_ad7a34779cad45d997bfd6d3d8043c75f}
+
+
+Default constructor. 
+
+Constructor that takes no arguments. \begin{DoxyAuthor}{Author}
+Ben Haines 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12/02/14 
+\end{DoxyDate}
+\hypertarget{classNode_a8b835b946598512ea4351b0d2c93e71f}{\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection[{Node}]{\setlength{\rightskip}{0pt plus 5cm}Node\+::\+Node (
+\begin{DoxyParamCaption}
+\item[{string}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNode_a8b835b946598512ea4351b0d2c93e71f}
+
+
+Single argument constructor. 
+
+Constructor that takes a string value as an argument and created a node with that value. 
+\begin{DoxyParams}{Parameters}
+{\em val} & Value of node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Ben Haines 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12/02/14 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classNode_ade4027e428b4eb714f34eeb5386392eb}{\index{Node@{Node}!add\+Edge@{add\+Edge}}
+\index{add\+Edge@{add\+Edge}!Node@{Node}}
+\subsubsection[{add\+Edge}]{\setlength{\rightskip}{0pt plus 5cm}void Node\+::add\+Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{w}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNode_ade4027e428b4eb714f34eeb5386392eb}
+
+
+Adds an edge to the node. 
+
+Method adds an additional node pointer to the node's adjacency vector. 
+\begin{DoxyParams}{Parameters}
+{\em w} & New node to mark as adjacent to current node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Ben Haines 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12/02/14 
+\end{DoxyDate}
+\hypertarget{classNode_a7788705f2c2aa0e0f15ba3be981a811b}{\index{Node@{Node}!set\+Mark@{set\+Mark}}
+\index{set\+Mark@{set\+Mark}!Node@{Node}}
+\subsubsection[{set\+Mark}]{\setlength{\rightskip}{0pt plus 5cm}void Node\+::set\+Mark (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classNode_a7788705f2c2aa0e0f15ba3be981a811b}
+
+
+Marks node as visited. 
+
+Marks the node as visited. \begin{DoxyAuthor}{Author}
+Ben Haines 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12/02/14 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+topological.\+cpp\end{DoxyCompactItemize}
