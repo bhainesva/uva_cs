@@ -371,11 +371,11 @@ It is clear that the mapping is onto. We must show that it's a homomorphism. We 
         &= \phi(a_0 + a_1 + \ldots + a_n) + \phi(b_0 + b_1 + \ldots + b_n)
     \end{split}
 \end{align}
-Thus $\phi$ preserves addition. 
+Thus $\phi$ preserves addition. Now consider what it looks like when two elements are multiplied together.
 \begin{align}
     \begin{split}
-        \phi((\sum\limits_{i=1}a_ix_i )(\sum\limits_{j=1}b_jx_j)) &= \phi(\sum\limits_{i,j=1}a_ib_jx^{i+j})\\
-                                                                  &= \sum\limits_{i,j=1}\phi(a_i)\phi(b_j)x^{i+j}
+        \phi((\sum\limits_{i=1}^{n}a_ix_i )(\sum\limits_{j=1}^{n}b_jx_j)) &= \phi(\sum\limits_{i,j=1}^{n}a_ib_jx^{i+j})\\
+                                                                          &= \sum\limits_{i,j=1}^{n}\phi(a_i)\phi(b_j)x^{i+j}
     \end{split}
 \end{align}
 So $\phi$ preserves multiplication and $\phi$ is an epimorphism. 
@@ -385,7 +385,8 @@ So $\phi$ preserves multiplication and $\phi$ is an epimorphism.
 \problem{\# 26}
 Prove that if $d_1(x)$ and $d_2(x)$ are monic polynomials over the field $F$ such that $d_1(x)\mid d_2(x)$ and $d_2(x)\mid d_1(x)$, then $d_1(x) = d_2(x)$.  
 \solution
-If $d_1(x)\mid d_2(x)$ then $d_2(x)$ can be written as $q_1(x)d_1(x)$ for some polynomial $q_1(x)$. Similarly, because $d_2(x)\mid d_1(x), d_1(x)$ can be written as $q_2(x)d_2(x)$ for some polynomial $q_2(x)$. Then $d_1(x) = q_1(x)q_2(x)d_1(x)$. $F$ is an integral domain so 
+If $d_1(x)\mid d_2(x)$ then $d_2(x)$ can be written as $q_1(x)d_1(x)$ for some polynomial $q_1(x)$. Similarly, because $d_2(x)\mid d_1(x), d_1(x)$ can be written as $q_2(x)d_2(x)$ for some polynomial $q_2(x)$. Then $d_1(x) = q_1(x)q_2(x)d_1(x)$. $F$ is an integral domain so $\deg(q_1(x)q_2(x)) = \deg(q_1(x)) + \deg(q_2(x))$. Thus $q_1(x)$ and $q_2(x)$ must both be constants. In fact, because $d_1(x)$ and $d_2(x)$ are monic, they must both be one. Then
+$$d_1(x) = q_2(x)d_2(x) = 1\cdot d_2(x) = d_2(x)$$
 
 \problem{\# 29}
 Let $f(x), g(x), h(x)\in F[x]$. Prove that if $f(x)\mid g(x)$ and $g(x)\mid h(x)$ then $f(x)\mid h(x)$.
