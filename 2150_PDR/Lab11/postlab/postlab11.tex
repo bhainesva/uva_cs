@@ -60,6 +60,7 @@ The dynamic programming acceleration rests on the obeservation that every subpat
 \subsection{Greedy Algorithm}
 This approach involves a greedy heuristic that gives an approximate solution. Beginning at some start node the algorithm simply selects the adjacent unvisited node that is closest to the current node until all nodes have been visited then returns to the start node. This results in a run time of $O(n^2)$. I estimate that this would run in five thousandths of a second.
 
-\subsection{Branch and Bound}
-Branch and bound is a technique for solving the traveling salesman problem that produces exact results 
+\subsection{Pruning}
+Pruning is similar to both the dynamic programming and greedy solutions described above. It works by finding one solution by a depth first search. The length of this solution is then set as an upper bound on the allowable length of a path. Other potential paths are constructed in a depth first manner but as soon as the total cost of the path passes the bound all descendants of that path can be disregarded. This improves speed significantly in the average case but in the worst case the run time is still $\Theta(n!)$. 
+
 \end{document}
