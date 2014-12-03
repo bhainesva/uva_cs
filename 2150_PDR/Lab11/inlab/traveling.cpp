@@ -1,3 +1,10 @@
+/*
+* Name: Ben Haines
+* ID: bmh5wx
+* Date: 12/02/14
+* Filename: traveling.cpp
+*/
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
