@@ -1,0 +1,60 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\DeclareMathOperator{\lcm}{lcm}
+
+\begin{document}
+\title{MATH 3310 - Assessment}
+\author{Ben Haines (bmh5wx)}
+%SECTION 4.5
+\problem{\# 0}
+MATH 3354 - Fall 2014
+
+\problem{\# 1}
+Assume that $\sqrt{12}$ is rational. Then it can be written in the form $\frac{P}{Q}$ for some integers $P$ and $Q$. We can assume that this fraction is in lowest terms without loss of generality. Then
+$$\sqrt{12} = \frac{P}{Q} = \frac{12}{\sqrt{12}} = \frac{12Q}{P}$$
+It is clear that 12 is not a perfect square so each of the above representations has a nonzero fractional component. For $\frac{P}{Q}$ it can be represented as $\frac{q}{Q}$ where $q < Q, q\not=0$. For $\frac{12Q}{P}$ it can be represented as $\frac{p}{P}$ where $p < P, p\not=0$. These fractional components must be equal to each other, therefore
+$$\frac{p}{P} = \frac{q}{Q} \implies \frac{p}{q} = \frac{P}{Q}$$
+This is a contradiction with the assumption that $\frac{P}{Q}$ was in lowest terms, therefore $\sqrt{12}$ is irrational.
+
+\problem{\# 2}
+First we show that the statement is true for $n=2$. 
+$$a_2 = 2a_{n-1} - 3 = 2(4) - 3 = 5 = 2^1 + 3$$
+Now assume that the statement is true for some $k > 1$.
+$$a_k = 2^{k-1} + 3$$ 
+and show that this implies truth for $k+1$.
+$$a_{k+1} = 2a_{k} - 3 = 2(2^{k-1} + 3) - 3 = 2^k -3$$
+Therefore the statement is true for all integers $n > 1$. 
+
+\problem{\# 3}
+\begin{enumerate}
+    \item
+        Injective, surjective.
+    \item
+        Injective, not surjective.
+    \item
+        Not injective, not surjective.
+    \item
+        Not injective, surjective.
+\end{enumerate}
+
+\problem{\# 4}
+\begin{enumerate}
+    \item True.\\
+        By definition of $f^{-1}(B)$, the mappings of each of the elements in that set must be in $B$ so $f(f^{-1}(A)) \subseteq A$. 
+    \item False.\\
+        Let $X = Y = \mathbb Z$ and $B = \Set{1, 2, 3}$. Let $f$ be defined by $f(x) = 1$. Then $f(f^{-1}(B)) = \Set{1}$. $B$ is not a subset of this set. 
+    \item False.\\
+         Let $X = \Set{0, 1}$, $A = \Set{0}$, and $C = \Set{1}$. Let $f$ be defined by $f(x) = 1$. Then $f(A\cap C) = \emptyset$ while $f(A)\cap f(C) = \Set{1}$.
+    \item True.\\
+         For any element $x\in f^{-1}(B\cap D)$, $f(x)\in B$ and $f(x)\in D$ implies that $x\in f^{-1}(B)\cap f^{-1}(D)$. Thus $f^{-1}(B\cap D) \subseteq f^{-1}(B)\cap f^{-1}(D)$. \\
+
+        For any $x$ in $f^{-1}(B)\cap f^{-1}(D)$, $f(x)\in D$ and $f(x)\in B$ implies that $f(x)\in B\cap D$ and s $f^{-1}(B)\cap f^{-1}(D) \subseteq f^{-1}(B\cap D)$. \\
+
+        Therefore $f^{-1}(B\cap D) = f^{-1}(B) \cap f^{-1}(D)$
+\end{enumerate}
+\end{document}
