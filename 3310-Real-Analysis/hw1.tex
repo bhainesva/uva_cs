@@ -1,0 +1,148 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{color}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Real Analysis - Assignment \# 1}
+\author{Ben Haines}
+
+\problem{1}
+\begin{enumerate}
+    \item Prove $-(-x) = x$.
+    \item Prove $-(xy) = (-x)y$.
+\end{enumerate}
+\solution
+\part
+\begin{flalign*}
+    && 0 + -(-x) &= -(-x) && \text{by (A3)}\\
+    && [x + -x] + -(-x) &= -(-x) && \text{by (A4)}\\
+    && x + [-x + -(-x)] &= -(-x) && \text{by (A2)}\\
+    && x + 0 &= -(-x) && \text{by (A4)}\\
+    && x &= -(-x) &&\text{by (A3)}
+\end{flalign*}
+
+\part
+\begin{flalign*}
+    && (-x)y + xy &= (-x + x)y && \text{by (D)}\\
+    && (-x)y + xy &= (0)y && \text{by (A4)}
+\end{flalign*}
+In class it was proved that $0\cdot x = 0$ for all $x$. By this result we get
+\begin{flalign*}
+    && (-x)y + xy &= 0 &&\\
+    && (-x)y + xy + -(xy) &= 0 + -(xy)&& \text{add} -(xy)\\
+    && (-x)y + 0 &= -(xy) &&\text{by (A4)}\\
+    && (-x)y &= -(xy) &&\text{by (A3)}
+\end{flalign*}
+
+\problem{2}
+\begin{enumerate}
+    \item Prove if $x>y, z<0$ then $xz < yz$.
+    \item Prove if $x>y>0, z>w>0$ then $xz > yw$.
+    \item Prove if $x>0$ then $x^{-1} > 0$.
+\end{enumerate}
+\solution
+\part
+$z < 0$ so $-z > 0$. By (O6) which was proved in class $x(-z) > y(-z) \implies xz < yz$.
+\part
+DO THIS YOU DIDN'T DO IT
+
+\part
+First assume that $x^{-1} < 0$. Then by (O7) proved in class:
+$$x\cdot x^{-1} < 0\cdot x^{-1}$$
+It was also proved in class that $0\cdot x = 0$ for all $x$. Thus,
+\begin{flalign*}
+    &&x\cdot x^{-1} &< 0 &&\\
+    &&1 &< 0 &&\text{by (M4)}
+\end{flalign*}
+This is a contradiction so $x^{-1} > 0$.
+
+\problem{3}
+Prove that there does not exist an $x\in \mathbb Z$ such that $0 < x < 1$. \\$\mathbb Z = \Set{x\in \mathbb R\given x\in \mathbb N \lor x = 0 \lor -x\in \mathbb N}$.
+\solution
+Consider any arbitrary $x\in \mathbb R$. There are three possible cases.
+\begin{enumerate}
+    \item Case 1: $x\in \mathbb N$\\
+        It was proven in class that for all $x$ in $\mathbb N$, $x \ge 1$. Thus it is impossible that $x < 1$.
+    \item Case 2: $x = 0$\\
+        If $x=0$ then it is impossible that $x>0$.
+    \item Case 3: $-x\in \mathbb N$\\
+        By the same fact used in case 1, $-x \ge 1 \implies x \le -1$. So it is impossible that $x > 0$.
+\end{enumerate}
+
+There is no case in which it is possible that $0 < x < 1$. 
+
+\problem{4}
+Prove that it is impossible to define inequalities in $\mathbb C$ such that (O1)-(O4) hold.
+\solution
+The proof given in the book that for any nonzero $a\in \mathbb R$, $a^2 > 0$ depends only on axioms (O1)-(O4). Thus if these axioms held in $\mathbb C$ then it would have to be the case that the square of any nonzero element of $\mathbb C$ was greather than 0. However, $i$ is defined such that $i^2 = -1$ which is less than 0. Thus is is impossible to define inequalitied in $\mathbb C$ in such a way that axioms (O1)-(O4) hold.
+
+\problem{5}
+\begin{enumerate}
+    \item Let $x, y\in \mathbb R$. Prove $x\le y$ if and only if $x-\epsilon < y + \epsilon \forall \epsilon > 0$.
+    \item Let $x, y\in \mathbb R$ with $x<y$. Prove there exists $z\in \mathbb R$ with $x < z < y$.
+    \item Let $a, x, b\in \mathbb R$ with $a < x < b$. Prove there exists $\epsilon > 0$ such that $a < x-\epsilon < x+\epsilon < b$. Deduce that $(x-\epsilon, x+\epsilon) \subset (a, b)$.
+\end{enumerate}
+\solution
+\part
+By Theorem 1.9 part i proved in the book, $x < y + \epsilon$ for all $\epsilon > 0$. For any given value for $\epsilon > 0$, $0 > -\epsilon$. Then by (O5) $y + \epsilon > x - \epsilon$ for all $\epsilon > 0$.
+
+\part
+Let $n$ be the largest natural number such that $\frac{1}{n} < y-x$. Let $k$ be the largest natural number such that $\frac{k}{n}\le x$. Then by our selection of $k$, $\frac{k+1}{n} > x$. 
+
+Now assume that $y \le \frac{k+1}{n}$. Then we have that $\frac{k +1}{n} \ge y$ and $-\frac{k}{n} \ge -x$ so by (O5)'':
+$$\frac{1}{n} = \frac{k+1}{n} - \frac{k}{n} \ge y-x$$.
+This is a contradiction so it must be the case that $y > \frac{k+1}{n}$. Thus $z = \frac{k+1}{n}$ is a number satisfying $x<z<y$.
+
+\part
+Let $y$ be the smaller value of $b-x$ and $x-a$. Then $a \le x-y < x < x+y\le b$. By part b) there exists a $z$ such that $x < z < x+y$. Let $\epsilon = z-x$. This value satisfies that desired conditions.
+
+\problem{6}
+Prove that each of the following are metric spaces.
+\begin{enumerate}
+    \item $X= \mathbb R, d(x, y) = |y-x|$
+    \item $X = \text{any set}, d(x, y) = 1$ if $x\not= y$ and $d(x, y) = 0$ if $x = y$.
+    \item Give another example of a metric space.
+\end{enumerate}
+\solution
+\part
+\begin{enumerate}[i]
+    \item $d(x, y) = 0 \iff x = y$\\
+        First assume $x = y$. Then $|y-x| = |0| = 0$.
+        Now assume that $|y-x| = 0$. Then either $y-x = 0$ or $x-y=0$. In the first case $y - x + x = x$ so by (A4) $y = x$. In the second case $x - y + y = y$ so by (A4) $x = y$.
+    \item $d(x, y) = d(y, x)$\\
+        By property 2 of absolute values, $|y - x| = |x - y|$.
+    \item $d(x, z) \le d(x, y) + d(y, z)$\\
+        $|z - x| \le |y - x| + |z - 4|$ by the triangle inequality proved in class.
+\end{enumerate}
+
+\part
+\begin{enumerate}[i]
+    \item $d(x, y) = 0 \iff x = y$\\
+        This is true by the definition of the function $d$.
+    \item $d(x, y) = d(y, x)$\\
+        In the case when $x = y$, $d(x, y) = 0 = d(y, x)$.
+        In the case when $x\not= y$, $d(x, y) = 1 = d(y, x)$.
+    \item $d(x, z) \le d(x, y) + d(y, z)$\\
+        \subitem Case: $x = y = z$\\
+            $0 \le 0$
+        \subitem Case: $x \not= y \not= z$\\
+            $1 \le 2$
+        \subitem Case: $x = y\not= z$\\
+            $1\le 1$
+        \subitem Case: $x \not= y = z$\\
+            $1\le 1$
+        \subitem Case: $x = z \not= y$\\
+            $0\le 1$
+\end{enumerate}
+
+\part
+$X = \mathbb C, d(x, y) = \sqrt{x^2 + y^2}$.
+\end{document}
