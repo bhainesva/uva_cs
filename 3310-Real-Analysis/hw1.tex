@@ -50,9 +50,46 @@ In class it was proved that $0\cdot x = 0$ for all $x$. By this result we get
 \end{enumerate}
 \solution
 \part
-$z < 0$ so $-z > 0$. By (O6) which was proved in class $x(-z) > y(-z) \implies xz < yz$.
+In order to prove this I will first prove consequent 7 introduced in class, that $(-x)\cdot(y) = (-xy) = x\cdot(-y)$. 
+\begin{flalign*}
+    && x + [(-1)\cdot x] &= [1\cdot x] + [(-1)\cdot x]&&\text{(M3)}\\
+    && x + [(-1)\cdot x] &= (1 + (-1))\cdot x&&\text{(D)}\\
+    && x + [(-1)\cdot x] &= 0\cdot x&&\text{(A4)}\\
+    && x + [(-1)\cdot x] &= 0&&\text{(consequent 3)}\\
+    && -x + x + [(-1)\cdot x] &= -x + 0&&\\
+    && 0 + [(-1)\cdot x] &= -x + 0&&\text{(A4)}\\
+    && [(-1)\cdot x] &= -x &&\text{(A3)}\\
+\end{flalign*}
+Using the equivalence established above;
+\begin{flalign*}
+    &&(-x)(y) &= (-1\cdot x)\cdot(y)&&\\
+    &&(-x)(y) &= -1\cdot (x\cdot y)&&\text{(D)}\\
+    &&(-x)(y) &= -(xy)&&
+\end{flalign*}
+This shows that $(-x)(y) = -(xy)$. The argument that $-(xy) = (x)(-y)$ has an identical structure.
+
+$z < 0$ and $-1 < 0$ so
+\begin{flalign*}
+    && 0\cdot -1 &< z \cdot (-1)&&\text{by (O7)}\\
+    && 0 &< z \cdot (-1)&&\text{consequent 3 proved in class}\\
+    && 0 &< -(z\cdot 1)&& \text{by consequent 7}\\
+    && 0 &< -z&& \text{by M3}\\
+    && -z &> 0&& \text{definition of <}
+\end{flalign*}
+
+Having $-z > 0$ and $x > y$ we use (O6) to get $x(-z) > y(-z)$
+\begin{flalign*}
+    && -(xz) &> -(yz)&&\text{consequent 7}\\
+    && -(xz) + ((xz) + (yz)) &> -(yz) + ((xz) + (yz))&&\text{(O4)}\\
+    && -(xz) + ((xz) + (yz)) &> -(yz) + ((yz) + (xz))&&\text{(A1)}\\
+    && (-(xz) + (xz)) + (yz) &> (-(yz) + (yz)) + (xz)&&\text{(M2)}\\
+    && 0 + (yz) &> 0 + (xz)&&\text{(A4)}\\
+    && (yz) &> (xz)\text{(A3)}
+\end{flalign*}
+By the definition of $>$ this is the same as saying $xz < yz$.
+
 \part
-DO THIS YOU DIDN'T DO IT
+It is given that $z>w$ and $w>0$. By (O2) $z > 0$. It is also given that $x>y$. Then by (O6) $xz>yz$. It is also given that $y>0$. By (O6) again $zy > wy$. Then by (M1) $yz > yw$ and finally by (O2) $xz > yw$.
 
 \part
 First assume that $x^{-1} < 0$. Then by (O7) proved in class:
@@ -82,7 +119,12 @@ There is no case in which it is possible that $0 < x < 1$.
 \problem{4}
 Prove that it is impossible to define inequalities in $\mathbb C$ such that (O1)-(O4) hold.
 \solution
-The proof given in the book that for any nonzero $a\in \mathbb R$, $a^2 > 0$ depends only on axioms (O1)-(O4). Thus if these axioms held in $\mathbb C$ then it would have to be the case that the square of any nonzero element of $\mathbb C$ was greather than 0. However, $i$ is defined such that $i^2 = -1$ which is less than 0. Thus is is impossible to define inequalitied in $\mathbb C$ in such a way that axioms (O1)-(O4) hold.
+The proof given in the book that for any nonzero $a\in \mathbb R$, $a^2 > 0$ depends only on axioms (O1)-(O4). Thus if these axioms held in $\mathbb C$ then it would have to be the case that the square of any nonzero element of $\mathbb C$ was greather than 0. However, $i$ is defined such that $i^2 = -1$. Using the fact introduced in class that $1>0$ we can say 
+\begin{flalign*}
+    &&1 + (-1) &> 0 + (-1)&&\\
+    &&0 &> -1&&\text{(A4)}
+\end{flalign*}
+By axiom (O1) it is impossible for it also to be the case that $0 < -1$. Thus this is a contradiction. Therefore it is impossible to define inequalitied in $\mathbb C$ in such a way that axioms (O1)-(O4) hold.
 
 \problem{5}
 \begin{enumerate}
@@ -113,12 +155,61 @@ Prove that each of the following are metric spaces.
 \end{enumerate}
 \solution
 \part
+This proof will use the fact that $-1\cdot x = -x$. This was proven as an intermediate step in problem 2. 
+
+First I will prove that $-(x-y) = y-x$.
+\begin{flalign*}
+    &&-(x-y) &= -1 \cdot (x + (-y))&&\text{see problem 2}\\
+    &&-(x-y) &= -1 \cdot x + -1\cdot -y&&\text{(D)}\\
+    &&-(x-y) &= -x + -(-y)&&\text{see problem 2}\\
+    &&-(x-y) &= -x + y&&\text{proved in class}\\
+    &&-(x-y) &= y + (-x)&&\text{(A1)}\\
+    &&-(x-y) &= y - x&&\text{def. of -}\\
+\end{flalign*}
+
 \begin{enumerate}[i]
     \item $d(x, y) = 0 \iff x = y$\\
         First assume $x = y$. Then $|y-x| = |0| = 0$.
         Now assume that $|y-x| = 0$. Then either $y-x = 0$ or $x-y=0$. In the first case $y - x + x = x$ so by (A4) $y = x$. In the second case $x - y + y = y$ so by (A4) $x = y$.
     \item $d(x, y) = d(y, x)$\\
-        By property 2 of absolute values, $|y - x| = |x - y|$.
+        This would directly follow from a proof of property 2 of absolute valuesthat states $|y - x| = |x - y|$. There are two cases.
+        \subitem Case: $y-x > 0$.\\
+            By the definition of absolute value $|y-x| = y-x$. Then
+            \begin{flalign*}
+                &&y-x &> 0&&\\
+                &&y-x + x &> 0 + x&&\text{O4}\\
+                &&y + 0 &> 0 + x&&\text{A4}\\
+                &&y &> x&&\text{A3}\\
+                &&y + (-y) &> x + (-y)&&\text{O4}\\
+                &&0 &> x + (-y)&&\text{A4}\\
+                &&0 &> x - y&&\text{def. of -}
+            \end{flalign*}
+            Thus by the definition of absolute value $|x-y| = -(x-y)$ which, as proved at the beginning of this problem, is equal to $y-x$. 
+            \subitem Case: $y-x < 0$.\\
+                By the definition of absolute value $|y-x| = -(y-x)$. Using the same fact as above, this equals $x-y$.
+            \begin{flalign*}
+                &&y-x &< 0&&\\
+                &&y-x + x &< 0 + x&&\text{O4}\\
+                &&y + 0 &< 0 + x&&\text{A4}\\
+                &&y &< x&&\text{A3}\\
+                &&y + (-y) &< x + (-y)&&\text{O4}\\
+                &&0 &< x + (-y)&&\text{A4}\\
+                &&0 &< x - y&&\text{def. of -}
+            \end{flalign*}
+            Thus $|x-y| = x-y$ by definition.
+            \subitem Case: $y-x = 0$\\
+                In this case $|y-x| = y-x = 0$ by definition.
+                \begin{flalign*}
+                    &&y-x &= 0&&\\
+                    &&y-x+x &= 0 + x&&\\
+                    &&y + 0 &= 0 + x&&\text{(A4)}\\
+                    &&y &= x&&\text{(A3)}\\
+                    &&y + (-y) &= x + (-y)&&\\
+                    &&0 &= x + (-y)&&\text{(A4)}\\
+                    &&0 &= x - y&&\text{def. of -}\\
+                \end{flalign*}
+                So $|x-y| = y-x = 0$ by definition.
+
     \item $d(x, z) \le d(x, y) + d(y, z)$\\
         $|z - x| \le |y - x| + |z - 4|$ by the triangle inequality proved in class.
 \end{enumerate}
