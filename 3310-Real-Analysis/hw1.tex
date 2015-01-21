@@ -22,24 +22,24 @@
 \solution
 \part
 \begin{flalign*}
-    && 0 + -(-x) &= -(-x) && \text{by (A3)}\\
-    && [x + -x] + -(-x) &= -(-x) && \text{by (A4)}\\
-    && x + [-x + -(-x)] &= -(-x) && \text{by (A2)}\\
-    && x + 0 &= -(-x) && \text{by (A4)}\\
-    && x &= -(-x) &&\text{by (A3)}
+    && 0 + -(-x) &= -(-x) && \text{(A3)}\\
+    && [x + -x] + -(-x) &= -(-x) && \text{(A4)}\\
+    && x + [-x + -(-x)] &= -(-x) && \text{(A2)}\\
+    && x + 0 &= -(-x) && \text{(A4)}\\
+    && x &= -(-x) &&\text{(A3)}
 \end{flalign*}
 
 \part
 \begin{flalign*}
-    && (-x)y + xy &= (-x + x)y && \text{by (D)}\\
-    && (-x)y + xy &= (0)y && \text{by (A4)}
+    && (-x)y + xy &= (-x + x)y && \text{(D)}\\
+    && (-x)y + xy &= (0)y && \text{(A4)}
 \end{flalign*}
-In class it was proved that $0\cdot x = 0$ for all $x$. By this result we get
+In class it was proved that $0\cdot x = 0$ for all $x$. By this result I get
 \begin{flalign*}
     && (-x)y + xy &= 0 &&\\
     && (-x)y + xy + -(xy) &= 0 + -(xy)&& \text{add} -(xy)\\
-    && (-x)y + 0 &= -(xy) &&\text{by (A4)}\\
-    && (-x)y &= -(xy) &&\text{by (A3)}
+    && (-x)y + 0 &= 0 + -(xy) &&\text{(A4)}\\
+    && (-x)y &= -(xy) &&\text{(A3)}
 \end{flalign*}
 
 \problem{2}
@@ -58,7 +58,7 @@ In order to prove this I will first prove consequent 7 introduced in class, that
     && x + [(-1)\cdot x] &= 0&&\text{(consequent 3)}\\
     && -x + x + [(-1)\cdot x] &= -x + 0&&\\
     && 0 + [(-1)\cdot x] &= -x + 0&&\text{(A4)}\\
-    && [(-1)\cdot x] &= -x &&\text{(A3)}\\
+    && [(-1)\cdot x] &= -x &&\text{(A3)}
 \end{flalign*}
 Using the equivalence established above;
 \begin{flalign*}
@@ -70,21 +70,21 @@ This shows that $(-x)(y) = -(xy)$. The argument that $-(xy) = (x)(-y)$ has an id
 
 $z < 0$ and $-1 < 0$ so
 \begin{flalign*}
-    && 0\cdot -1 &< z \cdot (-1)&&\text{by (O7)}\\
+    && 0\cdot -1 &< z \cdot (-1)&&\text{(O7)}\\
     && 0 &< z \cdot (-1)&&\text{consequent 3 proved in class}\\
-    && 0 &< -(z\cdot 1)&& \text{by consequent 7}\\
-    && 0 &< -z&& \text{by M3}\\
-    && -z &> 0&& \text{definition of <}
+    && 0 &< -(z\cdot 1)&& \text{consequent 7}\\
+    && 0 &< -z&& \text{M3}\\
+    && -z &> 0&& \text{definition of $>$}
 \end{flalign*}
 
-Having $-z > 0$ and $x > y$ we use (O6) to get $x(-z) > y(-z)$
+Having $-z > 0$ and $x > y$ I use (O6) to get $x(-z) > y(-z)$
 \begin{flalign*}
     && -(xz) &> -(yz)&&\text{consequent 7}\\
     && -(xz) + ((xz) + (yz)) &> -(yz) + ((xz) + (yz))&&\text{(O4)}\\
     && -(xz) + ((xz) + (yz)) &> -(yz) + ((yz) + (xz))&&\text{(A1)}\\
     && (-(xz) + (xz)) + (yz) &> (-(yz) + (yz)) + (xz)&&\text{(M2)}\\
     && 0 + (yz) &> 0 + (xz)&&\text{(A4)}\\
-    && (yz) &> (xz)\text{(A3)}
+    && (yz) &> (xz)&&\text{(A3)}
 \end{flalign*}
 By the definition of $>$ this is the same as saying $xz < yz$.
 
@@ -99,7 +99,7 @@ It was also proved in class that $0\cdot x = 0$ for all $x$. Thus,
     &&x\cdot x^{-1} &< 0 &&\\
     &&1 &< 0 &&\text{by (M4)}
 \end{flalign*}
-This is a contradiction so $x^{-1} > 0$.
+This is a contradiction with (O1) because I know that $1>0$, so $x^{-1} > 0$.
 
 \problem{3}
 Prove that there does not exist an $x\in \mathbb Z$ such that $0 < x < 1$. \\$\mathbb Z = \Set{x\in \mathbb R\given x\in \mathbb N \lor x = 0 \lor -x\in \mathbb N}$.
@@ -119,32 +119,106 @@ There is no case in which it is possible that $0 < x < 1$.
 \problem{4}
 Prove that it is impossible to define inequalities in $\mathbb C$ such that (O1)-(O4) hold.
 \solution
-The proof given in the book that for any nonzero $a\in \mathbb R$, $a^2 > 0$ depends only on axioms (O1)-(O4). Thus if these axioms held in $\mathbb C$ then it would have to be the case that the square of any nonzero element of $\mathbb C$ was greather than 0. However, $i$ is defined such that $i^2 = -1$. Using the fact introduced in class that $1>0$ we can say 
+The proof given in the book that for any nonzero $a\in \mathbb R$, $a^2 > 0$ depends only on axioms (O1)-(O4). Thus if these axioms held in $\mathbb C$ then it would have to be the case that the square of any nonzero element of $\mathbb C$ was greather than 0. However, $i$ is defined such that $i^2 = -1$. Using the fact introduced in class that $1>0$ I can say 
 \begin{flalign*}
     &&1 + (-1) &> 0 + (-1)&&\\
     &&0 &> -1&&\text{(A4)}
 \end{flalign*}
-By axiom (O1) it is impossible for it also to be the case that $0 < -1$. Thus this is a contradiction. Therefore it is impossible to define inequalitied in $\mathbb C$ in such a way that axioms (O1)-(O4) hold.
+By axiom (O1) it is impossible for it also to be the case that $0 < -1$. Thus this is a contradiction. Therefore it is impossible to define inequalities in $\mathbb C$ in such a way that axioms (O1)-(O4) hold.
 
 \problem{5}
 \begin{enumerate}
-    \item Let $x, y\in \mathbb R$. Prove $x\le y$ if and only if $x-\epsilon < y + \epsilon \forall \epsilon > 0$.
+    \item Let $x, y\in \mathbb R$. Prove $x\le y$ if and only if $x-\epsilon < y + \epsilon$  $\forall \epsilon > 0$.
     \item Let $x, y\in \mathbb R$ with $x<y$. Prove there exists $z\in \mathbb R$ with $x < z < y$.
     \item Let $a, x, b\in \mathbb R$ with $a < x < b$. Prove there exists $\epsilon > 0$ such that $a < x-\epsilon < x+\epsilon < b$. Deduce that $(x-\epsilon, x+\epsilon) \subset (a, b)$.
 \end{enumerate}
 \solution
 \part
-By Theorem 1.9 part i proved in the book, $x < y + \epsilon$ for all $\epsilon > 0$. For any given value for $\epsilon > 0$, $0 > -\epsilon$. Then by (O5) $y + \epsilon > x - \epsilon$ for all $\epsilon > 0$.
+First let $x\le y$. By part (i) of theorem 1.9 proved in the textbook I know that $x < y + \epsilon$ for all $\epsilon > 0$. As done with $z$ in problem 2.a I can show that for any $\epsilon$, $-\epsilon < 0$. Thus by (O5) $x - \epsilon > y + \epsilon$.
+
+Now let $x -\epsilon < y + \epsilon$ for all $\epsilon > 0$. Assume that $x > y$. Then $x-y > 0$ so I can set $\epsilon_0 = \frac{x-y}{3}$. Then plugging in I get $x - \frac{x-y}{3} < y + \frac{x-y}{3}$. $\epsilon_0 > 0$ so by (O5)
+\begin{flalign*}
+    &&x &< y + \epsilon_0 + \epsilon_0&&\\
+    &&x + \epsilon_0 &< y + \epsilon_0 + \epsilon_0 + \epsilon_0&&\text{(O5)}\\
+    &&x + \epsilon_0 &< y + (x + (-y))&&\\
+    &&x + \epsilon_0 &< y + ((-y) + x)&&\text{(A1)}\\
+    &&x + \epsilon_0 &< (y + (-y)) + x&&\text{(A2)}\\
+    &&x + \epsilon_0 &< 0 + x&&\text{(A4)}\\
+    &&x + \epsilon_0 &< x&&\text{(A3)}\\
+    &&(-x) + x + \epsilon_0 &< (-x) + x&&\text{(O4)}\\
+    &&0 + \epsilon_0 &< 0&&\text{(A4)}\\
+    &&\epsilon_0 &< 0&&\text{(A3)}
+\end{flalign*}
+This is a contradiction with (O1) because I know that $\epsilon_0 > 0$. Therefore $x \le y$.
 
 \part
 Let $n$ be the largest natural number such that $\frac{1}{n} < y-x$. Let $k$ be the largest natural number such that $\frac{k}{n}\le x$. Then by our selection of $k$, $\frac{k+1}{n} > x$. 
 
-Now assume that $y \le \frac{k+1}{n}$. Then we have that $\frac{k +1}{n} \ge y$ and $-\frac{k}{n} \ge -x$ so by (O5)'':
+Now assume that $y \le \frac{k+1}{n}$. Then I have that $\frac{k +1}{n} \ge y$ and $-\frac{k}{n} \ge -x$ so by (O5)'':
 $$\frac{1}{n} = \frac{k+1}{n} - \frac{k}{n} \ge y-x$$.
 This is a contradiction so it must be the case that $y > \frac{k+1}{n}$. Thus $z = \frac{k+1}{n}$ is a number satisfying $x<z<y$.
 
 \part
-Let $y$ be the smaller value of $b-x$ and $x-a$. Then $a \le x-y < x < x+y\le b$. By part b) there exists a $z$ such that $x < z < x+y$. Let $\epsilon = z-x$. This value satisfies that desired conditions.
+First I prove consequent 5 introduced in class that $-(x-y) = y-x$.
+\begin{flalign*}
+    &&-(x-y) &= -(x + (-y))&&\text{def. of -}\\
+    &&-(x-y) &= -1\cdot(x + (-y))&&\text{see prob. 2}\\
+    &&-(x-y) &= -1\cdot x + -1\cdot(-y))&&\text{(D)}\\
+    &&-(x-y) &= -x + -(-y))&&\text{see prob. 2}\\
+    &&-(x-y) &= -x + y&&\text{proved in class}\\
+    &&-(x-y) &= y + (-x)&&\text{(A1)}\\
+    &&-(x-y) &= y - x&&\text{def. of -}
+\end{flalign*}
+
+Let $y$ be the smaller value of $b-x$ and $x-a$, both of which are positive. If $y = x-a$ then 
+\begin{flalign*}
+    &&x-y &= x + (-(x - a))&&\\
+    &&x-y &= x + (a + (-x))&&\text{consequent 5}\\
+    &&x-y &= x + ((-x) + a)&&\text{(A1)}\\
+    &&x-y &= (x + (-x)) + a&&\text{(A2)}\\
+    &&x-y &= 0 + a&&\text{(A4)}\\
+    &&x-y &= a&&\text{(A3)}
+\end{flalign*}
+
+$a\le a$ by definition so in this case $a\le x-y$.
+
+The other case is when $y = b-x$. By our selection of $y$ I know $x-a > y$ so $(x-a)-y > 0$ and I also know from the first case that $x-(x-a)\ge a$. So by (O5)'
+\begin{flalign*}
+    &&x + (-(x-a)) + ((x-a) + (-y))&\ge a&&\\
+    &&x + ((-(x-a)) + (x-a)) + (-y)&\ge a&&\text{(A2)}\\
+    &&x + 0 + (-y)&\ge a&&\text{(A4)}\\
+    &&x + (-y)&\ge a&&\text{(A3)}
+\end{flalign*}
+so in both cases $a \le x - y$.
+It is given that both $b-x$ and $x-a$ are positive so in either case $y > 0$. By (O4) $x + y > x$. Application of (O5) obtains $x > x-y$.
+
+Now I want to show that $x + y \le b$. In the case when $y=b-x$
+\begin{flalign*}
+    &&x + y &= x + (b + (-x))&&\\
+    &&x + y &= x + ((-x) + b)&&\text{(A1)}\\
+    &&x + y &= (x + (-x)) + b&&\text{(A2)}\\
+    &&x + y &= 0 + b&&\text{(A4)}\\
+    &&x + y &= b&&\text{(A3)}
+\end{flalign*}
+so $x + y \le b$ by definition.
+
+In the case when $y = x-a$ I know by our selection of $y$ that $y < (b-x)$ and thus $0 > y + (-(b-x))$ by (O4). I also know from the first case that $b \ge x + (b-x)$. Then by (O5)'
+\begin{flalign*}
+    &&b + 0 &> x + (b-x) + (y + (-(b-x)))&&\\
+    &&b + 0 &> x + (b-x) + ((-(b-x)) + y)&&\text{(A1)}\\
+    &&b + 0 &> x + ((b-x) + (-(b-x))) + y&&\text{(A2)}\\
+    &&b + 0 &> x + 0 + y&&\text{(A4)}\\
+    &&b &> x + y&&\text{(A3)}\\
+\end{flalign*}
+So therefore $x + y \le b$ by the definition of $\le$.
+
+Having shown that $x < x + y$ I can use the result of part b) to produce some number $z$ such that $x < z < x + y$. Let $\epsilon = z-x$. To show that $\epsilon$ satisfies the desired characteristics it must be shown that $\epsilon > 0$, and that $a < x-\epsilon < x + \epsilon < b$. It is known that $x < z$ so by(O4) $\epsilon = z-x > 0$. By the same process as before, $0 > -\epsilon$. Then by (O2) $-\epsilon < \epsilon$ and by (O4) $x-\epsilon < x + \epsilon$.\\
+
+It is known that $z < x + y$. Then by (O4) $z-x < y$ so $\epsilon < y$. It is also known $a \le x-y$. Then by (O5)' $a + \epsilon < x$ and by (O4) $a < x-\epsilon_0$.\\
+
+From above it is known that $x + y \le b$ and that $\epsilon < y$. Then by (O5)' $x + y + \epsilon< b + y$ and by (O4) $x + \epsilon < b$.\\
+
+Thus $\epsilon$ satisfies the desired properties and by definition $(x-\epsilon, x + \epsilon)\subset (a, b)$.
 
 \problem{6}
 Prove that each of the following are metric spaces.
@@ -164,7 +238,7 @@ First I will prove that $-(x-y) = y-x$.
     &&-(x-y) &= -x + -(-y)&&\text{see problem 2}\\
     &&-(x-y) &= -x + y&&\text{proved in class}\\
     &&-(x-y) &= y + (-x)&&\text{(A1)}\\
-    &&-(x-y) &= y - x&&\text{def. of -}\\
+    &&-(x-y) &= y - x&&\text{def. of -}
 \end{flalign*}
 
 \begin{enumerate}[i]
@@ -173,42 +247,44 @@ First I will prove that $-(x-y) = y-x$.
         Now assume that $|y-x| = 0$. Then either $y-x = 0$ or $x-y=0$. In the first case $y - x + x = x$ so by (A4) $y = x$. In the second case $x - y + y = y$ so by (A4) $x = y$.
     \item $d(x, y) = d(y, x)$\\
         This would directly follow from a proof of property 2 of absolute valuesthat states $|y - x| = |x - y|$. There are two cases.
-        \subitem Case: $y-x > 0$.\\
-            By the definition of absolute value $|y-x| = y-x$. Then
-            \begin{flalign*}
-                &&y-x &> 0&&\\
-                &&y-x + x &> 0 + x&&\text{O4}\\
-                &&y + 0 &> 0 + x&&\text{A4}\\
-                &&y &> x&&\text{A3}\\
-                &&y + (-y) &> x + (-y)&&\text{O4}\\
-                &&0 &> x + (-y)&&\text{A4}\\
-                &&0 &> x - y&&\text{def. of -}
-            \end{flalign*}
-            Thus by the definition of absolute value $|x-y| = -(x-y)$ which, as proved at the beginning of this problem, is equal to $y-x$. 
-            \subitem Case: $y-x < 0$.\\
-                By the definition of absolute value $|y-x| = -(y-x)$. Using the same fact as above, this equals $x-y$.
-            \begin{flalign*}
-                &&y-x &< 0&&\\
-                &&y-x + x &< 0 + x&&\text{O4}\\
-                &&y + 0 &< 0 + x&&\text{A4}\\
-                &&y &< x&&\text{A3}\\
-                &&y + (-y) &< x + (-y)&&\text{O4}\\
-                &&0 &< x + (-y)&&\text{A4}\\
-                &&0 &< x - y&&\text{def. of -}
-            \end{flalign*}
-            Thus $|x-y| = x-y$ by definition.
-            \subitem Case: $y-x = 0$\\
-                In this case $|y-x| = y-x = 0$ by definition.
+        \begin{enumerate}
+            \item Case: $y-x > 0$.\\
+                By the definition of absolute value $|y-x| = y-x$. Then
                 \begin{flalign*}
-                    &&y-x &= 0&&\\
-                    &&y-x+x &= 0 + x&&\\
-                    &&y + 0 &= 0 + x&&\text{(A4)}\\
-                    &&y &= x&&\text{(A3)}\\
-                    &&y + (-y) &= x + (-y)&&\\
-                    &&0 &= x + (-y)&&\text{(A4)}\\
-                    &&0 &= x - y&&\text{def. of -}\\
+                    &&y-x &> 0&&\\
+                    &&y-x + x &> 0 + x&&\text{O4}\\
+                    &&y + 0 &> 0 + x&&\text{A4}\\
+                    &&y &> x&&\text{A3}\\
+                    &&y + (-y) &> x + (-y)&&\text{O4}\\
+                    &&0 &> x + (-y)&&\text{A4}\\
+                    &&0 &> x - y&&\text{def. of -}
                 \end{flalign*}
-                So $|x-y| = y-x = 0$ by definition.
+                Thus by the definition of absolute value $|x-y| = -(x-y)$ which, as proved at the beginning of this problem, is equal to $y-x$. 
+                \subitem Case: $y-x < 0$.\\
+                    By the definition of absolute value $|y-x| = -(y-x)$. Using the same fact as above, this equals $x-y$.
+                \begin{flalign*}
+                    &&y-x &< 0&&\\
+                    &&y-x + x &< 0 + x&&\text{O4}\\
+                    &&y + 0 &< 0 + x&&\text{A4}\\
+                    &&y &< x&&\text{A3}\\
+                    &&y + (-y) &< x + (-y)&&\text{O4}\\
+                    &&0 &< x + (-y)&&\text{A4}\\
+                    &&0 &< x - y&&\text{def. of -}
+                \end{flalign*}
+                Thus $|x-y| = x-y$ by definition.
+                \subitem Case: $y-x = 0$\\
+                    In this case $|y-x| = y-x = 0$ by definition.
+                    \begin{flalign*}
+                        &&y-x &= 0&&\\
+                        &&y-x+x &= 0 + x&&\\
+                        &&y + 0 &= 0 + x&&\text{(A4)}\\
+                        &&y &= x&&\text{(A3)}\\
+                        &&y + (-y) &= x + (-y)&&\\
+                        &&0 &= x + (-y)&&\text{(A4)}\\
+                        &&0 &= x - y&&\text{def. of -}\\
+                    \end{flalign*}
+                    So $|x-y| = y-x = 0$ by definition.
+            \end{enumerate}
 
     \item $d(x, z) \le d(x, y) + d(y, z)$\\
         $|z - x| \le |y - x| + |z - 4|$ by the triangle inequality proved in class.
@@ -222,16 +298,18 @@ First I will prove that $-(x-y) = y-x$.
         In the case when $x = y$, $d(x, y) = 0 = d(y, x)$.
         In the case when $x\not= y$, $d(x, y) = 1 = d(y, x)$.
     \item $d(x, z) \le d(x, y) + d(y, z)$\\
-        \subitem Case: $x = y = z$\\
-            $0 \le 0$
-        \subitem Case: $x \not= y \not= z$\\
-            $1 \le 2$
-        \subitem Case: $x = y\not= z$\\
-            $1\le 1$
-        \subitem Case: $x \not= y = z$\\
-            $1\le 1$
-        \subitem Case: $x = z \not= y$\\
-            $0\le 1$
+        \begin{enumerate}
+            \item Case: $x = y = z$\\
+                $0 \le 0$
+            \item Case: $x \not= y \not= z$\\
+                $1 \le 2$
+            \item Case: $x = y\not= z$\\
+                $1\le 1$
+            \item Case: $x \not= y = z$\\
+                $1\le 1$
+            \item Case: $x = z \not= y$\\
+                $0\le 1$
+        \end{enumerate}
 \end{enumerate}
 
 \part
