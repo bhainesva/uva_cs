@@ -111,7 +111,16 @@ Consider any arbitrary $x\in \mathbb R$. There are three possible cases.
     \item Case 2: $x = 0$\\
         If $x=0$ then it is impossible that $x>0$.
     \item Case 3: $-x\in \mathbb N$\\
-        By the same fact used in case 1, $-x \ge 1 \implies x \le -1$. So it is impossible that $x > 0$.
+        By the same fact used in case 1, 
+        \begin{flalign*}
+            &&-x &\ge 1&&\\
+            &&-x  + (-1)&\ge 1 + (-1)&&\\
+            &&-x  + (-1)&\ge 0&&\text{(A4)}\\
+            &&x + (-x)  + (-1)&\ge 0 + x&&\\
+            &&0  + (-1)&\ge 0 + x&&\text{(A4)}\\
+            &&-1&\ge x&&\text{(A3)}
+        \end{flalign*}
+        If $x = -1$ it is shown in problem 4 that $-1 < 0$. If $x < -1$ then by (O2) $x < 0$. So it is impossible that $x > 0$.
 \end{enumerate}
 
 There is no case in which it is possible that $0 < x < 1$. 
@@ -121,7 +130,7 @@ Prove that it is impossible to define inequalities in $\mathbb C$ such that (O1)
 \solution
 The proof given in the book that for any nonzero $a\in \mathbb R$, $a^2 > 0$ depends only on axioms (O1)-(O4). Thus if these axioms held in $\mathbb C$ then it would have to be the case that the square of any nonzero element of $\mathbb C$ was greather than 0. However, $i$ is defined such that $i^2 = -1$. Using the fact introduced in class that $1>0$ I can say 
 \begin{flalign*}
-    &&1 + (-1) &> 0 + (-1)&&\\
+    &&1 + (-1) &> 0 + (-1)&&\text{(O4)}\\
     &&0 &> -1&&\text{(A4)}
 \end{flalign*}
 By axiom (O1) it is impossible for it also to be the case that $0 < -1$. Thus this is a contradiction. Therefore it is impossible to define inequalities in $\mathbb C$ in such a way that axioms (O1)-(O4) hold.
@@ -260,34 +269,36 @@ First I will prove that $-(x-y) = y-x$.
                     &&0 &> x - y&&\text{def. of -}
                 \end{flalign*}
                 Thus by the definition of absolute value $|x-y| = -(x-y)$ which, as proved at the beginning of this problem, is equal to $y-x$. 
-                \subitem Case: $y-x < 0$.\\
-                    By the definition of absolute value $|y-x| = -(y-x)$. Using the same fact as above, this equals $x-y$.
-                \begin{flalign*}
-                    &&y-x &< 0&&\\
-                    &&y-x + x &< 0 + x&&\text{O4}\\
-                    &&y + 0 &< 0 + x&&\text{A4}\\
-                    &&y &< x&&\text{A3}\\
-                    &&y + (-y) &< x + (-y)&&\text{O4}\\
-                    &&0 &< x + (-y)&&\text{A4}\\
-                    &&0 &< x - y&&\text{def. of -}
-                \end{flalign*}
-                Thus $|x-y| = x-y$ by definition.
-                \subitem Case: $y-x = 0$\\
-                    In this case $|y-x| = y-x = 0$ by definition.
+                \begin{enumerate}
+                    \item Case: $y-x < 0$.\\
+                        By the definition of absolute value $|y-x| = -(y-x)$. Using the same fact as above, this equals $x-y$.
                     \begin{flalign*}
-                        &&y-x &= 0&&\\
-                        &&y-x+x &= 0 + x&&\\
-                        &&y + 0 &= 0 + x&&\text{(A4)}\\
-                        &&y &= x&&\text{(A3)}\\
-                        &&y + (-y) &= x + (-y)&&\\
-                        &&0 &= x + (-y)&&\text{(A4)}\\
-                        &&0 &= x - y&&\text{def. of -}\\
+                        &&y-x &< 0&&\\
+                        &&y-x + x &< 0 + x&&\text{O4}\\
+                        &&y + 0 &< 0 + x&&\text{A4}\\
+                        &&y &< x&&\text{A3}\\
+                        &&y + (-y) &< x + (-y)&&\text{O4}\\
+                        &&0 &< x + (-y)&&\text{A4}\\
+                        &&0 &< x - y&&\text{def. of -}
                     \end{flalign*}
-                    So $|x-y| = y-x = 0$ by definition.
+                    Thus $|x-y| = x-y$ by definition.
+                    \item Case: $y-x = 0$\\
+                        In this case $|y-x| = y-x = 0$ by definition.
+                        \begin{flalign*}
+                            &&y-x &= 0&&\\
+                            &&y-x+x &= 0 + x&&\\
+                            &&y + 0 &= 0 + x&&\text{(A4)}\\
+                            &&y &= x&&\text{(A3)}\\
+                            &&y + (-y) &= x + (-y)&&\\
+                            &&0 &= x + (-y)&&\text{(A4)}\\
+                            &&0 &= x - y&&\text{def. of -}\\
+                        \end{flalign*}
+                        So $|x-y| = y-x = 0$ by definition.
+                \end{enumerate}
             \end{enumerate}
 
     \item $d(x, z) \le d(x, y) + d(y, z)$\\
-        $|z - x| \le |y - x| + |z - 4|$ by the triangle inequality proved in class.
+        $|z - x| \le |y - x| + |z - y|$ by the triangle inequality proved in class.
 \end{enumerate}
 
 \part
@@ -297,7 +308,7 @@ First I will prove that $-(x-y) = y-x$.
     \item $d(x, y) = d(y, x)$\\
         In the case when $x = y$, $d(x, y) = 0 = d(y, x)$.
         In the case when $x\not= y$, $d(x, y) = 1 = d(y, x)$.
-    \item $d(x, z) \le d(x, y) + d(y, z)$\\
+    \item $d(x, z) \le d(x, y) + d(y, z)$
         \begin{enumerate}
             \item Case: $x = y = z$\\
                 $0 \le 0$
