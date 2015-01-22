@@ -99,7 +99,7 @@ It was also proved in class that $0\cdot x = 0$ for all $x$. Thus,
     &&x\cdot x^{-1} &< 0 &&\\
     &&1 &< 0 &&\text{by (M4)}
 \end{flalign*}
-This is a contradiction with (O1) because I know that $1>0$, so $x^{-1} > 0$.
+This is a contradiction with (O1) because the fact was stated in class that $1>0$, so $x^{-1} > 0$.
 
 \problem{3}
 Prove that there does not exist an $x\in \mathbb Z$ such that $0 < x < 1$. \\$\mathbb Z = \Set{x\in \mathbb R\given x\in \mathbb N \lor x = 0 \lor -x\in \mathbb N}$.
@@ -145,7 +145,7 @@ By axiom (O1) it is impossible for it also to be the case that $0 < -1$. Thus th
 \part
 First let $x\le y$. By part (i) of theorem 1.9 proved in the textbook I know that $x < y + \epsilon$ for all $\epsilon > 0$. As done with $z$ in problem 2.a I can show that for any $\epsilon$, $-\epsilon < 0$. Thus by (O5) $x - \epsilon > y + \epsilon$.
 
-Now let $x -\epsilon < y + \epsilon$ for all $\epsilon > 0$. Assume that $x > y$. Then $x-y > 0$ so I can set $\epsilon_0 = \frac{x-y}{3}$. Then plugging in I get $x - \frac{x-y}{3} < y + \frac{x-y}{3}$. $\epsilon_0 > 0$ so by (O5)
+Now let $x -\epsilon < y + \epsilon$ for all $\epsilon > 0$. Assume that $x > y$. Then $x-y > 0$ so I can set $\epsilon_0 = \frac{x-y}{3}$ and $\epsilon_0$ will be positive (this follows from problem 2.c). Then plugging in I get $x - \frac{x-y}{3} < y + \frac{x-y}{3}$. $\epsilon_0 > 0$ so by (O5)
 \begin{flalign*}
     &&x &< y + \epsilon_0 + \epsilon_0&&\\
     &&x + \epsilon_0 &< y + \epsilon_0 + \epsilon_0 + \epsilon_0&&\text{(O5)}\\
@@ -161,9 +161,18 @@ Now let $x -\epsilon < y + \epsilon$ for all $\epsilon > 0$. Assume that $x > y$
 This is a contradiction with (O1) because I know that $\epsilon_0 > 0$. Therefore $x \le y$.
 
 \part
-Let $n$ be the largest natural number such that $\frac{1}{n} < y-x$. Let $k$ be the largest natural number such that $\frac{k}{n}\le x$. Then by our selection of $k$, $\frac{k+1}{n} > x$. 
+Let $n$ be the largest natural number such that $\frac{1}{n} < y-x$. Let $k$ be the largest natural number such that $\frac{k}{n}\le x$. Then by the selection of $k$, $\frac{k+1}{n} > x$. 
 
-Now assume that $y \le \frac{k+1}{n}$. Then I have that $\frac{k +1}{n} \ge y$ and $-\frac{k}{n} \ge -x$ so by (O5)'':
+Now assume that $y \le \frac{k+1}{n}$. Then I have that $\frac{k +1}{n} \ge y$ and 
+\begin{flalign*}
+    &&\frac{k}{n} &\le x&&\\
+    &&\frac{k}{n} + (-x)&\le x + (-x)&&\text{(05)'}\\
+    &&\frac{k}{n} + (-x)&\le 0&&\text{(A4)}\\
+    &&-(\frac{k}{n}) + \frac{k}{n} + (-x)&\le -(\frac{k}{n}) + 0&&\text{(O5)'}\\
+    &&0 + (-x)&\le -(\frac{k}{n}) + 0&&\text{(A4)}\\
+    &&-x &\le -(\frac{k}{n})&&\text{(A3)}
+\end{flalign*} 
+so by (O5)'':
 $$\frac{1}{n} = \frac{k+1}{n} - \frac{k}{n} \ge y-x$$.
 This is a contradiction so it must be the case that $y > \frac{k+1}{n}$. Thus $z = \frac{k+1}{n}$ is a number satisfying $x<z<y$.
 
