@@ -74,7 +74,7 @@ Let $M = \sup(A) + \sup(B)$. In order to prove that $M = \sup(A+B)$ we want to s
     \item Select an arbitrary element $x\in A+B$. By definition $x = a+b$ for some $a\in A, b\in B$. For any such $a, b$ $a\le \sup(A)$ and $b\le \sup(B)$. Thus $x = a + b \le \sup(A) + \sup(B) = M$.
 
     \item Select some arbitrary $\epsilon > 0$. Then by the approximation property of supreme $\exists a\in A$ such that $\sup(A) - \frac{\epsilon}{2} < a \le \sup(B)$. Similarly, $\exists b\in B$ such that $\sup(B) - \frac{\epsilon}{2} < b \le \sup(B)$. So
-        $$\sup(A) + \sup(B) - \epsilon < a +b\implies \sup(A) + \sup(B) < a + b + \epislon$$
+        $$\sup(A) + \sup(B) - \epsilon < a +b\implies \sup(A) + \sup(B) < a + b + \epsilon$$
         Let $z$ be some upper bound of $S$. Then $a + b \le z$ $\forall a\in A, b\in B$. Then $\sup(A) + \sup(B) < z + \epsilon \implies M = \sup(A) + \sup(B) \le z$. 
 \end{enumerate}
 Thus $M$ has satisfied the necessary conditions and $M = \sup(A+B)$. 
@@ -83,7 +83,7 @@ Thus $M$ has satisfied the necessary conditions and $M = \sup(A+B)$.
 This problem introduces the notions of open and closed subsets of $\mathbb R$. Let $S$ be a subset of $\mathbb R$. We say that $S$ is \textit{open} if for every $x\in S$ there exists $\epsilon > 0$ (which may depend on $x$) such that $(x-\epsilon, x+\epsilon)\subseteq S$ (thus, for every point of $S$ there is some open interval centered at that point which is entirely contained in $S$). We say that $S$ is closed if its complement $\mathbb R\\S$ is open.
 \begin{enumerate}[(a)]
     \item Prove that if $S$ is an open interval (that is, $S=(a, b) = \Set{x\in \mathbb R : a < x < b}$ for some $a < b$), then $S$ is an open subset of $\mathbb R$. \textbf{Hint:} This is merely a reformulation of one of the results in HW\#1.
-    \item Prove that if $S$ is a closed interval $(S = [a,b] = \Set{x\in \mathbb R : a \le x \le b}$ for some $a\leb$), then $S$ is a closed subset of $\mathbb R$. 
+    \item Prove that if $S$ is a closed interval $(S = [a,b] = \Set{x\in \mathbb R : a \le x \le b}$ for some $a\le b$), then $S$ is a closed subset of $\mathbb R$. 
 \end{enumerate}
 \solution
 \part
@@ -94,8 +94,9 @@ It is clear from the definition of $S$ that it is a subset of $\mathbb R$. In or
 
 \problem{7}
 \begin{enumerate}[(a)]
-    \item Let $X = \mathbb R$ and $d(x, y) = |x-y|$. Recall that $(X, d)$ is a metric space by HW\#1.6(b). Prove that $B_\epsilon(x) = (x-\epsilon, x+\epsilon)$ for all $x\in X$ and $\epsilon > 0$ (thus, an open ball of radius $\epsilons$ centered at $x$ in this case is simply the open interval of length $2\epsilon$ centered at $x$). \textbf{Hint:} The result follows directly from basic properties of absolute values.
+    \item Let $X = \mathbb R$ and $d(x, y) = |x-y|$. Recall that $(X, d)$ is a metric space by HW\#1.6(b). Prove that $B_\epsilon(x) = (x-\epsilon, x+\epsilon)$ for all $x\in X$ and $\epsilon > 0$ (thus, an open ball of radius $\epsilon$ centered at $x$ in this case is simply the open interval of length $2\epsilon$ centered at $x$). \textbf{Hint:} The result follows directly from basic properties of absolute values.
     \item Now let $X = \mathbb R^2 = \Set{(x, y) : x, y\in \mathbb R}$, and define functions $d : X \times X \to \mathbb R$ and $D : X\times X \to \mathbb R$ by setting $d((x_1, y_1), (x_2, y_)) = \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}$ and $D((x_1,y_1),(x_2,y_2)) = |x_1-x_2|+|y_1-y_1|$. Describe the open ball $B_\epsilon((x, y))$ in each of these two metric spaces.
+\end{enumerate}
 \solution
 \part
 I think this might follow from propert 6 of absolute values but that uses $\le$ and this uses $<$.
