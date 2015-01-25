@@ -1,0 +1,109 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{color}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Real Analysis - Assignment \# 1}
+\author{Ben Haines}
+
+\problem{1}
+Prove Claim 3.3 from class: let $S$ be a non-empy subset of $\mathbb R$. Then max$(S)$ exists (that is, $S$ has a maximal element) $\iff$ $S$ is bounded above and sup$(S)\in S$.
+\solution
+First assume that $\max(S)$ exists. Let $M = \max(S)$. By definition $x \le M \forall x\in S$, $M$ is an upper bound for $S$, and $M\in S$. Let $z$ be some upper bound for $S$ and assume that $z < M$. Therefore, by the definition of an upper bound, $\forall x \in S, x < z$. In particular $M < z$. This is a contradiction so $M \le z$. Then by definition of the suprenum, $M = \sup(S)\in S$. 
+
+Now let $S$ be bounded above and $M = \sup(S)\in S$. By the definition of the suprenum, $x\le M \forall x\in S$ so $M = \max(S)$ by definition so $\max(S)$ exists.
+
+\problem{2}
+Let $S$ be a non-empty subset of $\mathbb R$. Let $UB(S)$ be thee set of all upper bounds of $S$ (note that this set may be empty) and $LB(S)$ be the set of all lower bounds of $S$. Also let $-S = \Set{-s:s\in S}$
+\begin{enumerate}[(i)]
+    \item Let $M\in \mathbb R$. Prove that $M = \sup(S)$ if and only if $M = \min(UB(S))$ (the minimal element of $UB(S)$). Also prove that $M = \inf(S)$ if and only if $M = \max(LB(S))$ (the maximal element of $LB(S)$). This is essentially a reeformulation of the definition of sup and inf.
+    \item Let $y\in \mathbb R$. Prove that $y\in UB(S) \iff -y\in LB(-S)$.
+    \item Deduce from (ii) that $UB(S)$ has a minimum $\iff LB(-S)$ has a maximum, and if they exist, then $\min(UB(S)) = -\max(LB(-S))$.
+    \item (practice) Combine (i)-(iii) to deduce the reflection principle as formulated in Lecture 4.
+\end{enumerate}
+\solution
+\begin{enumerate}[(i)]
+    \item Let $M = \sup(S)$. Then $M$ is an upper bound of $S$ and $UB(S)$ is non-empty. By definition of a suprenum $M$ is at least as small as any other upper bound of $S$ so $\forall x \in UB(S), M \le x$ so $M = \min(UB(S))$ by definition.
+
+        Now let $M = \min(UB(S))$. Thus $UB(S)$ is non-empty and by its presence in the set $M$ must be an upper bound of $S$. By the definition of a minimum, $M \le x \forall x\in UB(S)$. Therefore $M$ is less than or equal to all other upper bounds of $S$ so $M=\sup(S)$ by definition.
+
+    \item $y\in UB(S) \iff \forall x\in -S, -x\in S \iff -x \le y \iff x \ge -y \iff -y\in LB(S)$.
+
+    \item Let $m = \min(UB(S))$. Then $\forall x \in UB(S), m \le x$. By the result of (ii), $-m\in LB(-S)$. So $\forall x\in UB(S), -x \in LB(-S)$ so $m\le x \implies -m \ge -x$ and $m = \max(LB(-S))$ by definition.
+
+    \item Let $S\subseteq \mathbb R, S\not=\emptyset$ and let $-S = \Set{-s:s\in S}$. 
+        \begin{enumerate}[(a)]
+            \item By (ii) if $S$ is bounded above (and thus $UB(S)$ is non-empty) then $LB(-S)$ is also non-empty and $-S$ is bounded below. By (i) and (iii) $\inf(S) = \max(LB(S)) = -\min(UB(-S)) = -\sup(-S)$.
+            \item If $S$ is bound below ($LB(S) \not= \emptyset$) then by (ii) $UB(-S)$ is non-empty and $-S$ is bounded below. Further, by (i) and (iii) $\inf(S) = \max(LB(S)) = -\min(UB(-S)) = -\sup(-S)$.
+        \end{enumerate}
+\end{enumerate}
+
+\problem{3}
+Use the Archimedean property to prove that for every real number $\epsilon > 0$ there exists $n\in \mathbb N$ such that $\frac{1}{n} < \epsilon$. 
+\solution
+By the Archimedean property $\exists n\in N$ such that $n\epsilon > 1 \implies \epsilon > \frac{1}{n}$.
+
+\problem{4}
+Prove the following result, which can be thought of as a converse of the Approximation Theorem (Theorem 3.2). Let $S$ be a non-empty subset of $\mathbb R$ which is bounded above. Let $M\in \mathbb R$ be an upper bound for $S$, and suppose that for all $\epsilon > 0$ there exists $x\in S$ such that $M-\epsilon < x\le M$. Prove that $M = \sup(S)$. 
+\solution
+In order to prove that $M = \sup(S)$ we want to show that $M$ is an upper bound for $S$ and that $M$ is at least as small as any upper bound for $S$. The first of these conditions is given.
+
+Let $z$ be some upper bound for $S$. Assume that $z < M$. Then $M - z > 0$ so we can set $\epsilon = M - z$ and it is given that 
+\begin{align}
+    \begin{split}
+        &\exists x \in S, M-\epsilon < x < M\\
+        &\implies M - ( M - z) < x < M\\
+        &\implies z < x < M
+    \end{split}
+\end{align}
+However, this implies that there is some element $x\in S$ that is larger than $z$. This is a contradiction because $z$ is an upper bound for $S$. Therefore $z \ge M$ and we have shown that $M = \sup(S)$. 
+
+\problem{5}
+Let $A$ and $B$ be non-empty bounded above subsets of $\mathbb R$, and let $A + B = \Set{a + b:a\in A, b\in B}$. Prove that $A + B$ is also bounded above and $\sup(A+B) = \sup(A) + \sup(B)$. 
+\solution
+Let $M = \sup(A) + \sup(B)$. In order to prove that $M = \sup(A+B)$ we want to show that $\forall x \in (A+B), x\le M$ and that $M$ is at least as small as all upper bounds of $S$. 
+\begin{enumerate}[i.]
+    \item Select an arbitrary element $x\in A+B$. By definition $x = a+b$ for some $a\in A, b\in B$. For any such $a, b$ $a\le \sup(A)$ and $b\le \sup(B)$. Thus $x = a + b \le \sup(A) + \sup(B) = M$.
+
+    \item Select some arbitrary $\epsilon > 0$. Then by the approximation property of supreme $\exists a\in A$ such that $\sup(A) - \frac{\epsilon}{2} < a \le \sup(B)$. Similarly, $\exists b\in B$ such that $\sup(B) - \frac{\epsilon}{2} < b \le \sup(B)$. So
+        $$\sup(A) + \sup(B) - \epsilon < a +b\implies \sup(A) + \sup(B) < a + b + \epislon$$
+        Let $z$ be some upper bound of $S$. Then $a + b \le z$ $\forall a\in A, b\in B$. Then $\sup(A) + \sup(B) < z + \epsilon \implies M = \sup(A) + \sup(B) \le z$. 
+\end{enumerate}
+Thus $M$ has satisfied the necessary conditions and $M = \sup(A+B)$. 
+
+\problem{6}
+This problem introduces the notions of open and closed subsets of $\mathbb R$. Let $S$ be a subset of $\mathbb R$. We say that $S$ is \textit{open} if for every $x\in S$ there exists $\epsilon > 0$ (which may depend on $x$) such that $(x-\epsilon, x+\epsilon)\subseteq S$ (thus, for every point of $S$ there is some open interval centered at that point which is entirely contained in $S$). We say that $S$ is closed if its complement $\mathbb R\\S$ is open.
+\begin{enumerate}[(a)]
+    \item Prove that if $S$ is an open interval (that is, $S=(a, b) = \Set{x\in \mathbb R : a < x < b}$ for some $a < b$), then $S$ is an open subset of $\mathbb R$. \textbf{Hint:} This is merely a reformulation of one of the results in HW\#1.
+    \item Prove that if $S$ is a closed interval $(S = [a,b] = \Set{x\in \mathbb R : a \le x \le b}$ for some $a\leb$), then $S$ is a closed subset of $\mathbb R$. 
+\end{enumerate}
+\solution
+\part
+It is clear from the definition of $S$ that $S$ is a subset of $\mathbb R$. In order to show that it is open we must show that, for arbitrary $x\in S$ there exists and $\epsilon > 0$ such that $(x-\epsilon, x+\epsilon)\subseteq S$. Select any $x\in S$. By the definition of $S$, $a < x < b$. Then by the result of HW\#5.(c) there exists an $\epsilon > 0$ such that $(x - \epsilon, x + \epsilon)\subset S$. This proves the result.
+
+\part
+It is clear from the definition of $S$ that it is a subset of $\mathbb R$. In order to show that $S = [a, b]$ is closed we must show that $S\\\mathbb R$ is open. $S\\\mathbb R = \Set{x\in R : x < a\text{ or }x > b}$. So the complement of $S$ can be written as the union of the two open intervals $(-\infty, a)$ and $(b, \infty)$. By the result of part a this is an open subset of $\mathbb R$ and so $S$ is closed.
+
+\problem{7}
+\begin{enumerate}[(a)]
+    \item Let $X = \mathbb R$ and $d(x, y) = |x-y|$. Recall that $(X, d)$ is a metric space by HW\#1.6(b). Prove that $B_\epsilon(x) = (x-\epsilon, x+\epsilon)$ for all $x\in X$ and $\epsilon > 0$ (thus, an open ball of radius $\epsilons$ centered at $x$ in this case is simply the open interval of length $2\epsilon$ centered at $x$). \textbf{Hint:} The result follows directly from basic properties of absolute values.
+    \item Now let $X = \mathbb R^2 = \Set{(x, y) : x, y\in \mathbb R}$, and define functions $d : X \times X \to \mathbb R$ and $D : X\times X \to \mathbb R$ by setting $d((x_1, y_1), (x_2, y_)) = \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}$ and $D((x_1,y_1),(x_2,y_2)) = |x_1-x_2|+|y_1-y_1|$. Describe the open ball $B_\epsilon((x, y))$ in each of these two metric spaces.
+\solution
+\part
+I think this might follow from propert 6 of absolute values but that uses $\le$ and this uses $<$.
+
+\part
+In the first space it forms a disk. It selects all points less than a given cartesian distance from a central point. This is the familiar definition of a circle. In the second space it forms a filled in square. This can easily seen by drawing a picture. 
+\problem{8}
+
+\solution
+You will do this but rn hungry so maybe later yfeel.
+\end{document}
