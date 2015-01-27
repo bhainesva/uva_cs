@@ -11,18 +11,18 @@
 \DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
 
 \begin{document}
-\title{Real Analysis - Assignment \# 1}
+\title{Real Analysis - Assignment \# 2}
 \author{Ben Haines}
 
 \problem{1}
 Prove Claim 3.3 from class: let $S$ be a non-empy subset of $\mathbb R$. Then max$(S)$ exists (that is, $S$ has a maximal element) $\iff$ $S$ is bounded above and sup$(S)\in S$.
 \solution
-First assume that $\max(S)$ exists. Let $M = \max(S)$. By definition $x \le M \forall x\in S$, $M$ is an upper bound for $S$, and $M\in S$. Let $z$ be some upper bound for $S$ and assume that $z < M$. Therefore, by the definition of an upper bound, $\forall x \in S, x < z$. In particular $M < z$. This is a contradiction so $M \le z$. Then by definition of the suprenum, $M = \sup(S)\in S$. 
+First assume that $\max(S)$ exists. Let $M = \max(S)$. By definition $x \le M \forall x\in S$, $M$ is an upper bound for $S$, and $M\in S$. Let $z$ be some upper bound for $S$ and assume that $z < M$. Therefore, by the definition of an upper bound, $\forall x \in S, x < z$. In particular $M < z$. This is a contradiction so $M \le z$. Then by definition of the supremum, $M = \sup(S)\in S$. 
 
-Now let $S$ be bounded above and $M = \sup(S)\in S$. By the definition of the suprenum, $x\le M \forall x\in S$ so $M = \max(S)$ by definition so $\max(S)$ exists.
+Now let $S$ be bounded above and $M = \sup(S)\in S$. By the definition of the supremum, $x\le M \forall x\in S$ so $M = \max(S)$ by definition so $\max(S)$ exists.
 
 \problem{2}
-Let $S$ be a non-empty subset of $\mathbb R$. Let $UB(S)$ be thee set of all upper bounds of $S$ (note that this set may be empty) and $LB(S)$ be the set of all lower bounds of $S$. Also let $-S = \Set{-s:s\in S}$
+Let $S$ be a non-empty subset of $\mathbb R$. Let $UB(S)$ be the set of all upper bounds of $S$ (note that this set may be empty) and $LB(S)$ be the set of all lower bounds of $S$. Also let $-S = \Set{-s:s\in S}$
 \begin{enumerate}[(i)]
     \item Let $M\in \mathbb R$. Prove that $M = \sup(S)$ if and only if $M = \min(UB(S))$ (the minimal element of $UB(S)$). Also prove that $M = \inf(S)$ if and only if $M = \max(LB(S))$ (the maximal element of $LB(S)$). This is essentially a reeformulation of the definition of sup and inf.
     \item Let $y\in \mathbb R$. Prove that $y\in UB(S) \iff -y\in LB(-S)$.
@@ -35,7 +35,7 @@ Let $S$ be a non-empty subset of $\mathbb R$. Let $UB(S)$ be thee set of all upp
 
         Now let $M = \min(UB(S))$. Thus $UB(S)$ is non-empty and by its presence in the set $M$ must be an upper bound of $S$. By the definition of a minimum, $M \le x \forall x\in UB(S)$. Therefore $M$ is less than or equal to all other upper bounds of $S$ so $M=\sup(S)$ by definition.
 
-    \item $y\in UB(S) \iff \forall x\in -S, -x\in S \iff -x \le y \iff x \ge -y \iff -y\in LB(S)$.
+    \item $\forall x\in -S, -x\in S$. For any $y\in \mathbb R$,  $ y\in UB(S) \iff -x \le y \iff x \ge -y \iff -y\in LB(S)$.
 
     \item Let $m = \min(UB(S))$. Then $\forall x \in UB(S), m \le x$. By the result of (ii), $-m\in LB(-S)$. So $\forall x\in UB(S), -x \in LB(-S)$ so $m\le x \implies -m \ge -x$ and $m = \max(LB(-S))$ by definition.
 
@@ -59,9 +59,9 @@ In order to prove that $M = \sup(S)$ we want to show that $M$ is an upper bound 
 Let $z$ be some upper bound for $S$. Assume that $z < M$. Then $M - z > 0$ so we can set $\epsilon = M - z$ and it is given that 
 \begin{align}
     \begin{split}
-        &\exists x \in S, M-\epsilon < x < M\\
-        &\implies M - ( M - z) < x < M\\
-        &\implies z < x < M
+        &\exists x \in S\text{ such that } M-\epsilon < x \le M\\
+        &\implies M - ( M- z) < x \le M\\
+        &\implies z < x \le M
     \end{split}
 \end{align}
 However, this implies that there is some element $x\in S$ that is larger than $z$. This is a contradiction because $z$ is an upper bound for $S$. Therefore $z \ge M$ and we have shown that $M = \sup(S)$. 
@@ -73,7 +73,7 @@ Let $M = \sup(A) + \sup(B)$. In order to prove that $M = \sup(A+B)$ we want to s
 \begin{enumerate}[i.]
     \item Select an arbitrary element $x\in A+B$. By definition $x = a+b$ for some $a\in A, b\in B$. For any such $a, b$ $a\le \sup(A)$ and $b\le \sup(B)$. Thus $x = a + b \le \sup(A) + \sup(B) = M$.
 
-    \item Select some arbitrary $\epsilon > 0$. Then by the approximation property of supreme $\exists a\in A$ such that $\sup(A) - \frac{\epsilon}{2} < a \le \sup(B)$. Similarly, $\exists b\in B$ such that $\sup(B) - \frac{\epsilon}{2} < b \le \sup(B)$. So
+    \item Select some arbitrary $\epsilon > 0$. Then by the approximation property of supremum $\exists a\in A$ such that $\sup(A) - \frac{\epsilon}{2} < a \le \sup(B)$. Similarly, $\exists b\in B$ such that $\sup(B) - \frac{\epsilon}{2} < b \le \sup(B)$. So
         $$\sup(A) + \sup(B) - \epsilon < a +b\implies \sup(A) + \sup(B) < a + b + \epsilon$$
         Let $z$ be some upper bound of $S$. Then $a + b \le z$ $\forall a\in A, b\in B$. Then $\sup(A) + \sup(B) < z + \epsilon \implies M = \sup(A) + \sup(B) \le z$. 
 \end{enumerate}
@@ -90,7 +90,7 @@ This problem introduces the notions of open and closed subsets of $\mathbb R$. L
 It is clear from the definition of $S$ that $S$ is a subset of $\mathbb R$. In order to show that it is open we must show that, for arbitrary $x\in S$ there exists and $\epsilon > 0$ such that $(x-\epsilon, x+\epsilon)\subseteq S$. Select any $x\in S$. By the definition of $S$, $a < x < b$. Then by the result of HW\#5.(c) there exists an $\epsilon > 0$ such that $(x - \epsilon, x + \epsilon)\subset S$. This proves the result.
 
 \part
-It is clear from the definition of $S$ that it is a subset of $\mathbb R$. In order to show that $S = [a, b]$ is closed we must show that $S\\\mathbb R$ is open. $S\\\mathbb R = \Set{x\in R : x < a\text{ or }x > b}$. So the complement of $S$ can be written as the union of the two open intervals $(-\infty, a)$ and $(b, \infty)$. By the result of part a this is an open subset of $\mathbb R$ and so $S$ is closed.
+It is clear from the definition of $S$ that it is a subset of $\mathbb R$. In order to show that $S = [a, b]$ is closed we must show that $S\setminus mathbb R$ is open. $S\setminus mathbb R = \Set{x\in R : x < a\text{ or }x > b}$. So the complement of $S$ can be written as the union of the two open intervals $(-\infty, a)$ and $(b, \infty)$. By the result of part a this is an open subset of $\mathbb R$ and so $S$ is closed.
 
 \problem{7}
 \begin{enumerate}[(a)]
@@ -99,12 +99,35 @@ It is clear from the definition of $S$ that it is a subset of $\mathbb R$. In or
 \end{enumerate}
 \solution
 \part
-I think this might follow from propert 6 of absolute values but that uses $\le$ and this uses $<$.
-
+WTS: $B_\epsilon(x) = \Set{y\in X : d(x, y) < \epsilon}$ is equal to $(x-\epsilon, x+\epsilon) = \Set{y\in \mathbb R : x-\epsilon < y < x+\epsilon}$. We know $X = \mathbb R$ and $d(x, y) = |x - y|$ so $B_\epsilon(x)$ can be rewritten as:
+    $$\Set{y\in \mathbb R : |x-y| < \epsilon}$$
+by properties 2 and 6 of absolute values:
+\begin{align}
+    \begin{split}
+        \Set{y\in \mathbb R : |x-y| < \epsilon} &= \Set{y\in \mathbb R : |y-x| < \epsilon}\\
+                                                &= \Set{y\in \mathbb R : -\epsilon < y-x < \epsilon}\\
+                                                &= \Set{y\in \mathbb R: x - \epsilon < y < x + \epsilon}
+    \end{split}
+\end{align}
+So the sets are equivalent.
 \part
-In the first space it forms a disk. It selects all points less than a given cartesian distance from a central point. This is the familiar definition of a circle. In the second space it forms a filled in square. This can easily seen by drawing a picture. 
+In the first space it forms a disk. It selects all points less than a given cartesian distance from a central point. In the second space it forms a filled in square. These are shown in the picture below.
+\vspace{20mm}
 \problem{8}
-
+Prove that if $S$ is any open ball in $X$ (that is, $S = B_\alpha(y)$ for some $y\in X$ and $\alpha > 0$, then $S$ is an open subset of $X$. 
 \solution
-You will do this but rn hungry so maybe later yfeel.
+$S = B_\alpha(y) = \Set{z\in X : d(y, z) < \alpha}$.
+Select an arbitrary $x\in B_\alpha$. We want to show that there exists some $\epsilon > 0$ such that $B_\epsilon(x) = \Set{z\in X : d(x, z) < \epsilon} \subseteq S$.
+
+Let $\epsilon = \alpha - d(y, x)$. By the definition of $B_\alpha$\, $d(y, x)$ must be less than $\alpha$ so $\epsilon$ is positive. For any $z\in B_\epsilon$, $d(y, z) \le d(y, x) + d(x, y)$ by the third property of a metric space.
+
+If it were the case that $d(x, z) \ge \epsilon$ then:
+\begin{align}
+    \begin{split}
+        d(x, z) \ge \epsilon &\implies d(x, z) \ge \alpha - d(y, x)\\
+                             &\implies d(x, z) \ge d(y, z) - d(y, x)\\
+                             &\implies d(x, z) + d(y, x) \ge d(y, z)
+    \end{split}
+\end{align}
+This is a contradiction with property three so $d(x, z) < \epsilon$ for all $z\in B_\epsilon$ and $S$ is an open subset of $X$.
 \end{document}
