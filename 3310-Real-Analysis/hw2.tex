@@ -17,7 +17,7 @@
 \problem{1}
 Prove Claim 3.3 from class: let $S$ be a non-empy subset of $\mathbb R$. Then max$(S)$ exists (that is, $S$ has a maximal element) $\iff$ $S$ is bounded above and sup$(S)\in S$.
 \solution
-First assume that $\max(S)$ exists. Let $M = \max(S)$. By definition $x \le M \forall x\in S$, $M$ is an upper bound for $S$, and $M\in S$. Let $z$ be some upper bound for $S$ and assume that $z < M$. Therefore, by the definition of an upper bound, $\forall x \in S, x < z$. In particular $M < z$. This is a contradiction so $M \le z$. Then by definition of the supremum, $M = \sup(S)\in S$. 
+First assume that $\max(S)$ exists. Let $M = \max(S)$. By definition $\forall x\in S, x \le M$, $M$ is an upper bound for $S$, and $M\in S$. Let $z$ be some upper bound for $S$ and assume that $z < M$. Therefore, by the definition of an upper bound, $\forall x \in S, x < z$. In particular $M < z$. This is a contradiction so $M \le z$. Then by definition of the supremum, $M = \sup(S)\in S$. 
 
 Now let $S$ be bounded above and $M = \sup(S)\in S$. By the definition of the supremum, $x\le M \forall x\in S$ so $M = \max(S)$ by definition so $\max(S)$ exists.
 
@@ -49,7 +49,7 @@ Let $S$ be a non-empty subset of $\mathbb R$. Let $UB(S)$ be the set of all uppe
 \problem{3}
 Use the Archimedean property to prove that for every real number $\epsilon > 0$ there exists $n\in \mathbb N$ such that $\frac{1}{n} < \epsilon$. 
 \solution
-By the Archimedean property $\exists n\in N$ such that $n\epsilon > 1 \implies \epsilon > \frac{1}{n}$.
+By the Archimedean property $\exists n\in \mathbb N$ such that $n\epsilon > 1 \implies \epsilon > \frac{1}{n}$.
 
 \problem{4}
 Prove the following result, which can be thought of as a converse of the Approximation Theorem (Theorem 3.2). Let $S$ be a non-empty subset of $\mathbb R$ which is bounded above. Let $M\in \mathbb R$ be an upper bound for $S$, and suppose that for all $\epsilon > 0$ there exists $x\in S$ such that $M-\epsilon < x\le M$. Prove that $M = \sup(S)$. 
@@ -90,7 +90,7 @@ This problem introduces the notions of open and closed subsets of $\mathbb R$. L
 It is clear from the definition of $S$ that $S$ is a subset of $\mathbb R$. In order to show that it is open we must show that, for arbitrary $x\in S$ there exists and $\epsilon > 0$ such that $(x-\epsilon, x+\epsilon)\subseteq S$. Select any $x\in S$. By the definition of $S$, $a < x < b$. Then by the result of HW\#5.(c) there exists an $\epsilon > 0$ such that $(x - \epsilon, x + \epsilon)\subset S$. This proves the result.
 
 \part
-It is clear from the definition of $S$ that it is a subset of $\mathbb R$. In order to show that $S = [a, b]$ is closed we must show that $S\setminus mathbb R$ is open. $S\setminus mathbb R = \Set{x\in R : x < a\text{ or }x > b}$. So the complement of $S$ can be written as the union of the two open intervals $(-\infty, a)$ and $(b, \infty)$. By the result of part a this is an open subset of $\mathbb R$ and so $S$ is closed.
+It is clear from the definition of $S$ that it is a subset of $\mathbb R$. In order to show that $S = [a, b]$ is closed we must show that $S\setminus \mathbb R$ is open. $S\setminus \mathbb R = \Set{x\in R : x < a\text{ or }x > b}$. So the complement of $S$ can be written as the union of the two intervals $(-\infty, a)$ and $(b, \infty)$. We want to show that for any number $x$ in either of those intervals, there exists an $\epsilon > 0$ such that $(x-\epsilon, x + \epsilon)$ is a subset of the particular interval. First select an $x$ from $(-\infty, a)$. By definition, $x < a$ so let $\epsilon = \frac{a-x}{2}$. Then $x-\frac{a-x}{2} > -\infty$ and $x + \frac{a-x}{2} < a$. Now select an $x$ from $(b, \infty)$. By definition $x > b$ so let $\epsilon = \frac{x-b}{2}$. Then $x-\frac{x-b}{2} > b$ and $x+\frac{x-b}{2} < \infty.$ Thus $S\setminus \mathbb R$ is an open subset of $\mathbb R$ so $S$ is a closed subset of $\mathbb R$.
 
 \problem{7}
 \begin{enumerate}[(a)]
@@ -119,15 +119,11 @@ Prove that if $S$ is any open ball in $X$ (that is, $S = B_\alpha(y)$ for some $
 $S = B_\alpha(y) = \Set{z\in X : d(y, z) < \alpha}$.
 Select an arbitrary $x\in B_\alpha$. We want to show that there exists some $\epsilon > 0$ such that $B_\epsilon(x) = \Set{z\in X : d(x, z) < \epsilon} \subseteq S$.
 
-Let $\epsilon = \alpha - d(y, x)$. By the definition of $B_\alpha$\, $d(y, x)$ must be less than $\alpha$ so $\epsilon$ is positive. For any $z\in B_\epsilon$, $d(y, z) \le d(y, x) + d(x, y)$ by the third property of a metric space.
-
-If it were the case that $d(x, z) \ge \epsilon$ then:
+Let $\epsilon = \alpha - d(y, x)$. By the definition of $B_\alpha$\, $d(y, x)$ must be less than $\alpha$ so $\epsilon$ is positive. For any $z\in B_\epsilon$ we know that $d(x, z) < \epsilon$ and in order to show that $B_\epsilon \subseteq S$ we want to show that $d(y, z) < \alpha$. This can be done using the third property of metric spaces given in the previous homework (the triangle inequality).
 \begin{align}
-    \begin{split}
-        d(x, z) \ge \epsilon &\implies d(x, z) \ge \alpha - d(y, x)\\
-                             &\implies d(x, z) \ge d(y, z) - d(y, x)\\
-                             &\implies d(x, z) + d(y, x) \ge d(y, z)
-    \end{split}
+    d(x, z) < \epsilon &\implies d(x, z) < \alpha = d(y, z)\\
+                       &\implies d(y, x) + d(x, z) < \alpha\\
+                       &\implies d(y, z) < \alpha\\
+                       &\implies B_\epsilon \subseteq S
 \end{align}
-This is a contradiction with property three so $d(x, z) < \epsilon$ for all $z\in B_\epsilon$ and $S$ is an open subset of $X$.
 \end{document}
