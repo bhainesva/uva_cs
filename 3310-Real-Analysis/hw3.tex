@@ -1,0 +1,112 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{color}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Real Analysis - Assignment \# 3}
+\author{Ben Haines}
+
+\problem{1}
+Let $A$ and $B$ be non-empty subsets of $\mathbb R$ such that $a\le b$ for all $a\in A$ and $b\in B$. Prove that $A$ is bounded above, $B$ is bounded below and $\sup(A)\le \inf(B)$. \textbf{Hint: }This can be proved directly from the definitions of supremum and infimum without any computations or using any theorems, but you need to proceed in two steps.
+\solution
+Select any element $b\in B$. Then for all $x\in A$, $x\le b$ so $b$ is an upper bound for $A$. Now select any element $a\in A$. Then for all $x\in B$, $a \le x$ so $a$ is a lower bound for $B$. Assume that $\inf(B) < \sup(A)$. Then there must exist some $x\in A$ such that $x> \inf(B)$ otherwise there would be an upper bound for $A$ less than $\sup(A)$. However, this means that $x$ is a lower bound for $B$ and $x > \inf(B)$. This is not possible. Thus $\sup(A) \le \inf(B)$. 
+
+\problem{2}
+Use induction to prove the formlua for the sum of a (finite) geometric progression: $a + ar + ar^2 + \ldots + ar^{n-1} = a\frac{1-r^n}{1-r}$ where $a,r \in \mathbb R$ and $r\not= 1$.
+\solution
+Base Case P(1):
+$$a = a\frac{1-r}{1-r} = a$$
+Assume P(k):
+$$a + ar + \ldots + ar^{k-1} = a\frac{1-r^k}{1-r}$$
+Prove P(k+1):
+\begin{align*}
+    a + ar + \ldots + ar^{k-1} + ar^k &= a\frac{1-r^k}{1-r} + ar^k\\
+                                      &= a\left(\frac{1-r^k}{1-r} + r^k\right)\\
+                                      &= a\left(\frac{1-r^k}{1-r} + \frac{(1-r)r^k}{1-r}\right)\\
+                                      &= a\left(\frac{1-r^{k+1}}{1-r}\right)
+\end{align*}
+
+
+\problem{3}
+Prove the following inequalities by induction:
+\begin{enumerate}[(i)]
+    \item $n < 2^n$ for all $n\in \mathbb N$
+    \item $n^2 < 2^n$ for all integers $n\ge 4$ 
+\end{enumerate}
+\solution
+\begin{enumerate}[i]
+    \item 
+        Base Case:
+        $$1 < 2$$
+        Assume P(k):
+        $$k < 2^k$$
+        Prove P(k+1):
+        $$k < 2^k \implies 2k < 2^{k+1}$$
+        $k\ge 1$ so $k+1 \le 2k$. Then by the transitive property, $k+1 < 2^{k+1}$.
+    \item 
+        Something wrong with the problem.
+\end{enumerate}
+
+
+\problem{4}
+Use induction to prove Bernoulli's inequality:
+$$(1 + x)^n \ge 1 + nx\text{ for all }n\in \mathbb N\text{ and } x\ge -1$$
+\solution
+Base Case:
+$$1 = (1+x)^0 \ge 1 = 1 + 0x$$
+Assume P(k):
+$$(1+x)^k \ge 1 + kx$$
+Prove P(k+1):
+\begin{align}
+    (1 + x)^{k+1} &= (1+x)^k(1+x)\\
+                  &\ge (1 + kx)(1+x)\\
+    (1 + kx)(1+x) &= 1 + kx + kx^2\\
+                  &= 1 + (k+1)x + kx^2\\
+                  &\ge 1 + (k+1)x
+\end{align}
+So $(1+x)^{k+1} \ge 1 + (k + 1)x$
+
+\problem{5}
+Prove that the sequence converges to $L$, and explicitly find a function $M(\epsilon)$ satisfying $(1')$ above.
+\begin{enumerate}[(i)]
+    \item $a_n = \frac{2n^2 + 3}{n^2 - n - \cos(n)}$, $L = 2$
+    \item $a_n = \frac{n}{4^n}$, $L = 0$
+\end{enumerate}
+\solution
+\begin{enumerate}[(i)]
+    \item Fix $\epsilon > 0$. $|a_n - 2| = \left|\frac{2n^2 + 3}{n^2 - n - \cos(n)} - 2\right| = \left|\frac{2n + 2\cos(n) + 3}{n^2-n-\cos(n)}\right|$. We can bound this fraction above by $\frac{7n}{n^2}$. Then we want $n$ such that $\frac{7}{n} < \epsilon$. 
+
+            Let $M(\epsilon) = \frac{7}{\epsilon}$ then $\forall n > M(\epsilon)$ we have $n > \frac{7}{\epsilon} \implies \epsilon > \frac{7}{n}$. Then $|a_n - 2| < \frac{7}{n} < \epsilon$.
+
+        \item $\left|\frac{n}{n^4}\right|$ can be bounded above by $\left|\frac{n^3}{n^4}\right| = \frac{1}{n}$ Let $M(\epsilon) = \frac{1}{\epsilon}$. Then $\forall n > M(\epsilon)$, $n > \frac{1}{\epsilon} \implies \epsilon > \frac{1}{n}$. Then from above $|a_n - 0| \le \frac{1}{n} < \epsilon$.
+\end{enumerate}
+
+\problem{6}
+Let ${a_n}$ and ${b_n}$ be sequences. Suppose that for every $\epsilon > 0$ the following is true: $|a_n - 3| < \epsilon$ for all $n > \frac{10}{e^2}$ and $|b_n - 4| < \epsilon$ for all $n> \frac{1}{e^3}$. Find an explicit function $M(\epsilon)$ such that $|a_n + b_n - 7| < \epsilon$ for all $n > M(\epsilon)$. 
+\solution
+Let $\epsilon' = \epsilon/2$. This is guaranteed to be a number larger than 0. Then $|a_n - 3| < \epsilon'$ for all $n > (10/(e/2)^2)$ and $|b_n - 4| < \epsilon'$ for all $n > (1/(\epsilon/2)^3)$. Then by Theorem 2.12 $|a_b + b_n - 7| < \epsilon' + \epsilon' = \epsilon$ for $n > \max((10/(e/2)^2), (1/(\epsilon/2)^3))$. Define $M(\epsilon) = \max((10/(e/2)^2), (1/(\epsilon/2)^3))$.
+
+\problem{7}
+Let ${a_n}$ be a sequence, and define $b_k$ and $c_k$ (with $k\in \mathbb N$) by $b_k = a_{2k-1}$ and $c_k = a_{2k}$, that is ${b_k}$ and ${c_k}$ are subsequences of ${a_n}$ consisting of its elements located in odd (respectively even) position. Suppose that ${b_k}$ and ${c_k}$ both converge and $\lim_{k\to \infty}b_k = \lim_{k\to \infty}c_k = L$ for some $L\in \mathbb R$. Prove that ${a_n}$ converges to $L$ as well. 
+\solution
+For all $\epsilon > 0$ there exist $R_1, R_2$ such that $|b_k - L| < \epsilon$ for all $n > R_1$ and $|c_k - L| < \epsilon$ for all $n > R_2$. Let $M = \max(R_1, R_2)$. Then for any $a_n$ where $n > M$ if $a_n\in \{b_k\}$ then $|a_n - L| < \epsilon$. Similarly if $a_n\in \{c_k\}$ then $|a_n - L| < \epsilon$. Therefore the limit of $\{a_n\}$ is $L$.
+
+\problem{8}
+Let $f: X\to Y$ be a function. Prove that the following conditions are equivalent:
+\begin{enumerate}[(a)]
+    \item $f$ is injective
+    \item $f(A\cap C) = f(A)\cap f(C)$ for any two subsets $A, C$ of $X$.
+\end{enumerate}
+\solution
+First let $f$ be injective and consider any element $x\in f(A\cap C)$. $x = f(y)$ for some $y\in A\cap C$. Then $y\in A\implies x\in f(A)$ and $y\in B\implies x\in f(C)$ so $x\in f(A)\cap f(C)$. Now consider any $x\in f(A)\cap f(C)$. Then $x = f(a)$ for some $a\in A$ and $x = f(c)$ for some $c\in C$. $f$ is injective so $a = c\in A$ and $a=c\in C$. Then $x\in f(A\cap C)$. 
+
+The second part is proved by contraposition. Assume that $f$ is not injective. Then we must show there are two subsets $A$ and $C$ of $X$ such that it is not the case that $f(A\cap C) = f(A) \cap f(C)$. We know by the fact that $f$ is not injective that there exist two elements $x_1, x_2\in X$ such that $f(x_1) = f(x_2)$ but $x_1 != x_2$. Let $A=\Set{x_1}$ and $C = \Set{x_2}$. Then $f(A\cap C) = \emptyset \not= f(A) \cap f(C) = \Set{f(x_1)}$. 
+\end{document}
