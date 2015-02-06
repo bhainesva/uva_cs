@@ -156,7 +156,7 @@ Remember that we know that all $S_i$ distances are minimal if $i\le k$ by the in
 Assume for the sake of contradiction that:
 $$dist(S_i) + f(S_i, S_{k+1}, dist(S_i))\text{ not minimal}$$
 Then it follows, with $\delta > 0$. 
-$$\exists_{j\not= i}|dist(S_j) + f(S_j, S_{k+1}, dist(S_i)) + \delta < dist(S_i) + f(S_i, S_{k+1}, dist(S_i))$$
+$$\exists_{j\not= i}|dist(S_j) + f(S_j, S_{k+1}, dist(S_j)) + \delta < dist(S_i) + f(S_i, S_{k+1}, dist(S_i))$$
 In the best case $\delta = 0$ so 
         $$dist(S_j) + f(S_j, S_{k+1}, dist(S_j)) < dist(S_i) + f(S_i, S_{k+1}, dist(S_i))$$
 This is a contradiction because it indicates the algorithm didn't choose what it is defined to choose. Thus the algorithm always calculates the minimum distance between two nodes. The given algorithm simply records what vertexes are used when finding the minimum distance and thus the returned path is trivially the shortest path between the two points.
