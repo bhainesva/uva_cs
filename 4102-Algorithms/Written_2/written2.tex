@@ -36,7 +36,7 @@
 \author{Ben Haines (bmh5wx)}
 
 \section*{Problem \# 1}
-Problem Description: Return the set of sleeping points that minimizes the number of stops needed for a given trip.
+Problem Description: Return the set of sleeping points that minimizes the number of stops needed for a given trip.\\
 
 Inputs:
 \begin{itemize}
@@ -45,7 +45,7 @@ Inputs:
     \item stops = list $(x_1, x_2, \ldots, x_n)$ of locations of stopping points.
 \end{itemize}
 
-Outputs: List of locations from input list indicating where to stop for the night.
+Outputs: List of locations from input list indicating where to stop for the night.\\
 
 Assumptions:
 \begin{itemize}
@@ -55,7 +55,7 @@ Assumptions:
 \end{itemize}
 
 Strategy Overview:
-I will use a greedy algorithm that travels the maximum possible distance on any given day.
+I will use a greedy algorithm that travels the maximum possible distance on any given day.\\
 
 Algorithm Description:
 \begin{lstlisting}
@@ -88,7 +88,7 @@ Inductive Step: WTS that $g_k \ge o_k$. Assume that $g_k < o_k$. Then by the ind
 Finally I want to show that $|O|=|G|$. $|O| = n$ and $|G| = m$ so assume that $n < m$. The optimal solution contains $n$ stops which means that $L$ was reachable from stop $o_n$ and thus $L - o_n \le d$. By the lemma proven above, $L - g_n \le d$ which means that $L$ is reachable from the $n^{th}$ stop in the greedy solution. This implies $n=m$ which is a contradiction. Thus $|O| = |G|$.
 
 \section*{Problem \#3}
-Problem Description: Find the shortest path between two cities given variable travel times along different roads.
+Problem Description: Find the shortest path between two cities given variable travel times along different roads.\\
 
 Inputs:
 \begin{itemize}
@@ -98,17 +98,18 @@ Inputs:
     \item $f(u, v, t)$ = function that returns end time after traveling from node $u$ to node $v$ at start time $t$
 \end{itemize}
 
-Outputs: Shortest path between $s$ and $t$.
+Outputs: Shortest path between $s$ and $t$.\\
 
 Assumptions:
 \begin{itemize}
     \item You can't travel backwards in time.
     \item You will never arrive earlier by leaving later.
     \item There is only one edge between two vertices.
+    \item The graph is connected.
 \end{itemize}
 
 Strategy Overview:
-The solution is essentially identical to Dijkstra's shortest path algorithm. In this case we are given a specific cost function.
+The solution is essentially identical to Dijkstra's shortest path algorithm. In this case we are given a specific cost function.\\
 
 Algorithm Description:
 \begin{lstlisting}
@@ -138,6 +139,8 @@ Vertex[] Graph::dijkstra(Vertex s, Vertex t):
 
 \end{lstlisting}
 
+The running time of the algorithm depends on the specifics of the implementation. Under the given assumptions it's possible to implement this algorithm such that it has a running time of $O(ElogV)$ where $E$ is the number of edges in the graph and $V$ is the number of vertices in the graph.
+
 \section*{Problem \#4}
 We want to prove that the distance calculated by Dijkstra to each node is minimal. We express this as:
 $$\forall_i dist(S_i)\text{ is minimal}$$
@@ -165,7 +168,7 @@ This is a contradiction because it indicates the algorithm didn't choose what it
 
         By contraposition, this proves that every MST of a graph $G$ is an Elite Tree of $G$.
 
-    \item It is not the case that every Elite Tree of $G$ is an MST of $G$. In the following image the green edges form an elite tree that is not an MST.
+    \item It is not the case that every Elite Tree of $G$ is an MST of $G$. In the following image (next page) the green edges form an elite tree that is not an MST.
     \begin{figure}[hb]
         \centering
         \includegraphics[scale=0.5]{eliteNotMST}
