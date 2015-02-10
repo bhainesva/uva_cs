@@ -1,0 +1,112 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{color}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Real Analysis - Assignment \# 3}
+\author{Ben Haines}
+
+\problem{1}
+Let $\Set{a_n}$ be a sequence which has finintely many distinct terms (e.g. 1, 3, 2, 3, 2, 3, 2, ...). Prove that if $\Set{a_n}$ converges, then there exists $N\in \mathbb N$ and $C\in \mathbb R$ such that $a_n = C$ for all $n\ge N$ (such sequences are called eventually constant.
+\solution
+In the case when $\Set{a_n}$ has only one distinct element this is trivially true. Assume that $\Set{a_n}$ has at least two distinct elements. There are a finite number of distinct elements which means there is a minimum nonzero difference between any two different elements. Let this number be $m$. Let $\epsilon = \frac{m}{2}$. Then by the definition of convergence $|a_n - L| < \frac{m}{2}$ and $|a_{n+1} - L| < \frac{m}{2}$ for all $a_n$ greater than some $N(\epsilon)$ where $L$ is the limit of $\Set{a_n}$. Then this implies for all $n > N(\epsilon)$:
+$$-\frac{m}{2} + -\frac{m}{2} < a_{n+1} - L + L - a_{n} < \frac{m}{2} + \frac{m}{2} \implies -\frac{m}{2} < a_{n+1} - a_n < m$$
+Thus $|a_{n+1} - a_n| < m$. However, $m$ is the minimum difference between distinct elements of $\Set{a_n}$ which means that for all $n > N(\epsilon)$, $a_n = a_{n+1}$. 
+
+\problem{2}
+Let $\Set{a_n}$ be a sequence and $L$ a real number. Prove that $\lim_{n\to\infty}a_n = L \iff$ for every $k\in \mathbb N$ there exists $N = N(k)$ such that $|a_n - L| < \frac{1}{k}$ for all $n\ge N$ (the point is that instead of verifying the inequality in the definition of limit for all $\epsilon > 0$, it suffices to check that condition for $\epsilon $ of the form $\frac{1}{k}$ with $k\in \mathbb N$). \textbf{Hint:} One direction is immediate, and the other direction follows from one of the problems in earlier homeworks.
+\solution
+Let $\lim_{n\to \infty}a_n = L$. Then $\forall \epsilon > 0 \exists N$ such that $|a_n - L| < \epsilon $ for all $n \ge N$. Then for any $k$ in $\mathbb N$ let $\epsilon = \frac{1}{k}$ and $N = N(\epsilon)$. By definition $|a_n - L| < \epsilon = \frac{1}{k}$ for all $n \ge N$. \\
+
+Assume that for all $k\in \mathbb N$ there exists $N = N(k)$ such that $|a_n - L| < \epsilon $ for all $n \ge N$. By HW2.3, for all $\epsilon > 0$ there exists $k\in \mathbb N$ such that $\frac{1}{k} < \epsilon $. Thus for all $\epsilon > 0$ there exists $N = N(k)$ such that $|a_n - L| < \frac{1}{k} < \epsilon $ for all $n \ge N$. 
+
+\problem{3}
+Let $\Set{a_n}$ be a sequence with $a_n > 0$ for all $n$. Prove that $a_n \to +\infty$ (see Definition 2.14) $\iff \frac{1}{a_n} \to 0$.
+\solution
+Let $a_n \to +\infty$. By definition $\forall M\in \mathbb R$, $\exists N\in \mathbb N$ such that $n\ge N\implies a_n > M$. Let $\Set{y_k} = 1, 1, \ldots$. $\Set{y_n}$ is bounded and $a_n > 0$ for all $n$ so by part (iv) of Theorem 2.15 $\lim_{n\to \infty}\frac{y_n}{a_n} = \lim_{n\to \infty}\frac{1}{a_n} = 0$. 
+
+Let $\frac{1}{a_n}\to 0$. Then for all $\epsilon > 0$ there exists $N(\epsilon)$ such that $\forall n > N$, $\left|\frac{1}{a_n} - 0\right| = \left|\frac{1}{a_n}\right| < \epsilon $. Fix an arbitrary $M\in \mathbb R$. Let $\epsilon = \frac{1}{M}$. Then $\exists N\in \mathbb N$ such that $\forall n > N, \left|\frac{1}{a_n}\right| = \frac{1}{a_n} < \frac{1}{M} \implies M < a_n$. 
+
+\problem{4}
+Let $\Set{a_n}$ be a sequence. Prove that $\Set{a_n}$ is unbounded above $\iff$ there is a subsequence $\Set{a_{n_k}}$ such that $\lim_{k\to\infty}a_{n_k} = +\infty$. 
+
+    \textbf{Hint:} for the forward direction ($\to$) show that one can construct a sequence of natural numbers $n_1 < n_2 < \ldots$ such that $a_{n_k} > k$ for all $k\in \mathbb N$. Such a sequence can be construced inductively: supposed that for some $m \ge 1$ we have already constructed $n_1 < n_2 < \ldots < n_m$ such that $a_{n_k} > k$ for $k = 1,\ldots, m$. Assume that the process cannot be continued, that is, one cannot choose $n_{m+1}\in \mathbb N$ such that $n_{m+1} > n_m$ and $a_{n_{m+1}} > m + 1$, and deduce that the sequence $\Set{a_n}$ must be bounded, reaching a contradiction.
+\solution
+We can construct a sequence of natural numbers $n_1 < n_2 < \ldots$ such that $a_{n_k} > k$ for all $k\in \mathbb N$. This is trivial to do for a sequence of length one. Assume that we have already constructed such a sequence of length $m\ge 1$. Then if we cannot select $n_{m+1} \in \mathbb N$ such that $n_{m+1} > n_m$ and $a_{n_{m+1}} > m + 1$ then $\Set{a_n}$ is bounded by $\max(a_1, \ldots, a_{n_m})$ which is a contradiction. Then for any $M\in \mathbb R$ let $N = N(M) = [M] + 1$. Then for all $m \ge N$ by the construction of the subsequence $a_{n_m} > M$. Thus $\lim_{k\to\infty}a_{n_k} = +\infty$.
+
+Let $\Set{a_{n_k}}$ be a subsequence of $\Set{a_n}$ such that $\lim_{\to\infty}a_{n_k}$. Assume that $\Set{a_n}$ is bounded above. This means that there exists some value $M_1$ such that $a_n \le M_1$ for all $n\in \mathbb N$. However, for the same $M_1$ by the fact that $\lim_{k\to\infty}a_{n_k} = +\infty$, there exists an $a_{n_k} \in \Set{a_{n_K}}$ such that $a_{n_k} > M_1$. This is a contradiction because any element of a subsequence is also an element of the original sequence. Therefore $\Set{a_n}$ is unbounded above.
+
+\problem{5}
+The goal of this problem is to prove the "quotient rule" for limits (the last part of Theorem 2.12 from the book or Theorem 7.4 from class). Note that it suffices to prove that $\lim\frac{1}{b_n} = \frac{1}{\lim b_n}$ (where $b_n \not= 0$ for all $n$ and $\lim b_n \not= 0$) - once this is done, the genereal case follows from the product rule. 
+
+So, let $\Set{b_n}$ be a convergent sequence such that $b_n \not= 0$ for all $n$ and $\lim b_n \not= 0$. Let $L = \lim b_n$.
+\begin{enumerate}[(a)]
+    \item Show that there exists $N\in \mathbb N$ such that $|b_n| > \frac{|L|}{2}$ for all $n\ge N$. It may be convenient to consider the cases $L > 0$ and $L < 0$ separately.
+    \item Use (a) to prove that the sequence $\Set{\frac{1}{b_n}}$ is bounded. 
+    \item Now use (b) to prove that $\Set{\frac{1}{b_n}}$ converges and $\lim \frac{1}{b_n} = \frac{1}{L}$.
+\end{enumerate}
+\solution
+\part
+Consider first the case when $L < 0$. By the definition of convergence, $\forall \epsilon > 0, \exists N$ such that $|b_n - L| < \epsilon$ for all $n \ge N$. Let $\epsilon = \frac{|L|}{2}$. Then $|b_n - L| < \frac{|L|}{2} \implies -\frac{|L|}{2} < b_n - L < \frac{|L|}{2} \implies L-\frac{|L|}{2} < b_n \implies \frac{L}{2} < b_n$.\\
+
+Now consider the case when $L < 0$. First let $\epsilon = -\frac{L}{2}$. Then $|b_n - L| < -\frac{L}{2} \implies \frac{L}{2} < b_n - L < -\frac{L}{2} \implies \frac{3L}{2} < b_n < \frac{L}{2}$. We know that $L$ is negative so this means that $|b_n| < \frac{|L|}{2}$.
+
+\part
+From part (a) there exists an $N\in \mathbb N$ such that $|b_n > \frac{L}{2}$ for all $n\ge N$. If $|b_n| > \frac{|L|}{2}$ then $\frac{2}{|L|} > |b_n|$. There are a finite number of elements $b_n$ where $n < N$. Therefore $\Set{b_n}$ is bounded above by $\max(\max(b_1, b_2, \ldots, b_{N-1}), \frac{2}{|L|})$ and bounded below by $\min(\min(b_1, b_2, \ldots, b_{N-1}), -\frac{2}{|L|})$.  
+
+\part
+We have shown that $\frac{1}{b_n}$ is bounded. $b_n\to L$ so we know $b_n - L$ is a null sequence. Thus $(b_n - L)\frac{1}{b_n} = 1 - \frac{L}{b_n}$ is a null sequence. Therefore $\frac{L}{b_n}\to 1$ as $n\to \infty$. $\frac{1}{b_n}= \frac{1}{L}\frac{L}{b_n}$ and $lim_{n\to\infty}\frac{1}{L}\frac{L}{b_n} = \frac{1}{L} \cdot 1 = \frac{1}{L}$. Thus $\frac{1}{b_n}$ converges and its limit is $\frac{1}{L}$. 
+
+\problem{6}
+Define the function $f : \mathbb R\to \mathbb R$ by $f(x) = \frac{1+x}{2}.$ Fix some $x_0\in \mathbb R$ and define the sequence $\Set{x_n}_{n=1}^{\infty}$ by $x_n = f(x_{n-1})$ for all $n\in \mathbb N$. 
+\begin{enumerate}[(a)]
+        \item Prove that if $1 \le x$, then $1 \le f(x) \le x$. Also prove that if $x \le 1,$ then $x\le f(x) \le 1$. 
+    \item Use (a) and the monotone convergence theorem to prove that the sequence $\Set{x_n}$ converges to 1 (regardless of the value of $x_0$).
+\end{enumerate}
+\solution
+\part
+Let $x \ge 1$. Then 
+\begin{align*}
+    1\le x &\implies 2 \le x + 1\\
+    &\implies 1\le \frac{1+x}{2}\\
+    &\implies 1\le f(x)
+\end{align*}
+and
+\begin{align*}
+    1\le x &\implies 1 + x \le 2x\\
+    &\implies \frac{1+x}{2} \le x\\
+    &\implies f(x) \le x
+\end{align*}
+Now let $x \le 1$. Then
+\begin{align*}
+    1 \ge x &\implies 1 + x \ge 2x\\
+    &\implies \frac{1+x}{2} \ge x\\
+    &\implies f(x) \ge x
+\end{align*}
+and
+\begin{align*}
+    1\ge x &\implies 2 \ge x + 1\\
+    &\implies 1\ge \frac{1+x}{2}\\
+    &\implies 1\ge f(x)
+\end{align*}
+\part
+Case 1: $x_0 < 1$:\\
+By part (a) the sequence is bounded above by 1 and increasing. Thus by the monotonic convergence theorem the sequence converges to 1.\\
+Case 2: $x_0 = 1$:\\
+In this case the sequence is constant because $f(1) = 1$ and thus clearly converges to 1.\\
+Case 3: $x_0 > 1$:\\
+By part (a) the sequence is bounded below by 1 and decreasing. Thus by the monotonic convergence theorem the sequence converges to 1.\\
+  
+\problem{7}
+Problem 2.2.9 from Wade's book.
+\solution
+
+\end{document}
