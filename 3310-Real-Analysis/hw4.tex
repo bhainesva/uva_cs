@@ -42,7 +42,7 @@ Let $\Set{a_n}$ be a sequence. Prove that $\Set{a_n}$ is unbounded above $\iff$ 
 \solution
 We can construct a sequence of natural numbers $n_1 < n_2 < \ldots$ such that $a_{n_k} > k$ for all $k\in \mathbb N$. This is trivial to do for a sequence of length one. Assume that we have already constructed such a sequence of length $m\ge 1$. Then if we cannot select $n_{m+1} \in \mathbb N$ such that $n_{m+1} > n_m$ and $a_{n_{m+1}} > m + 1$ then $\Set{a_n}$ is bounded by $\max(a_1, \ldots, a_{n_m})$ which is a contradiction. Then for any $M\in \mathbb R$ let $N = N(M) = [M] + 1$. Then for all $m \ge N$ by the construction of the subsequence $a_{n_m} > M$. Thus $\lim_{k\to\infty}a_{n_k} = +\infty$.
 
-Let $\Set{a_{n_k}}$ be a subsequence of $\Set{a_n}$ such that $\lim_{\to\infty}a_{n_k}$. Assume that $\Set{a_n}$ is bounded above. This means that there exists some value $M_1$ such that $a_n \le M_1$ for all $n\in \mathbb N$. However, for the same $M_1$ by the fact that $\lim_{k\to\infty}a_{n_k} = +\infty$, there exists an $a_{n_k} \in \Set{a_{n_K}}$ such that $a_{n_k} > M_1$. This is a contradiction because any element of a subsequence is also an element of the original sequence. Therefore $\Set{a_n}$ is unbounded above.
+Let $\Set{a_{n_k}}$ be a subsequence of $\Set{a_n}$ such that $\lim_{n\to\infty}a_{n_k}$. Assume that $\Set{a_n}$ is bounded above. This means that there exists some value $M_1$ such that $a_n \le M_1$ for all $n\in \mathbb N$. However, for the same $M_1$ by the fact that $\lim_{k\to\infty}a_{n_k} = +\infty$, there exists an $a_{n_k} \in \Set{a_{n_K}}$ such that $a_{n_k} > M_1$. This is a contradiction because any element of a subsequence is also an element of the original sequence. Therefore $\Set{a_n}$ is unbounded above.
 
 \problem{5}
 The goal of this problem is to prove the "quotient rule" for limits (the last part of Theorem 2.12 from the book or Theorem 7.4 from class). Note that it suffices to prove that $\lim\frac{1}{b_n} = \frac{1}{\lim b_n}$ (where $b_n \not= 0$ for all $n$ and $\lim b_n \not= 0$) - once this is done, the genereal case follows from the product rule. 
@@ -55,12 +55,12 @@ So, let $\Set{b_n}$ be a convergent sequence such that $b_n \not= 0$ for all $n$
 \end{enumerate}
 \solution
 \part
-Consider first the case when $L < 0$. By the definition of convergence, $\forall \epsilon > 0, \exists N$ such that $|b_n - L| < \epsilon$ for all $n \ge N$. Let $\epsilon = \frac{|L|}{2}$. Then $|b_n - L| < \frac{|L|}{2} \implies -\frac{|L|}{2} < b_n - L < \frac{|L|}{2} \implies L-\frac{|L|}{2} < b_n \implies \frac{L}{2} < b_n$.\\
+Consider first the case when $L > 0$. By the definition of convergence, $\forall \epsilon > 0, \exists N$ such that $|b_n - L| < \epsilon$ for all $n \ge N$. Let $\epsilon = \frac{|L|}{2}$. Then $|b_n - L| < \frac{|L|}{2} \implies -\frac{|L|}{2} < b_n - L < \frac{|L|}{2} \implies L-\frac{|L|}{2} < b_n \implies \frac{L}{2} < b_n$.\\
 
-Now consider the case when $L < 0$. First let $\epsilon = -\frac{L}{2}$. Then $|b_n - L| < -\frac{L}{2} \implies \frac{L}{2} < b_n - L < -\frac{L}{2} \implies \frac{3L}{2} < b_n < \frac{L}{2}$. We know that $L$ is negative so this means that $|b_n| < \frac{|L|}{2}$.
+Now consider the case when $L < 0$. First let $\epsilon = -\frac{L}{2}$. Then $|b_n - L| < -\frac{L}{2} \implies \frac{L}{2} < b_n - L < -\frac{L}{2} \implies \frac{3L}{2} < b_n < \frac{L}{2}$. We know that $L$ is negative so this means that $|b_n| > \frac{|L|}{2}$.
 
 \part
-From part (a) there exists an $N\in \mathbb N$ such that $|b_n > \frac{L}{2}$ for all $n\ge N$. If $|b_n| > \frac{|L|}{2}$ then $\frac{2}{|L|} > |b_n|$. There are a finite number of elements $b_n$ where $n < N$. Therefore $\Set{b_n}$ is bounded above by $\max(\max(b_1, b_2, \ldots, b_{N-1}), \frac{2}{|L|})$ and bounded below by $\min(\min(b_1, b_2, \ldots, b_{N-1}), -\frac{2}{|L|})$.  
+From part (a) there exists an $N\in \mathbb N$ such that $|b_n > \frac{L}{2}$ for all $n\ge N$. If $|b_n| > \frac{|L|}{2}$ then $\frac{2}{|L|} > \frac{1}{|b_n|}$. There are a finite number of elements $\frac{1}{b_n}$ where $n < N$. Therefore $\Set{\frac{1}{b_n}}$ is bounded above by $\max(\max(1/b_1, 1/b_2, \ldots, 1/b_{N-1}), \frac{2}{|L|})$ and bounded below by $\min(\min(1/b_1, 1/b_2, \ldots, 1/b_{N-1}), -\frac{2}{|L|})$.  
 
 \part
 We have shown that $\frac{1}{b_n}$ is bounded. $b_n\to L$ so we know $b_n - L$ is a null sequence. Thus $(b_n - L)\frac{1}{b_n} = 1 - \frac{L}{b_n}$ is a null sequence. Therefore $\frac{L}{b_n}\to 1$ as $n\to \infty$. $\frac{1}{b_n}= \frac{1}{L}\frac{L}{b_n}$ and $lim_{n\to\infty}\frac{1}{L}\frac{L}{b_n} = \frac{1}{L} \cdot 1 = \frac{1}{L}$. Thus $\frac{1}{b_n}$ converges and its limit is $\frac{1}{L}$. 
@@ -108,5 +108,32 @@ By part (a) the sequence is bounded below by 1 and decreasing. Thus by the monot
 \problem{7}
 Problem 2.2.9 from Wade's book.
 \solution
+\part
+From the given conditions, we want a value for $w$ such that $w \le y\cdot 10^{n+1} < w+1$. So let $w$ be the largest integer such that $w \le y\cdot 10^{n+1}$. The value of $y\cdot 10^{n+1}$ must be positive so $0\le w$. Additionally, by out definition of $w$, $w+1$ must be larger than $y\cdot 10^{n+1}$. We know that $y\cdot 10^{n+1} < 10$ so $w$ is an integer less than 10, i.e. $w \le 9$.  
+
+\part
+We will use induction on $n$. \\
+Base Case: $n=1$:
+$$\frac{x_1}{10} \le x < \frac{x_1}{10} + \frac{1}{10}$$
+We know from part (a) that we can find an $x_1$ to satisfy this inequality.\\
+Inductive Hypothesis: Assume that for all $n\le m$ for some integer $m\ge 1$. 
+$$\sum\limits_{k=1}^m \frac{x_k}{10^k} \le x < \sum\limits_{k=1}^m \frac{x_k}{10^k} + \frac{1}{10^m}$$
+Inductive Step:
+From the inductive hypothesis we know that:
+$$0 \le x - \left[\sum\limits_{k=1}^m \frac{x_k}{10^k}\right] < \frac{1}{10^m}$$
+We can apply part (a) to this inequality in order to find an $x_{m+1}$ such that:
+$$\frac{x_{m+1}}{10^{m+1}} \le x - \left[\sum\limits_{k=1}^m \frac{x_k}{10^k}\right] < \frac{x_{m+1}}{10^{m+1}} + \frac{1}{10^{m+1}}$$
+Thus
+$$\left[\sum\limits_{k=1}^m \frac{x_k}{10^{m+1}}\right] + \frac{x_{m+1}}{10^{m+1}} \le x  < \left[\sum\limits_{k=1}^m \frac{x_k}{10^k}\right] + \frac{x_{m+1}}{10^{m+1}} + \frac{1}{10^{m+1}}$$
+$$\Downarrow$$
+$$\sum\limits_{k=1}^{m+1} \frac{x_k}{10^{m+1}} \le x  < \sum\limits_{k=1}^{m+1} \frac{x_k}{10^k} + \frac{1}{10^{m+1}}$$
+
+\part
+From part (b) we have:
+$$0 \le x - \sum\limits_{k=1}^n \frac{x_k}{10^k} < \frac{1}{10^n}$$
+As $n$ goes to infinity both the left and right sides of this inequality go to zero. Therefore by the squeeze theorem the middle portion also converges to 0. 
+$$x - \lim_{n\to\infty}\sum\limits_{k=1}^n \frac{x_k}{10^k} = 0 \implies \lim_{n\to\infty}\sum\limits_{k=1}^n \frac{x_k}{10^k} = x$$
+
 
 \end{document}
+
