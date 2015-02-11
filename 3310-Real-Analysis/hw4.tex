@@ -11,11 +11,11 @@
 \DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
 
 \begin{document}
-\title{Real Analysis - Assignment \# 3}
+\title{Real Analysis - Assignment \# 4}
 \author{Ben Haines}
 
 \problem{1}
-Let $\Set{a_n}$ be a sequence which has finintely many distinct terms (e.g. 1, 3, 2, 3, 2, 3, 2, ...). Prove that if $\Set{a_n}$ converges, then there exists $N\in \mathbb N$ and $C\in \mathbb R$ such that $a_n = C$ for all $n\ge N$ (such sequences are called eventually constant.
+Let $\Set{a_n}$ be a sequence which has finintely many distinct terms (e.g. 1, 3, 2, 3, 2, 3, 2, ...). Prove that if $\Set{a_n}$ converges, then there exists $N\in \mathbb N$ and $C\in \mathbb R$ such that $a_n = C$ for all $n\ge N$ (such sequences are called eventually constant.)
 \solution
 In the case when $\Set{a_n}$ has only one distinct element this is trivially true. Assume that $\Set{a_n}$ has at least two distinct elements. There are a finite number of distinct elements which means there is a minimum nonzero difference between any two different elements. Let this number be $m$. Let $\epsilon = \frac{m}{2}$. Then by the definition of convergence $|a_n - L| < \frac{m}{2}$ and $|a_{n+1} - L| < \frac{m}{2}$ for all $a_n$ greater than some $N(\epsilon)$ where $L$ is the limit of $\Set{a_n}$. Then this implies for all $n > N(\epsilon)$:
 $$-\frac{m}{2} + -\frac{m}{2} < a_{n+1} - L + L - a_{n} < \frac{m}{2} + \frac{m}{2} \implies -\frac{m}{2} < a_{n+1} - a_n < m$$
@@ -40,9 +40,9 @@ Let $\Set{a_n}$ be a sequence. Prove that $\Set{a_n}$ is unbounded above $\iff$ 
 
     \textbf{Hint:} for the forward direction ($\to$) show that one can construct a sequence of natural numbers $n_1 < n_2 < \ldots$ such that $a_{n_k} > k$ for all $k\in \mathbb N$. Such a sequence can be construced inductively: supposed that for some $m \ge 1$ we have already constructed $n_1 < n_2 < \ldots < n_m$ such that $a_{n_k} > k$ for $k = 1,\ldots, m$. Assume that the process cannot be continued, that is, one cannot choose $n_{m+1}\in \mathbb N$ such that $n_{m+1} > n_m$ and $a_{n_{m+1}} > m + 1$, and deduce that the sequence $\Set{a_n}$ must be bounded, reaching a contradiction.
 \solution
-We can construct a sequence of natural numbers $n_1 < n_2 < \ldots$ such that $a_{n_k} > k$ for all $k\in \mathbb N$. This is trivial to do for a sequence of length one. Assume that we have already constructed such a sequence of length $m\ge 1$. Then if we cannot select $n_{m+1} \in \mathbb N$ such that $n_{m+1} > n_m$ and $a_{n_{m+1}} > m + 1$ then $\Set{a_n}$ is bounded by $\max(a_1, \ldots, a_{n_m})$ which is a contradiction. Then for any $M\in \mathbb R$ let $N = N(M) = [M] + 1$. Then for all $m \ge N$ by the construction of the subsequence $a_{n_m} > M$. Thus $\lim_{k\to\infty}a_{n_k} = +\infty$.
+We can construct a sequence of natural numbers $n_1 < n_2 < \ldots$ such that $a_{n_k} > k$ for all $k\in \mathbb N$. This is trivial to do for a sequence of length one. Assume that we have already constructed such a sequence of length $m\ge 1$. Then if we cannot select $n_{m+1} \in \mathbb N$ such that $n_{m+1} > n_m$ and $a_{n_{m+1}} > m + 1$ then $\Set{a_n}$ is bounded above by $\max(a_1, \ldots, a_{n_m})$ which is a contradiction. Then for any $M\in \mathbb R$ let $N = N(M) = [M] + 1$. Then for all $m \ge N$ by the construction of the subsequence $a_{n_m} > M$. Thus $\lim_{k\to\infty}a_{n_k} = +\infty$.
 
-Let $\Set{a_{n_k}}$ be a subsequence of $\Set{a_n}$ such that $\lim_{n\to\infty}a_{n_k}$. Assume that $\Set{a_n}$ is bounded above. This means that there exists some value $M_1$ such that $a_n \le M_1$ for all $n\in \mathbb N$. However, for the same $M_1$ by the fact that $\lim_{k\to\infty}a_{n_k} = +\infty$, there exists an $a_{n_k} \in \Set{a_{n_K}}$ such that $a_{n_k} > M_1$. This is a contradiction because any element of a subsequence is also an element of the original sequence. Therefore $\Set{a_n}$ is unbounded above.
+Let $\Set{a_{n_k}}$ be a subsequence of $\Set{a_n}$ such that $\lim_{n\to\infty}a_{n_k}$. Assume that $\Set{a_n}$ is bounded above. This means that there exists some value $M_1$ such that $a_n \le M_1$ for all $n\in \mathbb N$. However, for the same $M_1$ by the fact that $\lim_{k\to\infty}a_{n_k} = +\infty$, there exists an $a_{n_k} \in \Set{a_{n_k}}$ such that $a_{n_k} > M_1$. This is a contradiction because any element of a subsequence is also an element of the original sequence. Therefore $\Set{a_n}$ is unbounded above.
 
 \problem{5}
 The goal of this problem is to prove the "quotient rule" for limits (the last part of Theorem 2.12 from the book or Theorem 7.4 from class). Note that it suffices to prove that $\lim\frac{1}{b_n} = \frac{1}{\lim b_n}$ (where $b_n \not= 0$ for all $n$ and $\lim b_n \not= 0$) - once this is done, the genereal case follows from the product rule. 
@@ -60,7 +60,7 @@ Consider first the case when $L > 0$. By the definition of convergence, $\forall
 Now consider the case when $L < 0$. First let $\epsilon = -\frac{L}{2}$. Then $|b_n - L| < -\frac{L}{2} \implies \frac{L}{2} < b_n - L < -\frac{L}{2} \implies \frac{3L}{2} < b_n < \frac{L}{2}$. We know that $L$ is negative so this means that $|b_n| > \frac{|L|}{2}$.
 
 \part
-From part (a) there exists an $N\in \mathbb N$ such that $|b_n > \frac{L}{2}$ for all $n\ge N$. If $|b_n| > \frac{|L|}{2}$ then $\frac{2}{|L|} > \frac{1}{|b_n|}$. There are a finite number of elements $\frac{1}{b_n}$ where $n < N$. Therefore $\Set{\frac{1}{b_n}}$ is bounded above by $\max(\max(1/b_1, 1/b_2, \ldots, 1/b_{N-1}), \frac{2}{|L|})$ and bounded below by $\min(\min(1/b_1, 1/b_2, \ldots, 1/b_{N-1}), -\frac{2}{|L|})$.  
+From part (a) there exists an $N\in \mathbb N$ such that $|b_n| > \frac{|L|}{2}$ for all $n\ge N$. If $|b_n| > \frac{|L|}{2}$ then $\frac{2}{|L|} > \frac{1}{|b_n|}$. There are a finite number of elements $\frac{1}{b_n}$ where $n < N$. Therefore $\Set{\frac{1}{b_n}}$ is bounded above by $\max(\max(1/b_1, 1/b_2, \ldots, 1/b_{N-1}), \frac{2}{|L|})$ and bounded below by $\min(\min(1/b_1, 1/b_2, \ldots, 1/b_{N-1}), -\frac{2}{|L|})$.  
 
 \part
 We have shown that $\frac{1}{b_n}$ is bounded. $b_n\to L$ so we know $b_n - L$ is a null sequence. Thus $(b_n - L)\frac{1}{b_n} = 1 - \frac{L}{b_n}$ is a null sequence. Therefore $\frac{L}{b_n}\to 1$ as $n\to \infty$. $\frac{1}{b_n}= \frac{1}{L}\frac{L}{b_n}$ and $lim_{n\to\infty}\frac{1}{L}\frac{L}{b_n} = \frac{1}{L} \cdot 1 = \frac{1}{L}$. Thus $\frac{1}{b_n}$ converges and its limit is $\frac{1}{L}$. 
@@ -116,7 +116,7 @@ We will use induction on $n$. \\
 Base Case: $n=1$:
 $$\frac{x_1}{10} \le x < \frac{x_1}{10} + \frac{1}{10}$$
 We know from part (a) that we can find an $x_1$ to satisfy this inequality.\\
-Inductive Hypothesis: Assume that for all $n\le m$ for some integer $m\ge 1$. 
+Inductive Hypothesis: Assume that for $n = m$ for some integer $m\ge 1$. 
 $$\sum\limits_{k=1}^m \frac{x_k}{10^k} \le x < \sum\limits_{k=1}^m \frac{x_k}{10^k} + \frac{1}{10^m}$$
 Inductive Step:
 From the inductive hypothesis we know that:
@@ -124,9 +124,9 @@ $$0 \le x - \left[\sum\limits_{k=1}^m \frac{x_k}{10^k}\right] < \frac{1}{10^m}$$
 We can apply part (a) to this inequality in order to find an $x_{m+1}$ such that:
 $$\frac{x_{m+1}}{10^{m+1}} \le x - \left[\sum\limits_{k=1}^m \frac{x_k}{10^k}\right] < \frac{x_{m+1}}{10^{m+1}} + \frac{1}{10^{m+1}}$$
 Thus
-$$\left[\sum\limits_{k=1}^m \frac{x_k}{10^{m+1}}\right] + \frac{x_{m+1}}{10^{m+1}} \le x  < \left[\sum\limits_{k=1}^m \frac{x_k}{10^k}\right] + \frac{x_{m+1}}{10^{m+1}} + \frac{1}{10^{m+1}}$$
+$$\left[\sum\limits_{k=1}^m \frac{x_k}{10^{k}}\right] + \frac{x_{m+1}}{10^{m+1}} \le x  < \left[\sum\limits_{k=1}^m \frac{x_k}{10^k}\right] + \frac{x_{m+1}}{10^{m+1}} + \frac{1}{10^{m+1}}$$
 $$\Downarrow$$
-$$\sum\limits_{k=1}^{m+1} \frac{x_k}{10^{m+1}} \le x  < \sum\limits_{k=1}^{m+1} \frac{x_k}{10^k} + \frac{1}{10^{m+1}}$$
+$$\sum\limits_{k=1}^{m+1} \frac{x_k}{10^{k}} \le x  < \sum\limits_{k=1}^{m+1} \frac{x_k}{10^k} + \frac{1}{10^{m+1}}$$
 
 \part
 From part (b) we have:
