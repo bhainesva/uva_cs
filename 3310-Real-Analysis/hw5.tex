@@ -1,0 +1,45 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{color}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Real Analysis - Assignment \# 5}
+\author{Ben Haines}
+
+\problem{1}
+\part
+$A$ is countable so by definition there is a bijection between $A$ and $\mathbb N$. There is a bijection between $A$ and $B$. Therefore there is a bijection between $B$ and $\mathbb N$ and $B$ is countable by definition.
+
+\part
+There is a surjection from $A$ to $B$. Therefore for every element $b$ in $B$ there exists at least one element $a$ in $A$ such that $\phi(a) = b$. We can form a subset $C$ of $A$ such that there is a bijection between $C$ and $B$ by removing elements with duplicate values under $\phi$. Then by Lemma 11.6 $C$ is at most countable. There is a bijection between $C$ and $B$ so by part (a) $B$ is countable.
+
+\problem{2}
+The base case when $n = 2$ holds by Lemma 11.5. Assume that the statement is true for all $n \le k$ for some $k \ge 2$. Conside the case when $k = n + 1$. 
+There is a bijection that maps each $(a_1, a_2, \ldots, a_k, a_{k+1})$ in $A_1\times A_2\times \ldots \times A_k \times A_{k+1}$ to $((a_1, a_2, \ldots, a_k), a_{k+1})$ in $(A_1\times A_2\times \ldots A_k) \times A_{k+1}$. As the product of two countable sets we know that $(A_1\times A_2\times \ldots A_k) \times A_{k+1}$ is countable and we have shown there is a bijection between it and $A_1\times A_2\times \ldots \times A_k \times A_{k+1}$. Therefore $A_1\times A_2\times \ldots \times A_k \times A_{k+1}$ is countable.
+Thus the statement holds for all $n$.
+
+\problem{3}
+\part
+By the result of problem 2, the cartesian product $Y_n = (\mathbb Z \times \mathbb Z \times \ldots \times \mathbb Z)$ where $\mathbb Z$ is repeated $n$ times is a countable set. For any $Z_n$ there is a clear bijection from $Y_n$ to $Z_n$ that maps the coefficients $c_k$ of a given polynomial to the $k^{th}$ positions of an $n$ tuple in $Y_n$. Thus, because there is bijection between it and a countable set, $Z_n$ is countable.
+
+\part
+Consider the sets $Z_n$ for all $n$ in $\mathbb N$. There are a countable number of these sets and it was shown in part (a) that each set was countable. Therefore by Lemma 11.7 the union of these sets, i.e. the set of all polynomials with integer coefficients, is countable. 
+
+\part
+For each of the countably many polynomials with integer coefficients consider the finite set of its roots. Again by Lemma 11.7 the union of all of these sets, i.e. the set of all algebraic numbers,  must be countable. 
+
+\problem{4}
+The sequences $\Set{a_n} = x - \frac{1}{n}$ and $\Set{b_n} = x + \frac{1}{n}$ are sequences of real numbers such that $a_n < x < b_n$ for all $n$ and $\lim a_n = \lim b_n = x$. By the proof of the density of rationals we can construct a sequence $\Set{q_n}$ by selecting rational numbers $q_n$ such that $a_n < q_n < b_n$ for each $n$. By the squeeze theorem this sequence $\Set{q_n}$ converges to $x$. 
+\problem{5}
+\problem{6}
+\problem{7}
+
+\end{document}
