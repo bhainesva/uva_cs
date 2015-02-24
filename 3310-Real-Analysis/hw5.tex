@@ -39,7 +39,31 @@ For each of the countably many polynomials with integer coefficients consider th
 \problem{4}
 The sequences $\Set{a_n} = x - \frac{1}{n}$ and $\Set{b_n} = x + \frac{1}{n}$ are sequences of real numbers such that $a_n < x < b_n$ for all $n$ and $\lim a_n = \lim b_n = x$. By the proof of the density of rationals we can construct a sequence $\Set{q_n}$ by selecting rational numbers $q_n$ such that $a_n < q_n < b_n$ for each $n$. By the squeeze theorem this sequence $\Set{q_n}$ converges to $x$. 
 \problem{5}
+By applying the recursive definitions, $a_{n+2} = \frac{a_n}{2} + \frac{1}{2a_n} + \frac{2}{a_n + \frac{2}{a_n}}$ and $a_{n+1} = \frac{1}{a_n} - \frac{a_n}{2}$. Then 
+$$|a_{n+2} - a_{n+1}| = \left|\frac{-a_n}{4} + \frac{2}{a_n + \frac{2}{a_n}} - \frac{1}{2a_n}\right|$$
+and
+$$|a_{n+1} - a_{n}| = \left|\frac{1}{a_n} - \frac{a_n}{2}\right|$$
+The insides of each of these absolute values is negative when $a_n \ge \sqrt{2}$ so:
+\begin{align}
+    \frac{|a_{n+2} - a_{n+1}|}{|a_{n+1} - a_n|} &= \frac{a_{n+2} - a_{n+1}}{a_{n+1} - a_n}\\
+                                                &= \frac{a^{2}_{n} - 2}{2(a^{2}_{n} + 2)}\\
+                                                &= \frac{1}{2} - \frac{2}{a^{2}_{n} + 2}\\
+                                                &< \frac{1}{2}
+\end{align}
+Therefore if we let $\alpha = \frac{1}{2}$:
+$$|a_{n+2} - a_{n+1}| \le \alpha|a_{n+1} - a_{n}| \text{ for all } n\in \mathbb N$$
 \problem{6}
+Let $\Set{a_n}$ be a convergent sequence in $X$. Denote its limit by $L$. Take $\forall \epsilon > 0$. Since $a_n \to L$ as $n\to \infty$, $\exists N$ such that $d(a_n,L) < \frac{\epsilon}{2}$ for all $n\ge N$. \\
+Then $\forall n, m \ge N$ we have
+$$d(a_n, a_m) \le d(a_n,L) + d(L,a_m) = d(a_n, L) + d(a_m, L) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$$
+Thus $\Set{a_n}$ is Cauchy in $(X, d)$. 
 \problem{7}
+\part
+Let $\Set{a_n}$ be a Cauchy sequence in $X$. It is given that $\Set{a_n}$ has a convergent subsequence $\Set{a_{n_k}}$ with limit $L$. Fix $\epsilon > 0$. Since $\Set{a_n}$ is Cauchy, $\exists N\in \mathbb N$ such that $d(a_n, a_m) < \frac{\epsilon}{2} \forall n, m \ge N$. Also since $\Set{a_{n_k}}$ converges to $L$, $\exists J\in \mathbb N$ such that $d(a_{n_k}, L) \le \frac{\epsilon}{2}$ for all $k \ge J$. By making $J$ larger (if needed) we can assume $n_J \ge N$. Now define $N_1 = n_J$, then $\forall n \ge N_1$ we have $d(a_n, L) \le d(a_n,a_{n_J}) + d(a_{n_J}, L) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$. 
+
+Therefore by definition $\Set{a_n}$ is convergent.
+\part
+%It follows from problem 6 but do we even need that can we just go straight to theorem 10.1 or nah?
+It was shown in problem 4 that a sequence can be constructed in $\mathbb Q$ that converges to any real number. Thus consider a sequence $\Set{a_n}$ in $\mathbb Q$ that converges to $\sqrt 2$. By Problem 6 this sequence is Cauchy in $(\mathbb Q, d)$ but does not converge to an element of $\mathbb Q$. 
 
 \end{document}
