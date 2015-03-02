@@ -25,20 +25,32 @@ Choose $\delta_0 = \frac{1}{2}$, $C = \frac{1}{2}$. Then $|x - 1| < \frac{1}{2} 
 $$\left|\frac{1}{x} - 1\right| = \left|\frac{x-1}{x}\right| = \frac{|x-1|}{|x|} < 2|x-1| < 2\frac{\epsilon}{2} = \epsilon$$
 
 \part
-Fix $\epsilon > 0$. Assume $|x-a| < \delta$ for some $\delta > 0$ to be found later. Then $|x^2 - a^2| = |(x-a)(x+a)| = |x-a||x+a| < \delta|x+a|$. We know that $|x-a| < \delta \implies |x+a| = |(x-a) + 2a| \le |x-a| + 2a < \delta + 2a$. Assume that $\delta \le 1$. Then $|x + a| < 1 + 2a$ so $|x^2 - a^2| < \delta(1 + 2a)$. We want to have $\delta(1 + 2a) \le \epsilon \implies \delta \le \frac{\epsilon}{1 + 2a}$. Define $\delta = \min(1, \frac{\epsilon}{1 + 2a})$. Take $\forall x$ such that $0 < |x-a| < \delta$. Then by previous computations $|x^2 - a^2| < \delta|x + a| < \delta(1 + 2a) \le \epsilon$. So $|x^2 - a^2| < \epsilon$ $\forall x$ such that $) < |x-a| < \delta$. 
+Fix $\epsilon > 0$. Assume $|x-a| < \delta$ for some $\delta > 0$ to be found later. Then $|x^2 - a^2| = |(x-a)(x+a)| = |x-a||x+a| < \delta|x+a|$. We know that $|x-a| < \delta \implies |x+a| = |(x-a) + 2a| \le |x-a| + |2a| < \delta + |2a|$. Assume that $\delta \le 1$. Then $|x + a| < 1 + |2a|$ so $|x^2 - a^2| < \delta(1 + |2a|)$. We want to have $\delta(1 + |2a|) \le \epsilon \implies \delta \le \frac{\epsilon}{1 + |2a|}$. Define $\delta = \min(1, \frac{\epsilon}{1 + |2a|})$. Take $\forall x$ such that $0 < |x-a| < \delta$. Then by previous computations $|x^2 - a^2| < \delta|x + a| < \delta(1 + |2a|) \le \epsilon$. So $|x^2 - a^2| < \epsilon$ $\forall x$ such that $0 < |x-a| < \delta$. 
 
 \problem{2}
-\problem{3}
 \part
-$\forall \epsilon > 0 \exists N$ such that $\forall n \ge N |a_n - L| < \epsilon \iff \forall \epsilon > 0 \exists N$ such that $\forall n \ge N |(a_n) - L) - 0| < \epsilon$. 
+This problem is very similar to part c) from problem 1. Although our $\delta$ can't depend on $a$, we can use the fact that we know the maximum possible value of $a$. So let $\delta = \min(1, \frac{\epsilon}{1 + 2\max(|c|, |d|})$. For any $a$ in the given range this number will be smaller than the $\delta$ we already showed worked in problem 1.
 
 \part
-$\forall \epsilon > 0 \exists N$ such that $\forall n \ge N$ $|b_n - 0| < \epsilon \implies |b_n| < \epsilon$. For all $n$ $|a_n - L| \le b_n$ so for all $n \ge N$ $|a_n - L| \le b_n \implies |a_n - L| \le |b_n| < \epsilon$ so by definition the limit of $a_n$ is $L$. 
+Fix $\epsilon > 0$. Assume $\exists \delta > 0$ such that $|x^2 - a^2| < \epsilon$ $\forall x, a \in \mathbb R$ such that $|x-a| < \delta$. Let $x = a + \frac{\delta}{2}$. Then for all $a$,
+$$|x^2 - a^2| = |a^2 + \delta a + \frac{\delta^2}{4} - a^2| = |\delta a + \frac{\delta^2}{4}| < \epsilon$$
+This implies that $\delta a < \epsilon - \frac{\delta^2}{4}$ for all $a$ which contradicts the Archimedean Property. Thus such a $\delta$ does not exist.
+
+\problem{3}
+\part
+$\forall \epsilon > 0 \exists N$ such that $\forall n \ge N$ $|a_n - L| < \epsilon \iff \forall \epsilon > 0$ $\exists N$ such that $\forall n \ge N ||a_n - L| - 0| < \epsilon$. 
+
+\part
+$0 \le |a_n - L| \le b_n$ for all $n$ and $\lim\limits_{n\to\infty}b_n = 0$ so by the squeeze theorem $\lim\limits_{n\to\infty}|a_n - L| = 0$. By part a) this means that $\lim\limits_{n\to\infty}a_n = L$. 
+%$\forall \epsilon > 0 \exists N$ such that $\forall n \ge N$ $|b_n - 0| < \epsilon \implies |b_n| < \epsilon$. For all $n$ $|a_n - L| \le b_n$ so for all $n \ge N$ $|a_n - L| \le b_n \implies |a_n - L| \le |b_n| < \epsilon$ so by definition the limit of $a_n$ is $L$. 
 
 \part
 \begin{enumerate}
-    \item $\lim f(x) = L \iff \lim (f(x) - L) = 0$
+    \item $\lim\limits_{x\to a}f(x) = L \iff \lim\limits{x\to a}|f(x) - L| = 0$
+        This follows directly from the arithmetic properties of limits.
+        %Be definition $\forall \epsilon > 0$ $\exists \delta > 0$ such that $|f(x) - L| < \epsilon$ for all $x$ such that $|x - a| < \delta$.
     \item $f(x) - L \le g(x) \forall x, \lim_{x\to a} g(x) = 0 \implies \lim_{x\to a} f(x) = L$. 
+        $0 \le |f(x) - L| \le g(x)$ for all $x$. $\lim\limits_{x\to a}g(x) = 0$. Therefore by the squeeze theorem for functions $\lim\limits_{x\to a}f(x) = L$. 
 \end{enumerate}
 
 \problem{4}
@@ -50,6 +62,25 @@ and thus the limit of $|f|$ as $x$ goes to $a$ is $|L|$.
 
 \part
 Assume without loss of generality that $u \ge v$. Then $u - v \ge 0$ so $|u - v| = u-v$. Thus $\frac{u + v + |u-v|}{2} = \frac{2u}{2} = u = \max(u, v)$. Similarly $\frac{u + v - |u - v|}{2} = \frac{u + v - u + v}{2} = \frac{2v}{2} = v = \min(u, v)$. 
+
+\part
+By the results of parts a) and b):
+\begin{align*}
+    \lim\limits_{x\to a}(\max(f, g)) &= \lim\limits_{x\to a}(\frac{1}{2}(f + g + |f - g|))\\
+                                     &= \frac{1}{2}(\lim\limits_{x\to a}f + \lim\limits_{x\to a}g + \lim\limits_{x\to a}(|f - g|))\\
+                                     &= \frac{1}{2}(\lim\limits_{x\to a}f + \lim\limits_{x\to a}g + |\lim\limits_{x\to a}(f - g)|)\\
+                                     &= \frac{1}{2}(L + M + |L - M|)\\
+                                     &= \max(L, M)
+\end{align*}
+and
+\begin{align*}
+    \lim\limits_{x\to a}(\min(f, g)) &= \lim\limits_{x\to a}(\frac{1}{2}(f + g - |f - g|))\\
+                                     &= \frac{1}{2}(\lim\limits_{x\to a}f + \lim\limits_{x\to a}g - \lim\limits_{x\to a}(|f - g|))\\
+                                     &= \frac{1}{2}(\lim\limits_{x\to a}f + \lim\limits_{x\to a}g - |\lim\limits_{x\to a}(f - g)|)\\
+                                     &= \frac{1}{2}(L + M - |L - M|)\\
+                                     &= \min(L, M)
+\end{align*}
+
 \problem{5}
 See midterm. 
 \problem{6}
