@@ -1,0 +1,81 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{color}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+%\DeclarePairedDelimiterx\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Real Analysis - Assignment \# 6}
+\author{Ben Haines}
+
+\problem{1}
+\part
+Fix $\epsilon > 0$. Let us assume that $|x - 2| < \delta$ for some $\delta > 0$ to be determined later. Then $|x^3 - 8| = |(x-2)(x^2 + 2x _ 4)|$. Assume that $\delta \le 1$. Then $|(x-2)||x^2 + 2x + 4| \le |x-2||3^2 + 6 + 4| = 19|x-2|$.\\
+So $|x^3 - 8| \le 19|x-2| < 19\delta$. Choose $\delta = \min(1, \frac{\epsilon}{19})$. If $0 < |x-2| < \delta$ then because $\delta < 0$, $1 < x < 3$ so 
+$$|x^3 - 8| \le 19|x-2| < 19\delta \le 19\left(\frac{\epsilon}{19}\right) = \epsilon$$
+
+\part
+Choose $\delta_0 = \frac{1}{2}$, $C = \frac{1}{2}$. Then $|x - 1| < \frac{1}{2} \implies -\frac{1}{2} < x - 1 < \frac{1}{2} \implies \frac{1}{2} < x < \frac{3}{2} \implies \frac{1}{2} < |x| < \frac{3}{2}$. If $\frac{1}{2} < |x| < \frac{3}{2} \implies \frac{2}{3} < \frac{1}{|x|} < 2 \implies \frac{|x-1|}{x} < 2|x-1|$. Fix $\epsilon > 0$. Let $\delta=min(\frac{1}{2}, \frac{\epsilon}{2})$. Then 
+$$\left|\frac{1}{x} - 1\right| = \left|\frac{x-1}{x}\right| = \frac{|x-1|}{|x|} < 2|x-1| < 2\frac{\epsilon}{2} = \epsilon$$
+
+\part
+Fix $\epsilon > 0$. Assume $|x-a| < \delta$ for some $\delta > 0$ to be found later. Then $|x^2 - a^2| = |(x-a)(x+a)| = |x-a||x+a| < \delta|x+a|$. We know that $|x-a| < \delta \implies |x+a| = |(x-a) + 2a| \le |x-a| + 2a < \delta + 2a$. Assume that $\delta \le 1$. Then $|x + a| < 1 + 2a$ so $|x^2 - a^2| < \delta(1 + 2a)$. We want to have $\delta(1 + 2a) \le \epsilon \implies \delta \le \frac{\epsilon}{1 + 2a}$. Define $\delta = \min(1, \frac{\epsilon}{1 + 2a})$. Take $\forall x$ such that $0 < |x-a| < \delta$. Then by previous computations $|x^2 - a^2| < \delta|x + a| < \delta(1 + 2a) \le \epsilon$. So $|x^2 - a^2| < \epsilon$ $\forall x$ such that $) < |x-a| < \delta$. 
+
+\problem{2}
+\problem{3}
+\part
+$\forall \epsilon > 0 \exists N$ such that $\forall n \ge N |a_n - L| < \epsilon \iff \forall \epsilon > 0 \exists N$ such that $\forall n \ge N |(a_n) - L) - 0| < \epsilon$. 
+
+\part
+$\forall \epsilon > 0 \exists N$ such that $\forall n \ge N$ $|b_n - 0| < \epsilon \implies |b_n| < \epsilon$. For all $n$ $|a_n - L| \le b_n$ so for all $n \ge N$ $|a_n - L| \le b_n \implies |a_n - L| \le |b_n| < \epsilon$ so by definition the limit of $a_n$ is $L$. 
+
+\part
+\begin{enumerate}
+    \item $\lim f(x) = L \iff \lim (f(x) - L) = 0$
+    \item $f(x) - L \le g(x) \forall x, \lim_{x\to a} g(x) = 0 \implies \lim_{x\to a} f(x) = L$. 
+\end{enumerate}
+
+\problem{4}
+\part
+We know by the definition of the limit that $\forall \epsilon > 0$, $\exists \delta > 0$ such that $|f(x) - L| < \epsilon$ $\forall x$ such that $0 < |x-a| < \delta$. We want to show that $\forall \epsilon > 0$, $\exists \delta > 0$ such that $||f(x)| - |L|| < \epsilon$ $\forall x$ such that $0 < |x-a| < \delta$.
+Fix some $\epsilon > 0$ then, because $||f(x)| - |L|| \le |f(x) - L|$ we can use the same $\delta$ guaranteed by the existence of the limit of $f(x)$ and thus for all $x$ such that $0 < |x-a| < \delta$
+$$||f(x)| - |L|| < |f(x) - L| < \epsilon$$
+and thus the limit of $|f|$ as $x$ goes to $a$ is $|L|$.
+
+\part
+Assume without loss of generality that $u \ge v$. Then $u - v \ge 0$ so $|u - v| = u-v$. Thus $\frac{u + v + |u-v|}{2} = \frac{2u}{2} = u = \max(u, v)$. Similarly $\frac{u + v - |u - v|}{2} = \frac{u + v - u + v}{2} = \frac{2v}{2} = v = \min(u, v)$. 
+\problem{5}
+See midterm. 
+\problem{6}
+\part
+Let $C = \sqrt{5}$. Then let $\epsilon = \sqrt{5}$. We know by definition of the limit that for all $n > 7 + \frac{10}{\epsilon^2} = 9$, $|a_n - 4| < \sqrt{5}$. So $-\sqrt{5} < a_n - 4 < \sqrt{5} \implies 4-\sqrt{5} < a_n < 4 + \sqrt{5}$. $-(4 + \sqrt{5}) < 4 - \sqrt{5}$ so $-(4+\sqrt{5}) < a_n < (4 + \sqrt{5} \implies |a_n| < 4 + \sqrt{5}$. Thus the conditions are satisfied for $N = 9, C = 4 + \sqrt{5}$. 
+
+\part
+\begin{align}
+    |a_{n}^2 - 16| &= |(a_n - 4)(a_n + 4)|\\
+                   &= |a_n - 4||a_n + 4|\\
+                   &< \frac{\epsilon}{8 + \sqrt{5}}|a_n + 4| \hfill \text{for }n>7 + \frac{10}{(\epsilon/(8 + \sqrt{5})^2)}\\
+                   &\le \frac{\epsilon}{8 + \sqrt{5}}(|a_n| + 4)\\
+                   &\le \frac{\epsilon}{8 + \sqrt{5}}(8 + \sqrt{5})\hfill \text{for }n \ge 9\\
+                   &= \epsilon
+\end{align}
+So for any $\epsilon > 0$ for all $n \ge M(\epsilon) = \max(9, (10 (8+\sqrt{5})^2)/x+7)$, $|a_{n}^2 - 16| < \epsilon$.
+\problem{7}
+\part
+Sequences are infinite. Let $S = $the set of $n$ such that $|a_n - L| \ge \epsilon$. This is a finite subset of $\mathbb N$ so it contains a maximum element. Let $N = \max(S) + 1$. Thus, because $n \ge N \implies n \not\in S \implies |a_n = L| < \epsilon$, for every $\epsilon$, for all $n\ge N$.
+$$|a_n - L| < \epsilon$$
+so $a_n$ converges to $L$ by definition of the limit.
+
+\part
+Assume (i). It was shown in class that if a sequence converges to a number then so must all of its subsequences. Thus (ii) is impossible. Thus the two cannot hold simultaneously.\\
+
+Assume (i) does not hold. By (a) there are infinitely many $n$ such that $|a_n - L| \ge \epsilon$ for some $\epsilon > 0$. Thus you can construct a subsequence out of only $a_n$ such that $|a_n - L| > \epsilon$. This clearly cannot converge to $L$ or have a subsequence that converges to $L$. It is bounded because $a_n$ is bounded so by Bolzano-Weierstraa it had a convergent subsequence (that doesn't converge to $L$). This is also a subsequence of $a_n$ so (ii) is true. Thus one of (i) and (ii) must hold.
+\problem{8}
+
+\end{document}
