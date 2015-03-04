@@ -8,7 +8,7 @@
 \usepackage{color}
 \newcommand\SetSymbol[1][]{\:#1\vert\:}
 \providecommand\given{} % to make it exist
-%\DeclarePairedDelimiterx\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
 
 \begin{document}
 \title{Real Analysis - Assignment \# 6}
@@ -21,7 +21,7 @@ So $|x^3 - 8| \le 19|x-2| < 19\delta$. Choose $\delta = \min(1, \frac{\epsilon}{
 $$|x^3 - 8| \le 19|x-2| < 19\delta \le 19\left(\frac{\epsilon}{19}\right) = \epsilon$$
 
 \part
-Choose $\delta_0 = \frac{1}{2}$, $C = \frac{1}{2}$. Then $|x - 1| < \frac{1}{2} \implies -\frac{1}{2} < x - 1 < \frac{1}{2} \implies \frac{1}{2} < x < \frac{3}{2} \implies \frac{1}{2} < |x| < \frac{3}{2}$. If $\frac{1}{2} < |x| < \frac{3}{2} \implies \frac{2}{3} < \frac{1}{|x|} < 2 \implies \frac{|x-1|}{x} < 2|x-1|$. Fix $\epsilon > 0$. Let $\delta=min(\frac{1}{2}, \frac{\epsilon}{2})$. Then 
+Choose $\delta_0 = \frac{1}{2}$, $C = \frac{1}{2}$. Then $|x - 1| < \frac{1}{2} \implies -\frac{1}{2} < x - 1 < \frac{1}{2} \implies \frac{1}{2} < x < \frac{3}{2} \implies \frac{1}{2} < |x| < \frac{3}{2}$. If $\frac{1}{2} < |x| < \frac{3}{2} \implies \frac{2}{3} < \frac{1}{|x|} < 2 \implies \frac{|x-1|}{x} < 2|x-1|$. Fix $\epsilon > 0$. Let $\delta=\min(\frac{1}{2}, \frac{\epsilon}{2})$. Then 
 $$\left|\frac{1}{x} - 1\right| = \left|\frac{x-1}{x}\right| = \frac{|x-1|}{|x|} < 2|x-1| < 2\frac{\epsilon}{2} = \epsilon$$
 
 \part
@@ -46,10 +46,10 @@ $0 \le |a_n - L| \le b_n$ for all $n$ and $\lim\limits_{n\to\infty}b_n = 0$ so b
 
 \part
 \begin{enumerate}
-    \item $\lim\limits_{x\to a}f(x) = L \iff \lim\limits{x\to a}|f(x) - L| = 0$
-        This follows directly from the arithmetic properties of limits.
+    \item $\lim\limits_{x\to a}f(x) = L \iff \lim\limits_{x\to a}|f(x) - L| = 0$
+        This follows directly from the arithmetic properties of limits and part a) of problem 4.
         %Be definition $\forall \epsilon > 0$ $\exists \delta > 0$ such that $|f(x) - L| < \epsilon$ for all $x$ such that $|x - a| < \delta$.
-    \item $f(x) - L \le g(x) \forall x, \lim_{x\to a} g(x) = 0 \implies \lim_{x\to a} f(x) = L$. 
+    \item $f(x) - L \le g(x) \forall x, \lim\limits_{x\to a} g(x) = 0 \implies \lim\limits_{x\to a} f(x) = L$. 
         $0 \le |f(x) - L| \le g(x)$ for all $x$. $\lim\limits_{x\to a}g(x) = 0$. Therefore by the squeeze theorem for functions $\lim\limits_{x\to a}f(x) = L$. 
 \end{enumerate}
 
@@ -85,18 +85,18 @@ and
 See midterm. 
 \problem{6}
 \part
-Let $C = \sqrt{5}$. Then let $\epsilon = \sqrt{5}$. We know by definition of the limit that for all $n > 7 + \frac{10}{\epsilon^2} = 9$, $|a_n - 4| < \sqrt{5}$. So $-\sqrt{5} < a_n - 4 < \sqrt{5} \implies 4-\sqrt{5} < a_n < 4 + \sqrt{5}$. $-(4 + \sqrt{5}) < 4 - \sqrt{5}$ so $-(4+\sqrt{5}) < a_n < (4 + \sqrt{5} \implies |a_n| < 4 + \sqrt{5}$. Thus the conditions are satisfied for $N = 9, C = 4 + \sqrt{5}$. 
+Let $\epsilon = \sqrt{5}$. We know by definition of the limit that for all $n > 7 + \frac{10}{\epsilon^2} = 9$, $|a_n - 4| < \sqrt{5}$. So $-\sqrt{5} < a_n - 4 < \sqrt{5} \implies 4-\sqrt{5} < a_n < 4 + \sqrt{5}$. $-(4 + \sqrt{5}) < 4 - \sqrt{5}$ so $-(4+\sqrt{5}) < a_n < (4 + \sqrt{5} \implies |a_n| < 4 + \sqrt{5}$. Thus the conditions are satisfied for $N = 9, C = 4 + \sqrt{5}$. 
 
 \part
 \begin{align}
     |a_{n}^2 - 16| &= |(a_n - 4)(a_n + 4)|\\
                    &= |a_n - 4||a_n + 4|\\
-                   &< \frac{\epsilon}{8 + \sqrt{5}}|a_n + 4| \hfill \text{for }n>7 + \frac{10}{(\epsilon/(8 + \sqrt{5})^2)}\\
+                   &< \frac{\epsilon}{8 + \sqrt{5}}|a_n + 4| \hfill \text{for }n>7 + \frac{10}{(\epsilon/(8 + \sqrt{5}))^2}\\
                    &\le \frac{\epsilon}{8 + \sqrt{5}}(|a_n| + 4)\\
                    &\le \frac{\epsilon}{8 + \sqrt{5}}(8 + \sqrt{5})\hfill \text{for }n \ge 9\\
                    &= \epsilon
 \end{align}
-So for any $\epsilon > 0$ for all $n \ge M(\epsilon) = \max(9, (10 (8+\sqrt{5})^2)/x+7)$, $|a_{n}^2 - 16| < \epsilon$.
+So for any $\epsilon > 0$ for all $n \ge M(\epsilon) = \max\left(9, 7 + \frac{10}{(\epsilon/(8 + \sqrt{5}))^2}\right)$, $|a_{n}^2 - 16| < \epsilon$.
 \problem{7}
 \part
 Sequences are infinite. Let $S = $the set of $n$ such that $|a_n - L| \ge \epsilon$. This is a finite subset of $\mathbb N$ so it contains a maximum element. Let $N = \max(S) + 1$. Thus, because $n \ge N \implies n \not\in S \implies |a_n = L| < \epsilon$, for every $\epsilon$, for all $n\ge N$.
@@ -108,5 +108,45 @@ Assume (i). It was shown in class that if a sequence converges to a number then 
 
 Assume (i) does not hold. By (a) there are infinitely many $n$ such that $|a_n - L| \ge \epsilon$ for some $\epsilon > 0$. Thus you can construct a subsequence out of only $a_n$ such that $|a_n - L| > \epsilon$. This clearly cannot converge to $L$ or have a subsequence that converges to $L$. It is bounded because $a_n$ is bounded so by Bolzano-Weierstraa it had a convergent subsequence (that doesn't converge to $L$). This is also a subsequence of $a_n$ so (ii) is true. Thus one of (i) and (ii) must hold.
 \problem{8}
+\part
+For this problem I will treat $\frac{1}{\infty}$ as 0. 
+\begin{enumerate}
+    \item WTS: $x = y \iff d(x, y) = 0$\\
+        Assume that $x = y$. Then
+$$d(x, y) = \left|\frac{1}{x} - \frac{1}{y}\right| = \left|\frac{1}{x} - \frac{1}{x}\right| = 0$$
+        Assume that $d(x, y) = 0$. Then 
+        \begin{align*}
+            \left|\frac{1}{x} - \frac{1}{y}\right| &= 0\\
+                                                   &\implies \frac{1}{x} - \frac{1}{y} &= 0\\
+                                                   &\implies \frac{1}{x} = \frac{1}{y}\\
+                                                   &\implies y = x
+        \end{align*}
+    \item WTS: $d(x, y) = d(y, x)$ for all $x, y\in X$.\\
+        By the property of absolute values:
+        $$d(x, y) = \left|\frac{1}{x} - \frac{1}{y}\right| = \left|\frac{1}{y} - \frac{1}{x}\right| = d(y, x)$$
+    \item WTS: $d(x, z) \le d(x, y) + d(y, z)$ for all $x, y, z\in X$.\\
+        Using the triangle inequality:
+        $$d(x, z) = \left|\frac{1}{x} - \frac{1}{z}\right| \le \left|\frac{1}{x} - \frac{1}{y}\right| + \left|\frac{1}{y} - \frac{1}{z}\right| = d(x, y) + d(y, z)$$
+\end{enumerate}
+Thus $(X, d)$ is a metric space.
 
+\part
+First assume that $\lim\limits_{n\to\infty} = L$ in the usual sense. Fix some $\epsilon > 0$. By definition there exists some $N\in \mathbb N$ such that $\forall n \ge N$ $|f_n - L| < \epsilon$. We know that each $f_n$ equals $f(x)$ for some $x\in X$. We need to find a $\delta$ such that for all $x\in B_{\delta}^{\circ} = \Set{x\in \mathbb N : d(x, \infty) < \delta}$, $|f(x) - L| < \epsilon$. By definition $d(x, \infty) = |1/x|$ ($x\in \mathbb N$) so we want to find a $\delta$ such that $1/x < \delta \implies x \ge N$. Let $\delta = \frac{1}{N}$. Then for all $x$
+\begin{align*}
+    d(x, \infty) = \frac{1}{x} < \delta &\implies \frac{1}{x} < \frac{1}{N}\\
+                                        &\implies x > N \\
+                                        &\implies |f_x - L| < \epsilon\\
+                                        &\implies |f(x) - L| < \epsilon
+\end{align*}
+So $\lim\limits_{n\to\infty}f(n) = L$ as a limit in the metric space.
+
+Now assume $\lim\limits_{n\to\infty}f(n) = L$ as a limit in the metric space. Fix some $\epsilon > 0$. By definition there exists a $\delta$ such that for alll $x\in B_{\delta}^{\circ}$, $|f(x) - L| < \epsilon$. Let $N = \lceil \frac{1}{\delta}\rceil + 1$. Then for all $n \ge N$.
+\begin{align*}
+    n \ge N &\implies n \ge \lceil\frac{1}{\delta}\rceil + 1\\
+            &\implies n > \frac{1}{\delta}\\
+            &\implies d(n, \infty) = \frac{1}{n} < \delta\\
+            &\implies |f(n) - L| < \epsilon\\
+            &\implies |f_n - L| < \epsilon
+\end{align*}
+So $\lim\limits_{n\to\infty}f_n = L$ in the usual sense.
 \end{document}
