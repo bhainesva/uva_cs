@@ -1,0 +1,75 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{enumerate}
+\usepackage{mathtools}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Real Analysis - Assignment \# 7}
+\author{Ben Haines}
+
+\problem{1}
+Let $f$ and $g$ be two real function on the subset $E$ of $\mathbb R$. Let $L = \lim\limits_{x\to a}f(x) = f(a)$ and $M = \lim\limits_{x\to a}g(x) = g(a)$. Then by Theorem 3.6 $f(x_n) \to L$ as $n\to \infty$ and $g(x_n) \to M$ as $n\to \infty$ for every sequence $x_n\in I\backslash\{a\}$ which converges to $a$ as $n\to \infty$. By properties of the limits of sequences $f(x_n) + g(x_n) \to L + M \forall x_n\in I\backslash\{a\}$ which converges to $a$ as $n\to \infty$. Thus by 3.6 $\lim f(x) + \lim g(x) = L + M = \lim\limits_{x\to a} f(x) + g(x)$.
+
+\problem{2}
+If $a = 1$ then this is trivially true. Fix $a$ and $n$. Consider the case when $a < 1$. Consider the function $x^n - a$. This function is continuous. $f(0) = -a < 0$ and $f(1) = 1-a > 0$. By the IVT there exists an $x$ such that $f(x) = 0$. Thus $x^n - a = 0 \implies x^n = a$. 
+
+Consider the case when $a > 1$ and the continuous function $x^n - a$. Then $f(0) = -a < 0$. $f(a) = a^n - a \ge 0$. So there exists an $x$ such that $f(x) = 0$ by the IVT. So $f(x) = x^n - a = 0 \implies x^n = a$.
+
+Assume that there are two distinct $x, y$ such that $x^n = y^n = a$. Without loss of generality assume that $x > y$. Then $x^n > y^n$ which is a contradiction.
+
+\problem{3}
+Let $g(x) = f(x) - x$. By the arithmetic properties of continuity it's continuous on $[a, b]$. Then $g(a) \le 0, g(b) \ge b$. By IVT there exists a $c$ such that $g(c) = f(c) - c = 0 \implies f(c) = c$. 
+
+\problem{4}
+\part
+By definition we can divide $I$ into three sections $I_1 = (-\infty, -c), I_2 = [-c, c], I_3 = (c, \infty)$ where $c$ is the absolute value of the larger of the two $c$'s provided in the definition of the one sided limit at infinity. 
+
+$I_2$ is bounded by EVT. 
+
+Given any $\epsilon > 0$, there exists an $M$ such that $\forall x\in (c, \infty)$ such that $x > M, |f(x)  - L| < \epsilon$. Fix some $\epsilon = 1$. Then 
+$$|f(x)| = |f(x) - L + L| \le |f(x)| + L < 1 + L \text{ thus } I_3 \text{ is bounded by } \max(f(c), f(c+1), \ldots, f(M), 1+L)$$
+
+The proof that $I_3$ is bounded was essentially the same as the proof that any convergent sequence is bounded. This process can be repeated in almost the same way for $I_1$. 
+
+\part
+$$\frac{1}{1 + x^2}$$
+
+
+\problem{5}
+\part
+Because $f(x)$ is increasing, $S$ is bounded above by $f(a)$ and $T$ is bounded below by $f(a)$. 
+
+\part
+Let $L = \sup(S)$. Fix some $\epsilon > 0$. By the supremum approximation theorem we can fin an $N$ such that $L - \epsilon < f(N) \le L$. Because $f$ is increasing this means that $L-\epsilon < f(n) \le L$ for all $n\ge N$. Now let $\delta = a-N$. Then $a - \delta = a - (a - N) = N \in (c, a)$ and $N < x < a \implies$
+\begin{align*}
+    L - \epsilon < f(x) \le L\\
+    \implies L - \epsilon < f(x) < L + \epsilon\\
+    \implies |f(x) - L| < \epsilon
+\end{align*}
+Thus $\lim\limits_{x\to a^-}f(x) = L = \sup(S)$.
+
+Let $L = \inf(T)$. Fix some $\epsilon > 0$. By the infimum approximation theorem we can fin an $N$ such that $L \le f(N) < L + \epsilon $. Because $f$ is increasing this means that $L \le f(n) < L+\epsilon$ for all $n\ge N$. Now let $\delta = a-N$. Then $a - \delta = a - (a - N) = N \in (c, a)$ and $N < x < a \implies$
+\begin{align*}
+    L \le f(x) < L + \epsilon\\
+    \implies L - \epsilon < f(x) < L + \epsilon\\
+    \implies |f(x) - L| < \epsilon
+\end{align*}
+Thus $\lim\limits_{x\to a^+}f(x) = L = \inf(T)$.
+\part
+It has already been shown that both sides of the limit at $a$ exist. If they are not the same then by definition there is a jump dicontinuity at $a$. Now consider when the limits are the same. If the limits are not equal to $f(a)$ then either $f(a) < \sup(S)$ or $f(a) > \inf(T)$. This is a contradiction. Therefore the limits are equal to $f(a)$ and $f(x)$ is continuous by definition.
+\part
+
+
+\problem{6}
+\part
+Fix $\epsilon = 0.5$. By the density of rationals and density of irrationals, for any $a\in \mathbb R$ for any $\delta > 0$ we can find $x_1\in \mathbb Q$ and $x_2\in \mathbb R\backslash Q$ such that $a - \delta < x_1, x_2 < a$. However the system of equations $|f(x_i) - L| < 0.5$ has no solution. Thus by definition there is no left sided limit at a. Thus There is a type 2 discontinuity.
+
+\part
+Consider any rational number $a$. Fix $\epsilon > 0$. By the density of rationals we can find some $\frac{1}{r}$ such that $0 < \frac{1}{r} < \epsilon$. Now consider the set of numbers that have the property that they are within 1 of $a$ but their denominator is not greater than $r$. Divide it into two sets. Let $S$ be the elements that are less than $a$ and $T$ be the elements greater than $a$. Each of these sets is finite so $S$ has a maximum and $T$ has a minimum. Let $\delta = \min(a - \max(S), \min(T) - a)$. Then for every number $x$  within the punctured neighborhood $(a-\delta, a + \delta)\setminus \Set{a}$ there are two cases. Either the number is irrational in which case $|f(x)| = 0 < \epsilon$ or the number is rational. If $x$ is rational, we know by definition of the interval that the denominator of $x$ in its simplified form is larger than $r$. Therefore $|f(x)| < \frac{1}{r} < \epsilon$. Thus the limit at any point $a$ of the modified dirichlet function exists and is 0. Thus all doscontinuities are removable discontinuities.
+
+
+\end{document}
