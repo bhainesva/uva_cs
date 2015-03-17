@@ -22,13 +22,13 @@ Consider the case when $a > 1$ and the continuous function $x^n - a$. Then $f(0)
 Assume that there are two distinct $x, y$ such that $x^n = y^n = a$. Without loss of generality assume that $x > y$. Then $x^n > y^n$ which is a contradiction.
 
 \problem{3}
-Let $g(x) = f(x) - x$. By the arithmetic properties of continuity it's continuous on $[a, b]$. Then $g(a) \le 0, g(b) \ge b$. By IVT there exists a $c$ such that $g(c) = f(c) - c = 0 \implies f(c) = c$. 
+Let $g(x) = f(x) - x$. By the arithmetic properties of continuity it's continuous on $[a, b]$. Then $g(a) \ge 0, g(b) \le 0$. By IVT there exists a $c$ such that $g(c) = f(c) - c = 0 \implies f(c) = c$. 
 
 \problem{4}
 \part
-By definition we can divide $I$ into three sections $I_1 = (-\infty, -c), I_2 = [-c, c], I_3 = (c, \infty)$ where $c$ is the absolute value of the larger of the two $c$'s provided in the definition of the one sided limit at infinity. 
+By definition we can divide $I$ into three sections $I_1 = (-\infty, -c), I_2 = [-c, c], I_3 = (c, \infty)$ where $c$ is the larger of the two absolute values of the two $c$s provided in the definition of the one sided limit at infinity (Definition 15.1). \\
 
-$I_2$ is bounded by EVT. 
+$I_2$ is bounded by EVT. \\
 
 Given any $\epsilon > 0$, there exists an $M$ such that $\forall x\in (c, \infty)$ such that $x > M, |f(x)  - L| < \epsilon$. Fix some $\epsilon = 1$. Then 
 $$|f(x)| = |f(x) - L + L| \le |f(x)| + L < 1 + L \text{ thus } I_3 \text{ is bounded by } \max(f(c), f(c+1), \ldots, f(M), 1+L)$$
@@ -36,7 +36,7 @@ $$|f(x)| = |f(x) - L + L| \le |f(x)| + L < 1 + L \text{ thus } I_3 \text{ is bou
 The proof that $I_3$ is bounded was essentially the same as the proof that any convergent sequence is bounded. This process can be repeated in almost the same way for $I_1$. 
 
 \part
-$$\frac{1}{1 + x^2}$$
+$$y = tan^{-1}(x)$$
 
 
 \problem{5}
@@ -44,7 +44,7 @@ $$\frac{1}{1 + x^2}$$
 Because $f(x)$ is increasing, $S$ is bounded above by $f(a)$ and $T$ is bounded below by $f(a)$. 
 
 \part
-Let $L = \sup(S)$. Fix some $\epsilon > 0$. By the supremum approximation theorem we can fin an $N$ such that $L - \epsilon < f(N) \le L$. Because $f$ is increasing this means that $L-\epsilon < f(n) \le L$ for all $n\ge N$. Now let $\delta = a-N$. Then $a - \delta = a - (a - N) = N \in (c, a)$ and $N < x < a \implies$
+Let $L = \sup(S)$. Fix some $\epsilon > 0$. By the supremum approximation theorem we can fin an $N$ such that $L - \epsilon < f(N) \le L$. Now let $\delta = a-N$. Then, because $f$ is increasing, $a - \delta = a - (a - N) = N \in (c, a)$ and $N < x < a \implies$
 \begin{align*}
     L - \epsilon < f(x) \le L\\
     \implies L - \epsilon < f(x) < L + \epsilon\\
@@ -52,7 +52,7 @@ Let $L = \sup(S)$. Fix some $\epsilon > 0$. By the supremum approximation theore
 \end{align*}
 Thus $\lim\limits_{x\to a^-}f(x) = L = \sup(S)$.
 
-Let $L = \inf(T)$. Fix some $\epsilon > 0$. By the infimum approximation theorem we can fin an $N$ such that $L \le f(N) < L + \epsilon $. Because $f$ is increasing this means that $L \le f(n) < L+\epsilon$ for all $n\ge N$. Now let $\delta = a-N$. Then $a - \delta = a - (a - N) = N \in (c, a)$ and $N < x < a \implies$
+Let $L = \inf(T)$. Fix some $\epsilon > 0$. By the infimum approximation theorem we can fin an $N$ such that $L \le f(N) < L + \epsilon $. Now let $\delta = N-a$. Then, because $f$ is increasing, $a - \delta = a - (N - a) = N \in (c, a)$ and $a < x < N \implies$
 \begin{align*}
     L \le f(x) < L + \epsilon\\
     \implies L - \epsilon < f(x) < L + \epsilon\\
@@ -60,8 +60,10 @@ Let $L = \inf(T)$. Fix some $\epsilon > 0$. By the infimum approximation theorem
 \end{align*}
 Thus $\lim\limits_{x\to a^+}f(x) = L = \inf(T)$.
 \part
-It has already been shown that both sides of the limit at $a$ exist. If they are not the same then by definition there is a jump dicontinuity at $a$. Now consider when the limits are the same. If the limits are not equal to $f(a)$ then either $f(a) < \sup(S)$ or $f(a) > \inf(T)$. This is a contradiction. Therefore the limits are equal to $f(a)$ and $f(x)$ is continuous by definition.
+It has already been shown that both sides of the limit at $a$ exist. If they are not the same then by definition there is a jump dicontinuity at $a$. Now consider when the limits are the same. If the limits are not equal to $f(a)$ then either $f(a) < \sup(S)$ or $f(a) > \inf(T)$. This is a contradiction. Therefore the limits are equal to $f(a)$ and $f$ is continuous by definition.
 \part
+Consider an arbitrary discontinuity that occurs at point $a$. The function $f$ is increasing and by part c) the discontinuity is a jump discontinuity. Therefore $\lim\limits_{x\to a^-}f(x) < \lim\limits_{x\to a^+}f(x)$. By the density of rationals we can select a rational number $q$ in between the two one-sided limits. Furthermore, because $f$ is increasing, we know that $q$ is not located between the one-sided limits at any other discontinuity. Therefore there is a bijective map between the discontinuities and elements of a subset of $\mathbb Q$. It was proven previously that $\mathbb Q$ is countable, therefore any subset of $\mathbb Q$ is at most countable, and so the number of discontinuities is at most countable.
+
 
 
 \problem{6}
