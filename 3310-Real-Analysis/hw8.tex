@@ -1,0 +1,61 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{enumerate}
+\usepackage{mathtools}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Real Analysis - Assignment \# 8}
+\author{Ben Haines}
+
+\problem{1}
+\part
+Fix $\epsilon > 0$. We want $\delta > 0$ such that $|x - a| < \delta \implies |f(x) - f(a)| < \epsilon\, \forall x, a\in [1, 2]$.\\
+Assume $|x-a| < \delta$ for some $\delta$. Then $|x^3 - a^3| = |x-a||x^2 + ax + a^2\ < \delta|x^2 + ax + a^2|$. Since $x, a\in [1, 2]$, $|x^2 + ax + a^2| \le 12$. Therefore $12\delta = \epsilon$ if $\delta = \frac{\epsilon}{12}$. So $\delta = \frac{\epsilon}{12}$. 
+
+\part
+Let $\delta = \epsilon^2$. Then, noting that $|\sqrt{x} - \sqrt{a}| \le |\sqrt{x} + \sqrt{a}|$, we have
+$$|\sqrt{x} - \sqrt{a}|^2 \le |\sqrt{x} - \sqrt{a}||\sqrt{x} + \sqrt{a}| = |x - a| < \delta$$
+implies $|\sqrt{x} - \sqrt{a}| < \epsilon$. 
+
+\problem{2}
+Assume that $f(x)$ is uniformly continuous on $(0, 1)$. Fix $\epsilon = 1$. We can assume that $\delta < 1$. Then consider the points $x = \frac{\delta}{2}$ and $a = \delta$. $|x - a| = \left|\frac{\delta}{2} - \delta\right| = \frac{\delta}{2} < \delta \implies \left|\frac{1}{x} - \frac{1}{a}\right| < 1$. However, $\left|frac{2}{\delta} - \frac{1}{\delta}\right| = \left|\frac{1}{\delta}\right| > 1$.
+
+\problem{3}
+\part
+Both $f$ and $g$ are uniformly continuous on $E$ so by definition, for all $\epsilon > 0$ there exists $\delta_1, \delta_2 > 0$ such that $|f(x) - f(a)| < \frac{\epsilon}{2}$ and $|g(x) - g(a)| < \frac{\epsilon}{2}$ for all $x, a\in E$ such that $|x - a| < \delta_1$ and $|x - a| < \delta_2$ respectively. Let $\delta = \min(\delta_1, \delta_2)$. Then 
+$$|f(x) + g(x) - (f(a) + g(a))| \le |f(x) - f(a)| + |g(x) - g(a)| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$$
+
+\part
+Both $f$ and $g$ are bounded so there exist $C, D\in \mathbb R$ such that $\forall x\in E$ $f(x) \le C$ and $g(x) \le D$. Then
+\begin{align*}
+    |f(x)g(x) - f(a)g(a)| &= |f(x)g(x) - f(x)g(a) + f(x)g(a) - f(a)g(a)|\\
+                          &\le |f(x)g(x) - f(x)g(a)| + |f(x)g(a) - f(a)g(a)|\\
+                          &\le |f(x)||g(x)-g(a)| + |g(a)||f(x) - f(a)|\\
+                          &\le C|g(x) - g(a)| + D|f(x) - f(a)|
+\end{align*}
+We want this last sum to be less than $\epsilon$. Therefore, for any given $\epsilon > 0$, select $\delta = \min(\delta_1, \delta_2)$ for $\delta_1$ and $\delta_2$ that satisfy the requirement of uniform continuity for $f$ and $g$ for $\epsilon = \min(\frac{\epsilon}{2C}, \frac{\epsilon}{2D})$. 
+
+\part
+Let $E = \mathbb R, f(x) = g(x) = x$. 
+
+\part
+Let $E = \mathbb R, f(x) = \sin(x), g(x) = x$. 
+
+\problem{4}
+\begin{enumerate}[i]
+    \item 
+        Pick any point $y\in [a, b]$. If $g(y) = 1$ then by the sign preservation lemma there exists $\delta > 0$ such that $g(x) > 0$ for all $x\in (a  -\delta, a+\delta)\cap E$. Since there is only one possible positive value for $g$, $|g(x) - g(y)| = |1-1| = 0 < \epsilon$ for all positive $\epsilon$. An almost identical argument can be made for the case when $g(y) = -1$. Therefore $g$ is continuous at all points in $[a, b]$. 
+    \item
+        For any $n$ let $S$ be the set of $x_{i, n}$ such that $g(x_{i, n}) = 1$. This set is nonempty because it contains $b$ and finite. Pick the minimum element $x_{k+1, n}$. Then $x_{k, n}$ is defined because $x_{0, n} \not\in S$ and $x_{k, n} = 1$ by definition. 
+    \item
+        Let $\epsilon = 1$. For any proposed $\delta$ we can pick $n$ such that $\frac{1}{n}  < \delta$. Thus for the point $x_{k, n}$ chose in part ii) $x_{k+1, n}\in (x_{k,n}-\delta< x_{k,n}+\delta)\cap E$ but $|f(x_{k,n}) - f(x_{k+1, n})| = 2 > \epsilon$. 
+\end{enumerate}
+
+\problem{5}
+By Lemma 3.38 from the textbook $f(x_n)$ is Cauchy. By Theorem 10.2 from the textbook, $f(x_n)$ converges.
+
+\end{document}
