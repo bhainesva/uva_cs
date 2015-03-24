@@ -1,0 +1,10 @@
+Case 1
+company7 0
+company6 0
+company9 4
+company3 8
+company1 12
+company4 16
+company5 17
+company2 36
+company8 40

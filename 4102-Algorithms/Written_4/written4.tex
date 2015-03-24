@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts,amsthm, amssymb, mathtools} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+\DeclareMathOperator{\lcm}{lcm}
+\usepackage{color}
+\usepackage{listings}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  numbers=left,
+  tabsize=3
+}
+
+\begin{document}
+\title{Written Assignment \#4}
+\author{Ben Haines (bmh5wx)}
+
+\section*{Problem \# 1}
+Problem Description: Determine the number of ways to achieve $S$ secure doors out of $n$ total doors.
+
+Inputs:
+\begin{itemize}
+    \item $n$ = number of doors.
+    \item $S$ = desired number of secure doors.
+\end{itemize}
+
+Outputs: Total number of unique ways the doors can be locked to achieve exactly $S$ secure doors.
+
+Assumptions:
+\begin{itemize}
+    \item For a door to be secure it must be locked and it must either be the first door or the door its left must also be locked.
+    \item $S$ and $n$ are integers.
+\end{itemize}
+
+Strategy Overview:
+I will use a dynamic programming approach that constructs an overall solution by looking at solutions to smaller subproblems. Partial solutions will be stored in two tables. 
+
+Algorithm Description:\\
+Initialize two 2D arrays, $R$ and $Z$ with dimensions [S][n]. $R[i][j]$ will store the number of ways to achieve $i$ secure doors from $n$ total doors in such a way that the last door is locked. $Z[i][j]$ is the number of ways to achieve $i$ secure doors from $n$ total doors in such a way that the last door is unlocked. Set every value in each array to be 0. Then set $R[i][i] = 1$ and $Z[i][i+1] = 1$. Then we iterate through the two tables row by row filling out solutions.
+\begin{lstlisting}
+for i in range(S):
+    for j in range(i+1, n):
+        R[s][n] = Z[s][n-2] + R[s-1][n+1]
+
+        if i+1 != j:
+            Z[s][n] = Z[s][n-1] + R[s][n-1]
+            
+return Z[S][n] + R[Z][n]
+\end{lstlisting}
+
+\section*{Problem \# 2}
+Problem Description: Computer the number of ways that $K$ or fewer integers can be selected from a set such that their sum is exactly $S$.
+
+Inputs:
+\begin{itemize}
+    \item $A$ = List containing $n$ integers.
+    \item $S$ = Target sum.
+    \item $K$ = Maximum number of elements that may be selected from $A$. 
+\end{itemize}
+
+Outputs: Total number of unique ways that $K$ or fewer elements from $A$ can be selected such that their sum is exactly $S$. 
+
+Assumptions:
+\begin{itemize}
+    \item Items from $A$ cannot be used twice in a given sum.
+    \item Elements of $A$ may be negative.
+    \item $S$ may be negative.
+\end{itemize}
+
+Strategy Overview:
+I will use a dynamic programming approach that constructs an overall solution by looking at solutions to smaller subproblems.
+
+Algorithm Description:
+\begin{lstlisting}
+\end{lstlisting}
+
+\section*{Problem \# 3}
+Problem Description: Given a set of boxes, determine how deeply that boxes can be nested within one another.
+
+Inputs:
+\begin{itemize}
+    \item $B$ = Set of boxes.
+\end{itemize}
+
+Outputs: The set of boxes that can be nested into the longest chain.
+
+Assumptions:
+\begin{itemize}
+    \item Each box $b_i$ contains fields for that box's width, height, and depth.
+    \item Boxes can be rotated in any way.
+\end{itemize}
+
+Strategy Overview:
+I will use a dynamic programming approach that constructs an overall solution by looking at solutions to smaller subproblems.
+
+Algorithm Description:\\
+First replace $B$ with a list of all the possible rotations of all of the boxes by permuting the parameters of the given boxes. Sort this list by decreasing volume. At this point the problem has been reduced to finding the longest subsequence of $B$ subject to the condition that each box must fit into the box that was previously selected. Now create an array $S$ with the same length as $B$. Each position $S[i]$ will store the length of the longest chain of boxes that has $B[i]$ as its innermost box. Initialize $S$ to contain all 0s. Then iterate through $S$ filling in solutions using the recurrence that
+$$S[j] =   \max(\Set{S[i] \given i<h, B[i].width < B[j].width, B[i].height < B[j].height, B[i].depth < B[j].depth})$$
+Then the deepest chain is the maximum value in $S$. Next we must reconstruct the actual set of boxes used in this chain. If the maximum value in $S$ is located at $S[k]$ then we know that box $B[k]$ is the final box in the chain. Then scan backwards through $S$ until you find a $S[l]$ such that $S[l] = S[k]$ and all of the parameters of $B[l]$ are larger than the corresponding parameters of $B[k]$. Then add $B[l]$ to the output and continue scanning using the same process until the beginning of the chain is reached.\\
+
+The algorithm has a running time of $\Theta(n^2)$ where $n$ is the total number of boxes and their orientations.
+
+\section*{Problem \# 4}
+Problem Description: Given a set of ski runs and the amount of time each takes, find the minimum number of days to ski all of the runs and the particular way to do so that minimizes the dissatisfaction over time wasted.
+
+Inputs:
+\begin{itemize}
+    \item $R$ = List of runs.
+    \item $n$ = Number of runs.
+    \item $L$ = Minutes of skiing available in a day.
+    \item $m$ = Maximum number of minutes that can be wasted without significant dissatisfaction.
+    \item $C$ = Constant used to quantify dissatisfaction. 
+\end{itemize}
+
+Outputs: A skiing schedule that minimizes the number of days needed to ski. If there are multiple ways to do that then it outputs the way that also minimizes the time wasted dissatisfaction function.
+
+Assumptions:
+\begin{itemize}
+    \item Each run must fit into a single day.
+    \item Time wasted dissatisfaction is measured by $twd(t)$. 
+\end{itemize}
+
+Strategy Overview:
+I will use a dynamic programming approach that constructs an overall solution by looking at solutions to smaller subproblems.
+
+Algorithm Description:
+\begin{lstlisting}
+\end{lstlisting}
+\end{document}

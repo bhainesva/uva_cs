@@ -1,0 +1,11 @@
+1
+10 0 9
+company1 5 3
+company2 9 9
+company3 3 2
+company4 3 5
+company5 2 7
+company6 0 2
+company7 1 0
+company8 4 500
+company9 500 1
