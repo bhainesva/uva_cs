@@ -1,0 +1,62 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{enumerate}
+\usepackage{mathtools}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Real Analysis - Assignment \# 9}
+\author{Ben Haines}
+
+\problem{1}
+\begin{align*}
+    f'(x) &= \lim\limits_{h\to 0}\frac{(x+h)^n - x^n}{h}\\
+          &= \lim\limits_{h\to 0}\frac{(x^n + {n\choose 1}x^{n-1}h + \cdots + h^n) - x^n}{h}\\
+          &= \lim\limits_{h\to 0}\frac{{n\choose 1}x^{n-1}h + \cdots + h^n}{h}\\
+          &= \lim\limits_{h\to 0}{n\choose 1}x^{n-1} + \cdots + h^{n-1}\\
+          &= nx^{n-1}
+\end{align*}
+\problem{2}
+\part
+\begin{align*}
+    f'(a) &= \lim\limits_{h\to 0} \frac{f(a+h) - f(a)}{h}\\
+          &= \lim\limits_{h\to 0} \frac{f(a) + f(h) - f(a)}{h}\\
+          &= \lim\limits_{h\to 0} \frac{f(h)}{h}
+\end{align*}
+This value is constant.
+\part
+\begin{align*}
+    f'(a) &= \lim\limits_{h\to 0} \frac{f(a+h) - f(a)}{h}\\
+          &= \lim\limits_{h\to 0} \frac{f(a)f(h) - f(a)}{h}\\
+          &= \lim\limits_{h\to 0} \frac{f(a)(f(h) - 1)}{h}\\
+          &= f(a) \lim\limits_{h\to 0} \frac{f(h) - 1}{h}\\
+\end{align*}
+The value of $\lim\limits_{h\to 0} \frac{f(h) - 1}{h}$ is constant so $f'(a) = c\cdot f(a)$ for some constant $C$.
+
+\problem{3}
+Fix some $\epsilon > 0$. 
+Assume that $|x-y| < \delta$ for some $\delta$ to be determined. Then by MVT $|f(x) - f(y)| = |f'(c)(x-y)|$ for some $c$. However, the value of $f'(c)$ is bounded by $C$ so 
+$$|f'(c)(x-y)| \le C|x-y| = C\delta < \epsilon$$
+if $\delta < \frac{\epsilon}{C}$. 
+
+\problem{4}
+\part
+By definition of a root there are at least $n$ values of $x$ for which $f(x) = 0$. Then we can apply Rolle's Theorem to each consecutive pair of locations to obtain a minimum of $n-1$ values of $x$ where $f'(x) = 0$. 
+
+\part
+It is trivial that a polynomial of degree one has at most one root. Now assume that polynomials with degree $n$ has $n$ roots for some $n\ge 1$. Now consider a polynomial $f$ of degreen $n+1$. Assume that $f$ has more than $n+1$ roots. Then by part a) $f'$ has degree $n$ but at least $n+1$ roots. This contradicts our inductive hypothesis and therefore polynomials with degree $n+1$ have at most $n+1$ roots.
+
+\problem{5}
+Real lost.
+
+\problem{6}
+Let $f(x) = x^{1/2} + \frac{1}{2}\log(x) - x$. Then $f'(x) = \frac{1}{2\sqrt{x}} + \frac{1}{2x} - 1$ is less than 0 for all $x > 1$. This means that $f$ is a strictly decreasing function by Theorem 4.17. Thus $\forall x > 1$:
+$$f(x) = x^{1/2} + \frac{1}{2}\log(x) - x > 0 \implies f(x) = x^{1/2} + \frac{1}{2}\log(x) >  x$$
+
+
+
+
+\end{document}
