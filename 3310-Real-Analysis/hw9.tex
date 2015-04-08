@@ -44,19 +44,17 @@ if $\delta < \frac{\epsilon}{C}$.
 
 \problem{4}
 \part
-By definition of a root there are at least $n$ values of $x$ for which $f(x) = 0$. Then we can apply Rolle's Theorem to each consecutive pair of locations to obtain a minimum of $n-1$ values of $x$ where $f'(x) = 0$. 
+By definition of a root there are at least $n$ values of $x$ for which $f(x) = 0$. Order these roots in increasing order. Then we can apply Rolle's Theorem to each consecutive pair of roots to obtain a minimum of $n-1$ values of $x$ where $f'(x) = 0$. 
 
 \part
-It is trivial that a polynomial of degree one has at most one root. Now assume that polynomials with degree $n$ has $n$ roots for some $n\ge 1$. Now consider a polynomial $f$ of degreen $n+1$. Assume that $f$ has more than $n+1$ roots. Then by part a) $f'$ has degree $n$ but at least $n+1$ roots. This contradicts our inductive hypothesis and therefore polynomials with degree $n+1$ have at most $n+1$ roots.
+It is trivial that a polynomial of degree one has at most one root. Now assume that polynomials with degree $n$ have $n$ roots for all $n\le k$ for some $k$. Now consider a polynomial $f$ of degreen $k$. Assume that $f$ has more than $k$ roots. Then by problem 1 and part a) $f'$ has degree $<k$ but at least $k$ roots. This contradicts our inductive hypothesis and therefore polynomials with degree $n+1$ have at most $n+1$ roots. By the inductive hypothesis polynomials with degree $n\in \mathbb N$ have $n$ roots.
 
 \problem{5}
-We assume that $\lim\limits_{x\to +\infty} f(x)$ exists. Thus we can construct a sequence $x_n$ of real numbers such that $x_n$ goes to infinity. To select $x_n$ set $\epsilon = 1/n$. We know because the limit exists at infinity that there exists some smallest $M$ such that $|f(x) - f(y)| < \epsilon$ for all $x, y \ge M$. Then set some fixed distance $l$. For each $n$ apply mean value theorem on the interval $[M, M+l]$. Then $f(M+l) - f(M) = f'(x_n)(M + l - M) \implies f'(x_n) = (f(M+l) - f(M))/(l)$. The denominator is constant and the numerator is less than $1/n$. Therefore as $n\to \infty$, $f'(x_n) \to 0$. Then by the sequential characterization of limits at infinity, $\lim\limits_{x\to+\infty}f'(x) = 0$. 
+We assume that $\lim\limits_{x\to +\infty} f(x)$ exists. Thus we can construct a sequence $x_n$ of real numbers such that $x_n$ goes to infinity. To select $x_n$ set $\epsilon = 1/n$. We know because the limit exists at infinity that there exists some $M_n$ such that $|f(x) - f(y)| < \epsilon$ for all $x, y \ge M_n$. Note that we can always increase $M_n$ such that it is larger than $n$ in order to ensure that the sequence goes to infinity. For each $n$ apply mean value theorem on the interval $[M, M+1]$. Then $f(M+1) - f(M) = f'(x_n)(M + 1 - M) \implies f'(x_n) = (f(M+l) - f(M))$. This is less than $1/n$. Therefore as $n\to \infty$, $f'(x_n) \to 0$. Then by the sequential characterization of limits at infinity, $\lim\limits_{x\to+\infty}f'(x) = 0$. 
 
 \problem{6}
 Let $f(x) = x^{1/2} + \frac{1}{2}\log(x) - x$. Then $f'(x) = \frac{1}{2\sqrt{x}} + \frac{1}{2x} - 1$ is less than 0 for all $x > 1$. This means that $f$ is a strictly decreasing function by Theorem 4.17. Thus $\forall x > 1$:
 $$f(x) = x^{1/2} + \frac{1}{2}\log(x) - x > 0 \implies f(x) = x^{1/2} + \frac{1}{2}\log(x) >  x$$
-
-
 
 
 \end{document}
