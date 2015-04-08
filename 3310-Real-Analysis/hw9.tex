@@ -50,7 +50,7 @@ By definition of a root there are at least $n$ values of $x$ for which $f(x) = 0
 It is trivial that a polynomial of degree one has at most one root. Now assume that polynomials with degree $n$ has $n$ roots for some $n\ge 1$. Now consider a polynomial $f$ of degreen $n+1$. Assume that $f$ has more than $n+1$ roots. Then by part a) $f'$ has degree $n$ but at least $n+1$ roots. This contradicts our inductive hypothesis and therefore polynomials with degree $n+1$ have at most $n+1$ roots.
 
 \problem{5}
-Real lost.
+We assume that $\lim\limits_{x\to +\infty} f(x)$ exists. Thus we can construct a sequence $x_n$ of real numbers such that $x_n$ goes to infinity. To select $x_n$ set $\epsilon = 1/n$. We know because the limit exists at infinity that there exists some smallest $M$ such that $|f(x) - f(y)| < \epsilon$ for all $x, y \ge M$. Then set some fixed distance $l$. For each $n$ apply mean value theorem on the interval $[M, M+l]$. Then $f(M+l) - f(M) = f'(x_n)(M + l - M) \implies f'(x_n) = (f(M+l) - f(M))/(l)$. The denominator is constant and the numerator is less than $1/n$. Therefore as $n\to \infty$, $f'(x_n) \to 0$. Then by the sequential characterization of limits at infinity, $\lim\limits_{x\to+\infty}f'(x) = 0$. 
 
 \problem{6}
 Let $f(x) = x^{1/2} + \frac{1}{2}\log(x) - x$. Then $f'(x) = \frac{1}{2\sqrt{x}} + \frac{1}{2x} - 1$ is less than 0 for all $x > 1$. This means that $f$ is a strictly decreasing function by Theorem 4.17. Thus $\forall x > 1$:
