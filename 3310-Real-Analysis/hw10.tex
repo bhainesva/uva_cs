@@ -1,0 +1,97 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{enumerate}
+\usepackage{mathtools}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Real Analysis - Assignment \# 10}
+\author{Ben Haines}
+
+\problem{1}
+\part
+$$f^{(n)}(x) = (-1)^{n+1}\frac{(n-1)!}{(x+1)^k}$$
+First prove for $k=1$. 
+$$f'(x) = \frac{1}{x+1} = (-1)^2\frac{0!}{(x+1)}$$
+Now assume the statement is true for some $n=k$.
+$$f^{(n)}(x) = (-1)^{n+1}\frac{(n-1)!}{(x+1)^k}$$
+Then
+\begin{align*}
+    f^{k+1}(x) &= \frac{d}{dx}f^k(x)\\
+               &= (-1)^{k+1}(k-1)!(-k(x+1)^{-(k+1)}\\
+               &= (-1)^{k+2}(k)!(x+1)^{-(k+1)}
+\end{align*}
+
+\part
+\begin{align*}
+    P_{n, 0} &= \sum\limits^{n}_{k=0}\frac{(-1)^{k+1}(k-1)!}{(1)^kk!}x^k\\
+             &= \sum\limits^{n}_{k=0}\frac{(-1)^{k+1}}{k!}x^k\\
+             &= 0 + x - \frac{x^2}{2} + \cdots + (-1)^{n+1}\frac{x^n}{n}
+\end{align*}
+
+\part
+By Taylor's Theorem $|\log(1/2) - P_{7, 0}(1/2)|$ is less than $\frac{f^{(8)}(c)}{(8)!}(1/2)^{8}$ for some $0 < c < x$. 
+$$\frac{f^{(8)}(c)}{(8)!}(1/2)^{8} = -\frac{7!(1/2)^8}{(c+1)^88!} \le -\frac{(1/2)^8}{8} = \frac{1}{2048} < \frac{1}{1000}$$
+
+\problem{2}
+\part{b}
+See midterm
+
+\part{c}
+Let $g(x) = f(x+1) -f(x)$. This function is continuous on $\mathbb R$ by arithmetic properties of continuity. Then
+$$g(0) + g(1) = f(1) - f(0) + f(2) - f(1) = 0$$
+Thus at least one of $g(0), g(1)$ is nonpositive and the other must be nonnnegative.
+WLOG $g(0) \le 0$, $g(1) \ge 0$. Then by the intermediate value theorem $\exists x_0\in [0,1]$ such that $g(x_0) = 0$. Thus
+$$f(x_0 + 1) - f(x_0) = 0 \implies f(x_0) = f(x_0 + 1)$$
+
+\problem{3}
+\part
+\begin{align*}
+    U(P_n, f) &= \frac{1}{n}\left(\frac{1}{n}\right) + \frac{1}{n}\left(\frac{2}{n}\right) + \cdots + \frac{1}{n}\left(\frac{n}{n}\right)\\
+              &= \frac{1 + 2 + \cdots + n}{n^2}\\
+              &= \frac{n(n+1)}{2n^2}\\
+              &= \frac{n+1}{2n}
+\end{align*}
+\begin{align*}
+    L(P_n, f) &= \frac{1}{n}\left(\frac{0}{n}\right) + \frac{1}{n}\left(\frac{1}{n}\right) + \cdots + \frac{1}{n}\left(\frac{n-1}{n}\right)\\
+              &= \frac{1 + 2 + \cdots + n-1}{n^2}\\
+              &= \frac{n(n-1)}{2n^2}\\
+              &= \frac{n-1}{2n}
+\end{align*}
+
+\part
+Fix $\epsilon > 0$. Then select $n$ such that $\frac{1}{n} < \epsilon$. This can be done by the archimedean property. Then 
+$$U(P_n, f) - L(P_n, f) = \frac{n+1}{2n} - \frac{n-1}{2n} = \frac{1}{n} < \epsilon$$. 
+Thus $f$ is integrable on [0, 1] by definition. 
+
+\problem{4}
+\part
+Let $K = M(f,S) + M(g, S)$. Then $\forall x \in S\, (f+g)(x) = f(x) + g(x)$ where $f(x) \le M(f, S)$ and $g(x) \le M(g, S)$. Thus $(f+g)(x) \le K$ so $K$ is an upper bound for $M(f+g, S)$ so $M(f+g, S) \le M(f, S) + M(g, S)$. 
+
+\part
+\begin{align*}
+    U(f, P) + U(g, P) &= \sum\limits^{n}_{k=1}(x_k - x_{k-1})M(I_k, f) + \sum\limits^{n}_{k=1}(x_k - x_{k-1})M(I_k, g)\\
+                      &= \sum\limits^{n}_{k=1}(x_k - x_{k-1})(M(I_k, f) + M(I_k, g))\\
+                      &\le \sum\limits^{n}_{k=1}(x_k - x_{k-1})(M(I_k, f+g))\\
+                      &= U(f+g, P)
+\end{align*}
+
+\part
+By definition of upper integrals we want to show that $\inf(\Set{U(P, f+g)\given P\text{ a partition of } I}) \le \inf(\Set{U(P,f)\given P\text{ a partition of } I}) + \inf(\Set{U(P, g)\given P \text{ a partition of } I})$. Assume that this was not the case. Then by the approximation property of infimum there must be some partition $P$ such that $\inf(\Set{U(P,f)\given P\text{ a partition of } I}) + \inf(\Set{U(P, g)\given P \text{ a partition of } I}) \le U(P, f) + U(P, g) < \inf(\Set{U(P, f+g)\given P\text{ a partition of } I})$. However, this implies that $U(P, f+g) < \inf(\Set{U(P, f+g)\given P\text{ a partition of } I})$ which is a contradiction.
+
+\problem{5}
+\part
+$A' \subseteq A$ so $\sup(A) \ge \sup(A')$. 
+For any partition $P$ in $A$ we can find a corresponding partition $P'$ in $A'$ that is identical except that it also includes the point $c$. Thus $P'$ is a refinement of $P$ and by Proposition 20.2 $L(P', f) \ge L(P, f)$. Thus by a result from the homework $\sup(A') \ge \sup(A)$. Thus $\sup(A') = \sup(A)$. 
+
+\part
+Every element $l$ of $A'$ is the lower bound of some partition $P'$ containing c. Then divide the points of $P'$ into two partitions $P_1$ and $P_2$ such that $P_1$ contains all points $x\in P'$ such that $x\le c$ and $P_2$ contains all points such that $x \ge c$. Then $l = L(P_1, f) + L(P_2, f)$. So $A' = A_1 + A_2$. 
+
+By the result of HW2.5 $\sup(A') = \sup(A_1) + \sup(A_2)$ and from part 1 $\sup(A) = \sup(A')$ so $\sup(A) = \sup(A_1) + \sup(A_2)$. 
+
+\part
+This follows directly from b) by definition.
+\end{document}
