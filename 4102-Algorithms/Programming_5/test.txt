@@ -1,0 +1,33 @@
+11 5 2
+Alice CS_2102
+Alice CS_3102
+Alice CS_4102
+Bob CS_2102
+Bob CS_3102
+Charlie CS_2102
+Charlie CS_5102
+David David
+David CS_3102
+Andrew CS_5102
+Andrew David
+CS_2102 4
+CS_3102 3
+CS_4102 2
+CS_5102 2
+David 1
+
+9 3 2
+Alice CS_2102
+Alice CS_3102
+Alice CS_4102
+Bob CS_2102
+Bob CS_3102
+Charlie CS_2102
+Charlie CS_4102
+David CS_2102
+David CS_3102
+CS_2102 3
+CS_3102 3
+CS_4102 3
+
+0 0 0
