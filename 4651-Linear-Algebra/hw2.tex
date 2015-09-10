@@ -1,0 +1,235 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{color}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Advanced Linear Algebra - Assignment \# 2}
+\author{Ben Haines}
+
+\problem{1}
+Let $V$ be an $F$-vector space, $U, W$ two subspaces of $V$ and $X$ the (set-theoretic) union of $U$ and $W$.
+Prove the following: If $X$ is a subspace of $V$, then $U$ contains $W$ or $W$ contains $U$.
+\solution
+I will prove the contrapositive. Assume that it is not the case that $U\subseteq W$ or $W\subseteq U$. Then there must exist some element $u\in U$ and $w\in W$ such that $u \not\in W$ and $w \not\in U$. By definition of $X$ both $u$ and $w$ are in $X$. Consider the sum $u + w$. If $(u + w) \in U$ then, because $U$ is a subspace and thus closed under an associative addition, $-u + (u + w) = (-u + u) + w = w \in U$. This is a contradiction. Similarly if $(u + w) \in W$ then by the same reasoning as above $(u + w) + -w = u + (w + -w) = u \in W$. This is also a contradiction. Therefore the sum $(u + w)$, being neither in $U$ nor in $W$ cannot be in $X$. Thus $X$ is not a subspace. 
+
+\problem{2}
+Prove Lemma 1.3.4 as formulated in class for arbitrary intersections of subspaces.
+(You do not have to deal separately with the intersection of $U$ and $W$ as a special case.)
+\solution
+\begin{itemize}
+    \item
+        Each $W_i$ is a subspace and thus by definition contains zero. Thus the intersection $\underset{i\in I}{\cap}W_i$ contains zero.
+    \item
+        By definition any $w_1, w_2\in \underset{i\in I}{\cap}W_i$ are elements of $W_i$ for all $i\in I$. Because each $W_i$ is a subspace and thus closed under addition $w_1 + w_2 \in W_i \forall i \implies w_1 + w_2 \in \underset{i\in I}{\cap}W_i$. 
+    \item
+        Select arbitrary $w \in \underset{i\in I}{\cap}W_i$ and $a\in F$. By definition $w \in W_i\, \forall i\in I$. Each $W_i$ is a subspace and thus closed under scalar multiplication so $aw \in W_i\, \forall i\in I$. Thus $aw \in \underset{i\in I}{\cap}W_i$. 
+\end{itemize}
+
+\problem{3}
+Prove the equation in Example 1.3.6(c), i.e. show that
+span$\Set{x_1 , \ldots , x_n } = \Set{a_1x_1 + \ldots + a_nx_n \given a_1 , \ldots a_n \in F }$
+if  $x_1, \ldots , x_n$ are elements of an $F$-vector space $V$. Keep in mind how the span is defined!
+\solution
+First note that span$\Set{x_1 , \ldots , x_n }$ by definition is the smallest subspace of $V$ that contains $x_1 , \ldots , x_n$.
+
+Now we show that $\Set{a_{1}x_{1} + \ldots + a_nx_n \given a_i\in F} \subseteq $span$\Set{x_1, \ldots, x_n}$. 
+For any $z = a_1x_1 + \ldots + a_nx_n, a_i\in F$, $z\in $span$\Set{x_1, \ldots, x_n}$ because subspaces are closed under addition and scalar multiplication and $z$ is simply the result of repeatedly multiplying elements of $\Set{x_1, \ldots, x_n}$ by a scalar and then summing them. Thus $\Set{a_ix_i, \ldots, a_nx_n\given a\in F} \subseteq $span$\Set{x_1, \ldots, x_n}$.\\
+
+Next we show that span$\Set{x_1, \ldots, x_n}\subseteq \Set{a_1x_1 + \ldots + a_nx_n\given a\in F}$. We begin by showing that $\Set{x_1, \ldots, x_n} \subseteq \Set{a_1x_1 + \ldots + a_nx_n\given a\in F}$. Select any $x_i$ from $\Set{x_1, \ldots, x_n}$. Then $a_1x_1 + \ldots + a_nx_n = x_i$ when $a_i = 1$ and $a_{j\not=i} = 0$.\\
+
+Now we show that $\Set{a_1x_1 + \ldots + a_nx_n\given a\in F}$ is a subspace of $V$. It is clearly a subset of $V$ because we have already shown it to be a subset of span$\Set{x_1, \ldots, x_n}$ which is itself a subspace of $V$. 
+\begin{itemize}
+    \item Zero element\\
+        It contains the zero element which is when $a_i = 0$ for all $0<i\le n$. 
+    \item Closed under addition\\
+        For $a_i, b_i\in F$ we have:
+        \begin{align}
+            a_1x_1 + \ldots a_nx_n + b_1x_n + \ldots + b_nx_n &= a_1x_1 + b_1x_1 + \ldots + a_nx_n + b_nx_n\\
+            &= (a_1 + b_1)x_1 + \ldots + (a_n + b_n)x_n
+        \end{align}
+        which, because $F$ is closed under addition, is an element of $\Set{a_1x_1 + \ldots + a_nx_n\given a\in F}$. 
+\end{itemize}
+Thus, because $\Set{a_1x_1 + \ldots + a_nx_n\given a\in F}$ is a subspace of $V$ which contains $\Set{x_1, \ldots, x_n}$ and by definition span$\Set{x_1, \ldots, x_n}$ is the smallest such subspace we have span$\Set{x_1, \ldots, x_n} \subseteq \Set{a_1x_1 + \ldots + a_nx_n\given a \in F}$.\\
+
+Then finally this implies span$\Set{x_1, \ldots, x_n} = \Set{a_1x_1 + \ldots + a_nx_n\given a\in F}$.
+
+
+\problem{4}
+Let $V = \Set{(a_1, a_2):a_1, a_2\in \mathbb{R}}$. Define addition of elements of $V$ coordinatewise, and for $(a_1, a_2)$ in $V$ and $c\in \mathbb{R}$, define
+\[c(a_1, a_2) =  \begin{cases} 
+        (0, 0) & \text{if } c = 0\\
+        (ca_1, \frac{a_2}{c}) & \text{if } c \not= 0
+    \end{cases}
+\]
+Is $V$ a vector space over $\mathbb{R}$ with these operation? Justify your answer.
+\solution
+$V$ is not a vector space. For arbitrary $a, b\in \mathbb R$, $x\in V$ it is not the case that $(a+b)x = ax + bx$.
+For example, let $a=1, b=1, x=(1, 1)$. Then:
+\begin{align}
+    (1+1)(1, 1) &= 2(1, 1)\\
+                &= (2, \frac{1}{2})
+\end{align}
+but
+\begin{align}
+    1(1, 1) + 1(1, 1) &= (1, 1) + (1, 1)\\
+                      &= (2, 2)
+\end{align}
+%First we show that $(V, +)$ is an abelian group. 
+%\begin{itemize}
+%    \item Closed under +\\
+%        $(a_1, a_2) + (b_1, b_2) = (a_1 + b_1, a_2 + b_2) \in V$ because $\mathbb R$ is closed under $+$. 
+%
+%    \item Associative\\
+%        Because $\mathbb R$ has associative addition we can say:
+%        \begin{align}
+%            ((a_1, a_2) + (b_1, b_2)) + (c_1, c_2) &= (a_1 + b_1, a_2 + b_2) + (c_1, c_2)\\
+%                                                   &= ([a_1 + b_1] + c_1, [a_2 + b_2] + c_2)\\
+%                                                   &= (a_1 + [b_1 + c_1], a_2 + [b_2 + c_2])\\
+%                                                   &= (a_1, a_2) +  (b_1 + c_1, b_2 + c_2)\\
+%                                                   &= (a_1, a_2) +  ((b_1, b_2) + (c_1, c_2))\\
+%        \end{align}
+%
+%    \item Identity Element\\
+%        $(0, 0)$ is the identity element, for arbitrary $(a, b)\in V$:
+%        $$(0, 0) + (a, b) = (0+a, 0+b) = (a, b) = (a+0, b+0) = (a, b) + (0, 0)$$
+%
+%    \item Inverses\\
+%        For any element $(a, b)$ of $V$:
+%        $$(-a, -b) + (a, b) = (-a + a, -b + b) = (0, 0) = (a + (-a), b + (-b)) = (a, b) + (-a, -b)$$
+%
+%    \item Abelian
+%        For any $(a_1, a_2), (b_1, b_2)\in V$, because $\mathbb R$ is commutative under addition, we can say:
+%        $$(a_1, a_2) + (b_1, b_2) = (a_1+b_1, a_2+b_2) = (b_1 + a_1, b_2 + a_2) = (b_1, b_2) + (a_1, a_2)$$
+%\end{itemize}
+%
+%Next we verify that scalar multiplication as defined has the necessary properties.
+%For arbitrary $(x, y), (w, z)\in V$ and $a, b\in F$:
+%\begin{itemize}
+%    \item $1(x, y) = (1x, \frac{y}{1}) = (x, y)$
+%    \item 
+%        In the case that neither $a$ nor $b$ are equal to 0, it is impossible that $ab = 0$. Then:
+%        \begin{align}
+%            a(b(x, y)) &= a(bx, \frac{y}{b})\\
+%                       &= (a(bx), \frac{y/b}{a})\\
+%                       &= ((ab)x, \frac{y/ba})\\
+%                       &= (ab)(x, y)
+%        \end{align}
+%        If $a = 0$:
+%        \begin{align}
+%            0(b(x, y)) &= 0(bx, \frac{y}{b})\\
+%                       &= (0, 0)\\
+%                       &= 0(x, y)\\
+%                       &= (0b)(x, y)\\
+%                       &= (0b)(x, y)
+%        \end{align}
+%        Similarly if $b=0$:
+%        \begin{align}
+%            a(0(x, y)) &= a(0, 0)\\
+%                       &= (a0, \frac{0}{a})\\
+%                       &= (0, 0)\\
+%                       &= (a0)(x, y)\\
+%                       &= (a0)(x, y)
+%        \end{align}
+%    \item 
+%        When $a \not= 0$:
+%        \begin{align}
+%            a[(x, y) + (w, z)] &= a(x+w, y+z)\\
+%                               &= (a(x+w), \frac{y+z}{a})\\
+%                               &= (ax + aw, \frac{y}{a} + \frac{z}{a})\\
+%                               &= (ax, \frac{y}{a}) + (aw, \frac{z}{a})\\
+%                               &= a(x, y) + a(w, z)
+%        \end{align}
+%        If $a = 0$:
+%        \begin{align}
+%            0[(x, y) + (w, z)] &= 0(x+w, y+z)\\
+%                               &= (0, 0)\\
+%                               &= (0 + 0, 0 + 0)\\
+%                               &= (0, 0) + (0, 0)\\
+%                               &= 0(x, y) + 0(w, z)\\
+%        \end{align}
+%    \item 
+%        If $a = 0$ and $b$ is nonzero:
+%        \begin{align}
+%            (0+b)(x, y) &= b(x, y)\\
+%                        &= (bx, \frac{y}{b})\\
+%                        &= (0 + bx, 0 + \frac{y}{b})\\
+%                        &= (0, 0) + (bx, \frac{y}{b})\\
+%                        &= 0(x, y) + b(x, y)
+%        \end{align}
+%        If $b = 0$ and $a$ is nonzero:
+%        \begin{align}
+%            (a+0)(x, y) = (0 + a)(x, y)
+%        \end{align}
+%        it follows from the case when $a=0$ that this is equal to $0(x, y) + a(x, y) = a(x, y) + 0(x, y)$
+%
+%        If neither $a$ nor $b$ are $0$ but $a+b = 0$, then 
+%        \begin{align}
+%            (a+b)(x, y) &= 0(x, y)\\
+%                        &= (0, 0)\\
+%                        &= (0x, 0y)\\
+%                        &= ((a+b)x, (a+b)y)\\
+%                        &= (ax+bx, ay+by)\\
+%                        &= a(x, y) + b(x, y)
+%        \end{align}
+%        If neither $a, b$, nor their sum are equal to $0$ then:
+%        \begin{align}
+%            (a+b)(x, y) &= ((a+b)x, \frac{y}{a+b})\\
+%            (a+b)(x, y) &= (ax + bx, \frac{y}{a+b})\\
+%                        &= (0 + bx, 0 + \frac{y}{b})\\
+%                        &= (0, 0) + (bx, \frac{y}{b})\\
+%                        &= 0(x, y) + b(x, y)
+%        \end{align}
+%\end{itemize}
+            
+
+\problem{5}
+Let $S$ be a nonempty set and $F$ a field. Let $C(S, F)$ denote the set of all functions $f\in \mathcal{F}(S, F)$ such that $f(s) = 0$ for all but a finite number of elements of $S$. Prove that $C(S, F)$ is a subspace of $\mathcal{F}(S, F)$. 
+\solution
+It is clear that $C(S, F)$ is a subset of $\mathcal F(S, F)$.
+\begin{itemize}
+    \item The zero element in $\mathcal F(S, F)$ is the function that maps $s$ to 0 for all $s\in S$. There are thus no $s$ for which $f(s)$ is nonzero so $f\in C(S, F)$. 
+    \item Select arbitrary $f, g\in C(S, F)$. Then (f+g)(s) = f(s) + g(s)$. Then f(s) \not= 0$ for a finite number $n$ of $s$ in $S$ and $g(s) \not= 0$ for a finite number $m$ of $s$ in $S$. Then the sum $f(s) + g(s)$ can only be nonzero for at most $n + m$ elements of $S$. The sum of two finite numbers is finite so $(f+g) \in C(S, F)$. 
+    \item Select arbitrary $f \in C(S, F)$ and $a\in F$. For all $s\in S$, $(cf)(s) = c(f(s))$. $c0 = 0$ regardless of the value of $c$ and $f(s)$ is only nonzero for finitely many $s$. Thus $(cf)(s)$ is nonzero for finitely many $s$ and $(cf)\in C(S, F)$. 
+\end{itemize}
+Thus $C(S, F)$ is a subspace of $\mathcal F(S, F)$. 
+
+\problem{6}
+A matrix $M$ is called \textbf{skew-symmetric} if $M^t = -M$. Clearly, a skew-symmetric matrix is  square. Let $F$ be a field. Prove that the set $W_1$ of all skew-symmetric $n\times n$ matrices with entries from $F$ is a subspace of $M_{n\times n}(F)$. Now assume that $F$ is not of characteristic 2, and let $W_2$ be the subspace of $M_{n\times n}(F)$ consisting of all symmetric $n\times n$ matrices. Prove that $M_{n\times n}(F) = W_1 \oplus W_2$. 
+\solution
+\part
+It is clear that $W_1 \subseteq M_{n\times n}(F)$. 
+\begin{enumerate}
+    \item Zero element\\
+        The zero matrix (whose elements are all 0) is an element of $W_1$. 
+    \item Closed under +\\
+        Select arbitrary $A, B\in W_1$. Then:
+        \begin{align}
+            (A+B)^T &= A^T + B^T\\
+                    &= -A - B\\
+                    &= -(A + B)
+        \end{align}
+    \item Closed under scalar multiplication\\
+        Select arbitrary $A\in W_1, c\in F$. Then:
+        \begin{align}
+            (cA)^T &= c(A^T)\\
+                   &= c(-A)\\
+                   &= -(cA)
+        \end{align}
+\end{enumerate}
+Thus $W_1$ is a subspace of $M_{n\times n}(F)$. 
+
+\part
+The sum of any two $n\times n$ matrix must be another $n\times n$ matrix. It is clear then that $W_1 + W_2 \subseteq M_{n\times n}(F)$. 
+To prove that $M_{n\times n}(F) \subseteq W_1 + W_2$ select an arbitrary $M\in M_{n\times n}(F)$. Then $(M + M^T)^T = (M^T + M^{M^T}) = (M^T + M) = (M + M^T)$. Thus $M + M^T \in W_2$. Similarly $(M-M^T)^T = (M^T - M^{T^T}) = (M^T - M) = -(M - M^T).$ So $M^T - M \in W_1$. Then $M$ can be written as $M = \frac{1}{2}(M + M + (M^T - M^T)) = \frac{1}{2}(M + M^T) + \frac{1}{2}(M - M^T)$. $W_1 and W_2$ are subspaces and closed under scalar multiplication so this is the sum of an element of $W_1$ and an element of $W_2$. Thus $M_{n\times n}(F) \subseteq W_1 + W_2$. This implies that $M_{n\times n}(F) = W_1 + W_2$. 
+
+Additionally, if $A\in W_1 \cap W_2$ then $A^T = -A$ and $A^T = A$. Thus $A = 0$ and $W_1 \cap W_2 = \Set{0}$. Therefore $M_{n\times n}(F) = W_1\oplus W_2$. 
+\end{document}
+
