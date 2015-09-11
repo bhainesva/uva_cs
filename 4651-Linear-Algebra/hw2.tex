@@ -228,7 +228,7 @@ Thus $W_1$ is a subspace of $M_{n\times n}(F)$.
 
 \part
 The sum of any two $n\times n$ matrix must be another $n\times n$ matrix. It is clear then that $W_1 + W_2 \subseteq M_{n\times n}(F)$. 
-To prove that $M_{n\times n}(F) \subseteq W_1 + W_2$ select an arbitrary $M\in M_{n\times n}(F)$. Then $(M + M^T)^T = (M^T + M^{M^T}) = (M^T + M) = (M + M^T)$. Thus $M + M^T \in W_2$. Similarly $(M-M^T)^T = (M^T - M^{T^T}) = (M^T - M) = -(M - M^T).$ So $M^T - M \in W_1$. Then $M$ can be written as $M = \frac{1}{2}(M + M + (M^T - M^T)) = \frac{1}{2}(M + M^T) + \frac{1}{2}(M - M^T)$. $W_1 and W_2$ are subspaces and closed under scalar multiplication so this is the sum of an element of $W_1$ and an element of $W_2$. Thus $M_{n\times n}(F) \subseteq W_1 + W_2$. This implies that $M_{n\times n}(F) = W_1 + W_2$. 
+To prove that $M_{n\times n}(F) \subseteq W_1 + W_2$ select an arbitrary $M\in M_{n\times n}(F)$. Then $(M + M^T)^T = (M^T + M^{M^T}) = (M^T + M) = (M + M^T)$. Thus $M + M^T \in W_2$. Similarly $(M-M^T)^T = (M^T - M^{T^T}) = (M^T - M) = -(M - M^T).$ So $M^T - M \in W_1$. Then $M$ can be written as $M = \frac{1}{2}(M + M + (M^T - M^T)) = \frac{1}{2}(M + M^T) + \frac{1}{2}(M - M^T)$. $W_1$ and $W_2$ are subspaces and closed under scalar multiplication so this is the sum of an element of $W_1$ and an element of $W_2$. Thus $M_{n\times n}(F) \subseteq W_1 + W_2$. This implies that $M_{n\times n}(F) = W_1 + W_2$. 
 
 Additionally, if $A\in W_1 \cap W_2$ then $A^T = -A$ and $A^T = A$. Thus $A = 0$ and $W_1 \cap W_2 = \Set{0}$. Therefore $M_{n\times n}(F) = W_1\oplus W_2$. 
 \end{document}
