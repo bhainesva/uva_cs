@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_mp1" default="compile.module.mp1">
+  <dirname property="module.mp1.basedir" file="${ant.file.module_mp1}"/>
+  
+  <property name="module.jdk.home.mp1" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.mp1" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.mp1" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.mp1" value="-encoding UTF-8 -source 8 ${compiler.args}"/>
+  
+  <property name="mp1.output.dir" value="${module.mp1.basedir}/out/production/MP1"/>
+  <property name="mp1.testoutput.dir" value="${module.mp1.basedir}/out/test/MP1"/>
+  
+  <path id="mp1.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="mp1.module.production.classpath">
+    <path refid="${module.jdk.classpath.mp1}"/>
+    <path refid="library.opennlp-tools-1.6.0.classpath"/>
+  </path>
+  
+  <path id="mp1.runtime.production.module.classpath">
+    <pathelement location="${mp1.output.dir}"/>
+    <path refid="library.opennlp-tools-1.6.0.classpath"/>
+  </path>
+  
+  <path id="mp1.module.classpath">
+    <path refid="${module.jdk.classpath.mp1}"/>
+    <pathelement location="${mp1.output.dir}"/>
+    <path refid="library.opennlp-tools-1.6.0.classpath"/>
+  </path>
+  
+  <path id="mp1.runtime.module.classpath">
+    <pathelement location="${mp1.testoutput.dir}"/>
+    <pathelement location="${mp1.output.dir}"/>
+    <path refid="library.opennlp-tools-1.6.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.mp1">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.mp1">
+    <patternset refid="excluded.from.module.mp1"/>
+  </patternset>
+  
+  <path id="mp1.module.sourcepath">
+    <dirset dir="${module.mp1.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.mp1" depends="compile.module.mp1.production,compile.module.mp1.tests" description="Compile module MP1"/>
+  
+  <target name="compile.module.mp1.production" depends="register.custom.compilers" description="Compile module MP1; production classes">
+    <mkdir dir="${mp1.output.dir}"/>
+    <javac2 destdir="${mp1.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.mp1}/javac">
+      <compilerarg line="${compiler.args.mp1}"/>
+      <bootclasspath refid="mp1.module.bootclasspath"/>
+      <classpath refid="mp1.module.production.classpath"/>
+      <src refid="mp1.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.mp1"/>
+    </javac2>
+    
+    <copy todir="${mp1.output.dir}">
+      <fileset dir="${module.mp1.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.mp1.tests" depends="register.custom.compilers,compile.module.mp1.production" description="compile module MP1; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.mp1" description="cleanup module">
+    <delete dir="${mp1.output.dir}"/>
+    <delete dir="${mp1.testoutput.dir}"/>
+  </target>
+</project>
