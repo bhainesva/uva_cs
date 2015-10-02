@@ -22,7 +22,7 @@ public class Post {
 	//unique review ID from Yelp
 	String m_ID;
 	//Stores TF for each token in the doc.
-    public HashMap<String, Integer> tokenToTF;
+    public HashMap<String, Double> tokenToTF;
 
     public HashMap<Integer, Double> idToTF_IDF = new HashMap<>();
 

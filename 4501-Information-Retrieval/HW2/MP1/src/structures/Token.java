@@ -33,7 +33,16 @@ public class Token {
 	}
 
 	public void setValue(double value) {
-		this.m_value =value;
+
+	}
+	double df; // frequency or probability of this token/N-gram
+	public double getDF() {
+		return df;
+	}
+
+	public void setDF(double value) {
+		this.df =value;
+		this.df =value;
 	}
 
 	double m_idf; // frequency or probability of this token/N-gram
@@ -58,4 +67,5 @@ public class Token {
 		m_id = id;
 		m_value = 0;		
 	}
+
 }

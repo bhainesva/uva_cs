@@ -15,6 +15,7 @@ import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.tartarus.snowball.SnowballStemmer;
 import org.tartarus.snowball.ext.englishStemmer;
 import org.tartarus.snowball.ext.porterStemmer;
@@ -23,8 +24,10 @@ import structures.Post;
 import structures.Token;
 
 import static java.lang.System.exit;
+import static java.lang.System.mapLibraryName;
+import static java.lang.System.setOut;
 
-public class MyAnalyzer {
+public class NewAnalyzer {
     //Tools
     Tokenizer tokenizer;
     SnowballStemmer stemmer;
@@ -43,7 +46,7 @@ public class MyAnalyzer {
 
     //we have also provided sample implementation of language model in src.structures.LanguageModel
 
-    public MyAnalyzer() throws IOException {
+    public NewAnalyzer() throws IOException {
         m_reviews = new ArrayList<Post>();
         m_stopwords = new HashSet<>();
         vocabulary = new ArrayList<>();
@@ -91,7 +94,15 @@ public class MyAnalyzer {
                         //m_tokens.add(new Token(parsedToken));
                     }
                 }
-                review.setTokens(tokenList);
+                //review.setTokens(tokenList);
+                for (String str : tokenList) {
+                    if (review.tokenToTF.containsKey(str)) {
+                        review.tokenToTF.put(str, review.tokenToTF.get(str) + 1);
+                    }
+                    else {
+                        review.tokenToTF.put(str, 1.0);
+                    }
+                }
 
                 m_reviews.add(review);
             }
@@ -158,17 +169,15 @@ public class MyAnalyzer {
 
     //sample code for demonstrating how to perform text normalization
     public String Normalization(String token) {
-        // remove all non-word characters
-        // please change this to removing all English punctuation
-        token = token.replaceAll("\\W+", "");
+        // remove all English punctuation
         token = token.replaceAll("\\p{Punct}+", "");
         // convert to lower case
         token = token.toLowerCase();
 
-        // add a line to recognize integers and doubles via regular expression
-        // and convert the recognized integers and doubles to a special symbol "NUM"
+        //Note that this doesn't attempt to recognize doubles
+        //This is because all periods were removed in the previous step.
+        //At this point in the processing a double looks the same as an int.
         token = token.replaceAll("\\d+", "NUM");
-        //token = token.replaceAll("[-+]?([0-9]+\\.?[0-9]*|[0-9]*\\.?[0-9]+)([eE][-+]?[0-9]+)?", "NUM");
 
         return token;
     }
@@ -208,7 +217,7 @@ public class MyAnalyzer {
 
             //Update DF score for one word tokens
             for (String str : docFreqs.keySet()) {
-                doc.tokenToTF.put(str, (double)docFreqs.get(str));
+                doc.tokenToTF.put(str, (double) docFreqs.get(str));
                 if (freqs.containsKey(str)) {
                     freqs.put(str, freqs.get(str) + 1);
                 }
@@ -247,10 +256,10 @@ public class MyAnalyzer {
     static class TokenComp implements Comparator<Token>{
         @Override
         public int compare(Token e1, Token e2) {
-            if (e1.getValue() < e2.getValue()) {
+            if (e1.getDF() < e2.getDF()) {
                 return 1;
             }
-            else if (e1.getValue() > e2.getValue()) {
+            else if (e1.getDF() > e2.getDF()) {
                 return -1;
             }
             else {
@@ -259,57 +268,50 @@ public class MyAnalyzer {
         }
     }
 
-    public HashMap<String, Integer> CreateVocabulary() {
+    public void CreateVocabulary() {
         //Freq stores DF for each token
-        HashMap<String, Integer> freq = new HashMap<>();
+        HashMap<String, Integer> docFreqs = new HashMap<>();
         for (Post p : m_reviews) {
-            HashMap<String, Integer> doc2Grams = new HashMap<>();
-            HashMap<String, Integer> doc1Grams = new HashMap<>();
+            HashMap<String, Integer> docGrams = new HashMap<>();
             //1-Gram
-            for (int i = 0; i <= p.getTokens().size() - 1; i++) {
-                String str = p.getTokens().get(i);
-                if (doc1Grams.containsKey(str)) {
-                    doc1Grams.put(str, doc1Grams.get(str) + 1);
-                }
-                else {
-                    doc1Grams.put(str, 1);
+            for (int i = 0; i <= p.getTokens().size()-1; i++) {
+                String token = p.getTokens().get(i);
+                if (docGrams.containsKey(token)) {
+                    docGrams.put(token, docGrams.get(token) + 1);
+                } else {
+                    docGrams.put(token, 0);
                 }
             }
 
-            for (int i = 0; i <= p.getTokens().size() - 2; i++) {
-                String str = p.getTokens().get(i) + " " + p.getTokens().get(i + 1);
-                if (doc2Grams.containsKey(str)) {
-                   doc2Grams.put(str, doc2Grams.get(str) + 1);
-                }
-                else {
-                    doc2Grams.put(str, 1);
+            //2-Grams
+            for (int i = 0; i <= p.getTokens().size()-2; i++) {
+                String token = p.getTokens().get(i) + " " + p.getTokens().get(i+1);
+                if (docGrams.containsKey(token)) {
+                    docGrams.put(token, docGrams.get(token) + 1);
+                } else {
+                    docGrams.put(token, 0);
                 }
             }
-            for (String tk : doc2Grams.keySet()) {
-                p.tokenToTF.put(tk, (double)doc2Grams.get(tk));
-                if (freq.containsKey(tk)) {
-                    freq.put(tk, freq.get(tk) + 1);
-                }
-                else {
-                    freq.put(tk, 1);
+
+            for (String str : docGrams.keySet()) {
+                if (docFreqs.containsKey(str)) {
+                    docFreqs.put(str, docFreqs.get(str) + 1);
+                } else {
+                    docFreqs.put(str, 1);
                 }
             }
         }
 
-        for (String str : freq.keySet()) {
-            Token tk = new Token(str);
-            //Value of tokens in vocabulary is DF
-            tk.setValue(freq.get(str));
-            tk.setIDF(1 + Math.log((double) m_reviews.size() / tk.getValue()));
-            vocabulary.add(tk);
+        for (String str: docFreqs.keySet()) {
+            Token tkn = new Token(str);
+            tkn.setDF(docFreqs.get(str));
+            vocabulary.add(tkn);
         }
-
-        return freq;
     }
 
     public static void main(String[] args) throws IOException, JSONException {
         //Initialize analyzer, load data
-        MyAnalyzer analyzer = new MyAnalyzer();
+        NewAnalyzer analyzer = new NewAnalyzer();
         analyzer.LoadStopwords("./data/english.stop");
         analyzer.LoadDirectory("./data/yelp", "json");
 
@@ -320,97 +322,152 @@ public class MyAnalyzer {
         //ArrayList<String> ttfSorted = analyzer.tokensByFreq(totalTermFreqs);
         //System.out.println("TTF Calculated.");
 
-        //File ttfFile = new File("ttfOut.csv");
-        //PrintWriter ttfWriter = new PrintWriter(ttfFile);
-        //System.out.println(ttfSorted.size());
-        //for (String s : ttfSorted) {
-            //ttfWriter.println(s + "," + totalTermFreqs.get(s));
-        //}
-        //ttfWriter.close();
-
-       // Map<String, Integer> docFreqs = analyzer.DocumentFrequency();
-       // ArrayList<String> dfSorted = analyzer.tokensByFreq(docFreqs);
-       // File dfFile = new File("dfOut.csv");
-       // PrintWriter dfWriter = new PrintWriter(dfFile);
-       // System.out.println(dfSorted.size());
-       // for (String s : dfSorted) {
-       //     dfWriter.println(s + "," + docFreqs.get(s));
+       // File ttfFile = new File("ttfOut.csv");
+       // PrintWriter ttfWriter = new PrintWriter(ttfFile);
+       // System.out.println(ttfSorted.size());
+       // for (String s : ttfSorted) {
+       // ttfWriter.println(s + "," + totalTermFreqs.get(s));
        // }
-       // dfWriter.close();
+       // ttfWriter.close();
 
-        //Part 2:
-        //Generate bigrams and calculate document frequency for all Ngrams
-        HashMap<String, Integer> vocabToDF = analyzer.CreateVocabulary();
-        System.out.println("vocab size");
-        System.out.println(analyzer.vocabulary.size());
-        //Find top 100 words by DF
-        Collections.sort(analyzer.vocabulary, new TokenComp());
+       //  Map<String, Integer> docFreqs = analyzer.DocumentFrequency();
+       //  ArrayList<String> dfSorted = analyzer.tokensByFreq(docFreqs);
+       //  File dfFile = new File("dfOut.csv");
+       //  PrintWriter dfWriter = new PrintWriter(dfFile);
+       //  System.out.println(dfSorted.size());
+       //  for (String s : dfSorted) {
+       //      dfWriter.println(s + "," + docFreqs.get(s));
+       //  }
+//         dfWriter.close();
 
-        //Top 100 stop words in restaurant
-        //This is top 100 Ngrams by DF
-        List<Token> top100 = new ArrayList<>();
-        for (int i = 0; i< 100; i++) {
-            top100.add(analyzer.vocabulary.get(i));
+       // //Part 2:
+       // //Generate and calculate document frequency for all Ngrams
+       // analyzer.CreateVocabulary();
+       // //Find top 100 words by DF
+       // Collections.sort(analyzer.vocabulary, new TokenComp());
+
+       // //Top 100 stop words in restaurant
+       // //This is top 100 Ngrams by DF
+       // List<Token> top100 = new ArrayList<>();
+       // for (int i = 0; i< 100; i++) {
+       //     top100.add(analyzer.vocabulary.get(i));
+       // }
+
+       // //Subtract original stopwords to find restaurant specific ones
+       // File restSpecificFile = new File("restSpecificStopwords.txt");
+       // PrintWriter restSpecificWriter = new PrintWriter(restSpecificFile);
+       // for (Token i: top100) {
+       //     if (!analyzer.m_stopwords.contains(i.getToken())) {
+       //         restSpecificWriter.println(i.getToken() + "," + i.getDF());
+       //         analyzer.m_stopwords.add(i.getToken());
+       //     }
+       // }
+       // restSpecificWriter.close();
+       // File stopF = new File("fullStopwords");
+       // PrintWriter stopW = new PrintWriter(stopF);
+       // for (String S : analyzer.m_stopwords) {
+       //     stopW.println(S);
+       // }
+       // stopW.close();
+
+
+       // //Filter words out of vocabulary that have DF less than 50
+       //  while(analyzer.vocabulary.get(analyzer.vocabulary.size()-1).getDF() < 50) {
+       //      analyzer.vocabulary.remove(analyzer.vocabulary.size()-1);
+       //  }
+       // System.out.println("Filtering stopwords...");
+       // File vocabFile = new File("unstoppedVocab.txt");
+       // PrintWriter vocabWriter = new PrintWriter(vocabFile);
+
+       // for (Token t : analyzer.vocabulary) {
+       //     //boolean add = true;
+       //     //for (String stopw : analyzer.m_stopwords) {
+       //         //if (t.getToken().contains(stopw)) {
+       //             //add = false;
+       //         //}
+       //     //}
+       //     //if (add) {
+                //vocabWriter.println(t.getToken() + "," + t.getDF());
+            //}
+        //}
+        //vocabWriter.close();
+        //exit(0);
+        Scanner s = new Scanner(new File("fullStopwords"));
+        ArrayList<String> stopwords = new ArrayList<String>();
+        while (s.hasNextLine()){
+            stopwords.add(s.nextLine());
         }
+        s.close();
 
-        //Subtract original stopwords to find restaurant specific ones
-        top100.removeAll(analyzer.m_stopwords);
-        File restSpecificFile = new File("restSpecificStopwords.txt");
-        PrintWriter restSpecificWriter = new PrintWriter(restSpecificFile);
-        for (Token i: top100) {
-            restSpecificWriter.println(i.getToken() + "," + i.getValue());
-
-            if (!analyzer.m_stopwords.contains(i.getToken())) {
-               analyzer.m_stopwords.add(i.getToken());
+        System.out.println("Filtering stopwords...");
+        File vocabFile = new File("finalVocab.txt");
+        PrintWriter vocabWriter = new PrintWriter(vocabFile);
+        s = new Scanner(new File("unstoppedVocab.txt"));
+        analyzer.vocabulary.clear();
+        while (s.hasNext()){
+            String line = s.nextLine();
+            String[] contentDF = line.split(",");
+            List<String> contentPts = Arrays.asList(contentDF[0].split(" "));
+            boolean add = true;
+            for (String stop: stopwords) {
+                if (contentDF[0].equals(stop) || contentPts.contains(stop)) {
+                    add = false;
+                    break;
+                }
+            }
+            if (add) {
+                vocabWriter.println(line);
+                Token tk = new Token(contentDF[0]);
+                tk.setDF(Double.parseDouble(contentDF[1]));
+                tk.setIDF(1 + Math.log(102201 / Double.parseDouble(contentDF[1])));
+                analyzer.vocabulary.add(tk);
             }
         }
-        restSpecificWriter.close();
+        s.close();
+        vocabWriter.close();
 
-       //Filter words out of vocabulary that have DF less than 50
-       // while(analyzer.vocabulary.get(analyzer.vocabulary.size()-1).getValue() < 50) {
-       //     analyzer.vocabulary.remove(analyzer.vocabulary.size()-1);
-       // }
-
-       ////Size of controlled vocabulary
+        //Size of controlled vocab
        // File vocabSizeFile = new File("vocabSize.txt");
        // PrintWriter vocabSizeWriter = new PrintWriter(vocabSizeFile);
        // vocabSizeWriter.println(analyzer.vocabulary.size());
        // vocabSizeWriter.close();
 
-       ////Top and bottom 50 words by DF and their corresponding IDFs
-       // ArrayList<Token> top50IDF = new ArrayList<>();
-       // ArrayList<Token> bottom50IDF = new ArrayList<>();
-       // for(int i =0; i< 50 && i < analyzer.vocabulary.size(); i++) {
-       //     Token toptkn = new Token(analyzer.vocabulary.get(i).getToken());
-       //     toptkn.setIDF(analyzer.vocabulary.get(i).getIDF());
-       //     toptkn.setValue(analyzer.vocabulary.get(i).getValue());
-       //     Token bottkn = new Token(analyzer.vocabulary.get(analyzer.vocabulary.size()-(i+1)).getToken());
-       //     toptkn.setIDF(analyzer.vocabulary.get(analyzer.vocabulary.size()-(i+1)).getIDF());
-       //     toptkn.setValue(analyzer.vocabulary.get(analyzer.vocabulary.size()-(i+1)).getValue());
-       //     top50IDF.add(toptkn);
-       //     bottom50IDF.add(bottkn);
-       // }
-
-       // //Write Top 50 to file
-       // File top50File = new File("top50Controlled.csv");
-       // PrintWriter top50Writer = new PrintWriter(top50File);
-       // top50Writer.println("Token" + "," + "IDF" + "," + "DF");
-       // for (Token t : top50IDF) {
-       //     top50Writer.println(t.getToken() + "," + t.getIDF() + "," + t.getValue());
-       // }
-       // top50Writer.close();
-
-       // //Write bottom 50 to file
-       // File bot50File = new File("bot50Controlled.csv");
-       // PrintWriter bot50Writer = new PrintWriter(bot50File);
-       // top50Writer.println("Token" + "," + "IDF" + "," + "DF");
-        //for (Token t : top50IDF) {
-            //bot50Writer.println(t.getToken() + "," + t.getIDF() + "," + t.getValue());
-        //}
-        //bot50Writer.close();
+        //Top and bottom 50 words by DF and their corresponding IDFs
+//         ArrayList<Token> top50IDF = new ArrayList<>();
+//         ArrayList<Token> bottom50IDF = new ArrayList<>();
+//         for(int i =0; i< 50 && i < analyzer.vocabulary.size(); i++) {
+//             Token toptkn = new Token(analyzer.vocabulary.get(i).getToken());
+//             toptkn.setIDF(analyzer.vocabulary.get(i).getIDF());
+//             toptkn.setDF(analyzer.vocabulary.get(i).getDF());
+//             Token bottkn = new Token(analyzer.vocabulary.get(analyzer.vocabulary.size()-(i+1)).getToken());
+//             bottkn.setIDF(analyzer.vocabulary.get(analyzer.vocabulary.size() - (i + 1)).getIDF());
+//             bottkn.setDF(analyzer.vocabulary.get(analyzer.vocabulary.size() - (i + 1)).getDF());
+//             top50IDF.add(toptkn);
+//             bottom50IDF.add(bottkn);
+//         }
+//
+//         //Write Top 50 to file
+//         File top50File = new File("top50Controlled.csv");
+//         PrintWriter top50Writer = new PrintWriter(top50File);
+//         top50Writer.println("Token" + "," + "IDF" + "," + "DF");
+//         for (Token t : top50IDF) {
+//             top50Writer.println(t.getToken() + "," + t.getIDF() + "," + t.getDF());
+//         }
+//         top50Writer.close();
+//
+//         //Write bottom 50 to file
+//         File bot50File = new File("bot50Controlled.csv");
+//         PrintWriter bot50Writer = new PrintWriter(bot50File);
+//         bot50Writer.println("Token" + "," + "IDF" + "," + "DF");
+//         for (Token t : bottom50IDF) {
+//         bot50Writer.println(t.getToken() + "," + t.getIDF() + "," + t.getDF());
+//         }
+//         bot50Writer.close();
+//        System.out.println("THERE ARE X REVIEWS: " + analyzer.m_reviews.size());
+//        exit(0);
 
         //PART 3
-        //Create index for looking up tokens
+        //Create index for looking up tokens by string
         HashMap<String, Integer> index = new HashMap<>();
         for (int i = 0; i < analyzer.vocabulary.size(); i++) {
             index.put(analyzer.vocabulary.get(i).getToken(), i);
@@ -421,13 +478,15 @@ public class MyAnalyzer {
         for (Post p : analyzer.m_reviews) {
             //Use the keyset not getTokens because that's only the actual token/1grams
             for (String str : p.tokenToTF.keySet()) {
-                int id = index.get(str);
-                double tf = p.tokenToTF.get(str);
-                double subLin_tf = 1 + Math.log(tf);
+                Integer id = index.get(str);
+                if (id != null) {
+                    double tf = p.tokenToTF.get(str);
+                    double subLin_tf = 1 + Math.log(tf);
 
-                double idf = analyzer.vocabulary.get(id).getIDF();
-                double tf_idf = subLin_tf * idf;
-                p.idToTF_IDF.put(id, tf_idf);
+                    double idf = analyzer.vocabulary.get(id).getIDF();
+                    double tf_idf = subLin_tf * idf;
+                    p.idToTF_IDF.put(id, tf_idf);
+                }
             }
         }
 
@@ -450,39 +509,31 @@ public class MyAnalyzer {
             review.setTokens(tokenList);
             queries.add(review);
         }
+
+        //Compute TF for each token in query
         for (Post p : queries) {
-            HashMap<String, Integer> tf = new HashMap<>();
-            for (int i = 0; i < p.getTokens().size()-1; i++) {
-                String str1 = p.getTokens().get(i);
-                String str2 = p.getTokens().get(i) + " " + p.getTokens().get(i+1);
-                if (tf.containsKey(str1)) {
-                    tf.put(str1, tf.get(str1) + 1);
+            ArrayList<String> tokenList = p.getTokens();
+            for (String str : tokenList) {
+                if (p.tokenToTF.containsKey(str)) {
+                    p.tokenToTF.put(str, p.tokenToTF.get(str) + 1);
                 }
                 else {
-                    tf.put(str1, 1);
-                }
-                if (tf.containsKey(str2)) {
-                    tf.put(str2, tf.get(str2) + 1);
-                }
-                else {
-                    tf.put(str2, 1);
+                    p.tokenToTF.put(str, 1.0);
                 }
             }
-            String str1 = p.getTokens().get(p.getTokens().size()-1);
-            if (tf.containsKey(str1)) {
-                tf.put(str1, tf.get(str1) + 1);
-            }
-            else {
-                tf.put(str1, 1);
-            }
-            for (String str : tf.keySet()) {
-                Integer tfInt = tf.get(str);
-                p.tokenToTF.put(str, (double)tfInt);
+        }
+
+        //Compute vector representation
+        for (Post p : queries) {
+            for (String str : p.tokenToTF.keySet()) {
                 Integer id = index.get(str);
                 if (id != null) {
-                    p.idToTF_IDF.put(id, (1 + Math.log(tfInt)) * analyzer.vocabulary.get(id).getIDF());
+                    Double sublintf = 1 + Math.log(p.tokenToTF.get(str));
+                    Double tfidf = sublintf * analyzer.vocabulary.get(id).getIDF();
+                    p.idToTF_IDF.put(id, tfidf);
                 }
             }
+
         }
 
         //FIND MOST SIMILAR
@@ -500,69 +551,69 @@ public class MyAnalyzer {
                 return -1;
             }
         });
-       // PriorityQueue<Post> similarTo1 = new PriorityQueue<>(new Comparator<Post>() {
-       //     @Override
-       //     public int compare(Post o, Post t1) {
-       //         double osim = queries.get(1).similiarity(o);
-       //         double t1sim = queries.get(1).similiarity(t1);
-       //         if (osim > t1sim) {
-       //             return 1;
-       //         }
-       //         else if (osim == t1sim) {
-       //             return 0;
-       //         }
-       //         return -1;
-       //     }
-       // });
-       // PriorityQueue<Post> similarTo2 = new PriorityQueue<>(new Comparator<Post>() {
-       //     @Override
-       //     public int compare(Post o, Post t1) {
-       //         double osim = queries.get(2).similiarity(o);
-       //         double t1sim = queries.get(2).similiarity(t1);
-       //         if (osim > t1sim) {
-       //             return 1;
-       //         }
-       //         else if (osim == t1sim) {
-       //             return 0;
-       //         }
-       //         return -1;
-       //     }
-       // });
-       // PriorityQueue<Post> similarTo3 = new PriorityQueue<>(new Comparator<Post>() {
-       //     @Override
-       //     public int compare(Post o, Post t1) {
-       //         double osim = queries.get(3).similiarity(o);
-       //         double t1sim = queries.get(3).similiarity(t1);
-       //         if (osim > t1sim) {
-       //             return 1;
-       //         }
-       //         else if (osim == t1sim) {
-       //             return 0;
-       //         }
-       //         return -1;
-       //     }
-       // });
-       // PriorityQueue<Post> similarTo4 = new PriorityQueue<>(new Comparator<Post>() {
-       //     @Override
-       //     public int compare(Post o, Post t1) {
-       //         double osim = queries.get(4).similiarity(o);
-       //         double t1sim = queries.get(4).similiarity(t1);
-       //         if (osim > t1sim) {
-       //             return 1;
-       //         }
-       //         else if (osim == t1sim) {
-       //             return 0;
-       //         }
-       //         return -1;
-       //     }
-       // });
+         PriorityQueue<Post> similarTo1 = new PriorityQueue<>(new Comparator<Post>() {
+             @Override
+             public int compare(Post o, Post t1) {
+                 double osim = queries.get(1).similiarity(o);
+                 double t1sim = queries.get(1).similiarity(t1);
+                 if (osim > t1sim) {
+                     return 1;
+                 }
+                 else if (osim == t1sim) {
+                     return 0;
+                 }
+                 return -1;
+             }
+         });
+         PriorityQueue<Post> similarTo2 = new PriorityQueue<>(new Comparator<Post>() {
+             @Override
+             public int compare(Post o, Post t1) {
+                 double osim = queries.get(2).similiarity(o);
+                 double t1sim = queries.get(2).similiarity(t1);
+                 if (osim > t1sim) {
+                     return 1;
+                 }
+                 else if (osim == t1sim) {
+                     return 0;
+                 }
+                 return -1;
+             }
+         });
+         PriorityQueue<Post> similarTo3 = new PriorityQueue<>(new Comparator<Post>() {
+             @Override
+             public int compare(Post o, Post t1) {
+                 double osim = queries.get(3).similiarity(o);
+                 double t1sim = queries.get(3).similiarity(t1);
+                 if (osim > t1sim) {
+                     return 1;
+                 }
+                 else if (osim == t1sim) {
+                     return 0;
+                 }
+                 return -1;
+             }
+         });
+         PriorityQueue<Post> similarTo4 = new PriorityQueue<>(new Comparator<Post>() {
+             @Override
+             public int compare(Post o, Post t1) {
+                 double osim = queries.get(4).similiarity(o);
+                 double t1sim = queries.get(4).similiarity(t1);
+                 if (osim > t1sim) {
+                     return 1;
+                 }
+                 else if (osim == t1sim) {
+                     return 0;
+                 }
+                 return -1;
+             }
+         });
 
         ArrayList<PriorityQueue<Post>> queues = new ArrayList<>();
         queues.add(similarTo0);
-       // queues.add(similarTo1);
-       // queues.add(similarTo2);
-       // queues.add(similarTo3);
-       // queues.add(similarTo4);
+        queues.add(similarTo1);
+        queues.add(similarTo2);
+        queues.add(similarTo3);
+        queues.add(similarTo4);
 
         for (Post p : analyzer.m_reviews) {
             for (PriorityQueue q : queues) {
@@ -573,14 +624,16 @@ public class MyAnalyzer {
             }
         }
 
-        for (int i = 0; i < 1; i ++) {
+        for (int i = 0; i < 5; i ++) {
             PriorityQueue<Post> q = queues.get(i);
             File qFile = new File("similarTo" + i + ".txt");
             PrintWriter qWriter = new PrintWriter(qFile);
             qWriter.println("COMPARING TO : " + queries.get(i).getContent());
             qWriter.println();
-            for (Post s : q) {
-                qWriter.println(s.getContent());
+            for (Post t : q) {
+                qWriter.println(t.getContent());
+                qWriter.println();
+                qWriter.println("SCORE OF ABOVE: " + queries.get(i).similiarity(t));
                 qWriter.println();
             }
             qWriter.close();
@@ -588,4 +641,5 @@ public class MyAnalyzer {
 
     }
 }
+
 

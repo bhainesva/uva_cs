@@ -1,0 +1,31 @@
+nt,48297.0
+good,46806.0
+food,46168.0
+NUM,44920.0
+great,34293.0
+it was,31916.0
+and the,31817.0
+of the,31642.0
+order,31258.0
+time,30737.0
+wait,28864.0
+this place,27228.0
+it s,25850.0
+servic,25566.0
+back,24607.0
+in the,24114.0
+friend,23540.0
+the food,22934.0
+love,22773.0
+on the,22547.0
+and i,22507.0
+ve,20605.0
+delici,20242.0
+do nt,19840.0
+i was,19625.0
+restaur,19431.0
+if you,19136.0
+for the,19025.0
+fri,18998.0
+for a,18885.0
+eat,18829.0
