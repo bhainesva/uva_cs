@@ -1,0 +1,107 @@
+\documentclass[paper=a4, fontsize=11pt]{jhwhw} % A4 paper and 11pt font size
+\usepackage{amsmath,amsfonts,amsthm, amssymb} % Math packages
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{color}
+\newcommand\SetSymbol[1][]{\:#1\vert\:}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\Set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\begin{document}
+\title{Advanced Linear Algebra - Assignment \# 7}
+\author{Ben Haines}
+
+\problem{1}
+Let $V$ and $W$ be two finite-dimensional vector spaces, $S = \Set{x_1 , \ldots , x_n}$ a linearly independent
+subset of $V$ with $n$ distinct elements (i.e. $|S| = n$) and $(y_1 , \ldots, y_n)$ an arbitrary n-tuple of vectors in $W$.
+Prove or disprove: There exists a linear map $T : V \to W$ with $T(x_i) = y_i$  for all $i = 1, \ldots, n$ .
+Remark: "Disprove" means "give a counter-example" which shows that the claim is wrong (if that is what you think).
+\solution
+$S$ is a linearly independent subset of $V$. Thus we can expand $S$ to $S' = \Set{x_1, \ldots, x_n, \ldots, x_m}$ where $S'$ is a basis of $V$. Then define the map $R: S'\to W$ by:
+\[
+    R(x_i) = \left\{\def\arraystretch{1.2}%
+    \begin{array}{@{}c@{\quad}l@{}}
+    y_i & \text{if $i\le n$}\\
+    y_1 & \text{otherwise}\\
+    \end{array}\right.
+\]
+
+By proposition 2.1.5 there exists a linear transformation $T : V\to W$ with $T_{|S'} = R$. In particular, $T(x_i) = y_i$ for all $i = 1, \ldots, n$.
+\problem{2}
+Give an alternative proof of Theorem 1.5.2 which does NOT use the second isomorphism theorem.
+Start with the hint for Exercise 29(a) given in [FIS] on page 57.
+
+Statement of 1.5.2: If $U$, $W$ are finite-dimensional subspaces of $V$, then dim($U + W$) = dim($U$) + dim($W$) - dim($U\cap W$). 
+\solution
+Let $B = \Set{r_1, \ldots, r_k}$ be a basis for $U\cap W$. It can be extended to a basis $\Set{r_1, \ldots, r_k, u_1 \ldots, u_m}$ for $U$ and to a basis $\Set{r_1, \ldots, r_k, w_1, \ldots, w_p}$ of $W$. The claim is that the union of these bases forms a basis for $U+W$. Assume that:
+$$\sum_{i=1}^{k} a_ir_i  + \sum_{i=1}^{m} b_iu_i + \sum_{i=1}^{p} c_iw_i = 0$$
+Then define $v$ by:
+$$v = \sum_{i=1}^{m} b_iu_i = -\sum_{i=1}^{k} a_ir_i - \sum_{i=1}^{p} c_iw_i$$
+We know that $\sum_{i=1}^{m} b_iu_i \in U$ and $-\sum_{i=1}^{k} a_ir_i - \sum_{i=1}^{p} c_iw_i \in W$. Thus $v\in U\cap W$ so we can write it as $\sum_{i=1}^{k} d_ir_i$. Then
+$$\sum_{i=1}^{k} d_ir_i - \sum_{i=1}^{m} b_iu_i = 0$$
+Each $r_i, u_i$ is an element of the basis for $U$. If $v$ is nonzero then clearly $b_i$ must be nonzero for some $i$. However, this would imply that the sum above has a nonzero coefficient which means that the basis for $U$ is not linearly independent. Thus $v = 0$. Then by definition of bases we know that $a_i = b_i = c_i = 0$ for all $i$. Thus the proposed basis for $U+W$ is linearly independent. 
+
+Select any $v\in U + W$. $v$ can be written as $u + w$ for some $u\in U$ and $w \in W$. 
+$$u = \sum_{i=1}^{k} a_ir_i + \sum_{i=1}^{m} b_iu_i \text{      and      }  q = \sum_{i=1}^{k} c_ir_i + \sum_{i=1}^{p} d_iw_i$$
+so
+$$v = \sum_{i=1}^{k} (a_i+c_i)r_i + \sum_{i=1}^{m} b_iu_i + \sum_{i=1}^{p} d_iw_i$$
+Thus the proposed basis spans $U + W$ and is truly a basis. There are $k + m + p$ elements in the basis so
+$$\text{dim}(U + W) = k + m + p = (k + m) + (k + p) - k = \text{dim}(U) + \text{dim}(W) - \text{dim}(U\cap W)$$
+
+\problem{3}
+Prove the third isomorphism theorem, which is Theorem 2.2.10 from class.
+Do NOT assume that the vector spaces involved are finite-dimensional.
+\solution
+Consider $T: V/U \to V/W$ defined by $x + U \mapsto x + W$.
+\begin{itemize}
+    \item Well Defined\\
+        Assume that $x + U = y + U$. By equivalent conditions for equality of cosets $x-y\in U$. We know $U\subseteq W$ so $x-y\in W \implies x + W = y + W$. Thus $x + U = y + U \implies T(x) = T(y)$. 
+
+    \item Linear\\
+        $T((x + U) + (y + U)) = T(x + y + U) = x + y + W = x + W + y + W = T(x + U) + T(y + U)$
+        $T(c(x + U)) = T(cx + U) = cx + W = c(x + W) = cT(x + U)$
+\end{itemize}
+
+Now we determine $N(T)$. $T(x + U) = 0 + W \iff x\in W$ so $N(T) = W/U$. Next we find $R(T)$. By definition $R(T) \subseteq V/W$. If $v + W$ is an arbitrary element of $V/W$ then $v + W = T(v + U)$ where $v + U \in V/U$. Thus $R(T) = V/W$. Apply the first isomorphism theorem to conclude that $V/U/W/U \cong V/W$. 
+\problem{4}
+\part
+Prove that there exists a linear transformation $T: R^2 \to R^3$ such that $T(l,l) = (1,0,2)$ and $T(2,3) = (1,-1,4)$. What is $T(8,11)$?
+\part
+Is there a linear transformation $T: R^3\to R^2$ such that $T(l, 0,3) = (l,1)$ and $T(-2,0,-6) = (2,l)$?
+\solution
+\begin{itemize}
+    \item [(a)] First show that $\Set{b_1 = (1, 1), b_2 = (2, 3)}$ is a basis for $R^2$. They are not multiples of each other so they are linearly independent. The dimension of $R^2$ is 2 so they must be a basis. By proposition 2.1.5 there does exist a map $T$ with the desired properties. We can see that $(8, 11) = 2b_1 + 3b_2$. Thus by the construction of $T$ from the proof of 2.1.5 we know that $T(8, 11) = 2T(b_1) + 3T(b_2) = 2(1, 0, 2) + 3(1, -1, 4) = (5, -3, 16)$.
+    \item [(b)] It is not possible. Assume $T$ is some linear map with the properties given above. Then
+        $T(0) = T(2(1, 0, 3)+ (-2, 0, -6)) = 2T(1, 0, 3) + T(-2, 0, 6) = (4, 2) \not= (0, 0)$
+        Thus $T$ cannot be linear. 
+\end{itemize}
+
+\problem{5}
+Let $V$ and $W$ be vector spaces, and let $T$ and $U$ be nonzero linear
+transformations from $V$ into $W$, If $R(T) \cap R(U) = \Set{0}$, prove that
+$\Set{T, U}$ is a linearly independent subset of $\mathcal L(V, W)$.
+\solution
+Assume that $a_1T + a_2U = 0$. This implies that for any $v\in V$:
+$$a_1T(v) = - a_2U(v) \implies T(a_iv) = U(-a_2u)$$
+By definition $T(a_iv) \in R(T)$ and $U(-a_2u)\in R(U)$. We know $R(T) \cap R(U) = \Set{0}$ so $T(a_iv) = U(-a_2u) = 0$. If $a_1$ and $a_2$ are not equal to 0 then $\forall v\in V, T(v) = U(v) = 0$. However, we know that $T$ and $U$ are nonzero. Thus $a_1 = a_2 = 0$ and so $U$ and $T$ are linearly independent. 
+
+\problem{6}
+For each of the following linear transformations T, determine whether
+T is invertible and justify your answer.
+\begin{itemize}
+    \item [(a)] $R^2 \to R^3$ defined by $T(a_1,a_2) = (a_1 — 2a_2,a2,3a_1 + 4a_2)$.
+    \item [(c)] $R^2 \to R^3$ defined by $T(a_1,a_2,a_3) = (3a_1 — 2a_3,a2,3a_1 + 4a_2)$.
+    \item [(d)] $P_3(R)\to P_3(R)$ defined by $T(p(x)) = p'(x)$.
+    \item [(f)] $M_{2\times 2}(R) \to M_{2\times 2}(R)$ defined by $T(\begin{smallmatrix} a&b\\ c&d \end{smallmatrix}) = \left (\begin{smallmatrix} a+b&a\\ c&c+d \end{smallmatrix}\right )$.
+\end{itemize}
+\solution
+\begin{itemize}
+    \item [(a)] $T$ is not invertible because it is not surjective. If $T(a_1, a_2) = (1, 0, 1)$ this implies $a_2 = 0 \implies a_1 = 1$ and $a_1 = \frac{1}{3}$ which is impossible.
+    \item [(c)] Assume that $T(x) = 0$. Then $a_2 = 0 \implies a_3 = 0 \implies a_2 = 0 \implies$ $T$ is injective. For any $(x, y, z)\in R^3$ let $a_1 = \frac{z - 4y}{3}, a_2 = y, a_3 = \frac{z-4y-x}{2}$. Then $T(a_1, a_2, a_3) = (x, y, z)$. Thus $T$ is onto which means that $T$ is bijective and thus invertible. 
+    \item [(d)] $T(3) = T(4)$. Thus $T$ is not injective and so it cannot be invertible. 
+\item [(f)] $T(x) = 0 \implies c = a = 0 \implies b = d = 0$. Thus $T$ is injective. For any $M = \left (\begin{smallmatrix} w&x\\ y&z \end{smallmatrix}\right ) \in M_{2\times 2}(R)$ we have $T(\begin{smallmatrix} x&w-x\\ y&z-y \end{smallmatrix}) = M$. Thus $T$ is onto which means that it is bijective and thus invertible. 
+\end{itemize}
+\end{document}
