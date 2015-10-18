@@ -19,7 +19,8 @@
     \item [1.1] Compute $P(X \le 2, Y > 1)$.
         $$P(X \le 2, Y > 1) = P(X = 1, Y = 2) + P(X = 2, Y = 2) = \frac{1}{12}$$
     \item [1.2] Compute marginal probability mass function for $X$ and $Y$.
-        $$IDK MAN DO THIS$$
+        $$f_X(1)  = \frac{1}{3} + \frac{1}{12} = \frac{5}{12}, f_X(2) = \frac{1}{6}, f_X(4) = \frac{1}{12} + \frac{1}{3} = \frac{5}{12}$$
+        $$f_Y(1)  = \frac{1}{3} + \frac{1}{6} + \frac{1}{12} = \frac{7}{12}, f_Y(2) = \frac{1}{12} + \frac{1}{3} = \frac{5}{12}$$
     \item [1.3] Compute $P(Y = 2|X = 1)$.
         $$P(Y = 2|X = 1) = \frac{P(Y = 2, X = 1)}{P(X = 1)} = \frac{1/12}{1/3 + 1/12} = \frac{1}{5}$$
     \item [1.4] Are $X$ and $Y$ independent?\\
@@ -112,4 +113,18 @@ $$p(w|d) = \frac{\lvert d\rvert}{\lvert d \rvert + \mu}\frac{c(w, d)}{\lvert d\r
 In the case of an unseen word $c(w, d) = 0$. This implies that
 $$p(w|d) = \alpha_d p(w|REF) = \frac{\mu}{\lvert d\rvert + \mu}p(w|REF)\\
 \implies \alpha_d = \frac{\mu}{\lvert d\rvert + \mu}$$
+
+\section*{Bonus Question: $\alpha_d$ in Language Model Ranking Modules}
+\solution
+\begin{itemize}
+    \item Linear Interpolation Smoothing\\
+        We are given $p(w\mid d) = (1-\lambda)\frac{c(w,d)}{\lvert d\rvert} + \lambda p(w\mid REF)$.
+        \begin{align*}
+            \alpha_d &= \frac{1 - \sum_{\text{w seen}} p(w\mid d)}{\sum_{\text{w unseen}} p(w\mid REF)}\\
+                     &= \frac{\sum_{\text{w unseen}} p(w\mid d)}{\sum_{\text{w unseen}} p(w\mid REF)}\\
+                     &= \frac{\sum_{\text{w unseen}} (1-\lambda)\frac{c(w,d)}{\lvert d\rvert} + \lambda p(w\mid REF)}{\sum_{\text{w unseen}} p(w\mid REF)}\\
+                     &= \frac{\sum_{\text{w unseen}} \lambda p(w\mid REF)}{\sum_{\text{w unseen}} p(w\mid REF)}\\
+                     &= \lambda
+        \end{align*}
+\end{itemize}
 \end{document}
