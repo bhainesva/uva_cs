@@ -15,6 +15,7 @@
 \author{Ben Haines}
 
 \section*{1. Joint, Marginal, and Conditional Probabilities} 
+\solution
 \begin{enumerate}
     \item [1.1] Compute $P(X \le 2, Y > 1)$.
         $$P(X \le 2, Y > 1) = P(X = 1, Y = 2) + P(X = 2, Y = 2) = \frac{1}{12}$$
@@ -57,7 +58,6 @@
         \end{align*}
         so $\mathrm{Var}[X|Y = 2] = 13 - \frac{17}{5}^2 = 1.44$
 \end{enumerate}
-\solution
 \section*{2. Proof of Probabilistic Ranking Principle}
 \solution
 Assume that the system returns $n$ results. If the user reads all of the results or none of the results then it is clear the ranking doesn't matter. So we assume that the user reads some number $r\in \mathbb N$ of the results and then stops. We will show that changing the ordering of the results (by swapping two results) can only make the ordering worse from a risk minimization perspective. First consider the risk of presenting an irrelevant document. This risk is calculated as:
@@ -87,7 +87,7 @@ $$\frac{\partial L}{\partial \sigma^2} = -\frac{n}{2\sigma^2} + \frac{1}{(2\sigm
 
 In order for this to be zero we must have
 \begin{align*}
-    \frac{1}{2\sigma^2}[\frac{1}{\sigma^2}\sum_{i=1}^{n}(x_i - \mu)^2] &= n\\
+    \frac{1}{\sigma^2}\sum_{i=1}^{n}(x_i - \mu)^2 &= n\\
     \implies \sigma^2 &= \frac{1}{n}\sum_{i=1}^{n}(x_i - \mu)^2\\
     \implies \hat\sigma &= \sqrt{\frac{1}{n}\sum_{i=1}^{n}(x_i - \hat\mu)^2}
 \end{align*}
@@ -126,5 +126,14 @@ $$p(w|d) = \alpha_d p(w|REF) = \frac{\mu}{\lvert d\rvert + \mu}p(w|REF)\\
                      &= \frac{\sum_{\text{w unseen}} \lambda p(w\mid REF)}{\sum_{\text{w unseen}} p(w\mid REF)}\\
                      &= \lambda
         \end{align*}
+    \item Additive Smoothing\\
+        We are given $p(w\mid d) = \frac{c(w,d) + \delta}{\lvert d\rvert + \lvert V\rvert \delta}$.
+        \begin{align*}
+            \alpha_d &= \frac{1 - \sum_{\text{w seen}} p(w\mid d)}{\sum_{\text{w unseen}} p(w\mid REF)}\\
+                     &= \frac{\sum_{\text{w unseen}} p(w\mid d)}{\sum_{\text{w unseen}} p(w\mid REF)}\\
+                     &= \frac{\sum_{\text{w unseen}} \frac{c(w,d) + \delta}{\lvert d\rvert + \lvert V\rvert \delta}}{\sum_{\text{w unseen}} p(w\mid REF)}
+        \end{align*}
+        Then let $u$ be the number of unseen $w$. The denominator of the fraction is equal to the amount borrowed from the seen terms. This is equal to the area between the unsmoothed and smoothed probability curve over the seen terms. So it simplifies to
+        $$\frac{u\frac{\delta}{\lvert d\rvert + \lvert V\rvert \delta}}{\sum_{\text{w seen}}\left [\frac{c(w, d)}{\lvert d\rvert} - \frac{c(w, d) + \delta}{\lvert d\rvert + \lvert V\rvert \delta}\right ]}$$
 \end{itemize}
 \end{document}
