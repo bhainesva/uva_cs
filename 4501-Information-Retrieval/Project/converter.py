@@ -1,3 +1,4 @@
+import xml.etree.ElementTree
 from lxml import etree
 import urllib
 
@@ -20,11 +21,14 @@ class Client(object):
         ))
 
         url = 'http://api.wolframalpha.com/v2/query?' + query
-        tree = etree.parse(url)
+        tree = etree.parse(urllib.urlopen(url))
+        #tree = xml.etree.ElementTreeetree.parse(url)
         l = tree.xpath("//pod[contains(@title, 'Alternate form')]")[0]
         NSMAP = {'mw':'http://www.w3.org/1998/Math/MathML'}
         subpods = l.findall('.//mw:math', namespaces=NSMAP)
-        forms = [self.mathml_to_latex(pod) for pod in subpods]
+        forms = []
+        for pod in subpods:
+            forms.append(self.mathml_to_latex(pod))
 
         return forms
 
