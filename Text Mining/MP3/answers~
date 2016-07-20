@@ -1,0 +1,156 @@
+PART1:
+
+Top 20 words
+Information Gain
+bland,0.009167612900367605
+nt,0.009035737647380748
+delici,0.008776615054187586
+mediocr,0.008657551184061085
+perfect,0.007792680341995428
+decent,0.007537700642174128
+rude,0.007534571786403821
+amaz,0.00727823866879207
+bad,0.007184146636854183
+overpr,0.006393090036300508
+disappoint,0.006289181406742894
+terribl,0.0062236667088956255
+averag,0.00613050747899313
+favorit,0.006109332055691585
+worst,0.005925068002618938
+meh,0.005510746175953485
+hype,0.00537816066751462
+overr,0.005315133469666167
+love,0.004868503826811366
+horribl,0.0047481857998604715
+
+
+Chi Squared
+bland,1360.3090985224105
+mediocr,1295.7174698304425
+rude,1126.644523200881
+decent,1059.3400447578042
+nt,1057.5124083183325
+bad,961.6817692935142
+overpr,952.4483489171821
+terribl,923.2647816600902
+delici,919.9037198423033
+worst,886.6267240379478
+averag,880.6763556394734
+disappoint,836.0953746908452
+meh,822.5145366305233
+overr,796.895543440477
+perfect,778.157788193341
+hype,759.4438242263574
+amaz,747.8643453567388
+horribl,709.3042549748862
+lack,649.8039186943138
+poor,630.3760103138884
+
+Size of finalized controlled vocabulary - 1780
+
+Code:
+    public double InformationGain(Token tkn) {
+        double term1 = 0.0;
+        double term2 = 0.0;
+        double term3 = 0.0;
+
+        //Calc probabilities
+        double y1_given_t = tkn.getPosDF()/tkn.getDF();
+        double y0_given_t = 1 - y1_given_t;
+        double y1_given_no_t = (numPos - tkn.getPosDF())/(m_reviews.size() - tkn.getDF());
+        double y0_given_no_t = 1 - y1_given_no_t;
+        double p_t = tkn.getDF()/m_reviews.size();
+        double p_no_t = 1 - p_t;
+
+        //Calculate term 1
+        term1 += p_y0 * Math.log(p_y0);
+        term1 += p_y1 * Math.log(p_y1);
+
+        //Calculate term 2
+        if (y0_given_t != 0) {
+            term2 += y0_given_t * Math.log(y0_given_t);
+        }
+        if (y1_given_t != 0) {
+            term2 += y1_given_t * Math.log(y1_given_t);
+        }
+
+        term2 *= p_t;
+
+        //Calculate term3
+        if (y0_given_no_t != 0) {
+            term3 += y0_given_no_t * Math.log(y0_given_no_t);
+        }
+        if (y1_given_t != 0) {
+            term3 += y1_given_no_t * Math.log(y1_given_no_t);
+        }
+
+        term3 *= p_no_t;
+
+        return -term1 + term2 + term3;
+    }
+
+
+    public double ChiSquareScore(Token tkn) {
+        double A = tkn.getPosDF();
+        double B = numPos - A;
+        double C = tkn.getDF() - A;
+        double D = (m_reviews.size() - numPos) - C;
+
+        double numerator = (A + B + C + D) * Math.pow((A*D - B*C),2);
+        double denominator = (A + C) * (B + D) * (A + B) * (C + D);
+
+        return numerator / denominator;
+    }
+
+Size of corpus - 55860
+
+Part 2:
+Top 20 words
+Lowest Ratios ----------------
+agr,-4.08896626809487
+ine,-4.08896626809487
+conver,-3.4423391031698163
+sen,-3.4423391031698163
+tasteless,-2.7821668395147627
+unaccept,-2.749885644455242
+aok,-2.717486992760117
+overr,-2.4726931472074734
+uninspir,-2.465259385859568
+flavorless,-2.4478542987238665
+insult,-2.315732708474327
+stale,-2.2942385568537382
+unimpress,-2.2769768439641087
+mediocr,-2.1721336331580963
+rude,-2.1186646659153947
+bouncer,-2.056868352254339
+worst,-2.0512134123690915
+arrog,-2.0118860026007113
+lacklust,-2.000358989574732
+horribl,-2.0000557577140787
+
+Highest Ratios ----------------
+flawless,3.476356115850656
+radic,2.922411653682097
+unpretenti,2.488536103757392
+pur,2.3895433741137015
+molecular,2.3895433741137015
+gastronomi,2.3790830276887984
+unforgett,2.2796634695711386
+handsdown,2.2584229415611414
+luscious,2.2407546374278287
+mmmmm,2.0185805227373006
+kimch,2.0000786073519787
+scrumptious,1.994832005600136
+thee,1.8896724764875756
+achatz,1.88085265008446
+marvel,1.8512898706661058
+chee,1.8099343248768154
+canada,1.7381750662282744
+nom,1.6917065638310262
+mmmm,1.6767511504916008
+cali,1.6733151848577261
+
+2. fucking rip
+
+brute force running time - 8004412364
+proj running time - 335724263

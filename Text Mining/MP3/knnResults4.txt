@@ -1,0 +1,18 @@
+Input Query: I usually come here on friday or saturday nights with my friends, and its really crowded. Its a really cool atmosphere and we love coming here. Their pizzas and sweet potato fries are delicious! I love their food, its really good and theres a lot to choose from. Their desserts are definitely worth trying. Peach cobbler is a must!
+===========================
+
+Score: 0.35154052381851725
+Result: I love this place. But, I love it mid-Sunday afternoon when the brunch crowd has dispersed and the dinner crowd hasn't come in. Or, I love it on Thanksgiving night. Or, I love it at 2AM on a cold Saturday night. The staff is friendly - well, most of them - the food is good, and the drink selection is exciting. I love this place ... as does everyone else in the country. I'll always have my memories ...
+
+Score: 0.3946525035307547
+Result: Yes I have been to Smoque BBQ. The wait in line is worth it! The food is fabulous. I love their baby back ribs BBQ sauce was so good I bought a bottle home. I also like their peach cobbler side and the owner is a cool friendly guy.
+
+Score: 0.3946525035307547
+Result: Yes I have been to Smoque BBQ. The wait in line is worth it! The food is fabulous. I love their baby back ribs BBQ sauce was so good I bought a bottle home. I also like their peach cobbler side and the owner is a cool friendly guy.
+
+Score: 0.40094098450105714
+Result: Friendly service and wicked good BBQ.  It's a very small place so go early.  The brisket is the way to go.  Try the different sauces too.  And the peach cobbler was almost otherworldly good.
+
+Score: 0.40094098450105714
+Result: Friendly service and wicked good BBQ.  It's a very small place so go early.  The brisket is the way to go.  Try the different sauces too.  And the peach cobbler was almost otherworldly good.
+

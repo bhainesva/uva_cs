@@ -1,0 +1,7 @@
+what about the case where a tag appears in only one of the folds. then when we train it happens zero times and this makes its probability delta/0 = infinity. 
+
+really low occurrence things have really large probabilities everything is bad unless I take them out. 
+
+by adj do you mean JJ
+
+total false positives is equal to total false positives. Every time we guess a tag incorrectly we also miss the correct tag. 

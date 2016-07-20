@@ -1,0 +1,43 @@
+\begin{thebibliography}{1}
+
+\bibitem{yuan:layout}
+R.~Z. Chair, B.~Y. Reader, M.~T. Schellenberg, M.~T. Schellenberg, and
+  R.~Zanibbi.
+\newblock Layout-based substitution tree indexing and retrieval for
+  mathematical expressions, 2011.
+
+\bibitem{kolhase:mathwebsearch}
+M.~Kohlhase and I.~Sucan.
+\newblock A search engine for mathematical formulae.
+\newblock In J.~Calmet, T.~Ida, and D.~Wang, editors, {\em Artificial
+  Intelligence and Symbolic Computation}, volume 4120 of {\em Lecture Notes in
+  Computer Science}, pages 241--253. Springer Berlin Heidelberg, 2006.
+
+\bibitem{youssef:library}
+B.~Miller and A.~Youssef.
+\newblock Technical aspects of the digital library of mathematical functions.
+\newblock {\em Annals of Mathematics and Artificial Intelligence},
+  38(1-3):121--136, 2003.
+
+\bibitem{miner:approach}
+R.~Miner and R.~Munavalli.
+\newblock An approach to mathematical search through query formulation and data
+  normalization.
+\newblock In M.~Kauers, M.~Kerber, R.~Miner, and W.~Windsteiger, editors, {\em
+  Towards Mechanized Mathematical Assistants}, volume 4573 of {\em Lecture
+  Notes in Computer Science}, pages 342--355. Springer Berlin Heidelberg, 2007.
+
+\bibitem{kumar:structure}
+P.~Pavan~Kumar, A.~Agarwal, and C.~Bhagvati.
+\newblock A structure based approach for mathematical expression retrieval.
+\newblock In C.~Sombattheera, N.~Loi, R.~Wankar, and T.~Quan, editors, {\em
+  Multi-disciplinary Trends in Artificial Intelligence}, volume 7694 of {\em
+  Lecture Notes in Computer Science}, pages 23--34. Springer Berlin Heidelberg,
+  2012.
+
+\bibitem{zhong:cowpie}
+W.~Zhong.
+\newblock A novel similarity-search method for mathematical content in latex
+  markup and its implementation, 2015.
+
+\end{thebibliography}

@@ -1,0 +1,18 @@
+Input Query: I usually come here on friday or saturday nights with my friends, and its really crowded. Its a really cool atmosphere and we love coming here. Their pizzas and sweet potato fries are delicious! I love their food, its really good and theres a lot to choose from. Their desserts are definitely worth trying. Peach cobbler is a must!
+===========================
+
+Score: 0.43456095599621136
+Result: Good just expensive. We got carry out so that we could avoid the lines. We ordered chicken (7 out of 10), brisket (10), pork ribs (9) and peach cobbler. I usually love chicken but the ribs and brisket  were better. The peach cobbler was good but  a bit too sweet to finish it all.
+
+Score: 0.43456095599621136
+Result: Good just expensive. We got carry out so that we could avoid the lines. We ordered chicken (7 out of 10), brisket (10), pork ribs (9) and peach cobbler. I usually love chicken but the ribs and brisket  were better. The peach cobbler was good but  a bit too sweet to finish it all.
+
+Score: 0.4401059175420181
+Result: Everything was very good. We had the peach sangria and lots of plates. I can't remember everything but we had asparagus, spicy potatoes, beef tenderloin which was awesome!, shrimp, deserts. Definitely had a lot more plates but everything just seemed delicious. Cool place with a lively, vibrant atmosphere and attentive service.
+
+Score: 0.44444218115441764
+Result: Delicious! Peach cobbler is wonderful! Prices are reasonable. But the lines are long. Guess that's what happens when you have wonderful food.
+
+Score: 0.44444218115441764
+Result: Delicious! Peach cobbler is wonderful! Prices are reasonable. But the lines are long. Guess that's what happens when you have wonderful food.
+

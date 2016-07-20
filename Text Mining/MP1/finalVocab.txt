@@ -1,0 +1,3538 @@
+tabl,6758.0
+make,6529.0
+menu,6097.0
+chees,6066.0
+tast,6042.0
+chicago,5826.0
+amaz,5816.0
+thing,5769.0
+nice,5644.0
+peopl,5454.0
+pretti,5447.0
+seat,5396.0
+night,5298.0
+perfect,4969.0
+recommend,4917.0
+drink,4825.0
+flavor,4811.0
+price,4660.0
+bar,4658.0
+meal,4654.0
+small,4517.0
+dinner,4500.0
+favorit,4461.0
+bit,4450.0
+worth,4424.0
+made,4210.0
+enjoy,4113.0
+side,4101.0
+experi,4092.0
+chicken,4072.0
+long,4013.0
+pizza,3980.0
+top,3942.0
+fresh,3942.0
+star,3851.0
+line,3836.0
+serv,3782.0
+review,3775.0
+lot,3697.0
+day,3682.0
+plate,3674.0
+atmospher,3635.0
+sweet,3537.0
+ll,3532.0
+minut,3477.0
+tasti,3458.0
+ca,3374.0
+staff,3273.0
+expect,3272.0
+visit,3244.0
+special,3214.0
+feel,3209.0
+reserv,3149.0
+awesom,3140.0
+french,3136.0
+lunch,3100.0
+hour,3092.0
+salad,3061.0
+big,3001.0
+high,2987.0
+end,2985.0
+bread,2943.0
+excel,2942.0
+wine,2938.0
+bad,2925.0
+disappoint,2906.0
+meat,2892.0
+hot,2890.0
+pork,2890.0
+server,2872.0
+share,2850.0
+start,2810.0
+portion,2793.0
+busi,2707.0
+sit,2661.0
+dessert,2660.0
+live,2634.0
+potato,2595.0
+find,2567.0
+burger,2558.0
+crowd,2557.0
+spot,2516.0
+thought,2515.0
+cook,2507.0
+beef,2506.0
+kind,2494.0
+full,2439.0
+person,2428.0
+tapa,2426.0
+walk,2408.0
+dine,2406.0
+group,2371.0
+beer,2368.0
+huge,2357.0
+larg,2330.0
+work,2319.0
+super,2304.0
+date,2291.0
+bbq,2281.0
+quick,2271.0
+sandwich,2269.0
+egg,2258.0
+area,2207.0
+fantast,2193.0
+decid,2192.0
+breakfast,2168.0
+crust,2152.0
+open,2133.0
+deep,2132.0
+sausag,2088.0
+fan,2079.0
+check,2072.0
+waiter,2069.0
+qualiti,2057.0
+stop,2033.0
+toast,2019.0
+year,2009.0
+park,2006.0
+fish,1979.0
+half,1978.0
+citi,1956.0
+put,1949.0
+brunch,1948.0
+loud,1941.0
+fun,1940.0
+pack,1927.0
+happi,1921.0
+style,1920.0
+rib,1918.0
+crispi,1915.0
+select,1910.0
+shrimp,1897.0
+spici,1893.0
+italian,1886.0
+absolut,1871.0
+call,1858.0
+week,1856.0
+parti,1846.0
+list,1827.0
+attent,1812.0
+home,1811.0
+size,1811.0
+coupl,1801.0
+left,1796.0
+appet,1789.0
+arriv,1788.0
+sushi,1762.0
+surpris,1741.0
+waitress,1729.0
+bite,1717.0
+insid,1706.0
+bacon,1703.0
+hand,1703.0
+item,1700.0
+tomato,1693.0
+option,1693.0
+told,1692.0
+final,1682.0
+impress,1652.0
+chocol,1650.0
+offer,1648.0
+part,1647.0
+weekend,1635.0
+choic,1634.0
+fill,1622.0
+dip,1618.0
+onion,1614.0
+ate,1606.0
+found,1602.0
+brisket,1601.0
+close,1588.0
+bean,1582.0
+point,1575.0
+room,1574.0
+garlic,1556.0
+cool,1549.0
+la,1542.0
+saturday,1540.0
+light,1538.0
+sat,1537.0
+total,1534.0
+red,1530.0
+earli,1530.0
+yummi,1526.0
+wing,1518.0
+town,1515.0
+wrong,1509.0
+door,1504.0
+steak,1492.0
+decor,1483.0
+felt,1475.0
+piec,1459.0
+tender,1458.0
+mouth,1454.0
+locat,1451.0
+decent,1449.0
+french toast,1445.0
+finish,1436.0
+bring,1430.0
+guy,1428.0
+rice,1425.0
+return,1423.0
+real,1422.0
+trip,1411.0
+prepar,1407.0
+cocktail,1406.0
+leav,1404.0
+mac,1396.0
+entre,1393.0
+pepper,1388.0
+frite,1379.0
+dog,1363.0
+gave,1362.0
+chef,1353.0
+regular,1351.0
+sangria,1341.0
+slice,1337.0
+mind,1335.0
+diner,1334.0
+rememb,1333.0
+includ,1326.0
+fast,1325.0
+suggest,1324.0
+amount,1317.0
+water,1316.0
+mayo,1310.0
+music,1305.0
+street,1303.0
+pasta,1300.0
+NUMpm,1300.0
+free,1298.0
+goat,1296.0
+incred,1294.0
+talk,1293.0
+oyster,1292.0
+corn,1282.0
+mushroom,1277.0
+crisp,1273.0
+ambianc,1264.0
+move,1260.0
+stuf,1253.0
+miss,1247.0
+roast,1247.0
+wo,1245.0
+short,1245.0
+care,1238.0
+grill,1235.0
+mix,1230.0
+yelp,1226.0
+guess,1221.0
+heard,1220.0
+high recommend,1219.0
+pick,1217.0
+brought,1216.0
+season,1214.0
+smoke,1213.0
+interest,1196.0
+head,1193.0
+manag,1191.0
+glass,1188.0
+deal,1186.0
+white,1184.0
+sunday,1181.0
+fine,1177.0
+extrem,1167.0
+fact,1167.0
+salti,1164.0
+cream,1160.0
+hous,1143.0
+bowl,1141.0
+green,1136.0
+pay,1135.0
+coffe,1132.0
+sashimi,1131.0
+eaten,1129.0
+hit,1125.0
+extra,1119.0
+cut,1117.0
+girl,1113.0
+pull,1111.0
+cold,1103.0
+space,1103.0
+warm,1102.0
+read,1102.0
+friday,1102.0
+varieti,1099.0
+stand,1099.0
+bill,1097.0
+cake,1097.0
+soup,1094.0
+joint,1091.0
+butter,1090.0
+stuff,1086.0
+type,1082.0
+complet,1079.0
+crunchi,1073.0
+famili,1066.0
+uniqu,1064.0
+prefer,1064.0
+vegetarian,1063.0
+melt,1041.0
+show,1030.0
+local,1028.0
+add,1026.0
+front,1026.0
+honest,1024.0
+thin,1023.0
+expens,1023.0
+dri,1022.0
+hear,1022.0
+custom,1022.0
+cheap,1021.0
+sampl,1016.0
+split,1013.0
+waffl,1011.0
+veggi,1010.0
+set,1002.0
+orlean,1001.0
+rest,996.0
+mention,993.0
+plenti,987.0
+hype,985.0
+turn,975.0
+die,969.0
+truffl,969.0
+smoqu,968.0
+wow,966.0
+kitchen,962.0
+fair,959.0
+glad,957.0
+husband,946.0
+slight,941.0
+hot dog,938.0
+bartend,937.0
+lou,933.0
+life,933.0
+boyfriend,931.0
+mango,925.0
+ago,923.0
+ice,922.0
+grit,921.0
+jam,920.0
+averag,919.0
+excit,918.0
+cafe,918.0
+hostess,918.0
+run,917.0
+thick,917.0
+basic,915.0
+salmon,915.0
+readi,915.0
+taco,913.0
+pickl,912.0
+juici,908.0
+stay,908.0
+pricey,906.0
+pomm,901.0
+base,899.0
+hungri,897.0
+combin,896.0
+tip,895.0
+watch,893.0
+rich,891.0
+consist,888.0
+pull pork,886.0
+world,885.0
+plan,885.0
+choos,883.0
+problem,878.0
+wrap,878.0
+satisfi,876.0
+bottl,876.0
+note,870.0
+sound,869.0
+roll,867.0
+salt,865.0
+recent,861.0
+yum,859.0
+knew,858.0
+small plate,858.0
+simpl,855.0
+ingredi,855.0
+soft,850.0
+liter,849.0
+comfort,848.0
+duck,842.0
+crave,840.0
+portillo,839.0
+toro,838.0
+tuna,838.0
+pomm frite,838.0
+ad,836.0
+textur,829.0
+heaven,827.0
+rabbit,826.0
+past,824.0
+birthday,822.0
+sort,817.0
+vegan,814.0
+month,814.0
+rate,812.0
+compar,807.0
+wall,802.0
+solid,802.0
+convers,798.0
+creami,796.0
+dress,794.0
+damn,794.0
+lack,793.0
+tini,788.0
+chili,787.0
+word,785.0
+money,785.0
+tradit,784.0
+popular,782.0
+de,776.0
+write,775.0
+crazi,775.0
+morn,771.0
+pequod,771.0
+complaint,771.0
+beauti,769.0
+seafood,769.0
+caramel,767.0
+oliv,767.0
+bland,766.0
+bake,766.0
+rave,765.0
+authent,764.0
+understand,763.0
+rush,757.0
+idea,755.0
+number,752.0
+vibe,750.0
+casual,748.0
+easi,747.0
+shake,744.0
+pleasant,742.0
+grab,738.0
+belli,735.0
+quartino,733.0
+oil,732.0
+min,731.0
+boston,728.0
+ketchup,727.0
+simpli,724.0
+classic,721.0
+chip,721.0
+owner,720.0
+cochon,718.0
+outstand,714.0
+typic,714.0
+pass,713.0
+babi,711.0
+wife,707.0
+chutney,706.0
+clean,704.0
+crab,703.0
+black,700.0
+notic,698.0
+man,696.0
+italian beef,696.0
+spanish,691.0
+hate,688.0
+benedict,682.0
+spice,682.0
+strong,681.0
+counter,681.0
+heavi,681.0
+cup,680.0
+slow,674.0
+treat,669.0
+seoul,668.0
+pie,668.0
+eye,667.0
+standard,664.0
+blu,663.0
+greasi,662.0
+sassi,661.0
+malnati,656.0
+kick,653.0
+play,653.0
+mango chutney,652.0
+ton,649.0
+jambalaya,649.0
+boy,647.0
+forget,645.0
+easili,642.0
+chorizo,642.0
+gumbo,642.0
+chanc,639.0
+blu jam,637.0
+st,635.0
+platter,634.0
+present,634.0
+cute,631.0
+general,628.0
+spinach,627.0
+pan,626.0
+level,624.0
+sad,623.0
+south,623.0
+parmesan,620.0
+dark,620.0
+saturday night,619.0
+suppos,619.0
+save,619.0
+heart,618.0
+addit,617.0
+tourist,615.0
+kid,613.0
+chop,613.0
+true,612.0
+beat,612.0
+generous,611.0
+nola,606.0
+combo,605.0
+fat,604.0
+face,602.0
+opinion,597.0
+realiz,597.0
+due,594.0
+ridicul,588.0
+kinda,587.0
+empti,583.0
+blue,583.0
+trendi,582.0
+spend,581.0
+iberico,580.0
+avoid,579.0
+vanilla,577.0
+remind,575.0
+mine,574.0
+deliv,574.0
+sweet potato,573.0
+scallop,572.0
+block,570.0
+knowledg,570.0
+girlfriend,569.0
+bunch,567.0
+avec,567.0
+meatbal,566.0
+prompt,565.0
+bone,565.0
+job,564.0
+ham,564.0
+paella,562.0
+ahead,560.0
+host,557.0
+accommod,557.0
+seoul sassi,556.0
+octopus,553.0
+matter,551.0
+gage,551.0
+savori,550.0
+afternoon,550.0
+figur,549.0
+goat chees,548.0
+stick,548.0
+ice cream,545.0
+delight,544.0
+pair,543.0
+korean,541.0
+downtown,540.0
+peach,540.0
+mediocr,540.0
+touch,540.0
+bun,539.0
+singl,538.0
+fabul,538.0
+risotto,536.0
+hold,535.0
+delish,531.0
+slaw,530.0
+rare,529.0
+neighborhood,528.0
+friday night,527.0
+weird,527.0
+ladi,526.0
+lemon,526.0
+terribl,525.0
+forward,523.0
+charg,522.0
+yeah,521.0
+butteri,518.0
+dmk,517.0
+lucki,516.0
+lou malnati,513.0
+cover,513.0
+raw,511.0
+dine experi,510.0
+fanci,508.0
+gravi,507.0
+establish,507.0
+balanc,506.0
+overpr,506.0
+mussel,504.0
+long line,503.0
+medium,502.0
+overwhelm,502.0
+NUMam,502.0
+lamb,501.0
+pancak,501.0
+drive,501.0
+skip,500.0
+case,500.0
+rude,497.0
+hotel,497.0
+soggi,496.0
+snack,494.0
+allig,493.0
+agre,493.0
+imagin,492.0
+explain,490.0
+today,490.0
+origin,487.0
+middl,487.0
+lunch special,486.0
+moist,486.0
+cheesi,483.0
+coop,483.0
+annoy,481.0
+question,480.0
+limit,479.0
+meet,478.0
+appl,478.0
+appar,477.0
+refil,477.0
+longer,476.0
+eggplant,476.0
+receiv,476.0
+celebr,475.0
+gaslight,475.0
+gen,473.0
+corner,473.0
+famous,472.0
+chocol cake,470.0
+poutin,468.0
+highlight,468.0
+fruit,467.0
+mustard,467.0
+rock,466.0
+pm,465.0
+summer,465.0
+smell,464.0
+issu,463.0
+fall,463.0
+cost,462.0
+round,461.0
+phenomen,461.0
+version,459.0
+bathroom,459.0
+beehiv,457.0
+crunchi french,456.0
+short rib,453.0
+veget,452.0
+plain,451.0
+cobbler,450.0
+sign,450.0
+tea,449.0
+complain,449.0
+import,449.0
+communal,448.0
+bare,448.0
+luke,447.0
+juic,447.0
+sushi gen,446.0
+smaller,445.0
+refresh,443.0
+wood,441.0
+interior,439.0
+creativ,437.0
+drop,437.0
+mexican,437.0
+chicago diner,436.0
+syrup,436.0
+forgot,435.0
+afford,434.0
+app,433.0
+upstair,433.0
+cone,432.0
+paper,429.0
+pitcher,428.0
+bottom,426.0
+weekday,426.0
+buck,424.0
+book,423.0
+speak,423.0
+smile,422.0
+jazz,422.0
+stomach,421.0
+nyc,421.0
+cheddar,421.0
+floor,421.0
+brown,421.0
+similar,421.0
+thin crust,420.0
+homemad,420.0
+mood,419.0
+strawberri,417.0
+opt,417.0
+chose,417.0
+pork belli,417.0
+wine list,415.0
+suck,414.0
+monday,414.0
+peanut,413.0
+shop,412.0
+patron,411.0
+doubl,411.0
+accompani,411.0
+shoulder,410.0
+effici,409.0
+admit,408.0
+brais,407.0
+hang,406.0
+guest,406.0
+omg,405.0
+god,404.0
+rpm,403.0
+guacamol,402.0
+north,401.0
+booth,400.0
+patti,399.0
+happi hour,399.0
+curri,399.0
+cozi,399.0
+chicken wing,398.0
+meh,397.0
+modern,397.0
+orang,397.0
+spectacular,396.0
+aioli,396.0
+difficult,395.0
+chicago style,395.0
+occas,394.0
+nois,393.0
+luckili,393.0
+belgian,393.0
+patata,392.0
+hole,391.0
+banana,391.0
+al,389.0
+margarita,389.0
+patio,388.0
+clam,388.0
+request,388.0
+warn,387.0
+japanes,386.0
+begin,385.0
+buy,383.0
+folk,383.0
+american,382.0
+downstair,380.0
+brava,380.0
+fix,379.0
+poor,379.0
+bf,378.0
+tuesday,378.0
+game,378.0
+spent,377.0
+shot,376.0
+lover,376.0
+sprout,376.0
+mercadito,376.0
+odd,375.0
+bother,375.0
+peach cobbler,375.0
+worst,374.0
+dream,374.0
+eater,373.0
+delux,372.0
+fit,372.0
+deserv,371.0
+larger,371.0
+healthi,370.0
+outdoor,370.0
+southern,369.0
+noisi,368.0
+compliment,368.0
+year ago,367.0
+bigger,367.0
+scrambl,367.0
+pineappl,364.0
+pepperoni,364.0
+burnt,363.0
+leftov,363.0
+quarter,362.0
+low,362.0
+thursday,362.0
+con,360.0
+mom,360.0
+beer select,359.0
+paid,358.0
+posit,357.0
+moment,356.0
+apolog,356.0
+fatti,355.0
+beef sandwich,354.0
+salsa,352.0
+east,352.0
+larg group,351.0
+pig,351.0
+environ,351.0
+state,351.0
+memor,350.0
+hell,350.0
+dine room,350.0
+doubt,350.0
+loui,349.0
+heat,348.0
+cafe iberico,348.0
+scene,348.0
+cramp,348.0
+continu,348.0
+dollar,347.0
+horribl,345.0
+waitstaff,345.0
+worri,344.0
+sea,344.0
+break,343.0
+brussel,342.0
+sushi bar,341.0
+egg benedict,341.0
+sens,341.0
+buddha,340.0
+squid,340.0
+relax,340.0
+lobster,340.0
+mess,339.0
+hash,339.0
+concept,338.0
+chewi,337.0
+pictur,337.0
+met,336.0
+cuisin,336.0
+pesto,335.0
+inform,335.0
+houston,335.0
+fare,335.0
+milkshak,334.0
+ring,334.0
+drunk,334.0
+signatur,334.0
+fire,334.0
+prosciutto,333.0
+holi,333.0
+batter,333.0
+regret,332.0
+ambienc,332.0
+pop,331.0
+crunch,331.0
+art,330.0
+tangi,330.0
+huge fan,330.0
+st loui,330.0
+def,329.0
+cajun,329.0
+travel,329.0
+big fan,329.0
+sister,328.0
+uni,328.0
+tough,328.0
+veal,328.0
+blend,328.0
+pure,327.0
+yelper,326.0
+notch,325.0
+ball,325.0
+separ,324.0
+straight,324.0
+superb,324.0
+texa,324.0
+tofu,324.0
+frequent,324.0
+soda,324.0
+bag,323.0
+wast,323.0
+pork shoulder,323.0
+klub,322.0
+avocado,322.0
+brussel sprout,322.0
+fell,321.0
+comment,321.0
+desert,320.0
+calamari,319.0
+hip,319.0
+catfish,319.0
+south end,319.0
+patata brava,319.0
+milk,318.0
+pour,318.0
+california,318.0
+attitud,317.0
+deliveri,316.0
+perfect cook,316.0
+foodi,316.0
+dive,316.0
+ravioli,315.0
+rang,315.0
+equal,314.0
+upscal,314.0
+adventur,313.0
+poach,313.0
+forev,312.0
+los,310.0
+bloodi,310.0
+fork,309.0
+gotta,306.0
+visit chicago,305.0
+vinegar,305.0
+tad,303.0
+chunk,302.0
+skin,302.0
+card,301.0
+hey,300.0
+cornbread,300.0
+blow,300.0
+asian,300.0
+miso,299.0
+biscuit,299.0
+fluffi,299.0
+experienc,299.0
+cooki,299.0
+bacon wrap,299.0
+multipl,299.0
+breakfast klub,299.0
+window,298.0
+mercat,298.0
+confus,297.0
+dumpl,297.0
+build,297.0
+coleslaw,297.0
+trust,297.0
+rosemari,297.0
+mash,296.0
+divin,296.0
+major,296.0
+dough,296.0
+extens,296.0
+overcook,295.0
+stood,295.0
+turkey,294.0
+mari,293.0
+honey,292.0
+countri,291.0
+addict,291.0
+design,290.0
+sour,290.0
+bar area,290.0
+step,289.0
+dozen,289.0
+teriyaki,289.0
+club,289.0
+edg,288.0
+layer,288.0
+chair,288.0
+creat,288.0
+nearbi,288.0
+liver,288.0
+menus,287.0
+futur,286.0
+downsid,285.0
+mistak,285.0
+make reserv,285.0
+store,285.0
+cowork,284.0
+wrap date,284.0
+phone,283.0
+portion size,283.0
+smoki,282.0
+quiet,282.0
+york,282.0
+wednesday,282.0
+alcohol,281.0
+hint,281.0
+catch,280.0
+omelett,280.0
+bore,280.0
+byob,280.0
+sooo,279.0
+melros,279.0
+beet,279.0
+meant,278.0
+negat,278.0
+gnocchi,278.0
+pleasant surpris,277.0
+previous,276.0
+form,276.0
+handl,274.0
+pan pizza,274.0
+lost,273.0
+stori,273.0
+young,272.0
+insan,272.0
+pud,271.0
+blueberri,271.0
+gross,271.0
+cole,271.0
+earlier,270.0
+throw,270.0
+giant,270.0
+chat,270.0
+hearti,269.0
+profession,269.0
+knock,269.0
+stuck,269.0
+bud,268.0
+buddha bowl,268.0
+polit,268.0
+garlic mayo,268.0
+NUMth,268.0
+alright,268.0
+dirti,267.0
+fail,267.0
+top notch,266.0
+load,266.0
+advanc,266.0
+burrito,266.0
+tartar,265.0
+meati,264.0
+constant,264.0
+answer,264.0
+tortilla,264.0
+school,263.0
+strang,263.0
+tokyo,263.0
+marin,263.0
+enter,263.0
+sugar,263.0
+carri,262.0
+chill,262.0
+romant,262.0
+overpow,262.0
+biggest,261.0
+detail,261.0
+lol,260.0
+depend,260.0
+bloodi mari,260.0
+organ,259.0
+stuf date,259.0
+awhil,259.0
+twist,259.0
+bc,258.0
+cole slaw,258.0
+match,258.0
+blown,258.0
+miso soup,258.0
+fave,258.0
+age,257.0
+charm,257.0
+companion,257.0
+learn,257.0
+random,257.0
+compani,257.0
+starter,256.0
+basil,256.0
+event,256.0
+wide,256.0
+term,256.0
+chicago dog,256.0
+tempura,255.0
+sashimi lunch,255.0
+giordano,255.0
+garlic bread,254.0
+guac,254.0
+fondu,254.0
+favor,254.0
+flatbread,254.0
+red bean,253.0
+direct,252.0
+employe,251.0
+sell,251.0
+mac chees,251.0
+ass,250.0
+cheek,250.0
+starv,250.0
+settl,249.0
+box,249.0
+san,249.0
+tight,249.0
+weather,249.0
+coat,249.0
+smooth,249.0
+specialti,249.0
+unbeliev,248.0
+conveni,247.0
+car,247.0
+overr,247.0
+band,247.0
+mark,246.0
+reuben,246.0
+peppercorn,246.0
+underwhelm,246.0
+funni,245.0
+cook perfect,245.0
+intim,245.0
+polenta,245.0
+shell,244.0
+desir,244.0
+lettuc,244.0
+complimentari,243.0
+live music,243.0
+tonight,243.0
+poach egg,243.0
+mozzarella,243.0
+queso,242.0
+blue chees,242.0
+featur,242.0
+gem,241.0
+iron,240.0
+creol,240.0
+spread,240.0
+mint,239.0
+tap,239.0
+view,239.0
+natur,239.0
+char,239.0
+besh,239.0
+gras,238.0
+color,238.0
+terrif,238.0
+specif,238.0
+win,237.0
+louisiana,236.0
+menu item,236.0
+cheaper,236.0
+accept,236.0
+cevich,236.0
+total worth,235.0
+goto,235.0
+center,235.0
+post,234.0
+burn,234.0
+latt,233.0
+john,233.0
+gonna,233.0
+memori,233.0
+NUMnd,233.0
+loop,232.0
+appetit,232.0
+pretenti,232.0
+mash potato,232.0
+chicago deep,232.0
+squeez,232.0
+ny,231.0
+confit,231.0
+stapl,231.0
+shock,230.0
+rub,230.0
+picki,230.0
+oliv oil,230.0
+uncomfort,230.0
+asparagus,230.0
+attempt,230.0
+yellowtail,229.0
+soak,229.0
+wear,228.0
+yelp review,228.0
+awkward,227.0
+angel,226.0
+finger,226.0
+gelato,226.0
+chain,225.0
+wild,225.0
+winner,224.0
+whip,224.0
+peanut butter,224.0
+count,224.0
+chorizo stuf,224.0
+quesadilla,224.0
+kill,223.0
+soy,223.0
+judg,223.0
+magic,223.0
+listen,223.0
+river,223.0
+soooo,223.0
+smokey,223.0
+pomegran,222.0
+situat,222.0
+cucumb,222.0
+craft,222.0
+practic,220.0
+bake bean,220.0
+promis,220.0
+street park,220.0
+flat,220.0
+decis,219.0
+sport,219.0
+wors,218.0
+send,218.0
+oven,218.0
+sushigen,218.0
+bomb,218.0
+buzz,218.0
+steam,218.0
+gino,217.0
+ruin,217.0
+sweet mango,217.0
+entertain,216.0
+buffalo,216.0
+crawfish,216.0
+spain,216.0
+patient,215.0
+oili,215.0
+credit,215.0
+pile,215.0
+classi,215.0
+yell,215.0
+assum,215.0
+neighbor,214.0
+ran,214.0
+small portion,214.0
+complement,214.0
+beef brisket,214.0
+devour,214.0
+onion ring,214.0
+michigan,214.0
+marrow,213.0
+luck,213.0
+ten,213.0
+lick,213.0
+joke,213.0
+freak,213.0
+omelet,213.0
+substitut,213.0
+invit,213.0
+herb,212.0
+repeat,212.0
+park lot,212.0
+mother,212.0
+pea,211.0
+frozen,211.0
+pain,211.0
+hesit,211.0
+anymor,211.0
+decad,210.0
+laid,210.0
+made reserv,210.0
+tart,210.0
+valet,210.0
+ricotta,209.0
+hipster,209.0
+carmel,209.0
+market,208.0
+mini,208.0
+caraf,208.0
+assort,208.0
+peopl watch,208.0
+horseradish,208.0
+imposs,208.0
+big group,207.0
+push,206.0
+tast bud,206.0
+vodka,205.0
+cake shake,205.0
+bustl,205.0
+woman,204.0
+parent,204.0
+broth,204.0
+ador,204.0
+individu,204.0
+energi,203.0
+fellow,203.0
+messi,203.0
+par,203.0
+west,203.0
+macaroni,203.0
+execut,203.0
+cent,203.0
+discov,202.0
+pork sandwich,202.0
+ventur,202.0
+updat,201.0
+laugh,201.0
+proper,201.0
+bright,201.0
+crap,201.0
+darn,201.0
+yesterday,200.0
+higher,200.0
+advic,200.0
+privat,200.0
+spaghetti,200.0
+delect,200.0
+brother,199.0
+prime,199.0
+polish,199.0
+section,198.0
+high qualiti,198.0
+barbecu,198.0
+bonus,198.0
+wine select,198.0
+diet,198.0
+mile,197.0
+nois level,197.0
+fortun,197.0
+indulg,197.0
+red wine,197.0
+appeal,197.0
+feed,197.0
+pork cheek,196.0
+act,196.0
+pleasur,196.0
+ginger,196.0
+los angel,196.0
+drool,196.0
+capres,196.0
+product,195.0
+closer,195.0
+correct,195.0
+pate,195.0
+secret,195.0
+zucchini,194.0
+vietnames,194.0
+flake,194.0
+sushi chef,194.0
+sampler,194.0
+tv,193.0
+boudin,193.0
+focaccia,193.0
+cabbag,193.0
+mama,192.0
+excus,192.0
+fav,192.0
+week ago,192.0
+movi,191.0
+jam cafe,191.0
+greas,191.0
+bone marrow,191.0
+surround,191.0
+palat,190.0
+wash,190.0
+arugula,190.0
+mcdonald,190.0
+dim,189.0
+pretti quick,189.0
+drown,189.0
+wasabi,189.0
+creme,189.0
+ceil,189.0
+mapl,188.0
+descript,188.0
+convinc,188.0
+cure,188.0
+loui rib,188.0
+sip,187.0
+massiv,187.0
+communal tabl,187.0
+tongu,187.0
+bread pud,187.0
+system,187.0
+champagn,187.0
+cater,186.0
+forc,186.0
+grill corn,186.0
+slab,186.0
+consum,186.0
+wooden,186.0
+fault,186.0
+jumbo,185.0
+scream,185.0
+opportun,185.0
+berri,185.0
+peak,185.0
+anytim,185.0
+improv,185.0
+nut,184.0
+write home,184.0
+lime,184.0
+soul,184.0
+escargot,184.0
+search,184.0
+river north,183.0
+sear,183.0
+gooey,183.0
+napkin,183.0
+bump,183.0
+martini,183.0
+villag,182.0
+style pizza,182.0
+brioch,182.0
+member,182.0
+beer list,182.0
+outdoor seat,182.0
+strip,182.0
+initi,182.0
+stellar,181.0
+sold,181.0
+tapa style,181.0
+caramel crust,180.0
+steak frite,180.0
+dig,180.0
+winter,180.0
+score,180.0
+process,179.0
+bet,179.0
+foie,179.0
+pipe,179.0
+mushi,179.0
+cart,179.0
+minus,179.0
+bit pricey,178.0
+cherri,178.0
+hubbi,178.0
+grant,178.0
+dine area,178.0
+recip,178.0
+kuma,177.0
+colleg,177.0
+truffl oil,177.0
+bus,176.0
+beverag,176.0
+big deal,176.0
+prior,176.0
+period,176.0
+condiment,176.0
+introduc,176.0
+brew,176.0
+lie,175.0
+everyday,175.0
+inexpens,175.0
+stew,175.0
+pretti tasti,175.0
+bench,175.0
+sunday night,175.0
+buddi,175.0
+almond,175.0
+eh,174.0
+remain,174.0
+result,174.0
+chutney mayo,174.0
+artichok,174.0
+carrot,174.0
+dude,174.0
+squash,174.0
+touristi,173.0
+sick,173.0
+yellow,173.0
+bistro,173.0
+parmesan peppercorn,173.0
+partner,173.0
+troubl,173.0
+jalapeno,173.0
+delic,172.0
+fig,172.0
+NUMstar,172.0
+temperatur,172.0
+pari,172.0
+stranger,172.0
+hotdog,171.0
+gourmet,171.0
+blood,171.0
+king,170.0
+smoke bacon,170.0
+chicago pizza,170.0
+call ahead,170.0
+soso,170.0
+disgust,170.0
+john besh,170.0
+fake,170.0
+needless,170.0
+nonetheless,170.0
+nice touch,170.0
+mild,169.0
+shame,169.0
+flight,169.0
+pot,169.0
+french quarter,169.0
+butter crust,169.0
+vanilla bean,169.0
+slice brisket,169.0
+chorizostuf,169.0
+seitan,169.0
+sashimi delux,169.0
+pizzeria,169.0
+leg,168.0
+vinaigrett,168.0
+sausag jambalaya,168.0
+spici tuna,168.0
+daili,168.0
+gluten,167.0
+culinari,167.0
+rule,167.0
+ps,166.0
+medjool,166.0
+ala,166.0
+ave,166.0
+lose,166.0
+factor,166.0
+success,166.0
+bitter,166.0
+brie,166.0
+jamon,166.0
+butcher,165.0
+standout,165.0
+sake,165.0
+hollandais,165.0
+brisket sandwich,165.0
+spoon,165.0
+hook,164.0
+pace,164.0
+hot pepper,164.0
+tast menu,164.0
+medjool date,163.0
+focus,163.0
+calori,163.0
+duck confit,163.0
+tuesday night,163.0
+shred,162.0
+foie gras,162.0
+vietnames pineappl,162.0
+chees plate,162.0
+onlin,162.0
+brick,162.0
+swear,162.0
+curri ketchup,162.0
+vacat,162.0
+bed,161.0
+air,161.0
+quantiti,161.0
+cash,161.0
+fashion,161.0
+takeout,161.0
+watermelon,160.0
+fli,160.0
+tire,160.0
+succul,160.0
+sunday brunch,160.0
+valid,160.0
+shit,159.0
+concoct,159.0
+crack,159.0
+smother,159.0
+insist,159.0
+recal,159.0
+inspir,159.0
+famili style,159.0
+veal meatbal,158.0
+inch,158.0
+station,158.0
+attract,158.0
+beet salad,158.0
+effort,158.0
+institut,158.0
+blew,158.0
+chipotl,157.0
+kale,157.0
+stephani,157.0
+roast garlic,157.0
+theme,157.0
+steal,157.0
+housemad,156.0
+tour,156.0
+golden,156.0
+high expect,156.0
+worker,156.0
+attend,156.0
+eateri,155.0
+dad,155.0
+tile,155.0
+veggi burger,155.0
+lower,155.0
+thursday night,155.0
+kamil,155.0
+absolut amaz,154.0
+nacho,154.0
+bought,154.0
+requir,154.0
+claim,154.0
+killer,154.0
+shave,153.0
+sun,153.0
+began,153.0
+comparison,153.0
+visitor,153.0
+crepe,153.0
+au,152.0
+bison,152.0
+pipe hot,152.0
+essenti,152.0
+kimchi,152.0
+wallet,152.0
+stare,152.0
+fulli,151.0
+bisqu,151.0
+class,151.0
+scotch,151.0
+approach,151.0
+pound,151.0
+super nice,151.0
+happili,151.0
+impecc,151.0
+crust pizza,150.0
+free park,150.0
+bad thing,150.0
+ground,150.0
+freshest,150.0
+rosemari garlic,150.0
+uno,149.0
+chicagostyl,149.0
+gorgeous,149.0
+train,149.0
+weak,149.0
+irish,149.0
+date night,149.0
+ultim,148.0
+favorit thing,148.0
+flaki,148.0
+NUMmin,148.0
+bourbon,148.0
+anticip,148.0
+chic,148.0
+ratio,148.0
+btw,147.0
+hop,147.0
+jump,147.0
+venu,147.0
+marinara,147.0
+invent,147.0
+earth,147.0
+croquett,147.0
+garlic shrimp,146.0
+chicken sandwich,146.0
+grill chees,146.0
+common,146.0
+stumbl,145.0
+skeptic,145.0
+perfect amount,145.0
+thumb,145.0
+eventu,145.0
+NUMst,145.0
+birthday dinner,145.0
+pub,144.0
+press,144.0
+bbq joint,144.0
+scrumptious,144.0
+weeknight,144.0
+key,143.0
+corn flake,143.0
+haha,143.0
+suit,143.0
+draft,143.0
+coast,143.0
+caught,143.0
+plancha,143.0
+stage,143.0
+mmmm,142.0
+tax,142.0
+mmm,142.0
+seafood gumbo,142.0
+chocol chip,142.0
+potenti,142.0
+grew,142.0
+burger bar,142.0
+text,142.0
+toss,142.0
+sundri,142.0
+ride,142.0
+month ago,142.0
+chicago classic,141.0
+undercook,141.0
+fed,141.0
+soo,141.0
+beignet,141.0
+sprinkl,141.0
+sooooo,141.0
+scrambl egg,141.0
+wanna,141.0
+fun atmospher,141.0
+relish,140.0
+rais,140.0
+loung,140.0
+fianc,140.0
+fishi,140.0
+noodl,140.0
+medium rare,139.0
+cod,139.0
+crisp bbq,139.0
+english,139.0
+hurri,139.0
+sundri tomato,139.0
+traffic,139.0
+wateri,139.0
+board,139.0
+outoftown,139.0
+albeit,138.0
+network,138.0
+chitown,138.0
+offic,138.0
+rave review,138.0
+frank,138.0
+cauliflow,138.0
+safe,138.0
+pork chop,138.0
+danc,138.0
+awar,138.0
+lean,137.0
+overlook,137.0
+bewar,137.0
+seed,137.0
+okra,137.0
+threw,137.0
+numer,137.0
+squar,137.0
+obsess,137.0
+la plancha,136.0
+shout,136.0
+ordinari,136.0
+unusu,136.0
+till,136.0
+distanc,136.0
+ranch,136.0
+exist,135.0
+afraid,135.0
+ear,135.0
+holiday,135.0
+drench,135.0
+hospit,135.0
+snapper,135.0
+restroom,135.0
+contrast,135.0
+potato salad,135.0
+pear,135.0
+onion soup,135.0
+respons,135.0
+altern,135.0
+flavorless,135.0
+cuz,134.0
+croissant,134.0
+special occas,134.0
+tempt,134.0
+NUMs,134.0
+tasteless,134.0
+open tabl,134.0
+chicagoan,133.0
+ink,133.0
+daughter,133.0
+cousin,133.0
+green bean,133.0
+heck,133.0
+tail,133.0
+togo,133.0
+resist,133.0
+runni,133.0
+mapl syrup,133.0
+pollo,133.0
+balsam,133.0
+cabra,132.0
+lit,132.0
+men,132.0
+lead,132.0
+itth,132.0
+smoke salmon,132.0
+monday night,132.0
+hazelnut,132.0
+muffin,132.0
+sloppi,132.0
+scallion,132.0
+genuin,132.0
+cheesecak,132.0
+ideal,131.0
+divers,131.0
+guarante,131.0
+tequila,131.0
+gluten free,131.0
+andor,131.0
+dill,131.0
+gamba,131.0
+hamburg,131.0
+meter,130.0
+wise,130.0
+corn bread,130.0
+star rate,130.0
+elbow,130.0
+drank,130.0
+exceed,130.0
+tummi,130.0
+reput,130.0
+la cart,130.0
+shape,129.0
+communal seat,129.0
+hurt,129.0
+de cabra,129.0
+flow,129.0
+held,129.0
+basket,129.0
+carn,129.0
+belgium,129.0
+crumbl,129.0
+gf,128.0
+unexpect,128.0
+wet,128.0
+war,128.0
+fool,128.0
+narrow,128.0
+favorit part,128.0
+bell,128.0
+serrano,128.0
+minor,128.0
+websit,128.0
+jam benedict,127.0
+regist,127.0
+larg parti,127.0
+cab,127.0
+yay,127.0
+shrimp creol,127.0
+cheeseburg,127.0
+italian tapa,127.0
+rustic,127.0
+thrill,127.0
+drizzl,127.0
+paper cone,127.0
+knife,127.0
+worthi,127.0
+reach,127.0
+pomegran teriyaki,126.0
+saute,126.0
+larg portion,126.0
+power,126.0
+pretti damn,126.0
+liquor,126.0
+remov,126.0
+croqueta,126.0
+industri,125.0
+sunday morn,125.0
+hair,125.0
+nativ,125.0
+suprem,125.0
+pink,125.0
+louisiana cochon,125.0
+filet,125.0
+splurg,125.0
+tast plate,125.0
+pappardell,125.0
+live jazz,125.0
+regular size,124.0
+florentin,124.0
+vari,124.0
+replac,124.0
+tray,124.0
+rain,124.0
+expert,124.0
+brais pork,124.0
+feet,124.0
+written,124.0
+giuliana,124.0
+black bean,124.0
+ya,123.0
+chile,123.0
+deepdish,123.0
+trio,123.0
+prais,123.0
+queso de,123.0
+cheddar chees,123.0
+carnivor,123.0
+breast,123.0
+switch,123.0
+alioli,123.0
+cinnamon,123.0
+mimosa,122.0
+pastri,122.0
+bottom line,122.0
+necessarili,122.0
+european,122.0
+white sangria,122.0
+comp,122.0
+curd,122.0
+blah,122.0
+spoil,122.0
+alot,122.0
+cow,121.0
+advantag,121.0
+gyro,121.0
+powder,121.0
+albacor,121.0
+brandad,121.0
+east villag,121.0
+hanger,121.0
+ajillo,121.0
+background,121.0
+NUMrd,121.0
+defin,120.0
+dislik,120.0
+screw,120.0
+chicago hot,120.0
+churro,120.0
+pesto mayo,120.0
+spanish tapa,120.0
+wander,120.0
+asado,120.0
+corn beef,119.0
+cashier,119.0
+gripe,119.0
+white wine,119.0
+bakeri,119.0
+generous portion,119.0
+dairi,119.0
+super fresh,118.0
+degre,118.0
+funki,118.0
+arrang,118.0
+critic,118.0
+empanada,118.0
+scoop,118.0
+obnoxi,118.0
+NUMish,118.0
+involv,118.0
+bull,118.0
+slider,118.0
+pretti decent,118.0
+chop brisket,118.0
+em,117.0
+truffl garlic,117.0
+candi,117.0
+bruschetta,117.0
+destin,117.0
+omakas,117.0
+scotch egg,117.0
+instant,117.0
+greatest,117.0
+control,117.0
+stool,117.0
+legit,117.0
+mouth water,117.0
+row,116.0
+mad,116.0
+land,116.0
+string,116.0
+everytim,116.0
+volum,116.0
+distinct,116.0
+scare,116.0
+fresh fish,116.0
+subtl,116.0
+familiar,116.0
+million,115.0
+jar,115.0
+tab,115.0
+caramel onion,115.0
+espresso,115.0
+donut,115.0
+eclect,115.0
+thicker,115.0
+itali,115.0
+side note,115.0
+proceed,114.0
+won,114.0
+doughi,114.0
+hanger steak,114.0
+fight,114.0
+spici potato,114.0
+reminisc,114.0
+mixtur,114.0
+hidden,114.0
+farm,114.0
+pretti small,114.0
+photo,113.0
+person favorit,113.0
+baconwrap,113.0
+hamachi,113.0
+baguett,113.0
+squid ink,113.0
+coma,113.0
+basi,113.0
+izard,113.0
+faster,113.0
+shank,112.0
+plastic,112.0
+women,112.0
+ale,112.0
+sum,112.0
+join,112.0
+sucker,112.0
+minimum,112.0
+pretti darn,112.0
+coke,112.0
+refus,112.0
+complex,112.0
+penni,111.0
+credit card,111.0
+bay,111.0
+gastropub,111.0
+al ajillo,111.0
+distract,111.0
+line move,111.0
+punch,111.0
+wednesday night,111.0
+challeng,111.0
+skewer,111.0
+whip cream,111.0
+express,111.0
+easier,110.0
+devil,110.0
+sashimi plate,110.0
+quot,110.0
+perfect season,110.0
+root,110.0
+snag,110.0
+satay,110.0
+layout,110.0
+pork rib,110.0
+huge portion,110.0
+disappear,110.0
+star review,110.0
+draw,110.0
+intend,110.0
+tvs,109.0
+gift,109.0
+cloth,109.0
+children,109.0
+subpar,109.0
+entranc,109.0
+cram,109.0
+communiti,109.0
+ticket,109.0
+assur,109.0
+saturday morn,108.0
+chilli,108.0
+gin,108.0
+link,108.0
+cheer,108.0
+purchas,108.0
+grow,108.0
+budget,108.0
+pros,108.0
+venison,108.0
+dead,108.0
+encourag,108.0
+dine companion,108.0
+fennel,107.0
+silli,107.0
+gorgonzola,107.0
+red sangria,107.0
+manner,107.0
+older,107.0
+burst,107.0
+sidewalk,107.0
+flag,107.0
+slowli,107.0
+sight,106.0
+remark,106.0
+jack,106.0
+anniversari,106.0
+trap,106.0
+explor,106.0
+cross,106.0
+confirm,106.0
+exot,106.0
+bit disappoint,106.0
+intrigu,106.0
+infus,106.0
+yum yum,105.0
+kudo,105.0
+woodfir,105.0
+rough,105.0
+son,105.0
+cafeteria,105.0
+stupid,105.0
+gracious,105.0
+recent visit,105.0
+advis,105.0
+road,105.0
+prix,105.0
+pizza joint,105.0
+nigiri,105.0
+forgotten,105.0
+social,105.0
+effect,105.0
+bad experi,105.0
+dare,105.0
+earn,105.0
+um,104.0
+mahi,104.0
+bucatini,104.0
+chi,104.0
+smart,104.0
+favorit pizza,104.0
+francisco,104.0
+brasseri,104.0
+thrown,104.0
+sticki,104.0
+depandi,104.0
+snob,104.0
+crumb,104.0
+roast chicken,104.0
+sour cream,104.0
+sprout salad,104.0
+booz,104.0
+seat area,104.0
+support,104.0
+justifi,104.0
+island,103.0
+cri,103.0
+citrus,103.0
+grand,103.0
+curious,103.0
+san francisco,103.0
+encount,103.0
+machin,103.0
+mayonnais,103.0
+drip,103.0
+spring,103.0
+array,103.0
+advertis,102.0
+french onion,102.0
+halibut,102.0
+embarrass,102.0
+tortellini,102.0
+turkey burger,102.0
+real deal,102.0
+rack,102.0
+savor,102.0
+pretti cool,102.0
+lighter,102.0
+bday,102.0
+fusion,102.0
+cracker,102.0
+mouthwat,102.0
+red pepper,102.0
+courteous,101.0
+charcuteri,101.0
+meat eater,101.0
+candl,101.0
+foot,101.0
+guid,101.0
+nasti,101.0
+engag,101.0
+blame,101.0
+brais beef,101.0
+chili garlic,101.0
+access,101.0
+mouss,101.0
+feast,101.0
+bodi,101.0
+redfish,101.0
+bias,101.0
+sunni,101.0
+skirt,100.0
+pineappl mayo,100.0
+team,100.0
+drove,100.0
+grill octopus,100.0
+expand,100.0
+yolk,100.0
+drink menu,100.0
+los drown,100.0
+dens,100.0
+bang,100.0
+garnish,100.0
+content,100.0
+crusti,100.0
+tostada,99.0
+debat,99.0
+prix fix,99.0
+aka,99.0
+public,99.0
+lil,99.0
+tartufo,99.0
+decent price,99.0
+skimp,99.0
+red onion,99.0
+test,99.0
+grape,99.0
+brunch spot,99.0
+brule,99.0
+occasion,99.0
+moder,99.0
+eleg,99.0
+steep,99.0
+anim,99.0
+intens,99.0
+ai,98.0
+gigant,98.0
+nicer,98.0
+peanut satay,98.0
+burger joint,98.0
+energet,98.0
+veg,98.0
+child,98.0
+dinner menu,98.0
+save room,98.0
+signific,98.0
+planxa,98.0
+demand,98.0
+dear,98.0
+cast,98.0
+fear,98.0
+element,98.0
+green pepper,98.0
+thin slice,97.0
+fyi,97.0
+broccoli,97.0
+gulf,97.0
+hundr,97.0
+goodth,97.0
+hangov,97.0
+capres salad,97.0
+date wrap,97.0
+breath,97.0
+flan,97.0
+perfect size,97.0
+chees curd,96.0
+upset,96.0
+fuss,96.0
+michigan ave,96.0
+adult,96.0
+spin,96.0
+lacklust,96.0
+saturday afternoon,96.0
+glaze,96.0
+final made,96.0
+bison burger,96.0
+boil,96.0
+bellini,95.0
+dive bar,95.0
+gal,95.0
+led,95.0
+wtf,95.0
+cider,95.0
+blast,95.0
+sassi wing,95.0
+wisconsin,95.0
+saliv,95.0
+sauci,95.0
+la planxa,95.0
+discuss,95.0
+carpaccio,95.0
+chew,95.0
+bank,95.0
+canadian,95.0
+firm,95.0
+blood orang,95.0
+neat,94.0
+hock,94.0
+gamba al,94.0
+enorm,94.0
+nice atmospher,94.0
+mama depandi,94.0
+rank,94.0
+oper,94.0
+recent trip,94.0
+thick cut,94.0
+brunch menu,94.0
+carb,94.0
+larg plate,94.0
+research,94.0
+spare,94.0
+overhyp,94.0
+expos,93.0
+shine,93.0
+tag,93.0
+fond,93.0
+verd,93.0
+whiskey,93.0
+tuna tartar,93.0
+perfect balanc,93.0
+pumpkin,93.0
+casserol,93.0
+prop,93.0
+caesar,93.0
+lincoln,93.0
+cracklin,93.0
+frustrat,93.0
+wood fire,93.0
+burrata,93.0
+crostini,93.0
+half hour,93.0
+purpos,93.0
+stretch,93.0
+ol,92.0
+black truffl,92.0
+halfway,92.0
+gold,92.0
+prove,92.0
+windi,92.0
+oppos,92.0
+wide varieti,92.0
+ham hock,92.0
+style hot,92.0
+america,92.0
+pulpo,92.0
+smoqu bbq,92.0
+ribey,92.0
+truth,92.0
+babareeba,92.0
+drag,92.0
+lunch menu,92.0
+acid,92.0
+absolut favorit,92.0
+sea salt,92.0
+sorbet,92.0
+innov,92.0
+utter,91.0
+cob,91.0
+til,91.0
+fuck,91.0
+dmk burger,91.0
+grapefruit,91.0
+tall,91.0
+indoor,91.0
+seawe,91.0
+suffer,91.0
+chili chees,91.0
+cream chees,91.0
+bear,91.0
+spoke,91.0
+pretti busi,91.0
+spill,91.0
+earli dinner,91.0
+favorit sushi,91.0
+offici,91.0
+skinni,91.0
+tiramisu,90.0
+voic,90.0
+sigh,90.0
+sweet shrimp,90.0
+compet,90.0
+croqu,90.0
+bold,90.0
+excess,90.0
+attack,90.0
+aspect,90.0
+minim,90.0
+stack,90.0
+philli,90.0
+batch,89.0
+italian sausag,89.0
+nope,89.0
+arm,89.0
+lamb burger,89.0
+freakin,89.0
+midnight,89.0
+turnip,89.0
+creme brule,89.0
+drawback,89.0
+prici,89.0
+sole,89.0
+unimpress,89.0
+small tabl,89.0
+eager,89.0
+butt,89.0
+avenu,89.0
+refer,89.0
+open kitchen,89.0
+mr,88.0
+bim,88.0
+fruiti,88.0
+yea,88.0
+lazi,88.0
+health,88.0
+gather,88.0
+freez,88.0
+brisket platter,88.0
+linger,88.0
+grate,88.0
+sexi,88.0
+piquillo,88.0
+parm,88.0
+garlic aioli,88.0
+mushroom risotto,88.0
+craft beer,88.0
+truffl cream,88.0
+truffl mayo,88.0
+feta,88.0
+small group,88.0
+enthusiast,87.0
+king crab,87.0
+jean,87.0
+grace,87.0
+trek,87.0
+plaza,87.0
+mojito,87.0
+slam,87.0
+water glass,87.0
+broke,87.0
+cooki dough,87.0
+bulgogi,87.0
+eye french,87.0
+ll find,87.0
+allergi,87.0
+celeri,87.0
+cavatelli,87.0
+steak bowl,87.0
+genius,87.0
+raini,87.0
+wasabi mayo,86.0
+ooz,86.0
+tho,86.0
+fish taco,86.0
+bad boy,86.0
+measur,86.0
+fresh cut,86.0
+wedg,86.0
+outrag,86.0
+swim,86.0
+account,86.0
+court,86.0
+forgett,86.0
+saffron,86.0
+charact,86.0
+colleagu,86.0
+valentin,86.0
+chip cooki,86.0
+connoisseur,86.0
+barbequ,86.0
+downtown chicago,86.0
+fresh fruit,86.0
+de pollo,86.0
+pincho,86.0
+garlicki,86.0
+jus,85.0
+ined,85.0
+abita,85.0
+sing,85.0
+student,85.0
+tastier,85.0
+sausag pizza,85.0
+vinegari,85.0
+bachelorett,85.0
+sashimi dinner,85.0
+small side,85.0
+liquid,85.0
+packag,85.0
+smallest,85.0
+griddl,85.0
+millennium,85.0
+stock,85.0
+ampl,85.0
+argu,85.0
+cent oyster,85.0
+mass,84.0
+shirt,84.0
+cast iron,84.0
+festiv,84.0
+wrote,84.0
+ensur,84.0
+babi buddha,84.0
+orgasm,84.0
+smoke pork,84.0
+crappi,84.0
+client,84.0
+dark chocol,84.0
+thousand,84.0
+fellow yelper,84.0
+walk distanc,84.0
+lunch hour,84.0
+doug,84.0
+walnut,84.0
+extraordinari,84.0
+dessert menu,84.0
+aok,83.0
+struggl,83.0
+ppl,83.0
+sophist,83.0
+barcelona,83.0
+hunger,83.0
+crush,83.0
+breakfastbrunch,83.0
+lakeview,83.0
+rubberi,83.0
+contact,83.0
+edibl,83.0
+brisket chili,83.0
+sushi joint,83.0
+pomodoro,83.0
+front door,83.0
+japan,83.0
+en,82.0
+death,82.0
+hash brown,82.0
+tourist trap,82.0
+vanilla ice,82.0
+sunday afternoon,82.0
+lame,82.0
+intimid,82.0
+pinot,82.0
+towel,82.0
+raw oyster,82.0
+skirt steak,82.0
+christma,82.0
+screen,82.0
+chop salad,82.0
+salami,82.0
+price point,82.0
+acknowledg,82.0
+accomod,82.0
+ship,82.0
+pant,82.0
+blacken,82.0
+bbq bean,82.0
+bubbl,82.0
+green tea,82.0
+mackerel,82.0
+chai,82.0
+texa sausag,82.0
+venison burger,82.0
+brilliant,82.0
+stephani izard,82.0
+chirashi,82.0
+girl night,82.0
+millennium park,82.0
+parmesan truffl,82.0
+nail,81.0
+hilton,81.0
+sauerkraut,81.0
+pretti big,81.0
+joe,81.0
+pastor,81.0
+tear,81.0
+shortrib,81.0
+produc,81.0
+august,81.0
+silverwar,81.0
+munch,81.0
+mahi mahi,81.0
+passion,81.0
+fine dine,81.0
+pretti awesom,81.0
+polici,81.0
+oyster roast,81.0
+glorious,81.0
+lukewarm,81.0
+catalan,81.0
+upsid,80.0
+lemonad,80.0
+move quick,80.0
+fresh squeez,80.0
+caramel chees,80.0
+rabbit sausag,80.0
+roma,80.0
+creation,80.0
+slap,80.0
+clientel,80.0
+overbear,80.0
+district,80.0
+anchovi,80.0
+garden,80.0
+tenderloin,80.0
+bird,80.0
+exquisit,80.0
+display,80.0
+jalapeño,80.0
+bi,79.0
+julep,79.0
+malt,79.0
+miga,79.0
+metal,79.0
+divey,79.0
+competit,79.0
+grub,79.0
+hous made,79.0
+piss,79.0
+lobster ravioli,79.0
+spacious,79.0
+belli pancak,79.0
+foccacia,79.0
+tapa bar,79.0
+topnotch,79.0
+hefti,79.0
+bass,79.0
+award,79.0
+doughnut,79.0
+ha,78.0
+bar seat,78.0
+busi night,78.0
+master,78.0
+duck prosciutto,78.0
+blackbird,78.0
+hot spot,78.0
+mexican ketchup,78.0
+franc,78.0
+find park,78.0
+coconut,78.0
+baconwrap date,78.0
+norwegian,78.0
+smoke eggplant,78.0
+finest,78.0
+slather,78.0
+tast fresh,78.0
+chow,78.0
+honey mustard,78.0
+elvi,78.0
+busser,78.0
+sweeter,78.0
+busboy,78.0
+recogn,78.0
+stone,78.0
+aroma,78.0
+bus boy,77.0
+joy,77.0
+esp,77.0
+consider,77.0
+basement,77.0
+bummer,77.0
+woodfir oyster,77.0
+tone,77.0
+duck quesadilla,77.0
+superior,77.0
+carnita,77.0
+favorit spot,77.0
+mmmmm,77.0
+dent,77.0
+boss,77.0
+attach,77.0
+devil egg,77.0
+amus,77.0
+red snapper,77.0
+reflect,76.0
+substanti,76.0
+taleggio,76.0
+twenti,76.0
+bop,76.0
+bum,76.0
+imo,76.0
+buffalo wing,76.0
+orang juic,76.0
+cotija,76.0
+chorizostuf medjool,76.0
+beef hash,76.0
+grass,76.0
+sock,76.0
+blue jam,76.0
+jelli,76.0
+manchego,76.0
+accident,76.0
+wild mushroom,76.0
+paint,76.0
+nutella,76.0
+airi,76.0
+ah,75.0
+sf,75.0
+past weekend,75.0
+weight,75.0
+rip,75.0
+sushi delux,75.0
+picnic,75.0
+roast pork,75.0
+marri,75.0
+skill,75.0
+bi bim,75.0
+vast,75.0
+wake,75.0
+jazz band,75.0
+grain,75.0
+regular menu,75.0
+lack flavor,75.0
+accur,75.0
+yellow tail,75.0
+penn,75.0
+subway,75.0
+perfect crispi,75.0
+favorit tapa,75.0
+florentin benedict,75.0
+bell pepper,75.0
+wheat,75.0
+realiti,75.0
+café,75.0
+elev,75.0
+epic,75.0
+sweet chili,75.0
+vegetarian option,75.0
+lip,74.0
+ugh,74.0
+stuffi,74.0
+chorizostuf date,74.0
+garc,74.0
+super tasti,74.0
+madam,74.0
+grassf,74.0
+determin,74.0
+endless,74.0
+increas,74.0
+glanc,74.0
+benefit,74.0
+flash,74.0
+honor,74.0
+pretti fast,74.0
+blackston,74.0
+raw fish,74.0
+drunken,74.0
+trick,74.0
+roommat,74.0
+raspberri,74.0
+worth check,74.0
+loui style,74.0
+setup,73.0
+sin,73.0
+quieter,73.0
+mon,73.0
+bit dri,73.0
+flavour,73.0
+preorder,73.0
+patienc,73.0
+quick bite,73.0
+resembl,73.0
+perform,73.0
+windi citi,73.0
+comfi,73.0
+risk,73.0
+teeth,73.0
+snap,73.0
+carbonara,73.0
+iron chef,73.0
+closest,73.0
+sudden,73.0
+lobster capres,73.0
+chunki,73.0
+custard,73.0
+seafood paella,73.0
+revisit,73.0
+st mark,73.0
+el,72.0
+arteri,72.0
+white bean,72.0
+nose,72.0
+asado con,72.0
+eel,72.0
+yep,72.0
+hung,72.0
+toler,72.0
+radish,72.0
+arriv earli,72.0
+cocktail menu,72.0
+bliss,72.0
+make sens,72.0
+shut,72.0
+adequ,72.0
+croqueta de,72.0
+fire oyster,72.0
+move fast,72.0
+malnati chicago,72.0
+theater,72.0
+inconsist,72.0
+lincoln park,72.0
+bit small,72.0
+ten minut,72.0
+shrimp taco,72.0
+pork shank,72.0
+buttercrust,72.0
+stair,72.0
+seat prompt,72.0
+enhanc,72.0
+di,71.0
+bake goat,71.0
+loaf,71.0
+elk,71.0
+rosco,71.0
+unreal,71.0
+peak hour,71.0
+wind,71.0
+ice tea,71.0
+sweet pepper,71.0
+butteri crust,71.0
+variat,71.0
+suburb,71.0
+fatti tuna,71.0
+skillet,71.0
+steak tartar,71.0
+mind blow,71.0
+claw,71.0
+sooner,71.0
+cube,71.0
+sober,71.0
+straw,71.0
+bachelorett parti,71.0
+hous wine,71.0
+pricier,71.0
+brown rice,71.0
+chines,70.0
+din,70.0
+pic,70.0
+thanksgiv,70.0
+onion string,70.0
+sashimi platter,70.0
+guilti,70.0
+plump,70.0
+tasso,70.0
+opposit,70.0
+heavili,70.0
+pine,70.0
+hot chocol,70.0
+collar,70.0
+accent,70.0
+goodi,70.0
+breakfast spot,70.0
+mission,70.0
+summari,70.0
+weekend night,70.0
+price tag,70.0
+dump,70.0
+manhattan,70.0
+boucheri,70.0
+cultur,70.0
+proport,70.0
+gator,70.0
+atom,70.0
+thinner,70.0
+runner,69.0
+hr,69.0
+pretti standard,69.0
+smoke duck,69.0
+convert,69.0
+vinegar base,69.0
+strike,69.0
+tie,69.0
+chive,69.0
+wipe,69.0
+fryer,69.0
+abund,69.0
+egg white,69.0
+explos,69.0
+sashimi combo,69.0
+activ,69.0
+song,69.0
+sensat,69.0
+hover,69.0
+fresh ingredi,69.0
+size portion,69.0
+NUMperson,69.0
+NUMthe,69.0
+lentil,69.0
+katfish,69.0
+midwest,69.0
+boot,69.0
+carryout,69.0
+infam,69.0
+reheat,68.0
+nom,68.0
+alfredo,68.0
+stress,68.0
+horseradish potato,68.0
+schedul,68.0
+tooth,68.0
+unagi,68.0
+half chicken,68.0
+pistachio,68.0
+shorter,68.0
+maintain,68.0
+scale,68.0
+pepperi,68.0
+float,68.0
+proud,68.0
+pint,68.0
+rabbit dumpl,68.0
+confer,68.0
+commit,68.0
+pretti crowd,68.0
+tastiest,68.0
+spinach salad,68.0
+memphi,68.0
+simpli amaz,68.0
+larger group,68.0
+partial,68.0
+person prefer,68.0
+cilantro,68.0
+overdon,68.0
+chicken liver,68.0
+rancic,68.0
+notabl,68.0
+hog,67.0
+crab dip,67.0
+pretti pack,67.0
+action,67.0
+mix drink,67.0
+underneath,67.0
+tune,67.0
+video,67.0
+butternut,67.0
+eggplant mayo,67.0
+hot doug,67.0
+spirit,67.0
+sardin,67.0
+carolina,67.0
+french bistro,67.0
+born,67.0
+resid,67.0
+repli,67.0
+steer,67.0
+apologet,67.0
+asap,67.0
+yogurt,67.0
+intent,67.0
+suspect,67.0
+swanki,66.0
+hummus,66.0
+fab,66.0
+rotat,66.0
+interact,66.0
+stroll,66.0
+high price,66.0
+jose,66.0
+contemporari,66.0
+address,66.0
+dissapoint,66.0
+report,66.0
+grown,66.0
+depart,66.0
+plane,66.0
+chaotic,66.0
+fair quick,66.0
+rose,66.0
+goat chili,66.0
+art institut,66.0
+carmel crust,66.0
+heart attack,66.0
+pronounc,66.0
+forgiv,66.0
+tremend,66.0
+burnt chees,66.0
+salumeria,66.0
+rabbit liver,66.0
+pretti amaz,66.0
+vibrant,66.0
+chicken waffl,66.0
+du,65.0
+sharp,65.0
+delay,65.0
+premium,65.0
+tabasco,65.0
+urban,65.0
+central,65.0
+capac,65.0
+patti melt,65.0
+chick,65.0
+posit review,65.0
+glutenfre,65.0
+hide,65.0
+track,65.0
+desper,65.0
+thai,65.0
+moonshin,65.0
+bless,65.0
+rout,65.0
+shoe,65.0
+quaint,65.0
+bim bop,65.0
+lüke,65.0
+crispi french,65.0
+pancetta,65.0
+purpl,65.0
+speed,65.0
+justic,65.0
+dous,65.0
+raisin,65.0
+german,65.0
+staff member,65.0
+blt,64.0
+beg,64.0
+europ,64.0
+wit,64.0
+ll make,64.0
+idiot,64.0
+expos brick,64.0
+hassl,64.0
+jamon iberico,64.0
+margherita,64.0
+generic,64.0
+maxwel,64.0
+super busi,64.0
+elvi waffl,64.0
+outing,64.0
+warrant,64.0
+budino,64.0
+unhealthi,64.0
+happier,64.0
+kimche,64.0
+pricey side,64.0
+high ceil,64.0
+spell,64.0
+connect,64.0
+bit loud,64.0
+wisconsin cheddar,64.0
+oj,63.0
+con alioli,63.0
+shove,63.0
+histori,63.0
+fin,63.0
+eas,63.0
+long tabl,63.0
+town guest,63.0
+fifteen,63.0
+dark wood,63.0
+heap,63.0
+cool atmospher,63.0
+cappuccino,63.0
+goos,63.0
+pressur,63.0
+marshmallow,63.0
+whim,63.0
+extend,63.0
+highest,63.0
+slip,63.0
+puff,63.0
+confid,63.0
+perfect crisp,63.0
+bargain,63.0
+angri,63.0
+peppertomato,63.0
+tastebud,63.0
+bleu,63.0
+chocol mouss,63.0
+unpretenti,63.0
+refin,63.0
+sweet tea,62.0
+quinoa,62.0
+news,62.0
+pecan,62.0
+hat,62.0
+eve,62.0
+tast pretti,62.0
+escap,62.0
+fritter,62.0
+categori,62.0
+bolognes,62.0
+big portion,62.0
+nervous,62.0
+chees pizza,62.0
+prawn,62.0
+solo,62.0
+towner,62.0
+fair price,62.0
+poppi,62.0
+molten,62.0
+crab claw,62.0
+opent,62.0
+seoul steak,62.0
+super excit,62.0
+amish,62.0
+serrano ham,62.0
+picki eater,62.0
+butternut squash,62.0
+stale,62.0
+hollywood,62.0
+gentleman,61.0
+maiz,61.0
+live atmospher,61.0
+tad bit,61.0
+boo,61.0
+dug,61.0
+mug,61.0
+strict,61.0
+downfal,61.0
+unabl,61.0
+grass fed,61.0
+pickl pepper,61.0
+upbeat,61.0
+lunchtim,61.0
+favorit chicago,61.0
+brand,61.0
+respond,61.0
+hous salad,61.0
+decent size,61.0
+bar steak,61.0
+yuck,61.0
+jambalaya suprem,61.0
+chees crust,61.0
+cell,61.0
+influenc,61.0
+mocha,61.0
+discount,61.0
+high end,61.0
+breakfast item,61.0
+portobello,61.0
+atop,61.0
+arroz,61.0
+mole,60.0
+seat quick,60.0
+convent,60.0
+hut,60.0
+slide,60.0
+queso cotija,60.0
+cheat,60.0
+limit seat,60.0
+pretend,60.0
+fourth,60.0
+chocol shake,60.0
+piquillo peppertomato,60.0
+casual atmospher,60.0
+torn,60.0
+fake meat,60.0
+rabbit jambalaya,60.0
+restrict,60.0
+empti tabl,60.0
+NUMx,60.0
+palett,60.0
+uniqu flavor,60.0
+asparagus risotto,60.0
+green chile,60.0
+brain,60.0
+protein,60.0
+morsel,60.0
+fix menu,60.0
+top chef,60.0
+pincho de,60.0
+tripl,60.0
+yellowtail belli,60.0
+utensil,60.0
+father,60.0
+grill shrimp,60.0
+stole,60.0
+french bread,60.0
+pretti long,59.0
+flat bread,59.0
+fountain,59.0
+occupi,59.0
+duh,59.0
+sport bar,59.0
+irish curri,59.0
+juli,59.0
+fresh sushi,59.0
+tshirt,59.0
+vote,59.0
+wave,59.0
+boy buddha,59.0
+yorker,59.0
+grade,59.0
+explan,59.0
+profil,59.0
+jazz music,59.0
+concert,59.0
+pool,59.0
+chosen,59.0
+half price,59.0
+poppi seed,59.0
+homey,59.0
+swing,59.0
+equival,59.0
+style rib,59.0
+vindaloo,59.0
+unnecessari,59.0
+north side,59.0
+monkfish,59.0
+urchin,59.0
+dim lit,59.0
+airport,59.0
+bibimbap,59.0
+deter,58.0
+depth,58.0
+bon,58.0
+cat,58.0
+birthday parti,58.0
+melt chees,58.0
+tomato mayo,58.0
+flip,58.0
+foam,58.0
+overload,58.0
+amaz flavor,58.0
+dim light,58.0
+stun,58.0
+bucket,58.0
+drinker,58.0
+scarf,58.0
+serv size,58.0
+daili special,58.0
+disagre,58.0
+site,58.0
+home made,58.0
+powder sugar,58.0
+brave,58.0
+compon,58.0
+zone,58.0
+valet park,58.0
+qualiti ingredi,58.0
+crew,58.0
+bath,58.0
+sazerac,58.0
+favorit meal,58.0
+overheard,58.0
+receipt,58.0
+broken,58.0
+unpleas,58.0
+grandma,58.0
+caesar salad,58.0
+understood,58.0
+pretti loud,57.0
+oz,57.0
+NUMpm reserv,57.0
+transport,57.0
+norwegian benedict,57.0
+week menu,57.0
+exterior,57.0
+bad day,57.0
+shi,57.0
+tin,57.0
+upgrad,57.0
+oblig,57.0
+automat,57.0
+cheez,57.0
+estim,57.0
+pickup,57.0
+qualiti sushi,57.0
+microwav,57.0
+trash,57.0
+small piec,57.0
+circl,57.0
+pride,57.0
+brick wall,57.0
+sale,57.0
+sauté,57.0
+real thing,57.0
+sea scallop,57.0
+english muffin,57.0
+final decid,57.0
+andouill,57.0
+built,57.0
+favorit breakfast,57.0
+milk shake,57.0
+desk,57.0
+giardiniera,57.0
+dri tomato,57.0
+dice,57.0
+free sampl,57.0
+alik,57.0
+mysteri,57.0
+inconveni,57.0
+gage burger,57.0
+bbq chicken,56.0
+hmm,56.0
+groceri,56.0
+sleek,56.0
+dagwood,56.0
+crouton,56.0
+march,56.0
+rib pappardell,56.0
+clever,56.0
+frill,56.0
+bitch,56.0
+human,56.0
+entré,56.0
+quail,56.0
+sparkl,56.0
+mirror,56.0
+explod,56.0
+romain,56.0
+kale salad,56.0
+fulfil,56.0
+dri rub,56.0
+perfect combin,56.0
+previous review,56.0
+field,56.0
+décor,56.0
+super yummi,56.0
+zeppol,56.0
+includ tip,56.0
+fat elvi,56.0
+cheapest,56.0
+fresh made,56.0
+dang,56.0
+slight sweet,56.0
+insult,56.0
+sunda,56.0
+lasagna,56.0
+record,56.0
+jam pack,56.0
+inhal,56.0
+cure meat,56.0
+favorit bbq,55.0
+male,55.0
+moon,55.0
+nuff,55.0
+toast bread,55.0
+nibbl,55.0
+museum,55.0
+cap,55.0
+lord,55.0
+fee,55.0
+max,55.0
+outdoor patio,55.0
+caper,55.0
+high rate,55.0
+prompt seat,55.0
+gain,55.0
+smaller portion,55.0
+hill,55.0
+taleggio chees,55.0
+bbq wing,55.0
+paper bag,55.0
+secur,55.0
+soap,55.0
+seek,55.0
+path,55.0
+full bar,55.0
+conclus,55.0
+healthier,55.0
+draft beer,55.0
+thigh,55.0
+sun dri,55.0
+pocket,55.0
+wine glass,55.0
+bit slow,55.0
+night snack,55.0
+paprika,55.0
+planet,55.0
+pushi,55.0
+collect,55.0
+sweetbread,55.0
+espanola,55.0
+allerg,55.0
+drumstick,55.0
+raw onion,55.0
+fresh bake,55.0
+mindblow,55.0
+le,54.0
+pine nut,54.0
+kobe,54.0
+hub,54.0
+heartbeat,54.0
+pet,54.0
+lay,54.0
+sleep,54.0
+favorit brunch,54.0
+marmalad,54.0
+jame,54.0
+apricot,54.0
+gosh,54.0
+eggplant parmesan,54.0
+repres,54.0
+hustl,54.0
+ink pasta,54.0
+grandmoth,54.0
+classic chicago,54.0
+greek,54.0
+price rang,54.0
+email,54.0
+malnati salad,54.0
+high school,54.0
+beef short,54.0
+seat arrang,54.0
+lesson,54.0
+expans,54.0
+musttri,54.0
+status,54.0
+bean rice,54.0
+sweat,54.0
+michigan avenu,54.0
+garbag,54.0
+cochon butcher,54.0
+spotti,54.0
+whale,54.0
+west coast,54.0
+communic,54.0
+nice dinner,54.0
+feel rush,54.0
+korean bbq,54.0
+fame,54.0
+loud music,54.0
+nice flavor,54.0
+scratch,54.0
+uh,53.0
+chicagostyl pizza,53.0
+wine pair,53.0
+tagliatell,53.0
+rye,53.0
+mid,53.0
+lech,53.0
+worthwhil,53.0
+jersey,53.0
+super cute,53.0
+disclaim,53.0
+hike,53.0
+scrape,53.0
+watermelon pickl,53.0
+grill onion,53.0
+chees fondu,53.0
+humbl,53.0
+domin,53.0
+inattent,53.0
+luke burger,53.0
+fresh tomato,53.0
+sea urchin,53.0
+sushi rice,53.0
+local beer,53.0
+sushi spot,53.0
+verdict,53.0
+turnip cabbag,53.0
+music play,53.0
+foodth,53.0
+steak hash,53.0
+cafe babareeba,53.0
+perfect portion,53.0
+function,53.0
+alley,53.0
+dinner reserv,53.0
+outer,53.0
+nice select,53.0
+kansa,53.0
+date stuf,53.0
+trend,53.0
+redeem,53.0
+indecis,53.0
+filipino,53.0
+reeba,53.0
+special menu,53.0
+strong recommend,53.0
+radic,53.0
+favorit deep,52.0
+vintag,52.0
+snooti,52.0
+gut,52.0
+yup,52.0
+lait,52.0
+white fish,52.0
+unaccept,52.0
+wellth,52.0
+vanilla french,52.0
+camaron,52.0
+huevo,52.0
+green salad,52.0
+danger,52.0
+accid,52.0
+talent,52.0
+sourdough,52.0
+suffici,52.0
+snow,52.0
+flour,52.0
+peep,52.0
+pump,52.0
+chicagoland,52.0
+sublim,52.0
+willi,52.0
+flair,52.0
+blackston hotel,52.0
+beef tenderloin,52.0
+shrimp risotto,52.0
+friggin,52.0
+chickpea,52.0
+cancel,52.0
+spinach mushroom,52.0
+femal,52.0
+deli,52.0
+small space,52.0
+exit,52.0
+faux,52.0
+nicest,52.0
+weekend brunch,52.0
+absurd,52.0
+ba,51.0
+region,51.0
+petit,51.0
+noir,51.0
+magazin,51.0
+tabl open,51.0
+dozen oyster,51.0
+sop,51.0
+harder,51.0
+lake,51.0
+smack,51.0
+tomat,51.0
+glow,51.0
+hall,51.0
+turnov,51.0
+au jus,51.0
+green onion,51.0
+bleu chees,51.0
+panini,51.0
+approxim,51.0
+menu option,51.0
+fluke,51.0
+wellseason,51.0
+pale,51.0
+page,51.0
+reward,51.0
+tomorrow,51.0
+tini bit,51.0
+korean style,51.0
+meltinyourmouth,51.0
+nation,51.0
+cupcak,51.0
+boucheri plate,51.0
+formal,51.0
+muscl,51.0
+crawl,51.0
+magnific,51.0
+prefac,51.0
+parsley,51.0
+mound,51.0
+ranchero,51.0
+beef burger,51.0
+ensalada,51.0
+stringi,51.0
+fontina,51.0
+egg bacon,51.0
+pretti close,51.0
+french press,51.0
+whitefish,51.0
+bar tender,51.0
+journey,51.0
+abil,51.0
+aliv,51.0
+alla,51.0
+sushisashimi,51.0
+mint julep,51.0
+barnelli,51.0
+meateat,51.0
+bean burger,50.0
+spicier,50.0
+belong,50.0
+rpm italian,50.0
+januari,50.0
+pretti bad,50.0
+conveni locat,50.0
+univers,50.0
+pizza hut,50.0
+hunt,50.0
+plethora,50.0
+teriyaki mayo,50.0
+side salad,50.0
+skate,50.0
+munchi,50.0
+pickl onion,50.0
+frost,50.0
+tuna roll,50.0
+cocktail list,50.0
+singl thing,50.0
+tang,50.0
+spici king,50.0
+border,50.0
+beard,50.0
+NUMi,50.0
+peev,50.0
+al dent,50.0
+aftertast,50.0
+condit,50.0
+church,50.0
+lunch spot,50.0
+boast,50.0
+small size,50.0
+sloppi goat,50.0
+flawless,50.0
+fun night,50.0
+final seat,50.0
+observ,50.0
+style deep,50.0
+liter melt,50.0
+seed bun,50.0
+declin,50.0

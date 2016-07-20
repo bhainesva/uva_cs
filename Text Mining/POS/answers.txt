@@ -1,0 +1,25 @@
+Things most likely to follow "VB":
+DT:	604
+IN:	305
+VBN:	239
+JJ:	219
+NN:	171
+NNS:	115
+PRP$:	101
+RB:	100
+TO:	94
+PRP:	91
+
+Words most likely given "NN":
+compani:	260
+year:	214
+market:	195
+trade:	185
+program:	142
+stock:	139
+presid:	136
+share:	117
+govern:	85
+busi:	77
+
+
